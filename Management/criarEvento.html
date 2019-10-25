@@ -13,13 +13,13 @@
 </header>
 
 <form>
-  <center>  Nome do evento
+  <center>  Nome do evento:
     <input type="Nome do evento"> </center>   
     <br> 
 </form>
 
 <form>
-    <center> Participantes esperados
+    <center> Participantes esperados:
             <select name="participantes esperados" id="">
                     <option value="Escolher op"> Escolher opçao </option>
                     <option value="Ate 300 "> Ate 300 participantes </option>
@@ -31,7 +31,7 @@
 </form>
 
 <form>
-    <center> Tipo de evento
+    <center> Tipo de evento:
             <select name="tipo evento" id="">
                 <option value="Escolher op"> Escolher opçao </option>
                 <option value="Curso">Curso-Workshop/Palestra</option> 
@@ -45,20 +45,46 @@
 </form>
 
 <form>
-        <center> Qual o seu nome?
+        <center> Qual o seu nome:
                 <input type="Nome admistrador"> 
         </center>   
                 <br>     
 </form>
 
 <form>
-    <center>Seu email? 
+    <center>Seu email:
         <input type="Email admistrador">
     </center>
     <br>
 </form>
 
-<center><button>Entrar</button></center>
+<form>
+    <center>Local do evento: 
+        <input type="Local">
+    </center>
+    <br>
+</form>
+
+<form>
+    <center>Data de inicio do evento: 
+        <input id="date" type="date">
+    </center>
+    <br>
+</form>
+<form>
+    <center>
+        <label for="appt">Horário de inicio:</label>
+
+<input type="time" id="appt" name="appt"
+       min="01:00" max="00:00" required>
+
+
+
+    </center>
+    <br>
+</form>
+
+<center><button><a href="EventoCriado.html" >  Entrar </a> </button></center>
 </body>
 
 </html>
