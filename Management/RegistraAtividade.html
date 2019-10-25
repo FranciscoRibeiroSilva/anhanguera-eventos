@@ -13,7 +13,7 @@
     <header>
     </header>
 
-    <form action = "" method= "POST">
+    <form>
 
         <center>
             <table border ="2">
@@ -23,26 +23,29 @@
                             <br>
                             <label for = "nome: "> Nome da atividade:  </label>
                             <input type = "text" id = "nome"> 
-                            <br><br>
-
-                            Carga Horário: 
-                            <select  name = "ch" >
-                                <option value="ch1">30 Horas</option>
-                                <option value="ch2">60 horas</option>
-                                <option value="ch3">90 horas</option>
+                            &emsp;
+                            Tipo: 
+                            <select  name = "tipo" > 
+                                <option value="Palestra">Palestra</option>
+                                <option value="Curso">Curso</option>
+                                <option value="Aula">Aula</option>
+                                <option value="Conferencia">Conferencia</option>
+                                <option value="Mesa-Redonda">Mesa-Redonda</option>
                             </select>
                             <br><br>
+                            
 
                             <label for = "ministrar"> Ministrante:  </label>
                             <input type = "text" id = "nome">
-                            <br><br>
+                            
+                            &emsp;
 
-                            <label for="appt">Horário de inicio:</label>
+                            <label for="appt"> Horário de inicio: </label>
                             <input type="time" id="appt" name="appt" min="01:00" max="00:00" required>
                             <br><br>
-                             
+
                             Data: <input id="date" type="date">
-                            <br><br>
+                            &emsp;
 
                             Sala: 
                             <select  name = "sala" > 
@@ -59,25 +62,25 @@
                             </select>
                             <br><br>
 
+                            <label for = "max"> Número máximo de participantes:  </label>
+                            <input type = "text" id = "max">
+                            <br><br>
+                            
+                            Carga Horário: 
+                            <select  name = "ch" >
+                                <option value="ch1">30 Horas</option>
+                                <option value="ch2">60 horas</option>
+                                <option value="ch3">90 horas</option>
+                            </select>
+
+                            &emsp;
+
                             Inscrição: 
                             <select  name = "inscricao" > 
                                 <option value="Gratuita">Gratuita</option>
                                 <option value="Paga">Paga</option>
                             </select>
-                            <br><br>
-
-                            Tipo: 
-                            <select  name = "tipo" > 
-                                <option value="Palestra">Palestra</option>
-                                <option value="Curso">Curso</option>
-                                <option value="Aula">Aula</option>
-                                <option value="Conferencia">Conferencia</option>
-                                <option value="Mesa-Redonda">Mesa-Redonda</option>
-                            </select>
-                            <br><br>
-
-                            <label for = "max"> Número máximo participantes:  </label>
-                            <input type = "text" id = "max">
+                            
                             <br><br>
 
                         </td>    
