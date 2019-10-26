@@ -17,7 +17,7 @@ const handlebars = require('express-handlebars')
 app.use(express.static('public'));
 
 app.get("/", function(req, res){
-    res.render('indexT')
+    res.render('index')
 });
 app.post("/cadastro", function(req, res){
     res.render('LoginAdm')
