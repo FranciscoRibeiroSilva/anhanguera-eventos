@@ -14,13 +14,18 @@ const handlebars = require('express-handlebars')
     dialect: 'mysql'
 })
 
-app.get("/", function(req, res){
+app.post("/", function(req, res){
     res.sendFile(__dirname + "/Management/index.html");
 });
-
-app.get("/cadastro", function(req, res)){
+app.post("/cadastro", function(req, res){
+    res.render('LoginAdm')
+})
+app.post("/usuario", function(req, res){
     res.render('')
-}
+})
+app.post("/inicio", function(req, res){
+    res.render('index')
+})
 
 app.listen(8081, function(){
     console.log("Servidor Rodando na URL http://localhost:8081");

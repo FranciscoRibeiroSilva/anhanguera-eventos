@@ -1,106 +1,65 @@
 <!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UFT-8">
+    <title>Criar evento </title>
+    <link rel="stylesheet" type="text/css" href="CSS/Estilo.css">
+    </head>
 
-<head>
-<meta charset="UFT-8">
-<title>Criar evento </title>
-</head>
-
-
-<body>
-    <!-- CABEÇALHO -->
-<header>
-    <center> <h1>VAMOS CRIAR UM EVENTO? </h1> </center>   
-</header>
-
-<form>
-  <center>  Nome do evento:
-    <input type="Nome do evento"> </center>   
-    <br> 
-</form>
-
-<form>
-    <center> Participantes esperados:
-            <select name="participantes esperados" id="">
-                    <option value="Escolher op"> Escolher opçao </option>
-                    <option value="Ate 300 "> Ate 300 participantes </option>
-                    <option value="Entre 300 e 1000 "> Entre 300 e 1000 participantes </option>
-                    <option value="Mais de 1000 "> Mais de 1000 participantes </option>
-                </select>
-                <br> <br>
-    </center>
-</form>
-
-<form>
-    <center> Limite de atividades por participantes:
-            <select name="Limite de atividades" id="">
-                    <option value="Escolher op"> Escolher opçao </option>
-                    <option value="1"> 1 atividade(s) </option>
-                    <option value="2"> 2 atividade(s) </option>
-                    <option value="3"> 3 atividade(s) </option>
-                    <option value="4"> 4 atividade(s) </option>
-                    <option value="5"> 5 atividade(s) </option>
-                    <option value="6"> 6 atividade(s) </option>
-                    <option value="7"> 7 atividade(s) </option>
-            </select>
-                <br> <br>
-    </center>
-</form>
-
-<form>
-    <center> Tipo de evento:
-            <select name="tipo evento" id="">
-                <option value="Escolher op"> Escolher opçao </option>
-                <option value="Curso">Curso-Workshop/Palestra</option> 
-                <option value="Academico">Academico-Seminario/Jornada</option>
-                <option value="Cientifico">Cientifico-Congresso/Simposio</option>   
-                <option value="Outro">Outro</option>
-            </select>
-            <br> <br>
-
-    </center>
-</form>
-
-<form>
-        <center> Qual o seu nome:
-                <input type="Nome admistrador"> 
-        </center>   
-                <br>     
-</form>
-
-<form>
-    <center>Seu email:
-        <input type="Email admistrador">
-    </center>
-    <br>
-</form>
-
-<form>
-    <center>Local do evento: 
-        <input type="Local">
-    </center>
-    <br>
-</form>
-
-<form>
-    <center>Data de inicio do evento: 
-        <input id="date" type="date">
-    </center>
-    <br>
-</form>
-<form>
-    <center>
-        <label for="appt">Horário de inicio:</label>
-
-<input type="time" id="appt" name="appt"
-       min="01:00" max="00:00" required>
-
-
-
-    </center>
-    <br>
-</form>
-
-<center><button><a href="EventoCriado.html" >  Entrar </a> </button></center>
-</body>
+    <body background="imagens/tumblr4.jpg">
+        <div class="confCriarEvent">
+                <header>
+                        <h1>VAMOS CRIAR UM EVENTO? </h1>   
+                </header>
+            
+                    <form>
+                     Nome do evento:<br>
+                        <input type="Nome do evento"> 
+                        <br> 
+                    </form>
+            
+                    <form>
+                        Participantes esperados:<br>
+                                <select name="participantes esperados" id="">
+                                        <option value="Escolher op"> Escolher opçao </option>
+                                        <option value="Ate 300 "> Ate 300 participantes </option>
+                                        <option value="Entre 300 e 1000 "> Entre 300 e 1000 participantes </option>
+                                        <option value="Mais de 1000 "> Mais de 1000 participantes </option>
+                                    </select>
+                                    <br> <br>
+                        
+                    </form>
+            
+                    <form>
+                         Tipo de evento: <br>
+                                <select name="tipo evento" id="">
+                                    <option value="Escolher op"> Escolher opçao </option>
+                                    <option value="Curso">Curso-Workshop/Palestra</option> 
+                                    <option value="Academico">Academico-Seminario/Jornada</option>
+                                    <option value="Cientifico">Cientifico-Congresso/Simposio</option>   
+                                    <option value="Outro">Outro</option>
+                                </select>
+                                <br> <br>
+            
+                        
+                    </form>
+            
+                    <form>
+                             Qual o seu nome:<br>
+                                    <input type="Nome admistrador"> 
+                         
+                                    <br>     
+                    </form>
+            
+                    <form>
+                       
+                            <input type="Email admistrador">
+                   
+                        <br>
+                    </form>
+            
+                    <button>Entrar</button>
+        </div>
+    </body>
 
 </html>

@@ -1,27 +1,41 @@
-    <br><br>
-    <form action="http://localhost:3003/usuarios" method="POST">
-    <label for="nome">Nome:</label>
-    <input type="nome">
-    <br><br>
-    <label for="tipo">Tipo de Atividade:</label>
-    <input type="tipo">
-    <br><br>
-    <label for="assunto">Assunto:</label>
-    <input type="assunto">
-    <br><br>
-    <label for="assunto">Carga Horária:</label>
-    <input type="assunto">
-    <br><br>
+<!DOCTYPE html>
+<html>
+    <Head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="CSS/Estilo.css">
+    </Head>
 
-    <br>
-    <div>
-        <label>Turno:</label>
-        <input type="radio" name="turno" value="manhã">Manhã
-        <input type="radio" name="turno" value="Tarde">Tarde
-        <input type="radio" name="turno" value="noite">Noite
-    </div>
-    <label for="descricao">Descrição:</label><br>
-    <textarea cols="20" rows="10"> </textarea>
-    <br>
-    <button>Cadastrar</button>
-</form>
+    <body background="C:/Users/John_Ortsac/Desktop/EventManager/Management/imagens/tumblr4.jpg" class="confCadastro">
+        <div class="confCadastro">
+            <form action="http://localhost:3003/usuarios" method="POST">
+          
+                <label for="nome">Nome:<br></label>
+                <input type="nome">
+                <br><br>
+                <label for="tipo">Tipo de Atividade:<br></label>
+                <input type="tipo">
+                <br><br>
+                <label for="assunto">Assunto:<br></label>
+                <input type="assunto">
+                <br><br>
+                <label for="assunto">Carga Horária:<br></label>
+                <input type="assunto">
+                <br><br>
+         
+                  <br>
+          
+                <label>Turno:<br></label>
+                <input type="radio" name="turno" value="manhã">Manhã
+                <input type="radio" name="turno" value="Tarde">Tarde
+                <input type="radio" name="turno" value="noite">Noite
+         
+                <label for="descricao">Descrição:<br></label><br>
+                <textarea cols="20" rows="10"> </textarea>
+                <br>
+                <button>Cadastrar</button>
+            </form>
+        </div>    
+    </body>
+
+</html>
+
