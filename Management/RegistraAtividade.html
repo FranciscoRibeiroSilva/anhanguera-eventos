@@ -6,25 +6,26 @@
     
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="CSS/Estilo.css">
 </head>
 
-<body>
+<body background="imagens/tumblr4.jpg">
     
     <header>
     </header>
 
     <form>
 
-        <center>
-            <table border ="2">
-                <body>
+      
+            <table>
+                <body class="confRegAtiv">
                     <tr>
                          <td> 
                             <br>
-                            <label for = "nome: "> Nome da atividade:  </label>
+                            <label for = "nome: "> Nome da atividade:<br>  </label>
                             <input type = "text" id = "nome"> 
                             &emsp;
-                            Tipo: 
+                            <br>Tipo:<br> 
                             <select  name = "tipo" > 
                                 <option value="Palestra">Palestra</option>
                                 <option value="Curso">Curso</option>
@@ -35,19 +36,19 @@
                             <br><br>
                             
 
-                            <label for = "ministrar"> Ministrante:  </label>
+                            <label for = "ministrar"> Ministrante:<br>  </label>
                             <input type = "text" id = "nome">
                             
                             &emsp;
-
-                            <label for="appt"> Horário de inicio: </label>
+                            <br>
+                            <label for="appt"> Horário de inicio:<br> </label>
                             <input type="time" id="appt" name="appt" min="01:00" max="00:00" required>
                             <br><br>
 
-                            Data: <input id="date" type="date">
+                            Data:<br> <input id="date" type="date">
                             &emsp;
-
-                            Sala: 
+                            <br>
+                            Sala: <br>
                             <select  name = "sala" > 
                                 <option value="s1">Sala 1</option>
                                 <option value="s2">Sala 2</option>
@@ -62,11 +63,11 @@
                             </select>
                             <br><br>
 
-                            <label for = "max"> Número máximo de participantes:  </label>
+                            <label for = "max"> Número máximo de participantes: <br> </label>
                             <input type = "text" id = "max">
                             <br><br>
                             
-                            Carga Horário: 
+                            Carga Horário:<br> 
                             <select  name = "ch" >
                                 <option value="ch1">30 Horas</option>
                                 <option value="ch2">60 horas</option>
@@ -74,8 +75,8 @@
                             </select>
 
                             &emsp;
-
-                            Inscrição: 
+                            <br>
+                            Inscrição: <br>
                             <select  name = "inscricao" > 
                                 <option value="Gratuita">Gratuita</option>
                                 <option value="Paga">Paga</option>
@@ -88,18 +89,18 @@
                 </body>           
             </table>
     
-        </center>
+       
     
     </form>
 
     <nav>
-        <center>
+      
             
             <br><br>
-            <button> <a href="EventoCriado.html"> Concluir </a> </button>
+            <button> <a class="link" href="EventoCriado.html"> Concluir </a> </button>
             <br><br>
             
-        </center>
+        
     </nav>
 
 </body>
