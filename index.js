@@ -13,9 +13,11 @@ const handlebars = require('express-handlebars')
     host: "localhost",
     dialect: 'mysql'
 })
+
 app.use(express.static('public'));
-app.post("/", function(req, res){
-    res.sendFile(__dirname + "/Management/index.html");
+
+app.get("/", function(req, res){
+    res.render('indexT')
 });
 app.post("/cadastro", function(req, res){
     res.render('LoginAdm')
