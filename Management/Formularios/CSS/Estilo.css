@@ -1,0 +1,78 @@
+*{
+   
+}
+.espac{
+   padding-top: 100px; 
+}
+
+.confIndex{
+    margin-left: 35%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    border: 4px outset #0404B4;
+    width: 400px;
+    height: 500px;
+    text-align: center;
+    top: 50%;
+}
+.confLogin{
+    margin-left: 35%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    border: 3px outset #0404B4;
+    width: 400px;
+    height: 500px;
+    text-align: center;
+    top: 50%;
+}
+.confCadastro{
+    margin-left: 45%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    /*border: 3px outset #0404B4;*/
+    width: 400px;
+    height: 800px;
+    text-align: justify;
+    top: 50%;
+}
+.confCriarEvent{
+    margin-left: 35%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    /*border: 3px outset #0404B4;*/
+    width: 500px;
+    height: 500px;
+    text-align: justify;
+    top: 50%;
+}
+.confRegAtiv{
+    margin-left: 40%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    /*border: 3px outset #0404B4;*/
+    width: 400px;
+    height: 700px;
+    text-align: justify;
+    top: 50%;
+}
+footer{
+    display: inline-block;
+    text-align: center;
+    color: gray;
+    margin-left: 32.5%;
+    padding-top: 2px ;
+}
+
+.link{
+    color:black;
+    text-decoration: none;
+}
+
+.backlove{
+    background: url("imagens/fundo2.png");
+}
