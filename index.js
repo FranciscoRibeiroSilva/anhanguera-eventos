@@ -19,11 +19,11 @@ app.use(express.static('public'));
 app.get("/", function(req, res){
     res.render('index')
 });
-app.post("/cadastro", function(req, res){
+app.get("/loginUser", function(req, res){
     res.render('LoginAdm')
 })
-app.post("/usuario", function(req, res){
-    res.render('')
+app.get("/cadastroUser", function(req, res){
+    res.render('CadastroAdm')
 })
 app.post("/inicio", function(req, res){
     res.render('index')
