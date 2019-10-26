@@ -13,7 +13,7 @@ const handlebars = require('express-handlebars')
     host: "localhost",
     dialect: 'mysql'
 })
-
+app.use(express.static('public'));
 app.post("/", function(req, res){
     res.sendFile(__dirname + "/Management/index.html");
 });
