@@ -19,7 +19,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/cadastro", function(req, res)){
-    
+    res.render('')
 }
 
 app.listen(8081, function(){
