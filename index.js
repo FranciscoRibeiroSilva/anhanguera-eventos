@@ -30,10 +30,11 @@ app.get("/loginUser", function(req, res){
 app.get('/homepage', function(req, res){
     res.render('EventoCriado')
 })
+
 app.post("/registroDeEvento", function(req, res){
     Eventos.create({
         nome: req.body.nomeDoEvento,
-        participantesEs: req.body.participantesEsper,
+        participanteEs: req.body.participantes,
         tipoEvento: req.body.tipoEvento
     }).then(function(){
         res.redirect('/homepage')
