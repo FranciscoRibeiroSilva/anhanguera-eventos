@@ -1,0 +1,30 @@
+
+    <div background="imagens/tumblr4.jpg">
+        
+        <div>
+            <a class="link" href="/Formularios/Formulario.html">Cadastrar atividades</a><br>
+            <a class="link" href="Cabeçalhos.html">Minhas atividades</a><br>
+            <a class="link" href="TagTexto.html">Usuários cadastrados</a><br>
+            <a class="link" href="Link.html" target="blank"> Programação do evento</a><br>
+            <a class="link" href="Tabelas.html">Tabelas</a><br>
+            <br><br>
+        </div>
+        <section id="conteudo">
+        </section>
+        <script>
+            document.querySelectorAll('a').forEach(link => {
+                console.log(link);
+                const conteudo = document.getElementById('conteudo');
+                link.onclick = function (e) {
+                    console.log('deu certo')
+                    e.preventDefault()
+                    fetch(link.href)
+                    .then(resp=>resp.text())
+                    .then(html=>conteudo.innerHTML=html)
+                }
+            })
+        </script>
+        <footer>
+
+        </footer>
+    </div>
