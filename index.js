@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
+const Cadastro = require('./models/Cadastro')
 
 //Configurando engine
     //Templete engine
@@ -13,7 +14,7 @@ const bodyParser = require('body-parser')
     app.use(bodyParser.json())
 
     //Conexão com banco de dados MySql
-    
+
     
 
 app.use(express.static('public'));
@@ -21,6 +22,9 @@ app.use(express.static('public'));
 app.get("/", function(req, res){
     res.render('index')
 });
+app.get("/criaEvento", function(req, res){
+    res.render('')
+})
 app.get("/loginUser", function(req, res){
     res.render('LoginAdm')
 })
@@ -28,7 +32,16 @@ app.get("/cadastroUser", function(req, res){
     res.render('CadastroAdm')
 })
 app.post("/inicio", function(req, res){
-    res.send("Seu nome:" + req.body.nome)
+    Cadastro.create({
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha,
+        estado: req.body.estado
+    }).then(function(){
+        res.send("Administrador criado com sucesso")
+    }).catch(function(erro){
+        res.send("Erro na cria na criação do administrado: "+erro)
+    })
 })
 
 app.listen(8081, function(){
