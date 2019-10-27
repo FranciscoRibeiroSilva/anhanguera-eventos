@@ -3,6 +3,7 @@ const app = express();
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Cadastro = require('./models/Cadastro')
+const Eventos = require('./models/Eventos')
 
 //Configurando engine
     //Templete engine
@@ -22,15 +23,33 @@ app.use(express.static('public'));
 app.get("/", function(req, res){
     res.render('index')
 });
-app.get("/criarEvento", function(req, res){
-    res.render('CriarEvento')
-})
 app.get("/loginUser", function(req, res){
     res.render('LoginAdm')
 })
+
+app.get('/homepage', function(req, res){
+    res.render('EventoCriado')
+})
+app.post("/registroDeEvento", function(req, res){
+    Eventos.create({
+        nome: req.body.nomeDoEvento,
+        participantesEs: req.body.participantesEsper,
+        tipoEvento: req.body.tipoEvento
+    }).then(function(){
+        res.redirect('/homepage')
+    }).catch(function(erro){
+        res.send("Erro na criação do evento: "+erro)
+    })
+})
+
 app.get("/cadastroUser", function(req, res){
     res.render('CadastroAdm')
 })
+
+app.get("/criarEvento", function(req, res){
+    res.render('CriarEvento')
+})
+
 app.post("/inicio", function(req, res){
     Cadastro.create({
         nome: req.body.nome,

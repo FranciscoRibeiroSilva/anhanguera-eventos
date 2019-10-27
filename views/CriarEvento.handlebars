@@ -2,15 +2,15 @@
     <div>
         <div class="confCriarEvent">
             
-                    <form>
+                    <form action = "registroDeEvento" method = "POST">
                      Nome do evento:<br>
-                        <input type="Nome do evento"> 
+                        <input type="text" name = "nomeDoEvento"> 
                         <br> 
-                    </form>
+                    <!--/form-->
             
-                    <form>
+                    <!--form-->
                         Participantes esperados:<br>
-                                <select name="participantes esperados" id="">
+                                <select name = "participantesEsper">
                                         <option value="Escolher op"> Escolher opçao </option>
                                         <option value="Ate 300 "> Ate 300 participantes </option>
                                         <option value="Entre 300 e 1000 "> Entre 300 e 1000 participantes </option>
@@ -18,11 +18,11 @@
                                     </select>
                                     <br> <br>
                         
-                    </form>
+                    <!--/form-->
             
-                    <form>
+                    <!--form-->
                          Tipo de evento: <br>
-                                <select name="tipo evento" id="">
+                                <select name="tipoEvento">
                                     <option value="Escolher op"> Escolher opçao </option>
                                     <option value="Curso">Curso-Workshop/Palestra</option> 
                                     <option value="Academico">Academico-Seminario/Jornada</option>
@@ -32,22 +32,23 @@
                                 <br> <br>
             
                         
-                    </form>
+                    <!--/form-->
             
-                    <form>
+                    <!--form-->
                              Qual o seu nome:<br>
-                                    <input type="Nome admistrador"> 
+                                    <input type="nomeAdmistrador"> 
                          
                                     <br>     
-                    </form>
+                    <!--/form>
             
-                    <form>
-                       
-                            <input type="Email admistrador">
+                    <form-->
+                            E-mail do administrado:<br>
+                                <input type="emailAdmistrador">
                    
                         <br>
+                        <button>Entrar</button>
                     </form>
             
-                    <button>Entrar</button>
+                    
         </div>
     </div>
