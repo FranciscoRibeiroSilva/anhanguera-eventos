@@ -1,6 +1,6 @@
 const db = require ('./db')
 
-const Cadastro = db.sequelize.define('administ', {
+const Cadastro = db.sequelize.define('gerentes', {
     nome: {
          type: db.Sequelize.STRING
     },
@@ -14,6 +14,7 @@ const Cadastro = db.sequelize.define('administ', {
         type: db.Sequelize.STRING
     }
 })
+
 
 //Cadastro.sync({force: true})
 
