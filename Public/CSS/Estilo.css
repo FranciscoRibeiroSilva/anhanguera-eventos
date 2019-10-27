@@ -1,6 +1,3 @@
-*{
-   
-}
 .espac{
    padding-top: 100px; 
 }
@@ -74,5 +71,5 @@ footer{
 }
 
 .backlove{
-    background: url("imagens/fundo2.png");
+    background: url("./logo.PNG");
 }
