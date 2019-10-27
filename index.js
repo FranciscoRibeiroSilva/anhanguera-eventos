@@ -1,18 +1,20 @@
 const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars')
+const bodyParser = require('body-parser')
 
 //Configurando engine
     //Templete engine
     app.engine('handlebars', handlebars({defaultLayout: 'main'}))
     app.set('view engine', 'handlebars')
 
+    //Body Parse configuração
+    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(bodyParser.json())
+
     //Conexão com banco de dados MySql
-    const Sequelize = require('sequelize');
-    const sequelize = new Sequelize('sistemadecadastro', 'root', 'FRANCIeMAI123', {
-    host: "localhost",
-    dialect: 'mysql'
-})
+    
+    
 
 app.use(express.static('public'));
 
@@ -26,7 +28,7 @@ app.get("/cadastroUser", function(req, res){
     res.render('CadastroAdm')
 })
 app.post("/inicio", function(req, res){
-    res.render('index')
+    res.send("Seu nome:" + req.body.nome)
 })
 
 app.listen(8081, function(){
