@@ -22,8 +22,8 @@ app.use(express.static('public'));
 app.get("/", function(req, res){
     res.render('index')
 });
-app.get("/criaEvento", function(req, res){
-    res.render('')
+app.get("/criarEvento", function(req, res){
+    res.render('CriarEvento')
 })
 app.get("/loginUser", function(req, res){
     res.render('LoginAdm')
@@ -38,7 +38,7 @@ app.post("/inicio", function(req, res){
         senha: req.body.senha,
         estado: req.body.estado
     }).then(function(){
-        res.send("Administrador criado com sucesso")
+        res.redirect('/criarEvento')
     }).catch(function(erro){
         res.send("Erro na cria na criação do administrado: "+erro)
     })
