@@ -1,18 +1,38 @@
 <div background="imagens/tumblr4.jpg">
 
-    <form>
+    <form action = '/addAtivi', method = "POST">
+
+        Nome da atividade:
+        <input type="text", name="nome">
+
+        Tipo de Evento:
+        <select name="atividadeTipo">
+            <option value="Palesta">Palestra</option>
+            <option value="Curso">Curso</option>
+            <option value="Aula">Aula</option>
+            <option value="Conferencia">Conferencia</option>
+            <option value="Mesa-Redonda">Mesa-Redonda</option>
+        </select>
+
+        Ministrante:
+        <input type="text" name="ministrante">
+
+        <button>Registrar</button>
+
+    </form>
+</div>
 
       
-            <table>
+            <!--table>
                 <div class="confRegAtiv">
                     <tr>
                          <td> 
                             <br>
                             <label for = "nome: "> Nome da atividade:<br>  </label>
-                            <input type = "text" id = "nome"> 
+                            <input type = "text" name="nome"> 
                             &emsp;
                             <br>Tipo:<br> 
-                            <select  name = "tipo" > 
+                            <select  name = "tipoDeAtividade" > 
                                 <option value="Palestra">Palestra</option>
                                 <option value="Curso">Curso</option>
                                 <option value="Aula">Aula</option>
@@ -23,15 +43,15 @@
                             
 
                             <label for = "ministrar"> Ministrante:<br>  </label>
-                            <input type = "text" id = "nome">
+                            <input type = "text" name="ministrante">
                             
                             &emsp;
                             <br>
                             <label for="appt"> Horário de inicio:<br> </label>
-                            <input type="time" id="appt" name="appt" min="01:00" max="00:00" required>
+                            <input type="time" id="appt" name="hora" min="01:00" max="23:59" required>
                             <br><br>
 
-                            Data:<br> <input id="date" type="date">
+                            Data:<br> <input id="date" type="date" name="data">
                             &emsp;
                             <br>
                             Sala: <br>
@@ -50,11 +70,11 @@
                             <br><br>
 
                             <label for = "max"> Número máximo de participantes: <br> </label>
-                            <input type = "text" id = "max">
+                            <input type = "text" id = "max" name="maxPartic">
                             <br><br>
                             
                             Carga Horário:<br> 
-                            <select  name = "ch" >
+                            <select  name = "cargaHoraria" >
                                 <option value="ch1">30 Horas</option>
                                 <option value="ch2">60 horas</option>
                                 <option value="ch3">90 horas</option>
@@ -63,13 +83,13 @@
                             &emsp;
                             <br>
                             Inscrição: <br>
-                            <select  name = "inscricao" > 
+                            <select  name = "inscricaoT" > 
                                 <option value="Gratuita">Gratuita</option>
                                 <option value="Paga">Paga</option>
                             </select>
-                            
+                             <button>Concluir</button>
                             <br><br>
-
+        
                         </td>    
                     </tr>
                 </div>           
@@ -83,10 +103,9 @@
       
             
             <br><br>
-            <button> <a class="link" href="EventoCriado.html"> Concluir </a> </button>
+           
             <br><br>
             
         
-    </div>
+    </div-->
 
-</div>

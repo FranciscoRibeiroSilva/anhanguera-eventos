@@ -14,23 +14,26 @@ const Eventos = require('./models/Eventos')
     app.use(bodyParser.urlencoded({extended: false}))
     app.use(bodyParser.json())
 
-    //Conexão com banco de dados MySql
-
-    
+    //Conexão com banco de dados MySql  
 
 app.use(express.static('public'));
 
+//primeira pagina a ser exibida
 app.get("/", function(req, res){
     res.render('index')
 });
+
+//login do adm
 app.get("/loginUser", function(req, res){
     res.render('LoginAdm')
 })
 
-app.get('/homepage', function(req, res){
-    res.render('EventoCriado')
+//cadastro de novo adm
+app.get("/cadastroUser", function(req, res){
+    res.render('CadastroAdm')
 })
 
+//adiciona os dados do evento na banco de dados e redireciona pra a homepage do adm
 app.post("/registroDeEvento", function(req, res){
     Eventos.create({
         nome: req.body.nomeDoEvento,
@@ -43,15 +46,43 @@ app.post("/registroDeEvento", function(req, res){
     })
 })
 
-app.get("/cadastroUser", function(req, res){
-    res.render('CadastroAdm')
+//exibe formulario pra criacao de uma atividade
+app.get("/adicionarAtividade", function(req, res){
+    res.render('RegistraAtividade')
 })
 
+//adicona dados da atividade ao banco de dados e redireciona pra a homepage do adm
+app.post("addAti", function(req, res){
+    Atividades.create({
+        nome: req.body.nome,
+        tipo: req.body.tipoDeAtividade,
+        ministrante: req.body.ministrante,
+        /*hora: req.body.hora,
+        data: req.body.data,
+        sala: req.body.sala,
+        numeroDePartic: req.body.maxPartic,
+        cargaHoraria: req.body.cargaHoraria,
+        inscricaoT: req.body.inscricaoT*/
+    }).then(function(){
+        res.redirect('/homepage')
+    }).catch(function(erro){
+        res.send("Erro ao adicionar atividade: "+erro)
+    })
+    
+})
+
+//exibe a homepage do adm
+app.get('/homepage', function(req, res){
+    res.render('EventoCriado')
+})
+
+//exibe formulario para cria evento
 app.get("/criarEvento", function(req, res){
-    res.render('CriarEvento')
+    res.render('ListarEventos')
 })
 
-app.post("/inicio", function(req, res){
+//adiciona os dados do adm ao banco de dados e redireciona ao formulario de cria evento
+app.post("/criandoAdm", function(req, res){
     Cadastro.create({
         nome: req.body.nome,
         email: req.body.email,
@@ -63,6 +94,7 @@ app.post("/inicio", function(req, res){
         res.send("Erro na cria na criação do administrado: "+erro)
     })
 })
+
 
 app.listen(8081, function(){
     console.log("Servidor Rodando na URL http://localhost:8081");
