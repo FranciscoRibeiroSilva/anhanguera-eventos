@@ -4,6 +4,7 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Cadastro = require('./models/Cadastro')
 const Eventos = require('./models/Eventos')
+const Atividades = require('./models/Atividades')
 
 //Configurando engine
     //Templete engine
@@ -52,17 +53,17 @@ app.get("/adicionarAtividade", function(req, res){
 })
 
 //adicona dados da atividade ao banco de dados e redireciona pra a homepage do adm
-app.post("addAti", function(req, res){
+app.post("/addAtivi", function(req, res){
     Atividades.create({
         nome: req.body.nome,
-        tipo: req.body.tipoDeAtividade,
+        tipo: req.body.tipo,
         ministrante: req.body.ministrante,
-        /*hora: req.body.hora,
+        hora: req.body.hora,
         data: req.body.data,
         sala: req.body.sala,
-        numeroDePartic: req.body.maxPartic,
-        cargaHoraria: req.body.cargaHoraria,
-        inscricaoT: req.body.inscricaoT*/
+        numeroDePartic: req.body.maxpar,
+        cargaHoraria: req.body.ch,
+        inscricaoT: req.body.inscricao
     }).then(function(){
         res.redirect('/homepage')
     }).catch(function(erro){
@@ -78,7 +79,7 @@ app.get('/homepage', function(req, res){
 
 //exibe formulario para cria evento
 app.get("/criarEvento", function(req, res){
-    res.render('ListarEventos')
+    res.render('CriarEvento')
 })
 
 //adiciona os dados do adm ao banco de dados e redireciona ao formulario de cria evento

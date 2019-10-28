@@ -1,4 +1,4 @@
-<div background="imagens/tumblr4.jpg">
+<!--div background="imagens/tumblr4.jpg">
 
     <form action = '/addAtivi', method = "POST">
 
@@ -20,19 +20,22 @@
         <button>Registrar</button>
 
     </form>
-</div>
+</div-->
+<div background="imagens/tumblr4.jpg">
+
+    <form action='/addAtivi', method="POST" >
 
       
-            <!--table>
+            <table>
                 <div class="confRegAtiv">
                     <tr>
                          <td> 
                             <br>
                             <label for = "nome: "> Nome da atividade:<br>  </label>
-                            <input type = "text" name="nome"> 
+                            <input type = "text" id = "nome", name="nome"> 
                             &emsp;
                             <br>Tipo:<br> 
-                            <select  name = "tipoDeAtividade" > 
+                            <select  name = "tipo" > 
                                 <option value="Palestra">Palestra</option>
                                 <option value="Curso">Curso</option>
                                 <option value="Aula">Aula</option>
@@ -43,15 +46,15 @@
                             
 
                             <label for = "ministrar"> Ministrante:<br>  </label>
-                            <input type = "text" name="ministrante">
+                            <input type = "text" id = "nome", name="ministrante">
                             
                             &emsp;
                             <br>
                             <label for="appt"> Horário de inicio:<br> </label>
-                            <input type="time" id="appt" name="hora" min="01:00" max="23:59" required>
+                            <input type="time" id="appt" name="hora" min="06:00" max="23:00" required>
                             <br><br>
 
-                            Data:<br> <input id="date" type="date" name="data">
+                            Data:<br> <input id="date" type="date", name="data">
                             &emsp;
                             <br>
                             Sala: <br>
@@ -70,11 +73,11 @@
                             <br><br>
 
                             <label for = "max"> Número máximo de participantes: <br> </label>
-                            <input type = "text" id = "max" name="maxPartic">
+                            <input type = "text" id = "max", name="maxpar">
                             <br><br>
                             
                             Carga Horário:<br> 
-                            <select  name = "cargaHoraria" >
+                            <select  name = "ch" >
                                 <option value="ch1">30 Horas</option>
                                 <option value="ch2">60 horas</option>
                                 <option value="ch3">90 horas</option>
@@ -83,13 +86,13 @@
                             &emsp;
                             <br>
                             Inscrição: <br>
-                            <select  name = "inscricaoT" > 
+                            <select  name = "inscricao" > 
                                 <option value="Gratuita">Gratuita</option>
                                 <option value="Paga">Paga</option>
                             </select>
-                             <button>Concluir</button>
+                            <button>adicionar</button>
                             <br><br>
-        
+
                         </td>    
                     </tr>
                 </div>           
@@ -103,9 +106,10 @@
       
             
             <br><br>
-           
+            
             <br><br>
             
         
-    </div-->
+    </div>
 
+</div>
