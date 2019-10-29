@@ -36,7 +36,7 @@
                          <td> 
                             <br>
                             <label for = "nome: "> Nome da atividade:<br>  </label>
-                            <input type = "text" id = "nome"> 
+                            <input type = "text" id = "nome" name="nome"> 
                             &emsp;
                             <br>Tipo:<br> 
                             <select  name = "tipo" > 
@@ -50,15 +50,15 @@
                             
 
                             <label for = "ministrar"> Ministrante:<br>  </label>
-                            <input type = "text" id = "nome">
+                            <input type = "text" name = "ministrante">
                             
                             &emsp;
                             <br>
                             <label for="appt"> Horário de inicio:<br> </label>
-                            <input type="time" id="appt" name="appt" min="01:00" max="00:00" required>
+                            <input type="time" id="appt" name="hora" min="01:00" max="23:50" required>
                             <br><br>
 
-                            Data:<br> <input id="date" type="date">
+                            Data:<br> <input id="date" type="date" name="data">
                             &emsp;
                             <br>
                             Sala: <br>
@@ -77,14 +77,14 @@
                             <br><br>
 
                             <label for = "max"> Número máximo de participantes: <br> </label>
-                            <input type = "text" id = "max">
+                            <input type = "text" name = "maxpar">
                             <br><br>
                             
                             Carga Horário:<br> 
                             <select  name = "ch" >
-                                <option value="ch1">30 Horas</option>
-                                <option value="ch2">60 horas</option>
-                                <option value="ch3">90 horas</option>
+                                <option value="30">30 Horas</option>
+                                <option value="60">60 horas</option>
+                                <option value="90">90 horas</option>
                             </select>
 
                             &emsp;
@@ -99,21 +99,14 @@
 
                         </td>    
                     </tr>
-                </div>           
+                    
+                </div> 
+                       
             </table>
     
        
-    
+     <button>Concluir</button>  
     </form>
 
-    <div>
-      
-            
-            <br><br>
-            <button> <a class="link" href="EventoCriado.html"> Concluir </a> </button>
-            <br><br>
-            
-        
-    </div>
 
 </div>
