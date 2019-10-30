@@ -1,0 +1,11 @@
+.cabeçalho1{
+    font-style: oblique;
+    background-color:blue;
+}
+body{
+    background-color: aqua;
+}
+.cabeçalho{
+    color: brown;
+    background-color: rgb(51, 177, 62);
+}
