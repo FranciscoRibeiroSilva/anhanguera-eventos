@@ -24,14 +24,35 @@ app.get("/", function(req, res){
     res.render('index')
 });
 
-//login do adm
+//pagina de login do adm
 app.get("/loginUser", function(req, res){
     res.render('LoginAdm')
 })
 
-//cadastro de novo adm
+//pagina de cadastro de novo adm
 app.get("/cadastroUser", function(req, res){
     res.render('CadastroAdm')
+})
+
+//adiciona os dados do adm ao banco de dados e redireciona ao formulario de cria evento
+app.post("/criandoAdm", function(req, res){
+    Cadastro.create({
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha,
+        estado: req.body.estado
+    }).then(function(){
+        res.redirect('/criarEvento')
+    }).catch(function(erro){
+        res.send("Erro na cria na criação do administrado: "+erro)
+    })
+})
+
+
+
+//exibe formulario para cria evento
+app.get("/criarEvento", function(req, res){
+    res.render('CriarEvento')
 })
 
 //adiciona os dados do evento na banco de dados e redireciona pra a homepage do adm
@@ -47,7 +68,17 @@ app.post("/registroDeEvento", function(req, res){
     })
 })
 
-//exibe formulario pra criacao de uma atividade
+//exibe a homepage do adm
+app.get('/homepage', function(req, res){
+    res.render('EventoCriado')
+})
+
+//Pagina que lista e redireciona para o formulario de criar atividade
+app.get('/gerenciarAtividades', function(req, res){
+    res.render('gerenciaDeAtivides')
+})
+
+//pagina de formulario pra criacao de uma atividade
 app.get("/adicionarAtividade", function(req, res){
     res.render('RegistraAtividade')
 })
@@ -72,29 +103,10 @@ app.post("/addAtivi", function(req, res){
     
 })
 
-//exibe a homepage do adm
-app.get('/homepage', function(req, res){
-    res.render('EventoCriado')
-})
 
-//exibe formulario para cria evento
-app.get("/criarEvento", function(req, res){
-    res.render('CriarEvento')
-})
 
-//adiciona os dados do adm ao banco de dados e redireciona ao formulario de cria evento
-app.post("/criandoAdm", function(req, res){
-    Cadastro.create({
-        nome: req.body.nome,
-        email: req.body.email,
-        senha: req.body.senha,
-        estado: req.body.estado
-    }).then(function(){
-        res.redirect('/criarEvento')
-    }).catch(function(erro){
-        res.send("Erro na cria na criação do administrado: "+erro)
-    })
-})
+
+
 
 
 app.listen(8081, function(){
