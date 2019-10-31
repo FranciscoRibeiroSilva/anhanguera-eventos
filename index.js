@@ -107,7 +107,7 @@ app.post("/addAtivi", function(req, res){
         cargaHoraria: req.body.ch,
         inscricaoT: req.body.inscricao
     }).then(function(){
-        res.redirect('/homepage')
+        res.redirect('/gerenciaDeAtividades')
     }).catch(function(erro){
         res.send("Erro ao adicionar atividade: "+erro)
     })
