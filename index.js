@@ -114,6 +114,15 @@ app.post("/addAtivi", function(req, res){
     
 })
 
+//remover atividade
+app.get('/removeAtividade/:id', function(req, res){
+    Atividades.destroy({where: {'id': req.params.id}}).then(function(){
+        res.redirect('/gerenciarAtividades')
+    }).catch(function(erro){
+        res.send("erro ao remover atividade: "+erro)
+    })
+})
+
 app.listen(8081, function(){
     console.log("Servidor Rodando na URL http://localhost:8081");
 });
