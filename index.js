@@ -48,8 +48,6 @@ app.post("/criandoAdm", function(req, res){
     })
 })
 
-
-
 //exibe formulario para cria evento
 app.get("/criarEvento", function(req, res){
     res.render('CriarEvento')
@@ -115,13 +113,6 @@ app.post("/addAtivi", function(req, res){
     })
     
 })
-
-
-
-
-
-
-
 
 app.listen(8081, function(){
     console.log("Servidor Rodando na URL http://localhost:8081");
