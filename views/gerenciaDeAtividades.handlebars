@@ -1,0 +1,9 @@
+<button> <a href='/adicionarAtividade'>Adicionar Atividade</a> </button>
+
+{{#each regist}}
+    <h3><p>{{nome}}</p></h3>
+    <h4><p>Tipo de Atividade: {{tipo}} Ministrante: {{ministrante}} Data: {{data}} Hora: {{hora}} 
+        Sala: {{sala}} Participates: {{numeroDePartic}} Carga horaria: {{cargaHoraria}}
+        Tipo de inscrição: {{inscricaoT}}</p>
+        <a href='/removeAtividade/{{id}}'><button>Remover atividade</button></a></h4>
+{{/each}}
