@@ -1,23 +1,28 @@
-<div class="barraDeNavegacao">
-    <img src="imagens/logo.png" alt="Logo_temporaria" width="50px"> 
-    <span></span>
-    <span></span>
-</div>
+<!-- BRUNO -->
 
-<div background="imagens/tumblr4.jpg">
+<!DOCTYPE html>
 
-<div>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="CSS/Estilo.css">
+</head>
 
-    <form action='/addAtivi', method="POST" >
+<body background="imagens/tumblr4.jpg">
+    
+    <header>
+    </header>
 
+    <form>
             <table>
-                <div class="confRegAtiv">
+                <body class="confRegAtiv">
                     <tr>
                          <td> 
                             <br>
                             <label for = "nome: "> Nome da atividade:<br>  </label>
-                            <input type = "text" id = "nome" name="nome"> 
-                            &emsp;
+                            <input type = "text" id = "nome"> 
+                            <br>
                             <br>Tipo:<br> 
                             <select  name = "tipo" > 
                                 <option value="Palestra">Palestra</option>
@@ -28,19 +33,17 @@
                             </select>
                             <br><br>
                             
-
                             <label for = "ministrar"> Ministrante:<br>  </label>
-                            <input type = "text" name = "ministrante">
-                            
-                            &emsp;
-                            <br>
-                            <label for="appt"> Horário de inicio:<br> </label>
-                            <input type="time" id="appt" name="hora" min="01:00" max="23:50" required>
+                            <input type = "text" id = "nome">
                             <br><br>
 
-                            Data:<br> <input id="date" type="date" name="data">
-                            &emsp;
-                            <br>
+                            <label for="appt"> Horário de inicio:<br> </label>
+                            <input type="time" id="appt" name="appt" min="01:00" max="00:00" required>
+                            <br><br>
+
+                            Data:<br> <input id="date" type="date">
+                            
+                            <br><br>
                             Sala: <br>
                             <select  name = "sala" > 
                                 <option value="s1">Sala 1</option>
@@ -57,23 +60,21 @@
                             <br><br>
 
                             <label for = "max"> Número máximo de participantes: <br> </label>
-                            <input type = "text" name = "maxpar">
+                            <input type = "text" id = "max">
                             <br><br>
                             
                             Carga Horário:<br> 
                             <select  name = "ch" >
-                                <option value="30">30 Horas</option>
-                                <option value="60">60 horas</option>
-                                <option value="90">90 horas</option>
+                                <option value="ch1">30 Horas</option>
+                                <option value="ch2">60 horas</option>
+                                <option value="ch3">90 horas</option>
                             </select>
+                            <br><br>
 
-                            &emsp;
-                            <br>
                             Tipo de inscrição: <br>
                             <select  name = "inscricao" > 
                                 <option value="Gratuita">Gratuita</option>
                                 <option value="Paga">Paga</option>
-                                
                             </select>
                             <br><br>
 
@@ -84,19 +85,22 @@
                             <label for = "desconto"> Cupons de desconto: <br> </label>
                             <input type = "text" id = "desconto">
                             <br><br>
-                            
-                            <br><br>
 
                         </td>    
                     </tr>
-                    
-                </div> 
-                       
+                </body>           
             </table>
-    
-       
-     <button>Concluir</button>  
     </form>
 
+    <nav>
+        <br><br>
+        <button> <a class="link" href="EventoCriado.html"> Concluir </a> </button>
+        <br><br>
+        
+    </nav>
 
-</div>
+    
+
+</body>
+
+</html>
