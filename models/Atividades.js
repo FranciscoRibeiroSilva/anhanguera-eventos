@@ -27,7 +27,14 @@ const Atividades = db.sequelize.define('ativids', {
     },
     inscricaoT: {
         type: db.Sequelize.STRING
+    },
+    valor: {
+        type : db.Sequelize.STRING
+    },
+    cupom: {
+        type: db.Sequelize.STRING
     }
+
 })
 
 //Atividades.sync({force: true})

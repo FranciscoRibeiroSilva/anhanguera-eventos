@@ -105,7 +105,9 @@ app.post("/addAtivi", function(req, res){
         sala: req.body.sala,
         numeroDePartic: req.body.maxpar,
         cargaHoraria: req.body.ch,
-        inscricaoT: req.body.inscricao
+        inscricaoT: req.body.inscricao,
+        valor: req.body.valor,
+        cupom: req.body.desconto
     }).then(function(){
         res.redirect('/gerenciarAtividades')
     }).catch(function(erro){
@@ -123,6 +125,7 @@ app.get('/removeAtividade/:id', function(req, res){
     })
 })
 
+//quem tiver editando aqui não adicionar codigo abaixo desse
 app.listen(8081, function(){
     console.log("Servidor Rodando na URL http://localhost:8081");
 });
