@@ -1,1 +1,8 @@
-<button> <a href='/adicionarAtividade'>adicionar Atividade</a> </button>
+<button> <a href='/adicionarAtividade'>Adicionar Atividade</a> </button>
+
+{{#each regist}}
+    <h2><p>{{nome}}</p></h2>
+    <h3><p>Tipo de Atividade: {{tipo}} Ministrante: {{ministrante}} Data: {{data}} Hora: {{hora}} 
+        Sala: {{sala}} Participates: {{numeroDePartic}} Carga horaria: {{cargaHoraria}}
+         Tipo de inscrição: {{inscricaoT}}</p></h3>
+{{/each}}

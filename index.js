@@ -73,11 +73,6 @@ app.get('/homepage', function(req, res){
     res.render('EventoCriado')
 })
 
-//Pagina que lista e redireciona para o formulario de criar atividade
-app.get('/gerenciarAtividades', function(req, res){
-    res.render('gerenciaDeAtivides')
-})
-
 //pagina de formulario pra criacao de uma atividade
 app.get("/adicionarAtividade", function(req, res){
     res.render('RegistraAtividade')
@@ -101,6 +96,14 @@ app.post("/addAtivi", function(req, res){
         res.send("Erro ao adicionar atividade: "+erro)
     })
     
+})
+
+//Pagina que lista e redireciona para o formulario de criar atividade
+app.get('/gerenciarAtividades', function(req, res){
+    Atividades.findAll().then(function(ativi){
+
+        res.render('gerenciaDeAtividades', {regist: ativi})
+    })
 })
 
 
