@@ -73,6 +73,24 @@ app.get('/homepage', function(req, res){
     res.render('EventoCriado')
 })
 
+//Pagina que lista e redireciona para o formulario de criar atividade
+app.get('/gerenciarAtividades', function(req, res){
+    Atividades.findAll().then(function(ativi){
+
+        res.render('gerenciaDeAtividades', {regist: ativi})
+    })
+})
+
+//Pagina de usuarios registrados
+app.get('/usuariosRegistrados', function(req, res){
+    res.render('usuariosCadastrados')
+})
+
+//Pagina de programação de evento
+app.get('/programacao', function(req, res){
+    res.render('programacao')
+})
+
 //pagina de formulario pra criacao de uma atividade
 app.get("/adicionarAtividade", function(req, res){
     res.render('RegistraAtividade')
@@ -98,13 +116,6 @@ app.post("/addAtivi", function(req, res){
     
 })
 
-//Pagina que lista e redireciona para o formulario de criar atividade
-app.get('/gerenciarAtividades', function(req, res){
-    Atividades.findAll().then(function(ativi){
-
-        res.render('gerenciaDeAtividades', {regist: ativi})
-    })
-})
 
 
 
