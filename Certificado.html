@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="windth=device-width, initial-scale=1.0" > 
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Gerar PDF</title>
+</head>
+
+
+<body>
+    <h1>Gerador de Certificado</h1>
+
+    <div id="dados">
+<p>
+    Certificamos que ________________ concluiu o curso <br> de ___________________ que possui carga horária de ___ horas. <br> O curso foi ministrado por _________ no dia ________ em Piripiri, Piaui.
+</p>
+
+</div>
+
+<p>
+    <input type="button" value="IMPRIMIR CERTIFICADO" onclick="funcao_pdf()">
+</p>
+</body>
+<script>
+    function funcao_pdf(){
+        var pegar_dados = document.getElementById('dados').innerHTML;
+
+        var janela = window.open('','','windth=800, heigth=600');
+        janela.document.write('<html><head>');
+        janela.document.write('<title>PDF</title><head>');
+        janela.document.write('<body>');
+        janela.document.write(pegar_dados);
+        janela.document.write('<body></html>');
+        janela.document.close();
+        janela.print();
+
+    }
+</script>
+</html>
