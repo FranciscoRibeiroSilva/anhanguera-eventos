@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="windth=device-width, initial-scale=1.0" > 
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Gerar PDF</title>
-</head>
-
-
-<body>
+<!--<title>Gerar PDF</title>-->
     <h1>Gerador de Certificado</h1>
-
-    <div id="dados">
+{{#each usuarios,ativids}}
 <p>
-    Certificamos que ________________ concluiu o curso <br> de ___________________ que possui carga horária de ___ horas. <br> O curso foi ministrado por _________ no dia ________ em Piripiri, Piaui.
+    Certificamos que {{nome}} , pertencente ao CPF {{cpf}} concluiu o curso <br>
+    de ___________________ que possui carga horária de ___ horas. <br>
+    O curso foi ministrado por _________ no dia ________ em Piripiri, Piaui.
 </p>
-
-</div>
-
 <p>
     <input type="button" value="IMPRIMIR CERTIFICADO" onclick="funcao_pdf()">
 </p>
-</body>
+
 <script>
     function funcao_pdf(){
         var pegar_dados = document.getElementById('dados').innerHTML;
@@ -38,4 +25,4 @@
 
     }
 </script>
-</html>
+{{/each}}
