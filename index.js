@@ -2,22 +2,50 @@ const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
+const mongoose = require("mongoose")
+const adm = require('./routes/adm')
 const Cadastro = require('./models/Cadastro')
 const Eventos = require('./models/Eventos')
 const Atividades = require('./models/Atividades')
+//const bootstrap = require("bootstrap")
 
-//Configurando engine
-    //Templete engine
-    app.engine('handlebars', handlebars({defaultLayout: 'main'}))
-    app.set('view engine', 'handlebars')
+//Configurações
+    //handlebars
+        app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+        app.set('view engine', 'handlebars')
 
-    //Body Parse configuração
-    app.use(bodyParser.urlencoded({extended: false}))
-    app.use(bodyParser.json())
+    //Body Parse
+        app.use(bodyParser.urlencoded({extended: false}))
+        app.use(bodyParser.json())
 
-    //Conexão com banco de dados MySql  
+    //MongoDB
+        mongoose.connect("mongodb://localhost/testes7", {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }).then(()=>{
+            console.log("Conexão ao mongo feita com sucesso")
+        }).catch((err)=>{
+            console.log("Erro ao conectar "+err)
+        })
 
-app.use(express.static('public'));
+    //Css
+        app.use(express.static('public'));
+
+//Rotas
+    //Rota principal
+        app.get('/', (req, res)=>{
+            res.render('index')
+        })
+    
+    //Rotas dos adm's
+        app.use('/anhangueraeventos', adm)
+
+
+
+
+
+
+
 
 //primeira pagina a ser exibida
 app.get("/", function(req, res){
@@ -125,7 +153,8 @@ app.get('/removeAtividade/:id', function(req, res){
     })
 })
 
-//quem tiver editando aqui não adicionar codigo abaixo desse
-app.listen(8081, function(){
+//Outros
+const PORT = 8081
+app.listen(PORT, ()=>{
     console.log("Servidor Rodando na URL http://localhost:8081");
 });
