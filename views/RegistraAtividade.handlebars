@@ -1,21 +1,7 @@
 
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <img src="imagens/logo.png" alt="Logo_temporaria" width="50px">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a href="" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link active">login</a>
-        </li>
-        <li class="nav-item">
-             <a href="" class="nav-link">Cadastro</a>
-        </li>
-        <li class="nav-item">
-             <a href="" class="nav-link">Sair</a>
-        </li>
-    </ul>
-</nav>
+<div class="barraDeNavegacao">
+    <img src="imagens/logo.png" alt="Logo_temporaria" width="50px"> 
+</div>
 
 <div>
     <form action='/addAtivi', method="POST" >
@@ -107,22 +93,11 @@
                             <label for = "max"> Nº máximo de participantes: </label>
                             <input type = "text" name = "maxpar">                    
                         </span>
+                        
                     </div>
 
-                    <div>
-                        <span>
-                            &emsp;
-                            <label for = "valor"> Valor de inscrição: </label>
-                            <input type = "text" id = "valor">
-                        </span>
+                    <a href='/dadosBancarios'> Informar pagamento </a>
 
-                        <span>
-                            &emsp;
-                            <label for = "desconto"> Cupons de desconto: </label>
-                            <input type = "text" id = "desconto">
-                        </span>
-                    </div>
-                
                     <div>
                         <button> Concluir </button>
                     </div>
