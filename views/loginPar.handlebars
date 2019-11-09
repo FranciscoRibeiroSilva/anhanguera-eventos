@@ -1,0 +1,31 @@
+<div class="barraDeNavegacao">
+    <img src="imagens/logo.png" alt="Logo_temporaria" width="50px"> 
+    <span></span>
+    <span></span>
+</div>
+<form id="cad" method="post" action="#" required>
+    <center>
+    <img src="imagens/logo.png" width="200px"><br><br>
+    E-mail: <input type="email" name="txtEmail" maxlength="50" id="Email1" placeholder="nome@email.com" required />
+    <br>
+    Senha: <input type="password" name="txtsenha" required maxlength="20" />
+    <br>
+    <button type="button" id="btn1" onclick='javascript: validarFormulario()'>Cadastrar</button>
+</center>
+</form>
+<script>
+    function vazio(campo, nome) {
+    if (campo.value.length >0) return false;
+    alert("O conteúdo do campo '" + nome
+        + " Não pode ser vazio"
+            + " Por favor, preencha-o corretamente.");
+    return true;
+}
+function validarFormulario() {
+    var cad = document.getElementById('cad');
+    if (vazio(cad.txtEmail, 'E-mail')) return;
+    if (vazio(cad.txtsenha, 'Senha')) return;
+
+    cad.submit();
+}
+</script>

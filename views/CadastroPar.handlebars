@@ -1,0 +1,141 @@
+<div class="barraDeNavegacao">
+        <img src="imagens/logo.png" alt="Logo_temporaria" width="50px"> 
+        <span></span>
+        <span></span>
+    </div>
+<form id="cad" method="post" action="#" required>
+        <img src="imagens/logo.png" width="200px"><br><br>
+    <h3>Dados pessoais</h3>
+    Nome: <input type="text" name="txtnome" maxlength="40" required />
+    <br>
+    Sobrenome: <input type="text" name="txtsobrenome" maxlength="30" required />
+    <br>
+    Data de nascimento: <input type="date" name="txtdata_nasc" required />
+    <br>
+    CPF: <input type="text" id="cpf1" name="txtCPF" maxlength="11" required />
+    <br>
+    <h3>Dados para Contato</h3>
+    DDD: <input type="text" name="txtDDD" placeholder="Ex: (###)"  maxlength="2" required /><br>
+    Tipo: <input type="radio" name="rbT" value="Celular" checked />Celular
+    <input type="radio" name="rbT" value="Telefone" />Telefone
+    <br>  
+    Nº: <input type="tel" name="txtContato" maxlength="9" required  />
+    <br>  
+    E-mail: <input type="email" name="txtEmail1" maxlength="50" id="Email1" placeholder="nome@email.com" required />
+    <br>
+    Confirmação de E-mail: <input type="email" name="txtEmail2" maxlength="50" id="Email2" required />
+    <br>
+    <h3>Dados da conta</h3>
+    Nome de usuário: <input type="text" name="txtLogin" required maxlength="20" />
+    <br>
+    Senha: <input type="password" name="txtsenha" required maxlength="20" />
+    <br>
+    Confirmação da senha: <input type="password" name="txtCsenha" required maxlength="20" />
+    <br>
+    <button type="button" id="btn1" onclick='javascript: validarFormulario()'>Cadastrar</button>
+</form>
+<script>
+    function muitoCurto(campo, nome, tamanho) {
+    if (campo.value.length >= tamanho) return false;
+    alert("O conteúdo do campo '" + nome
+            + "' deveria ter pelo menos " + tamanho + " caracteres."
+            + " Por favor, preencha-o corretamente.");
+    return true;
+}
+
+function tamanhoErrado(campo, nome, tamanho) {
+    if (campo.value.length === tamanho) return false;
+    alert("O conteúdo do campo '" + nome
+            + "' deveria ter exatamente " + tamanho + " caracteres. "
+            + "Por favor, preencha-o corretamente.");
+    return true;
+}
+
+function naoNumerico(campo, nome) {
+    if (!isNaN(campo.value)) return false;
+    alert("Digite somente números no campo '" + nome + "', por favor.");
+    return true;
+}
+
+function diferentes(campo1, nome1, campo2, nome2) {
+    if (campo1.value === campo2.value) return false;
+    alert("Os campos '" + nome1 + "' e '" + nome2 + "' devem ser iguais.");
+    return true;
+}
+
+function validarFormulario() {
+    var cad = document.getElementById('cad');
+
+    if (muitoCurto(cad.txtnome, 'Nome', 2)) return;
+    if (muitoCurto(cad.txtsobrenome, 'Sobrenome', 2)) return;
+    if (tamanhoErrado(cad.txtCPF, 'CPF', 11)) return;
+    if (tamanhoErrado(cad.txtDDD, 'DDD', 2)) return;
+    if (muitoCurto(cad.txtContato, 'Nº do telefone', 8)) return;
+    if (muitoCurto(cad.txtEmail1, 'E-mail', 10)) return;
+    if (muitoCurto(cad.txtLogin, 'Nome de usuário', 7)) return;
+    if (muitoCurto(cad.txtsenha, 'Senha', 6)) return;
+    if (muitoCurto(cad.txtCsenha, 'Confirmação da senha', 6)) return;
+    if (naoNumerico(cad.txtCPF, 'CPF')) return;
+    if (naoNumerico(cad.txtDDD, 'DDD')) return;
+    if (naoNumerico(cad.txtContato, 'Nº do telefone')) return;
+    //if (naoNumerico(cad.txtNumero, 'Número')) return;
+
+    if (diferentes(cad.txtsenha, 'Senha', cad.txtCsenha, 'Confirmação da Senha')) return;
+    if (diferentes(cad.txtEmail1, 'E-mail', cad.txtEmail2, 'Confirmação de E-mail')) return;
+
+    if (cad.txtdata_nasc.value.length !== 10) {
+        alert("Formato de 'data de nascimento' inválido."
+                + " Por favor, preencha-o corretamente.");
+        return;
+    }
+
+    if (!verificarCPF(cad.txtCPF.value)) {
+        alert("Os dígitos verificadores do CPF não conferem.");
+        return;  
+    }
+
+    cad.submit();
+}
+
+function verificarCPF(strCpf) {
+    if (!/[0-9]{11}/.test(strCpf)) return false;
+    if (strCpf === "00000000000") return false;
+
+    var soma = 0;
+
+    for (var i = 1; i <= 9; i++) {
+        soma += parseInt(strCpf.substring(i - 1, i)) * (11 - i);
+    }
+
+    var resto = soma % 11;
+
+    if (resto === 10 || resto === 11 || resto < 2) {
+        resto = 0;
+    } else {
+        resto = 11 - resto;
+    }
+
+    if (resto !== parseInt(strCpf.substring(9, 10))) {
+        return false;
+    }
+
+    soma = 0;
+
+    for (var i = 1; i <= 10; i++) {
+        soma += parseInt(strCpf.substring(i - 1, i)) * (12 - i);
+    }
+    resto = soma % 11;
+
+    if (resto === 10 || resto === 11 || resto < 2) {
+        resto = 0;
+    } else {
+        resto = 11 - resto;
+    }
+ 
+    if (resto !== parseInt(strCpf.substring(10, 11))) {
+        return false;
+    }
+
+    return true;
+}
+</script>
