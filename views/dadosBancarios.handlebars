@@ -1,37 +1,55 @@
 <form action="">
-<div>
-    <center>
     <div>
-    <span>
-        &emsp;
-        <label for = "valor"> Valor de inscrição R$: </label>
-        <input type = "text" id = "valor">
-    </span>
+        <center>
+            <div>
+                <span>
+                    <br>
+                    <br>
+                    &emsp;
+                    <label for="valor">R$: </label>
+                    <input type="text" id="valor" placeholder="Valor de inscrição">
+                </span>
 
-    <span>
-        &emsp;
-        <label for = "desconto"> Cupons de desconto: </label>
-        <input type = "text" id = "desconto">
-    </span>
+                <span>
+                    &emsp;
+                    <label for="desconto"> Cupons: </label>
+                    <input type="number" name="desconto" min="0" max="30" >
+                </span>
+            </div>
+
+            <div>
+                <sapn>
+                    &emsp;
+                    <label for="numCont"> Conta: </label>
+                    <input type="text" id="numCont" placeholder="Nº da conta">
+                </sapn>
+
+                <sapn>
+                    &emsp;
+                    <label for="nomeAgencia"> Agência: </label>
+                    <input type="text" id="desconto" placeholder="Nome da agência">
+                </sapn>
+
+            </div>
+
+            <div>
+                <sapn>
+                    &emsp;
+                    <label for="cpf"> CPF: </label>
+                    <input type="text" id="cpf" placeholder="000-000-000-00">
+                </sapn>
+
+
+                <span>
+                    &emsp;
+                    Prazo:
+                    <input type="datetime-local" name="bdaytime">
+                </span>
+
+            </div>
+            <br>
+            <button>  <a href="RegistraAtividade"> Concluir </a> </button>
+        </center>
+
     </div>
-
-    <div>
-        <sapn>
-            &emsp;
-            <label for = "numCont"> Número da conta: </label>
-            <input type = "text" id = "desconto">
-        </sapn>
-
-        <sapn>
-            &emsp;
-            <label for = "nomeAgencia"> Nome da agencia: </label>
-            <input type = "text" id = "desconto">
-        </sapn>
-
-    </div>
-
-    <button> Concluir </button>
-    </center>
-
-</div>
 </form>
