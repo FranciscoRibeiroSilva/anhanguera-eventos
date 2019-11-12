@@ -4,9 +4,9 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require("mongoose")
 const adm = require('./routes/adm')
-const Cadastro = require('./models/Cadastro')
-const Eventos = require('./models/Eventos')
-const Atividades = require('./models/Atividades')
+//const Cadastro = require('./models/Cadastro')
+//const Eventos = require('./models/Eventos')
+//const Atividades = require('./models/Atividades')
 //const bootstrap = require("bootstrap")
 
 //Configurações
@@ -19,7 +19,7 @@ const Atividades = require('./models/Atividades')
         app.use(bodyParser.json())
 
     //MongoDB
-        mongoose.connect("mongodb://localhost/testes7", {
+        mongoose.connect("mongodb://localhost/testes8", {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(()=>{
@@ -48,7 +48,7 @@ const Atividades = require('./models/Atividades')
 
 
 //primeira pagina a ser exibida
-app.get("/", function(req, res){
+/*app.get("/", function(req, res){
     res.render('index')
 });
 
@@ -151,7 +151,7 @@ app.get('/removeAtividade/:id', function(req, res){
     }).catch(function(erro){
         res.send("erro ao remover atividade: "+erro)
     })
-})
+})*/
 
 //Outros
 const PORT = 8081
