@@ -1,58 +1,67 @@
-
 <div class="barraDeNavegacao">
-    <img src="imagens/logo.png" alt="Logo_temporaria" width="50px"> 
+    <img src="imagens/logo.png" alt="Logo_temporaria" width="50px">
 </div>
 
 <div>
-    <form action='/anhangueraeventos/addAtividade', method="POST" >
+    <form action='/anhangueraeventos/addAtividade' , method="POST">
         <center>
             <tr>
-                <td> 
+                <td>
                     <div>
                         <span>
                             &emsp;
-                            <label for = "nome: "> Nome da atividade:  </label>
-                            <input type = "text" id = "nome" name="nome"> 
+                            <label for="nome: "> Atividade: </label>
+                            <input type="text" id="nome" name="nome" placeholder="Nome da atividade">
                         </span>
 
                         <span>
                             &emsp;
                             Tipo:
-                            <select  name = "tipo" > 
-                                <option value="Palestra"> Palestra </option>
-                                <option value="Curso"> Curso </option>
-                                <option value="Aula"> Aula </option>
-                                <option value="Conferencia"> Conferência </option>
-                                <option value="Mesa-Redonda"> Mesa-Redonda </option>
+                            <select name="tipo">
+                                <option value="palestra"> Palestra </option>
+                                <option value="curso"> Curso </option>
+                                <option value="aula"> Aula </option>
+                                <option value="conferencia"> Conferência </option>
+                                <option value="sesaRedonda"> Mesa-Redonda </option>
                             </select>
                         </span>
                     </div>
-                    
+
                     <div>
                         <span>
                             &emsp;
-                            <label for = "ministrar"> Ministrante:  </label>
-                            <input type = "text" name = "ministrante">
+                            <label for="ministrar"> Ministrante: </label>
+                            <input type="text" name="ministrante" placeholder="Nome do ministrante">
                         </span>
 
-                        <span>
-                            &emsp;                 
-                            <label for="appt"> Horário de inicio: </label>
-                            <input type="time" id="appt" name="hora" min="01:00" max="23:50" required>
-                        </span>
-                    </div>
-
-                    <div>
                         <span>
                             &emsp;
                             Data:
                             <input id="date" type="date" name="data">
                         </span>
-                            
+                    </div>
+                    <div>
+
+                        <span>
+                            &emsp;
+                            <label for="appt"> Horário de inicio: </label>
+                            <input type="time" id="appt" name="horaInicio" min="01:00" max="23:50" required>
+                        </span>
+
+                        <span>
+                            &emsp;
+                            <label for="appt"> Horário de final: </label>
+                            <input type="time" id="appt" name="horaFinal" min="01:00" max="23:50" required>
+                        </span>
+                    </div>
+
+                    <div>
+
                         <span>
                             &emsp;
                             Sala:
-                            <select  name = "sala" > 
+                            <select name="sala">
+                                <option value="s1">--Informe a sala--</option>
                                 <option value="s1">Sala 1</option>
                                 <option value="s2">Sala 2</option>
                                 <option value="s3">Sala 3</option>
@@ -69,49 +78,36 @@
                         <span>
                             &emsp;
                             Carga Horário:
-                            <select  name = "ch" >
-                                <option value="30">30 Horas</option>
-                                <option value="60">60 horas</option>
-                                <option value="90">90 horas</option>
+                            <select name="ch">
+                                <option value="s1">--Informe a CH--</option>
+                                <option value="10">10 Horas</option>
+                                <option value="20">20 horas</option>
+                                <option value="30">30 horas</option>
+                                <option value="s1">40 horas</option>
                             </select>
                         </span>
-                    
+
                     </div>
 
                     <div>
                         <span>
                             &emsp;
                             Tipo de inscrição:
-                            <select  name = "inscricao" > 
-                            <option value="Gratuita">Gratuita</option>
-                            <option value="Paga">Paga</option>
+                            <select name="inscricao">
+                                <option value="gratuita">Gratuita</option>
+                                <option value="paga">Paga</option>
                             </select>
                         </span>
 
                         <span>
                             &emsp;
-                            <label for = "max"> Nº máximo de participantes: </label>
-                            <input type = "text" name = "maxpar">                    
+                            <label for="quantidade"> Número de participantes: </label>
+                            <input type="number" name="quantidade" min="1" max="50">
                         </span>
-                        
+
                     </div>
 
-                    <div>
-                        <span>
-                            &emsp;
-                            <label for = "valor"> Valor de inscrição: </label>
-                            <input type = "text" id = "valor" name="valor">
-                        </span>
-
-                        <span>
-                            &emsp;
-                            <label for = "desconto"> Cupons de desconto: </label>
-                            <input type = "text" id = "desconto" name="desconto">
-                        </span>
-                    </div>
-                
-
-                    <a href='/dadosBancarios'> Informar pagamento </a>
+                    <a href='/dadosBancarios'> Dados Bancarios </a>
 
                     <div>
                         <button> Concluir </button>
