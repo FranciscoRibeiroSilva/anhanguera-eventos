@@ -13,6 +13,12 @@ const CadastroUsers = db.sequelize.define('usuarios', {
     
 })
 
+//CadastroUsers.create({
+//   nome: "Matheus Holanda",
+//    cpf: "12345678900",
+//    email: "matheus.lopes88@hotmail.com"
+//})
+
 
 //CadastroUsers.sync({force: true})
 

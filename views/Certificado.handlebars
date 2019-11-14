@@ -1,28 +1,24 @@
-<!--<title>Gerar PDF</title>-->
-    <h1>Gerador de Certificado</h1>
-{{#each usuarios,ativids}}
-<p>
-    Certificamos que {{nome}} , pertencente ao CPF {{cpf}} concluiu o curso <br>
-    de ___________________ que possui carga horária de ___ horas. <br>
-    O curso foi ministrado por _________ no dia ________ em Piripiri, Piaui.
-</p>
-<p>
-    <input type="button" value="IMPRIMIR CERTIFICADO" onclick="funcao_pdf()">
-</p>
-
-<script>
-    function funcao_pdf(){
-        var pegar_dados = document.getElementById('dados').innerHTML;
-
-        var janela = window.open('','','windth=800, heigth=600');
-        janela.document.write('<html><head>');
-        janela.document.write('<title>PDF</title><head>');
-        janela.document.write('<body>');
-        janela.document.write(pegar_dados);
-        janela.document.write('<body></html>');
-        janela.document.close();
-        janela.print();
-
-    }
-</script>
+{{#each certise}}
+<div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #3232CD">
+    <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #3232CD">
+           <span style="font-size:50px; font-weight:bold">Certificado de Conclusão</span>
+           <br><br>
+           <span style="color: black;"><h1>Aranguera Eventos</h1></span>
+           <span style="font-size:20px">
+            <b> Certificamos que {{nome}}, pertencente ao CPF {{cpf}} <br>
+            concluiu o curso ___________________, que possui carga horária de ___ horas. <br>
+            O curso foi ministrado por ___________________ no dia __/___/___ em Piripiri, Piaui.</b></span><br/><br/>
+        
+             
+            <!-- <span style="font-size:25px"><i>This is to certify that</i></span>
+           <br><br>
+           <span style="font-size:30px"><b>$student.getFullName()</b></span><br/><br/>
+           <span style="font-size:25px"><i>has completed the course</i></span> <br/><br/>
+           <span style="font-size:30px">$course.getName()</span> <br/><br/>
+           <span style="font-size:20px">with score of <b>$grade.getPoints()%</b></span> <br/><br/><br/><br/>
+           <span style="font-size:25px"><i>dated</i></span><br>
+          #set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))
+          <span style="font-size:30px">$dt</span> -->
+    </div>
+    </div>
 {{/each}}
