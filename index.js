@@ -1,4 +1,4 @@
-const express = require("express");
+﻿const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
@@ -8,6 +8,7 @@ const Cadastro = require('./models/Cadastro')
 const Eventos = require('./models/Eventos')
 const Atividades = require('./models/Atividades')
 //const bootstrap = require("bootstrap")
+const CadastroUsers = require('./models/Usuarios')
 
 //Configurações
     //handlebars
@@ -33,14 +34,16 @@ const Atividades = require('./models/Atividades')
 
 //Rotas
     //Rota principal
-        app.get('/', (req, res)=>{
-            res.render('index')
-        })
+        app.get('/', function(req, res){
+              res.render('index')
+            })
+              //Certificado
+            //    CadastroUsers.findAll().then(function(certis){
+            //    res.render('Certificado', {certise: certis})
+            //})
     
     //Rotas dos adm's
         app.use('/anhangueraeventos', adm)
-
-
 
 
 
