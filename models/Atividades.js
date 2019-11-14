@@ -1,6 +1,6 @@
 const db = require ('./db')
 
-const Atividades = db.sequelize.define('ativids', {
+const Atividades = db.sequelize.define('atividades', {
     nome: {
         type: db.Sequelize.STRING
     },

@@ -2,11 +2,11 @@ const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
-const mongoose = require("mongoose")
+//const mongoose = require("mongoose")
 const adm = require('./routes/adm')
-//const Cadastro = require('./models/Cadastro')
-//const Eventos = require('./models/Eventos')
-//const Atividades = require('./models/Atividades')
+const Cadastro = require('./models/Cadastro')
+const Eventos = require('./models/Eventos')
+const Atividades = require('./models/Atividades')
 //const bootstrap = require("bootstrap")
 
 //Configurações
@@ -18,15 +18,15 @@ const adm = require('./routes/adm')
         app.use(bodyParser.urlencoded({extended: false}))
         app.use(bodyParser.json())
 
-    //MongoDB
-        mongoose.connect("mongodb://localhost/testes8", {
+    /*MongoDB
+        mongoose.connect("mongodb://localhost/testes10", {
             useNewUrlParser: true,
             useUnifiedTopology: true
         }).then(()=>{
             console.log("Conexão ao mongo feita com sucesso")
         }).catch((err)=>{
             console.log("Erro ao conectar "+err)
-        })
+        })*/
 
     //Css
         app.use(express.static('public'));
