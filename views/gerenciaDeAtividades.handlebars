@@ -1,27 +1,17 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <img src="imagens/logo.png" alt="Logo_temporaria" width="50px">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a href="" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link active">login</a>
-        </li>
-        <li class="nav-item">
-             <a href="" class="nav-link">Cadastro</a>
-        </li>
-        <li class="nav-item">
-             <a href="" class="nav-link">Sair</a>
-        </li>
-    </ul>
-</nav>
-<button> <a href='/anhangueraeventos/formAtividades'>Adicionar Atividade</a> </button>
-
-{{#each regist}}
-    <h3><p>{{nome}}</p></h3>
-    <h4><p>Tipo de Atividade: {{tipo}} Ministrante: {{ministrante}} Data: {{data}} Hora: {{hora}} 
-        Sala: {{sala}} Participates: {{numeroDePartic}} Carga horaria: {{cargaHoraria}}
-        Tipo de inscrição: {{inscricaoT}}</p>
-        <a href='/anhangueraeventos/removeAtividade/{{id}}'><button>Remover atividade</button></a>
-        <a href='/anhangueraeventos/modificarAtividade/{{id}}'><button>Modificar atividade</button></a>
-{{/each}}
+{{>_navbar}}
+<div class="mt-4">
+    <button class="btn btn-outline-secondary"> <a href='/anhangueraeventos/formAtividades'>Adicionar Atividade</a> </button>
+    
+    {{#each regist}}
+        <div class="card mt-2">
+            <div class="card-body">
+                <h3><p>{{nome}}</p></h3>
+                <h4><p>Tipo de Atividade: {{tipo}} Ministrante: {{ministrante}} Data: {{data}} Hora: {{hora}} 
+                Sala: {{sala}} Participates: {{numeroDePartic}} Carga horaria: {{cargaHoraria}}
+                Tipo de inscrição: {{inscricaoT}}</p>
+                <button class="btn btn-outline-secondary"> <a href='/anhangueraeventos/removeAtividade/{{id}}'> Remover atividade </a> </button></a>
+                <button class="btn btn-outline-secondary"> <a href='/anhangueraeventos/modificarAtividade/{{id}}'> Modificar atividade </a> </button></a>
+            </div>
+        </div>
+    {{/each}}
+</div>
