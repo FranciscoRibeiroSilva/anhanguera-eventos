@@ -10,19 +10,22 @@ const Atividades = db.sequelize.define('atividades', {
     ministrante: {
         type: db.Sequelize.STRING
     },
-    hora: {
+    data: {
         type: db.Sequelize.STRING
     },
-    data: {
+    horaInicio: {
+        type: db.Sequelize.STRING
+    },
+    horaFinal: {
         type: db.Sequelize.STRING
     },
     sala: {
         type: db.Sequelize.STRING
     },
-    numeroDePartic: {
+    cargaHoraria: {
         type: db.Sequelize.STRING
     },
-    cargaHoraria: {
+    numeroDePartic: {
         type: db.Sequelize.STRING
     },
     inscricaoT: {
@@ -33,7 +36,23 @@ const Atividades = db.sequelize.define('atividades', {
     },
     cupom: {
         type: db.Sequelize.STRING
+    },
+    prazo: {
+        type: db.Sequelize.STRING
+    },
+    numConta: {
+        type: db.Sequelize.STRING
+    },
+    banco: {
+        type: db.Sequelize.STRING
+    },
+    agencia: {
+        type: db.Sequelize.STRING
+    },
+    cpf: {
+        type: db.Sequelize.STRING
     }
+
 
 })
 
