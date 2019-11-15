@@ -11,14 +11,24 @@ router.get('/cadastroAdm', (req, res)=>{
 
 //adiciona dados do cadastro adm ao BD
 router.post('/addAdm',(req, res)=>{
+    var erros =[]
+    if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2){
+        erros.push({texto:"Nome Inválido"})
+    }
+
+    if (erros.length > 0){
+        res.render('cadastroAdm', {erros: erros})
+    }
     Cadastro.create({
         nome: req.body.nome,
         email: req.body.email,
         senha: req.body.senha,
         estado: req.body.estado
     }).then(function(){
+        req.flash("success_msg", "Administrador registrado")
         res.redirect('/anhangueraeventos/loginAdm')
     }).catch(function(erro){
+        req.flash("error_msg", "houve um erro ao cadastrar")
         res.send("Erro na cria na criação do administrado: "+erro)
     })
 })
@@ -92,6 +102,16 @@ router.post('/addAtividade', (req, res)=>{
     }).catch(function(erro){
         res.send("Erro ao adicionar atividade: "+erro)
     })
+})
+
+router.get('/formModifica/:id',(req, res)=>{
+    Atividades.findOne({where: {'id':req.params.id}}).then((atividades)=>{
+        res.render('modificarAtividade', {atividades: atividades})
+    }).catch((err)=>{
+        req.flash("error_msg", "Erro ao busca atividade")
+        res.render('gerenciaDeAtividades')
+    })
+    
 })
 
 router.get('/removeAtividade/:id', function(req, res){

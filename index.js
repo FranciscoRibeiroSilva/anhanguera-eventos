@@ -8,8 +8,23 @@ const Eventos = require('./models/Eventos')
 const Atividades = require('./models/Atividades')
 const path = require("path")
 const CadastroUsers = require('./models/Usuarios')
+const session = require("express-session")
+const flash = require("connect-flash")
 
 //Configurações
+    //Sessão
+        app.use(session({
+            secret: "qualquer",
+            resave: true,
+            saveUninitialized: true
+        }))
+        app.use(flash())
+    //Midleware
+        app.use((req, res, next)=>{
+            res.locals.success_msg = req.flash("success_msg")
+            res.locals.error_msg = req.flash("error_msg")
+            next()
+        })
     //handlebars
         app.engine('handlebars', handlebars({defaultLayout: 'main'}))
         app.set('view engine', 'handlebars')

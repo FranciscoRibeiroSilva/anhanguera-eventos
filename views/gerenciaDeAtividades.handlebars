@@ -5,12 +5,12 @@
     {{#each regist}}
         <div class="card mt-2">
             <div class="card-body">
-                <h3><p>{{nome}}</p></h3>
-                <h4><p>Tipo de Atividade: {{tipo}} Ministrante: {{ministrante}} Data: {{data}} Hora: {{hora}} 
-                Sala: {{sala}} Participates: {{numeroDePartic}} Carga horaria: {{cargaHoraria}}
-                Tipo de inscrição: {{inscricaoT}}</p>
-                <button class="btn btn-outline-secondary"> <a href='/anhangueraeventos/removeAtividade/{{id}}'> Remover atividade </a> </button></a>
-                <button class="btn btn-outline-secondary"> <a href='/anhangueraeventos/modificarAtividade/{{id}}'> Modificar atividade </a> </button></a>
+                <h3><p>Nome da ativida: {{nome}}</p></h3>
+                <small><p>Tipo de Atividade: {{tipo}}   Ministrante: {{ministrante}}</p>
+                <p>Sala: {{sala}}   Participates: {{numeroDePartic}} Carga horaria: {{cargaHoraria}}</p>
+                <p>Tipo de inscrição: {{inscricaoT}}</p></small>
+                <a href='/anhangueraeventos/removeAtividade/{{id}}'><button class="btn btn-outline-secondary">Remover atividade</button></a>
+                <a href='/anhangueraeventos/formModifica/{{id}}'><button class="btn btn-outline-secondary"> Modificar atividade </button></a>
             </div>
         </div>
     {{/each}}
