@@ -5,10 +5,20 @@
     {{#each regist}}
         <div class="card mt-2">
             <div class="card-body">
-                <h3><p>Nome da ativida: {{nome}}</p></h3>
-                <small><p>Tipo de Atividade: {{tipo}}   Ministrante: {{ministrante}}</p>
-                <p>Sala: {{sala}}   Participates: {{numeroDePartic}} Carga horaria: {{cargaHoraria}}</p>
-                <p>Tipo de inscrição: {{inscricaoT}}</p></small>
+                <h2> <p> Nome da Atividade: {{nome}} </p></h2>
+                
+                <h4> 
+                    Tipo de Atividade: {{tipo}}<br>
+                    Ministrante: {{ministrante}}<br>
+                    Data: {{data}}<br>
+                    Hórario Inicio: {{horaInicio}}<br>
+                    Hórario Final: {{horaFinal}}<br>
+                    Sala: {{sala}}<br>
+                    Carga horaria: {{cargaHoraria}}<br>
+                    Participantes: {{numeroDePartic}}<br>
+                    Tipo de inscrição: {{inscricaoT}}<br>
+                </h4>
+
                 <a href='/anhangueraeventos/removeAtividade/{{id}}'><button class="btn btn-outline-secondary">Remover atividade</button></a>
                 <a href='/anhangueraeventos/formModifica/{{id}}'><button class="btn btn-outline-secondary"> Modificar atividade </button></a>
             </div>
