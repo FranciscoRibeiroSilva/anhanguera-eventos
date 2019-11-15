@@ -97,7 +97,6 @@ router.post('/addAtividade', (req, res)=>{
         numeroDePartic: req.body.numeroDePartic,
         inscricaoT: req.body.inscricaoT,
         valor: req.body.valor,
-        cupom: req.body.desconto,
         prazo: req.body.prazo,
         numConta: req.body.numConta,
         banco: req.body.banco,
