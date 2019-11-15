@@ -1,55 +1,56 @@
-<div id="confCadastro">	
-			<nav>
+<nav><br><br>
 				<div>
-					<h2>CADASTRE-SE</h2>
+					<center>
+						<h2>CADASTRE-SE</h2>
+					</center>
+					
 						{{#each erros}}
 							<div class="alert alert-danger">{{texto}}</div>
 							{{else}}
 						{{/each}}
-					<form align-left="30px" action= "/anhangueraeventos/addAdm" method = "POST">
+					<form align-left="60px" action= "/anhangueraeventos/addAdm" method = "POST">
 						
-							Nome:<br>
-							<input type="text" name = "nome"><br>
+						<div class="form-group">
+							<div>	
+								<label for="nome">Nome:</label><br>
+								<input class="form-control"type="text" id= "nome" placeholder="Informe seu nome">  
+							</div>
 							<!--E-Mail:<br-->
 							<!---input type="text" name = ""><br>-->
-							E-mail:<br>
-							<input type="text" name="email"><br>
+							<div>
+								<label for="nome">E-mail:</label><br>
+								<input class="form-control"type="text" name="email"placeholder="Informe seu e-mail">
+							</div>
 							<!--Confirme o seu E-mail:<br>
 							<input type="text" name="E-mail"><br><br><br-->
-							Senha:<br>
-							<input type="password"><br>
-							Confirme o sua Senha:<br>
-							<input type="password" name = "senha"><br><br><br>
+							
+							<div>
+								<label for="senha">Senha:</label><br>
+								<input class="form-control"type="password"placeholder="Informe sua senha">
+							</div>
+							
+							<div>
+								<label for="confirmarSenha">Confirme a sua Senha:</label><br>
+								<input class="form-control"type="password" name = "senha"placeholder="Confirme sua senha">
+							</div>
 									
-							Estado:<br>
-							<select name = "estado">
-							<option value="N">Selecione o estado</option>	
-							<option value="RJ">Rio de Janeiro</option>
-							<option value="SP">São Paulo</option>
-							<option value="PI">Piauí</option>
-							</select><br><br><br>
-	
+							<div>
+								<label for="estados">Estado</label><br>
+								<select class="form-control"id = "estados">
+									<option value="N">Selecione o estado</option>	
+									<option value="RJ">Rio de Janeiro</option>
+									<option value="SP">São Paulo</option>
+									<option value="PI">Piauí</option>
+								</select>
+							</div>
+							<br>
 							<!--Observações:<br-->
 							<!--textarea></textarea><br-->
 						
-							<input type="submit">
-						
-	
+							<input class="btn btn-outline-secondary btn-tamanhoUnico"type="submit">
+						</div>
 					
 					</form>
 	
 				</div>
-
-			</nav>
-			<section>
-
-			</section>
-
-			<footer>
-				<!--<div class="rodape">
-						Trabalho Final de Engenharida de Software e Programação III<br>
-						Alunos: João Vinicius, Matheus Holanda, Bruno Cruz, Claudio, Francisco<br>
-						Universidade Estadual do Piaui  
-				</div>-->
-			</footer>
-</div>
+</nav>
