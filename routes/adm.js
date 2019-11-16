@@ -93,7 +93,7 @@ router.post('/addAtividade', (req, res)=>{
         horaInicio: req.body.horaInicio,
         horaFinal: req.body.horaFinal,
         sala: req.body.sala,
-        cargaHoraria: req.body.ch,
+        cargaHoraria: req.body.cargaHoraria,
         numeroDePartic: req.body.numeroDePartic,
         inscricaoT: req.body.inscricaoT,
         valor: req.body.valor,
