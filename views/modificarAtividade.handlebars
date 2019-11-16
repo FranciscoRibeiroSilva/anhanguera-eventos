@@ -1,106 +1,107 @@
 {{>_navbar}}
-<div>
+<center>
+    <h1>REGISTRO DE ATIVIDADES</h1>
+</center>
+<div class="form-grup">
     <form action='/anhangueraeventos/addAtividade' , method="POST">
-        <center>
-            <h1>Registro de Atividades</h1>
-
             <div>
                 <span>
                     &emsp;
                     <label for="nome: "> Atividade: </label>
-                    <input type="text" id="nome" name="nome" placeholder="Nome da atividade" value="{{atividades.nome}}">
+                    <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome da atividade" value="{{atividades.nome}}">
                 </span>
 
                 <span>
                     &emsp;
                     Tipo:
-                    <select name="tipo">
-                        <option value="informe">--Atividade--</option>
-                        <option value="palestra"> Palestra </option>
-                        <option value="curso"> Curso </option>
-                        <option value="aula"> Aula </option>
-                        <option value="conferencia"> Conferência </option>
-                        <option value="sesaRedonda"> Mesa-Redonda </option>
+                    <select class="form-control" name="tipo" value="{{atividades.tipo}}">
+                        <option>--Atividade--</option>
+                        <option value="Palestra"> Palestra </option>
+                        <option value="Curso"> Curso </option>
+                        <option value="Aula"> Aula </option>
+                        <option value="Conferência"> Conferência </option>
+                        <option value="Mesa-Redonda"> Mesa-Redonda </option>
                     </select>
                 </span>
-            </div>
+            </div><br>
 
             <div>
                 <span>
                     &emsp;
-                    <label for="ministrar"> Ministrante: </label>
-                    <input type="text" name="ministrante" placeholder="Nome do ministrante">
+                    <label for="ministrante"> Ministrante: </label>
+                    <input class="form-control" type="text" name="ministrante" placeholder="Nome do ministrante" value="{{atividades.ministrante}}">
                 </span>
 
                 <span>
                     &emsp;
                     Data:
-                    <input id="date" type="date" name="data">
+                    <input class="form-control" id="date" type="date" name="data" value="{{atividades.data}}">
                 </span>
-            </div>
+            </div><br>
 
             <div>
                 <span>
                     &emsp;
                     <label for="appt"> Horário inicio: </label>
-                    <input type="time" id="appt" name="horaInicio" min="01:00" max="23:50" required>
+                    <input class="form-control" type="time" id="appt" name="horaInicio" min="01:00" max="23:50" required value="{{atividades.horaInicio}}">
                 </span>
 
                 <span>
                     &emsp;
                     <label for="appt"> Horário final: </label>
-                    <input type="time" id="appt" name="horaFinal" min="01:00" max="23:50" required>
+                    <input class="form-control" type="time" id="appt" name="horaFinal" min="01:00" max="23:50" required value="{{atividades.horaFinal}}">
                 </span>
-            </div>
+            </div><br>
 
             <div>
                 <span>
                     &emsp;
                     Sala:
-                    <select name="sala">
-                        <option value="s1">--Informe a sala--</option>
-                        <option value="s1">Sala 1</option>
-                        <option value="s2">Sala 2</option>
-                        <option value="s3">Sala 3</option>
-                        <option value="s4">Sala 4</option>
-                        <option value="s5">Sala 5</option>
-                        <option value="s6">Sala 6</option>
-                        <option value="s7">Sala 7</option>
-                        <option value="s8">Sala 8</option>
-                        <option value="s9">Sala 9</option>
-                        <option value="s10">Sala 10</option>
+                    <select class="form-control" name="sala" value="{{atividades.sala}}">
+                        <option>--Informe a sala--</option>
+                        <option value="SALA 1">Sala 1</option>
+                        <option value="SALA 2">Sala 2</option>
+                        <option value="SALA 3">Sala 3</option>
+                        <option value="SALA 4">Sala 4</option>
+                        <option value="SALA 5">Sala 5</option>
+                        <option value="SALA 6">Sala 6</option>
+                        <option value="SALA 7">Sala 7</option>
+                        <option value="SALA 8">Sala 8</option>
+                        <option value="SALA 9">Sala 9</option>
+                        <option value="SALA 10">Sala 10</option>
                     </select>
                 </span>
 
                 <span>
                     &emsp;
                     Carga Horário:
-                    <select name="ch">
-                        <option value="informe">--Informe a CH--</option>
-                        <option value="10">10 Horas</option>
-                        <option value="20">20 horas</option>
-                        <option value="30">30 horas</option>
-                        <option value="s1">40 horas</option>
+                    <select class="form-control" name="ch" value="{{atividades.ch}}">
+                        <option>--Informe a CH--</option>
+                        <option value="10 Horas">10 Horas</option>
+                        <option value="20 Horas">20 horas</option>
+                        <option value="30 Horas">30 horas</option>
+                        <option value="40 Horas">40 horas</option>
+                        <option value="50 Horas">50 horas</option>
                     </select>
                 </span>
-            </div>
+            </div><br>
 
             <div>
                 <span>
                     &emsp;
                     Inscrição:
-                    <select id="inscricao">
-                        <option value="informe">--Tipo--</option>
-                        <option>Gratuita</option>
-                        <option value="paga">Paga</option>
+                    <select class="form-control" name= "inscricaoT" id="inscricao" value="{{atividades.inscricaoT}}">
+                        <option>--Tipo--</option>
+                        <option value="Gratuita">Gratuita</option>
+                        <option value="Paga">Paga</option>
                     </select>
                 </span>
                 <span>
                     &emsp;
-                    <label for="quantidade"> Participantes: </label>
-                    <input type="number" name="quantidade" min="1" max="50" placeholder="Nº">
+                    <label for="numeroDePartic"> Participantes: </label>
+                    <input class="form-control" type="number" id="numeroDePartic" name="numeroDePartic" min="0" max="1000" placeholder="Número" value="{{atividades.numeroDePartic}}">
                 </span>
-            </div>
+            </div><br>
 
             <div>
                 </script>
@@ -108,13 +109,10 @@
                 <span>
                     &emsp;
                     <label for="valor">R$: </label>
-                    <input type="text" id="valor" placeholder="Valor de inscrição" disabled>
-                    &emsp;
-                    <label for="desconto"> Cupons: </label>
-                    <input type="number" id="desconto" min="0" max="30" placeholder="Nº" disabled>
+                    <input class="form-control" type="text" id="valor" name="valor" placeholder="Valor de inscrição" disabled value="{{atividades.valor}}">
                     &emsp;
                     <label for="prazo"> Prazo: </label>
-                    <input type="datetime-local" id="prazo" name="bdaytime" disabled>
+                    <input class="form-control" type="datetime-local" id="prazo" name="prazo" disabled value="{{atividades.prazo}}">
                 </span>
                 </span>
 
@@ -122,23 +120,24 @@
 
                 <span>
                     &emsp;
-                    <label for="numeroConta"> Conta: </label>
-                    <input type="text" id="numeroConta" placeholder="Nº da conta" disabled>
+                    <label for="numConta"> Conta: </label>
+                    <input class="form-control" type="text" id="numConta" name="numConta" placeholder="00000000-0" disabled value="{{atividades.numConta}}">
 
                     &emsp;
                     <label for="banco"> Banco: </label>
-                    <input type="text" id="banco" placeholder="Nome do Banco" disabled>
+                    <input class="form-control" type="text" id="banco" name="banco"placeholder="Nome do Banco" disabled value="{{atividades.banco}}">
 
                 </span>
                 <br>
+                
                 <span>
                     &emsp;
-                    <label for="numeroAgencia"> Agência: </label>
-                    <input type="text" id="numeroAgencia" placeholder="Número da agência" disabled>
+                    <label for="agencia"> Agência: </label>
+                    <input class="form-control" type="text" id="agencia"name="agencia" placeholder="0000" disabled value="{{atividades.agencia}}">
 
                     &emsp;
                     <label for="cpf"> CPF: </label>
-                    <input type="text" id="cpf" placeholder="000-000-000-00" disabled>
+                    <input class="form-control" type="text" id="cpf" name="cpf"placeholder="000.000.000-00" disabled value="{{atividades.cpf}}">
                 </span>
 
                 <script>
@@ -146,103 +145,91 @@
                         input1 = document.getElementById('valor'),
                         tipo1;
                     var select = document.getElementById('inscricao'),
-                        input2 = document.getElementById('desconto'),
+                        input2 = document.getElementById('numConta'),
                         tipo2;
                     var select = document.getElementById('inscricao'),
-                        input3 = document.getElementById('numeroConta'),
+                        input3 = document.getElementById('cpf'),
                         tipo3;
                     var select = document.getElementById('inscricao'),
-                        input4 = document.getElementById('cpf'),
+                        input4 = document.getElementById('agencia'),
                         tipo4;
                     var select = document.getElementById('inscricao'),
-                        input5 = document.getElementById('numeroAgencia'),
+                        input5 = document.getElementById('banco'),
                         tipo5;
                     var select = document.getElementById('inscricao'),
-                        input6 = document.getElementById('banco'),
+                        input6 = document.getElementById('prazo'),
                         tipo6;
-                    var select = document.getElementById('inscricao'),
-                        input7 = document.getElementById('prazo'),
-                        tipo7;
 
                     // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
                     select.addEventListener('change', function () {
                         tipo1 = this.value;
-                        if (tipo1 == 'paga') {
+                        if (tipo1 == 'Paga') {
                             input1.removeAttribute('disabled', false);
                         } else {
                             input1.setAttribute('disabled', false);
                             input1.value = null;
                         }
                     });
-                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO CUPONS
+                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO CONTA 
                     select.addEventListener('change', function () {
                         tipo2 = this.value;
-                        if (tipo2 == 'paga') {
+                        if (tipo2 == 'Paga') {
                             input2.removeAttribute('disabled', false);
                         } else {
                             input2.setAttribute('disabled', false);
                             input2.value = null;
                         }
                     });
-                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO CONTA
+                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO CPF
                     select.addEventListener('change', function () {
                         tipo3 = this.value;
-                        if (tipo3 == 'paga') {
+                        if (tipo3 == 'Paga') {
                             input3.removeAttribute('disabled', false);
                         } else {
                             input3.setAttribute('disabled', false);
                             input3.value = null;
                         }
                     });
-                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO CPF
+                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO AGENCIA
                     select.addEventListener('change', function () {
                         tipo4 = this.value;
-                        if (tipo4 == 'paga') {
+                        if (tipo4 == 'Paga') {
                             input4.removeAttribute('disabled', false);
                         } else {
                             input4.setAttribute('disabled', false);
                             input4.value = null;
                         }
                     });
-                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO AGENCIA
+                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO BANCO 
                     select.addEventListener('change', function () {
                         tipo5 = this.value;
-                        if (tipo5 == 'paga') {
+                        if (tipo5 == 'Paga') {
                             input5.removeAttribute('disabled', false);
                         } else {
                             input5.setAttribute('disabled', false);
                             input5.value = null;
                         }
                     });
-                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO BANCO
+                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO PRAZO PAGAMENTO
                     select.addEventListener('change', function () {
                         tipo6 = this.value;
-                        if (tipo6 == 'paga') {
+                        if (tipo6 == 'Paga') {
                             input6.removeAttribute('disabled', false);
                         } else {
                             input6.setAttribute('disabled', false);
                             input6.value = null;
                         }
                     });
-                     // CONDIÇÃO PARA DESBLOQUEAR O CAMPO PRAZO PAGAMENTO
-                    select.addEventListener('change', function () {
-                        tipo7 = this.value;
-                        if (tipo7 == 'paga') {
-                            input7.removeAttribute('disabled', false);
-                        } else {
-                            input7.setAttribute('disabled', false);
-                            input7.value = null;
-                        }
-                    });
+                    
                 </script>
                 </span>
             </div>
 
             <div>
                 <br>
-                <button> Concluir </button>
+                <button> Concluir Modificação </button>
             </div>
 
-        </center>
+       
     </form>
 </div>
