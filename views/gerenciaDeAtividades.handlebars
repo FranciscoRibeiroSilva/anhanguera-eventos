@@ -1,6 +1,6 @@
 {{>_navbar}}
 <div class="mt-4">
-    <button class="btn btn-outline-secondary"> <a href='/anhangueraeventos/formAtividades'>Adicionar Atividade</a> </button>
+    <button class="btn btn-outline-secondary btn-tamanhoUnico"> <a href='/anhangueraeventos/formAtividades'>Adicionar Atividade</a> </button>
     
     {{#each regist}}
         <div class="card mt-2">
@@ -19,8 +19,8 @@
                     Tipo de inscrição: {{inscricaoT}}<br>
                 </h6>
 
-                <a href='/anhangueraeventos/removeAtividade/{{id}}'><button class="btn btn-outline-secondary">Remover atividade</button></a>
-                <a href='/anhangueraeventos/formModifica/{{id}}'><button class="btn btn-outline-secondary"> Modificar atividade </button></a>
+                <a href='/anhangueraeventos/removeAtividade/{{id}}'><button class="btn btn-outline-secondary btn-tamanhoUnico">Remover atividade</button></a>
+                <a href='/anhangueraeventos/formModifica/{{id}}'><button class="btn btn-outline-secondary btn-tamanhoUnico"> Modificar atividade </button></a>
             </div>
         </div>
     {{/each}}
