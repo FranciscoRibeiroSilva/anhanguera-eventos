@@ -1,38 +1,31 @@
 <div class="mt-5">
-    <form action = "/anhangueraeventos/verificarDados" method = "POST">
-        <center>
-            
-            {{>_logo20px}}
-            
+    <center>
+        {{>_logo20px}}
+    </center>
+
+    <div>
+        <form action = "/anhangueraeventos/verificarDados" method = "POST" class="form-grup">
+        
             <div class="margem">
-                <span>
-                    E-mail:
-		            <input type="text" name="login" placeholder="Digite seu e-mail"><br><br>
-		            Senha:
-		            <input type="password" placeholder="Digite sua senha">
-                </span>
-            </div>
-            
-            <div>
-                <br><br>
-                <button class="btn btn-outline-secondary "> Entrar </button>
-                <br><br>
+                <div>
+                    <label for="e-mail">E-mail:</label><br> 
+		            <input class="form-control"type="text" id="e-mail" placeholder="Digite seu e-mail">
+                </div><br>
+                <div>
+		            <label for="senha">Senha:</label><br>
+		            <input class="form-control" type="password" placeholder="Digite sua senha">
+                </div>
             </div>
 
-            Não tem uma conta?<a href='/anhangueraeventos/cadastroAdm'> Cadastre-se </a>
-
-        </center>
-    </form>
+            <center>
+                <div>
+                    <br><br>
+                    <button class="btn btn-outline-secondary "> Entrar </button>
+                    <br><br>
+                </div>
+                Não tem uma conta?<a href='/anhangueraeventos/cadastroAdm'> Cadastre-se </a>
+            </center>    
+        </form>
+    </div>
+    
 </div>
-
-
-
-
-<!--<div> 
-        Links <br>
-        <a href='CriarEvento'>Criar Evento</a><br>
-        <a href='RegistroAtividade'> Cadastrar Atividade </a><br>
-        <a href='ListarEventos'>Listar Eventos</a><br>
-        <a href='EventoCriado'>Evento Criado</a>
-    </div>-->
-
