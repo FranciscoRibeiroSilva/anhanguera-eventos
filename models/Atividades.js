@@ -34,9 +34,6 @@ const Atividades = db.sequelize.define('atividades', {
     valor: {
         type : db.Sequelize.STRING
     },
-    cupom: {
-        type: db.Sequelize.STRING
-    },
     prazo: {
         type: db.Sequelize.STRING
     },
