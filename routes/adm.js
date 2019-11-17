@@ -15,7 +15,6 @@ router.post('/addAdm',(req, res)=>{
     if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2){
         erros.push({texto:"Nome Inválido"})
     }
-
     if (erros.length > 0){
         res.render('cadastroAdm', {erros: erros})
     }
@@ -109,7 +108,7 @@ router.get('/formModifica/:id',(req, res)=>{
         res.render('modificarAtividade', {atividades: atividades})
     }).catch((err)=>{
         req.flash("error_msg", "Erro ao busca atividade")
-        res.render('gerenciaDeAtividades')
+        res.redirect('gerenciaDeAtividades')
     })
     
 })
