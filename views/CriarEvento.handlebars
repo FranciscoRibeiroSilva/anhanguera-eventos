@@ -1,70 +1,57 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <img src="imagens/logo.png" alt="Logo_temporaria" width="50px">
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a href="" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link active">login</a>
-        </li>
-        <li class="nav-item">
-             <a href="" class="nav-link">Cadastro</a>
-        </li>
-        <li class="nav-item">
-             <a href="" class="nav-link">Sair</a>
-        </li>
-    </ul>
-</nav>
-    <div id="confCriarEvent">
-        <div>
-            
-                    <form action = '/anhangueraeventos/addEvento' method = "POST">
-                     Nome do evento:<br>
-                        <input type="text" name = "nomeDoEvento"> 
-                        <br> 
-                    <!--/form-->
-            
-                    <!--form-->
-                        Participantes esperados:<br>
-                                <select name = "participantesEsper">
-                                        <option value="Escolher op"> Escolher opçao </option>
-                                        <option value="Ate 300 "> Ate 300 participantes </option>
-                                        <option value="Entre 300 e 1000 "> Entre 300 e 1000 participantes </option>
-                                        <option value="Mais de 1000 "> Mais de 1000 participantes </option>
-                                    </select>
-                                    <br> <br>
-                        
-                    <!--/form-->
-            
-                    <!--form-->
-                         Tipo de evento: <br>
-                                <select name="tipoEvento">
-                                    <option value="Escolher op"> Escolher opçao </option>
-                                    <option value="Curso">Curso-Workshop/Palestra</option> 
-                                    <option value="Academico">Academico-Seminario/Jornada</option>
-                                    <option value="Cientifico">Cientifico-Congresso/Simposio</option>   
-                                    <option value="Outro">Outro</option>
-                                </select>
-                                <br> <br>
-            
-                        
-                    <!--/form-->
-            
-                    <!--form-->
-                             Qual o seu nome:<br>
-                                    <input type="nomeAdmistrador"> 
-                         
-                                    <br>     
-                    <!--/form>
+{{>_navbar}}
+<div class="form-grup">
+    <div>
+
+        <form action='/anhangueraeventos/addEvento' method="POST"><br>
+            <!--form-->
+            <div>
+                </label for="nomeEvento"> Nome do evento:</label><br>
+                <input class="form-control" type="text" id="nomeEvento" placeholder="Informe o nome do evento">
+            </div>
+
+            <!--/form-->
+
+            <!--form-->
+            <div>
+                <label for="numeroDeParticipantes">Numero de participantes esperados:</label><br>
+                <select class="form-control" name="numeroDeParticipantes">
+                    <option value="Escolher op"> Escolha uma opção </option>
+                    <option value="Ate 300 "> Ate 300 participantes </option>
+                    <option value="Entre 300 e 1000 "> Entre 300 e 1000 participantes </option>
+                    <option value="Mais de 1000 "> Mais de 1000 participantes </option>
+                </select>
+            </div>
+            <!--/form-->
+
+            <!--form-->
+            <div>
+                <label for="tipoDeEvento">Tipo de evento:</label><br>
+                <select class="form-control" name="tipoDeEvento">
+                    <option value="Escolher op"> Escolha uma opção </option>
+                    <option value="Curso">Curso-Workshop/Palestra</option>
+                    <option value="Academico">Academico-Seminario/Jornada</option>
+                    <option value="Cientifico">Cientifico-Congresso/Simposio</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+            <!--/form-->
+
+            <!--form-->
+            <div>
+                <label for="nomeAdm">Qual o seu nome:</label><br>
+                <input class="form-control" id="nomeAdm" type="nomeAdmistrador" placeholder="Nome de administrador">
+            </div>
+            <!--/form>
             
                     <form-->
-                            E-mail do administrado:<br>
-                                <input type="emailAdmistrador">
-                   
-                        <br>
-                        <button>Entrar</button>
-                    </form>
-            
-                    
-        </div>
+            <div>
+                <label for="emailAdm">E-mail do administrado:</label><br>
+                <input class="form-control" type="emailAdmistrador" placeholder="Informe o e-mail">
+            </div><br>
+            <!--/form-->
+            <button class="btn btn-outline-secondary btn-tamanhoUnico">Entrar</button>
+        </form>
+
+
     </div>
+</div>

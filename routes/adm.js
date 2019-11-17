@@ -87,15 +87,22 @@ router.post('/addAtividade', (req, res)=>{
     Atividades.create({
         nome: req.body.nome,
         tipo: req.body.tipo,
-        ministrante: req.body.ministrante,
-        hora: req.body.hora,
         data: req.body.data,
+        ministrante: req.body.ministrante,
+        horaInicio: req.body.horaInicio,
+        horaFinal: req.body.horaFinal,
         sala: req.body.sala,
-        numeroDePartic: req.body.maxpar,
-        cargaHoraria: req.body.ch,
-        inscricaoT: req.body.inscricao,
+        cargaHoraria: req.body.cargaHoraria,
+        numeroDePartic: req.body.numeroDePartic,
+        inscricaoT: req.body.inscricaoT,
         valor: req.body.valor,
-        cupom: req.body.desconto
+        prazo: req.body.prazo,
+        numConta: req.body.numConta,
+        banco: req.body.banco,
+        agencia: req.body.agencia,
+        cpf: req.body.cpf
+        
+
     }).then(function(){
         res.redirect('/anhangueraeventos/gerenciaDeAtividades')
     }).catch(function(erro){

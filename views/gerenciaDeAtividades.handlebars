@@ -1,16 +1,26 @@
 {{>_navbar}}
 <div class="mt-4">
-    <button class="btn btn-outline-secondary"> <a href='/anhangueraeventos/formAtividades'>Adicionar Atividade</a> </button>
+    <a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary btn-tamanhoUnico">Adicionar Atividade</button></a> 
     
     {{#each regist}}
         <div class="card mt-2">
             <div class="card-body">
-                <h3><p>Nome da ativida: {{nome}}</p></h3>
-                <small><p>Tipo de Atividade: {{tipo}}   Ministrante: {{ministrante}}</p>
-                <p>Sala: {{sala}}   Participates: {{numeroDePartic}} Carga horaria: {{cargaHoraria}}</p>
-                <p>Tipo de inscrição: {{inscricaoT}}</p></small>
-                <a href='/anhangueraeventos/removeAtividade/{{id}}'><button class="btn btn-outline-secondary">Remover atividade</button></a>
-                <a href='/anhangueraeventos/formModifica/{{id}}'><button class="btn btn-outline-secondary"> Modificar atividade </button></a>
+                <h2> <p> Nome da Atividade: {{nome}} </p></h2>
+                
+                <h6> 
+                    Tipo de Atividade: {{tipo}}<br>
+                    Ministrante: {{ministrante}}<br>
+                    Data: {{data}}<br>
+                    Hórario inicio: {{horaInicio}}<br>
+                    Hórario final: {{horaFinal}}<br>
+                    Sala: {{sala}}<br>
+                    Carga horaria: {{cargaHoraria}}<br>
+                    Participantes: {{numeroDePartic}}<br>
+                    Tipo de inscrição: {{inscricaoT}}<br>
+                </h6>
+
+                <a href='/anhangueraeventos/removeAtividade/{{id}}'><button class="btn btn-outline-secondary btn-tamanhoUnico">Remover atividade</button></a>
+                <a href='/anhangueraeventos/formModifica/{{id}}'><button class="btn btn-outline-secondary btn-tamanhoUnico"> Modificar atividade </button></a>
             </div>
         </div>
     {{/each}}
