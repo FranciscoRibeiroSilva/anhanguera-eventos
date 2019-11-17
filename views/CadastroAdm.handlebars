@@ -1,4 +1,15 @@
-<nav><br>
+    <style>
+        .tamanho{
+            margin: 5% 28% 0% 28%;
+            padding: 0%;
+            display: inline-block;
+            width: 500px;
+            height: 100px;
+            text-align: justify;
+            top: 50%;
+        }
+    </style>
+<nav class="form-grup"><br>
 				<div>
 					<center>
 						<h2>CADASTRE-SE</h2>
@@ -10,7 +21,7 @@
 						{{/each}}
 					<form align-left="60px" action= "/anhangueraeventos/addAdm" method = "POST">
 						
-						<div class="form-group">
+						<div class="tamanho">
 							<div>	
 								<label for="nome">Nome:</label><br>
 								<input class="form-control"type="text" id= "nome" placeholder="Informe seu nome">  
