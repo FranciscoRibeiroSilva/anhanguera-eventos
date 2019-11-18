@@ -13,7 +13,13 @@ router.get('/cadastroAdm', (req, res)=>{
 router.post('/addAdm',(req, res)=>{
     var erros =[]
     if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2){
-        erros.push({texto:"Nome Inválido"})
+        erros.push({texto:"Insira um nome válido"})
+    }
+    if (!req.body.email || typeof req.body.email == undefined || req.body.email == null || req.body.email.length < 8){
+        erros.push({texto:"Insira um e-mail válido"})
+    }
+    if (!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null || req.body.senha.length < 6){
+        erros.push({texto:"Insira uma senha válida"})
     }
     if (erros.length > 0){
         res.render('cadastroAdm', {erros: erros})
