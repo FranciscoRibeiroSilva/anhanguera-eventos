@@ -1,57 +1,58 @@
-
 <nav class="form-grup"><br>
+	<div>
+		<center>
+			<h2>CADASTRE-SE</h2>
+		</center>
+
+		{{#each erros}}
+			<div class="alert alert-danger">{{texto}}</div>
+			{{else}}
+		{{/each}}
+		<form align-left="60px" action="/anhangueraeventos/addAdm" method="POST">
+
+			<div class="formatacao">
 				<div>
-					<center>
-						<h2>CADASTRE-SE</h2>
-					</center>
-					
-						{{#each erros}}
-							<div class="alert alert-danger">{{texto}}</div>
-							{{else}}
-						{{/each}}
-					<form align-left="60px" action= "/anhangueraeventos/addAdm" method = "POST">
-						
-						<div>
-							<div>	
-								<label for="nome">Nome:</label><br>
-								<input class="form-control" type="text" id= "nome" placeholder="Informe seu nome" name="nome">  
-							</div>
-							<!--E-Mail:<br-->
-							<!---input type="text" name = ""><br>-->
-							<div>
-								<label for="nome">E-mail:</label><br>
-								<input class="form-control"type="text" name="email"placeholder="Informe seu e-mail">
-							</div>
-							<!--Confirme o seu E-mail:<br>
-							<input type="text" name="E-mail"><br><br><br-->
-							
-							<div>
-								<label for="senha">Senha:</label><br>
-								<input class="form-control"type="password"placeholder="Informe sua senha">
-							</div>
-							
-							<div>
-								<label for="confirmarSenha">Confirme a sua Senha:</label><br>
-								<input class="form-control"type="password" name = "senha"placeholder="Confirme sua senha">
-							</div>
-									
-							<div>
-								<label for="estados">Estado</label><br>
-								<select class="form-control"id = "estados">
-									<option value="N">Selecione o estado</option>	
-									<option value="RJ">Rio de Janeiro</option>
-									<option value="SP">São Paulo</option>
-									<option value="PI">Piauí</option>
-								</select>
-							</div>
-							<br>
-							<!--Observações:<br-->
-							<!--textarea></textarea><br-->
-						
-							<input class="btn btn-outline-secondary btn-tamanhoUnico"type="submit">
-						</div>
-					
-					</form>
-	
+					<label for="nome">Nome:</label>
+					<input class="form-control" type="text" name="nome" placeholder="Informe seu nome">
 				</div>
+				<!--E-Mail:<br-->
+				<!---input type="text" name = ""><br>-->
+				<div>
+					<label for="nome">E-mail:</label>
+					<input class="form-control" type="text" name="email" placeholder="Informe seu e-mail">
+				</div>
+				<!--Confirme o seu E-mail:<br>
+							<input type="text" name="E-mail"><br><br><br-->
+
+				<div>
+					<label for="senha">Senha:</label>
+					<input class="form-control" type="password" placeholder="Informe sua senha">
+				</div>
+
+				<div>
+					<label for="confirmarSenha">Confirme a sua Senha:</label>
+					<input class="form-control" type="password" name="senha" placeholder="Confirme sua senha">
+				</div>
+
+				<div>
+					<label for="estado">Estado</label>
+					<select class="form-control" name="estado">
+						<option value="N">Selecione o estado</option>
+						<option value="RJ">Rio de Janeiro</option>
+						<option value="SP">São Paulo</option>
+						<option value="PI">Piauí</option>
+					</select>
+				</div>
+				<br>
+				<!--Observações:<br-->
+				<!--textarea></textarea><br-->
+				<center>
+					<input class="btn btn-outline-secondary btn-tamanhoUnico" type="submit">
+				</center>
+				
+			</div>
+
+		</form>
+
+	</div>
 </nav>
