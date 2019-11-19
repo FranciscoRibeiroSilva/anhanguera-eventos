@@ -3,6 +3,7 @@ const app = express();
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const adm = require('./routes/adm')
+const user = require('./routes/user')
 const Cadastro = require('./models/Cadastro')
 const Eventos = require('./models/Eventos')
 const Atividades = require('./models/Atividades')
@@ -39,16 +40,14 @@ const flash = require("connect-flash")
 //Rotas
     //Rota principal
         app.get('/', function(req, res){
-              res.render('index')
-            })
-              //Certificado
-            //    CadastroUsers.findAll().then(function(certis){
-            //    res.render('Certificado', {certise: certis})
-            //})
+            res.render('index')
+        })
     
     //Rotas dos adm's
+        app.use('/users', user)
         app.use('/anhangueraeventos', adm)
 
+    //Rotas do usuario
 
 
 
