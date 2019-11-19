@@ -1854,7 +1854,18 @@ pre code {
 .table-responsive > .table-bordered {
   border: 0;
 }
+/*CODIGO ADCIONAL*/
+.formatacao {
+  margin: 2% 25% 0% 25%;
+}
+.font{
+ font-family: 'Alegreya';
+}
+.margem{
+  margin-top: 12%;
+}
 
+/*/CODIGO ADCIONAL*/
 .form-control {
   display: block;
   width: 100%;
