@@ -44,8 +44,8 @@ const flash = require("connect-flash")
         })
     
     //Rotas dos adm's
-        app.use('/users', user)
-        app.use('/anhangueraeventos', adm)
+    app.use('/anhangueraeventos', adm)
+    app.use('/users', user)
 
     //Rotas do usuario
 

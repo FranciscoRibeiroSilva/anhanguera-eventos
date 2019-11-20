@@ -6,7 +6,7 @@ const Atividades = require('../models/Atividades')
 
 //pagina de cadastro do adm
 router.get('/cadastroAdm', (req, res)=>{
-    res.render('CadastroAdm')
+    res.render('admi/adminForms/FormAdm')
 })
 
 //adiciona dados do cadastro adm ao BD
@@ -22,7 +22,7 @@ router.post('/addAdm',(req, res)=>{
         erros.push({texto:"Insira uma senha válida"})
     }
     if (erros.length > 0){
-        res.render('cadastroAdm', {erros: erros})
+        res.render('admi/adminForms/FormAdm', {erros: erros})
     }
     Cadastro.create({
         nome: req.body.nome,
@@ -40,7 +40,7 @@ router.post('/addAdm',(req, res)=>{
 
 //Pagina de login do adm
 router.get('/loginAdm', (req, res)=> {
-    res.render('LoginAdm')
+    res.render('admi/LoginAdm')
 })
 
 //Verifica dados de login
@@ -50,7 +50,7 @@ router.post('/verificarDados',(req, res)=>{
 
 //Pagina de formulario de criação de evento
 router.get('/formEvento',(req, res)=>{
-    res.render('CriarEvento')
+    res.render('admi/adminForm/FormEvento')
 })
 
 //Adiciona dados do formulario eventos ao DB
@@ -71,7 +71,7 @@ router.post('/addEvento', (req, res)=>{
 
 //homepage do adm
 router.get('/homepage', (req, res)=> {
-    res.render('EventoCriado')
+    res.render('admi/GerenciaDeEvento')
 })
 
 //pagina de gerenciamento de atividades
@@ -79,13 +79,13 @@ router.get('/gerenciaDeAtividades', (req, res)=>{
     
     Atividades.findAll().then(function(atividades){
 
-        res.render('gerenciaDeAtividades', {regist: atividades})
+        res.render('admi/gerenciaDeAtividades', {regist: atividades})
     })
 })
 
 //pagina de formulario de atividades
 router.get('/formAtividades', (req, res)=>{
-    res.render('RegistraAtividade')
+    res.render('admi/FormAtividade')
 })
 
 //rota que adiciona os dados de atividades ao DB
@@ -107,8 +107,6 @@ router.post('/addAtividade', (req, res)=>{
         banco: req.body.banco,
         agencia: req.body.agencia,
         cpf: req.body.cpf
-        
-
     }).then(function(){
         res.redirect('/anhangueraeventos/gerenciaDeAtividades')
     }).catch(function(erro){
@@ -118,10 +116,10 @@ router.post('/addAtividade', (req, res)=>{
 
 router.get('/formModifica/:id',(req, res)=>{
     Atividades.findOne({where: {'id':req.params.id}}).then((atividades)=>{
-        res.render('modificarAtividade', {atividades: atividades})
+        res.render('admi/adminForms/modificarAtividade', {atividades: atividades})
     }).catch((err)=>{
         req.flash("error_msg", "Erro ao busca atividade")
-        res.redirect('gerenciaDeAtividades')
+        res.redirect('anhangueraeventos/gerenciaDeAtividades')
     })
     
 })
