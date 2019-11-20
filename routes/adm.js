@@ -109,14 +109,15 @@ router.post('/addAtividade', (req, res)=>{
         cpf: req.body.cpf
     }).then(function(){
         res.redirect('/anhangueraeventos/gerenciaDeAtividades')
-    }).catch(function(erro){
-        res.send("Erro ao adicionar atividade: "+erro)
+    }).catch(function(err){
+        req.flash("error_msg", "Erro ao adicionar atividade")
+        res.redirect('/anhangueraeventos/gerenciaDeAtividades')
     })
 })
-
+//Exibe formulario de edeicao de atividades
 router.get('/formModifica/:id',(req, res)=>{
     Atividades.findOne({where: {'id':req.params.id}}).then((atividades)=>{
-        res.render('admi/adminForms/modificarAtividade', {atividades: atividades})
+        res.render('admi/adminForms/FormModAtividade', {atividades: atividades})
     }).catch((err)=>{
         req.flash("error_msg", "Erro ao busca atividade")
         res.redirect('anhangueraeventos/gerenciaDeAtividades')
@@ -124,6 +125,35 @@ router.get('/formModifica/:id',(req, res)=>{
     
 })
 
+//Edita as atividades
+router.post('/modAtividades/', (req, res)=>{
+    Atividades.update({
+        nome : req.body.nome,
+        tipo: req.body.tipo,
+        data: req.body.data,
+        ministrante: req.body.ministrante,
+        horaInicio: req.body.horaInicio,
+        horaFinal: req.body.horaFinal,
+        sala: req.body.sala,
+        cargaHoraria: req.body.cargaHoraria,
+        numeroDePartic: req.body.numeroDePartic,
+        inscricaoT: req.body.inscricaoT,
+        valor: req.body.valor,
+        prazo: req.body.prazo,
+        numConta: req.body.numConta,
+        banco: req.body.banco,
+        agencia: req.body.agencia,
+        cpf: req.body.cpf
+    },{where :{'id':req.body.id}}).then(()=>{
+        req.flash("success_msg", "Edição concluida com exito")
+        res.redirect('/anhangueraeventos/gerenciaDeAtividades')
+    }).catch((err)=>{
+        req.flash("error_msg","Erro ao editar atividade")
+        res.redirect('anhagueraeventos/gerenciaDeAtividades')
+    })
+})
+
+//remove atividades
 router.get('/removeAtividade/:id', function(req, res){
     Atividades.destroy({where: {'id': req.params.id}}).then(function(){
         res.redirect('/anhangueraeventos/gerenciaDeAtividades')

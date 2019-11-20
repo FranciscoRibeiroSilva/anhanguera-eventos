@@ -1,5 +1,6 @@
 {{>_navbar}}
 <div class="mt-5">
+    {{>_msg}}
     <a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary btn-tamanhoUnico">Adicionar Atividade</button></a> 
     
     {{#each regist}}
@@ -7,7 +8,7 @@
             <div class="card-body">
                 <h2> <p> Nome da Atividade: {{nome}} </p></h2>
                 
-                <h6> 
+                <h6>
                     Tipo de Atividade: {{tipo}}<br>
                     Ministrante: {{ministrante}}<br>
                     Data: {{data}}<br>

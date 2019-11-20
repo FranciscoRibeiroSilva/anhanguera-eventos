@@ -3,17 +3,17 @@
     <h1>REGISTRO DE ATIVIDADES</h1>
 </center>
 <div class="form-grup">
-    <form action='/anhangueraeventos/addAtividade' , method="POST">
+    <form action='/anhangueraeventos/modAtividades' , method="POST">
         <div>
             <span>
                 &emsp;
                 <label for="nome: "> Atividade: </label>
-                <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome da atividade"
-                    value="{{atividades.nome}}">
+                <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome da atividade" value="{{atividades.nome}}">
             </span>
 
             <span>
                 &emsp;
+                <input type="hidden" name="id" value="{{atividades.id}}">
                 Tipo:
                 <select class="form-control" name="tipo">
                     <option>{{atividades.tipo}}</option>
@@ -30,8 +30,7 @@
             <span>
                 &emsp;
                 <label for="ministrante"> Ministrante: </label>
-                <input class="form-control" type="text" name="ministrante" placeholder="Nome do ministrante"
-                    value="{{atividades.ministrante}}">
+                <input class="form-control" type="text" name="ministrante" placeholder="Nome do ministrante" value="{{atividades.ministrante}}">
             </span>
 
             <span>
@@ -45,15 +44,13 @@
             <span>
                 &emsp;
                 <label for="appt"> Horário inicio: </label>
-                <input class="form-control" type="time" id="appt" name="horaInicio" min="01:00" max="23:50" required
-                    value="{{atividades.horaInicio}}">
+                <input class="form-control" type="time" id="appt" name="horaInicio" min="01:00" max="23:50" required value="{{atividades.horaInicio}}">
             </span>
 
             <span>
                 &emsp;
                 <label for="appt"> Horário final: </label>
-                <input class="form-control" type="time" id="appt" name="horaFinal" min="01:00" max="23:50" required
-                    value="{{atividades.horaFinal}}">
+                <input class="form-control" type="time" id="appt" name="horaFinal" min="01:00" max="23:50" required value="{{atividades.horaFinal}}">
             </span>
         </div><br>
 
@@ -114,12 +111,10 @@
             <span>
                 &emsp;
                 <label for="valor">R$: </label>
-                <input class="form-control" type="text" id="valor" name="valor" placeholder="Valor de inscrição"
-                    disabled value="{{atividades.valor}}">
+                <input class="form-control" type="text" id="valor" name="valor" placeholder="Valor de inscrição" disabled value="{{atividades.valor}}">
                 &emsp;
                 <label for="prazo"> Prazo: </label>
-                <input class="form-control" type="datetime-local" id="prazo" name="prazo" disabled
-                    value="{{atividades.prazo}}">
+                <input class="form-control" type="datetime-local" id="prazo" name="prazo" disabled value="{{atividades.prazo}}">
             </span>
             </span>
 
@@ -128,13 +123,11 @@
             <span>
                 &emsp;
                 <label for="numConta"> Conta: </label>
-                <input class="form-control" type="text" id="numConta" name="numConta" placeholder="00000000-0" disabled
-                    value="{{atividades.numConta}}">
+                <input class="form-control" type="text" id="numConta" name="numConta" placeholder="00000000-0" disabled value="{{atividades.numConta}}">
 
                 &emsp;
                 <label for="banco"> Banco: </label>
-                <input class="form-control" type="text" id="banco" name="banco" placeholder="Nome do Banco" disabled
-                    value="{{atividades.banco}}">
+                <input class="form-control" type="text" id="banco" name="banco" placeholder="Nome do Banco" disabled value="{{atividades.banco}}">
 
             </span>
             <br>
@@ -142,13 +135,11 @@
             <span>
                 &emsp;
                 <label for="agencia"> Agência: </label>
-                <input class="form-control" type="text" id="agencia" name="agencia" placeholder="0000" disabled
-                    value="{{atividades.agencia}}">
+                <input class="form-control" type="text" id="agencia" name="agencia" placeholder="0000" disabled value="{{atividades.agencia}}">
 
                 &emsp;
                 <label for="cpf"> CPF: </label>
-                <input class="form-control" type="text" id="cpf" name="cpf" placeholder="000.000.000-00" disabled
-                    value="{{atividades.cpf}}">
+                <input class="form-control" type="text" id="cpf" name="cpf" placeholder="000.000.000-00" disabled value="{{atividades.cpf}}">
             </span>
 
             <script>
