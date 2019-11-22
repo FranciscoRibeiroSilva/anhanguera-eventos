@@ -1,11 +1,15 @@
 const express = require("express")
-const router2 = express.Router();
+const router = express.Router();
 const CadastroUsers = require('../models/Usuarios')
 
-router2.get('/geraCertificado', (req, res)=>{
+router.get('/geraCertificado', (req, res)=>{
     CadastroUsers.findAll().then(function(certis){
     res.render('Certificado', {certise: certis})
     })
 })
 
-module.exports = router2
+router.get('/formPartic', (req, res)=>{
+    res.render('user/userForms/FormParticipante')
+})
+
+module.exports = router
