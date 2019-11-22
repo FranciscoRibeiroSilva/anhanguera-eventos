@@ -9,15 +9,12 @@ const CadastroUsers = db.sequelize.define('usuarios', {
     },
     email: {
         type: db.Sequelize.STRING
+    },
+    senha:{
+        type: db.Sequelize.STRING
     }
     
 })
-
-//CadastroUsers.create({
-//   nome: "Matheus Holanda",
-//    cpf: "12345678900",
-//    email: "matheus.lopes88@hotmail.com"
-//})
 
 
 //CadastroUsers.sync({force: true})
