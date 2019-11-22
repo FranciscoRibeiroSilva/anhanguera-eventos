@@ -85,7 +85,7 @@ router.get('/gerenciaDeAtividades', (req, res)=>{
 
 //pagina de formulario de atividades
 router.get('/formAtividades', (req, res)=>{
-    res.render('admi/FormAtividade')
+    res.render('admi/adminForms/FormAtividade')
 })
 
 //rota que adiciona os dados de atividades ao DB
