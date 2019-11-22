@@ -3,6 +3,7 @@ const router = express.Router()
 const Cadastro = require('../models/Cadastro')
 const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
+const Usuarios = require('../models/Usuarios')
 
 //pagina de cadastro do adm
 router.get('/cadastroAdm', (req, res)=>{
@@ -80,6 +81,13 @@ router.get('/gerenciaDeAtividades', (req, res)=>{
     Atividades.findAll().then(function(atividades){
 
         res.render('admi/gerenciaDeAtividades', {regist: atividades})
+    })
+})
+
+// Página de usuários cadastrados
+router.get('/listarUsuarios', (req, res)=>{
+    Usuarios.findAll().then(function(usuarios){
+        res.render('admi/listarUsuarios', {listarUsers: usuarios})
     })
 })
 
