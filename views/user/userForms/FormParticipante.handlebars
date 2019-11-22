@@ -1,188 +1,49 @@
 <nav class="form-grup"><br>
-    <div class="formatacao">
-        <form action="/users" id="cad" required>
-                
-            <center>
-                <img src="imagens/logo.png" width="200px"><br><br>
-                <h3>DADOS PESSOAIS</h3>
-            </center>
-            
-            <div>
-                <label for="nome">Nome:</label><br> 
-                <input class="form-control" type="text" id="nome" name="nome" maxlength="40" placeholder="Informe seu nome" required />
-            </div>
-            
-            <!--<div>
-                <label for="sobrenome">Sobrenome:</label><br> 
-                <input class="form-control" type="text" name="txtsobrenome" maxlength="30" placeholder="Informe seu sobrenome" required />
-            </div>
-            
-            <div>
-                <label for="data_nasc">Data de nascimento:</label><br>
-                <input class="form-control" type="date" id="data_nasc" required />
-            </div>-->
-            
-            <div>
-                <label for="cpf">CPF:</label><br>  
-                <input class="form-control" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Informe seu CPF" required />
-            </div><br>
-           <!-- <center>
-                <h3>DADOS PARA CONTATO</h3>
-            </center>
-            
-            <div>
-                <label for="DDD">DDD:</label><br>  
-                <input class="form-control" type="text" name="DDD" placeholder="Ex: (###)"  maxlength="2" required />
-            </div>
-            
-            <div>
-                Tipo:<br> 
-                <input type="radio" name="rbT" value="Celular" checked />Celular
-                <input type="radio" name="rbT" value="Telefone" />Telefone
-            </div>
-            
-            <div>
-                <label for="numero">Nº:</label><br>     
-                <input class="form-control" type="tel" id="numero" maxlength="9" placeholder="Informe o Nº para contato" required  />
-            </div>-->  
-            
-            <div>
-                <label for="email">E-mail:</label>  
-                <input class="form-control"type="email" name="email" maxlength="50" id="email1" placeholder="nome@email.com" required />
-            </div>
-            
-           <!-- <div>
-                <label for="email2">Confirme o seu e-mail:</label><br>
-                <input class="form-control" type="email" name="txtEmail2" maxlength="50" id="email2" placeholder="nome@email.com" required />
-            </div><br>
-            
-            <center>
-                <h3>DADOS DA CONTA</h3>
-            </center>
-            <div>
-                <label for="login">Nome de usuário:</label><br>  
-                <input class="form-control" type="text" id="login" maxlength="20" placeholder="Informe o nome de usuário" required  />
-            </div>
--->
-            <div>
-                <label for="senha">Senha:</label><br>  
-                <input class="form-control" type="password" maxlength="20" placeholder="Informe sua senha"required />
-            </div>
-            
-            <div>
-                <label for="confirmarSenha">Confirme sua senha:</label><br>  
-                <input class="form-control" type="password" name="senha" maxlength="20" placeholder="Confirme sua senha" required />
-            </div><br>
-            
-            <div >
-                <center><button class="btn btn-outline-secondary" type="button" id="btn1">Cadastrar</button></center>
-            </div>
-            
-        </form>
-        <script>
-            function muitoCurto(campo, nome, tamanho) {
-            if (campo.value.length >= tamanho) return false;
-            alert("O conteúdo do campo '" + nome
-                    + "' deveria ter pelo menos " + tamanho + " caracteres."
-                    + " Por favor, preencha-o corretamente.");
-            return true;
-        }
+	<div>
+		<center>
+			<h2>CADASTRE-SE</h2>
+		</center>
 
-        function tamanhoErrado(campo, nome, tamanho) {
-            if (campo.value.length === tamanho) return false;
-            alert("O conteúdo do campo '" + nome
-                    + "' deveria ter exatamente " + tamanho + " caracteres. "
-                    + "Por favor, preencha-o corretamente.");
-            return true;
-        }
+		{{#each erros}}
+			<div class="alert alert-danger">{{texto}}</div>
+			{{else}}
+		{{/each}}
+		<form align-left="60px" action="/users/addUsuario" method="POST">
 
-        function naoNumerico(campo, nome) {
-            if (!isNaN(campo.value)) return false;
-            alert("Digite somente números no campo '" + nome + "', por favor.");
-            return true;
-        }
+			<div class="formatacao">
+				<div>
+					<label for="nome">Nome:</label>
+					<input class="form-control" type="text" name="nome" placeholder="Informe seu nome">
+				</div>
+			
+				<div>
+					<label for="email">E-mail:</label>
+					<input class="form-control" type="text" name="email" placeholder="Informe seu e-mail">
+				</div>
+			
+                <div>
+					<label for="cpf">CPF:</label>
+					<input class="form-control" type="text" name="cpf" placeholder="Informe seu e-mail">
+				</div>
+				
+                <div>
+					<label for="senha">Senha:</label>
+					<input class="form-control" type="password" placeholder="Informe sua senha">
+				</div>
 
-        function diferentes(campo1, nome1, campo2, nome2) {
-            if (campo1.value === campo2.value) return false;
-            alert("Os campos '" + nome1 + "' e '" + nome2 + "' devem ser iguais.");
-            return true;
-        }
+				<div>
+					<label for="confirmarSenha">Confirme a sua Senha:</label>
+					<input class="form-control" type="password" name="senha" placeholder="Confirme sua senha">
+				</div>
+				<br>
+			
+				<center>
+					<input class="btn btn-outline-secondary btn-tamanhoUnico" type="submit">
+				</center>
+				
+			</div>
 
-        function validarFormulario() {
-            var cad = document.getElementById('cad');
+		</form>
 
-            if (muitoCurto(cad.txtnome, 'Nome', 2)) return;
-            if (muitoCurto(cad.txtsobrenome, 'Sobrenome', 2)) return;
-            if (tamanhoErrado(cad.txtCPF, 'CPF', 11)) return;
-            if (tamanhoErrado(cad.txtDDD, 'DDD', 2)) return;
-            if (muitoCurto(cad.txtContato, 'Nº do telefone', 8)) return;
-            if (muitoCurto(cad.txtEmail1, 'E-mail', 10)) return;
-            if (muitoCurto(cad.txtLogin, 'Nome de usuário', 7)) return;
-            if (muitoCurto(cad.txtsenha, 'Senha', 6)) return;
-            if (muitoCurto(cad.txtCsenha, 'Confirmação da senha', 6)) return;
-            if (naoNumerico(cad.txtCPF, 'CPF')) return;
-            if (naoNumerico(cad.txtDDD, 'DDD')) return;
-            if (naoNumerico(cad.txtContato, 'Nº do telefone')) return;
-            //if (naoNumerico(cad.txtNumero, 'Número')) return;
-
-            if (diferentes(cad.txtsenha, 'Senha', cad.txtCsenha, 'Confirmação da Senha')) return;
-            if (diferentes(cad.txtEmail1, 'E-mail', cad.txtEmail2, 'Confirmação de E-mail')) return;
-
-            if (cad.txtdata_nasc.value.length !== 10) {
-                alert("Formato de 'data de nascimento' inválido."
-                        + " Por favor, preencha-o corretamente.");
-                return;
-            }
-
-            if (!verificarCPF(cad.txtCPF.value)) {
-                alert("Os dígitos verificadores do CPF não conferem.");
-                return;  
-            }
-
-            cad.submit();
-        }
-
-        function verificarCPF(strCpf) {
-            if (!/[0-9]{11}/.test(strCpf)) return false;
-            if (strCpf === "00000000000") return false;
-
-            var soma = 0;
-
-            for (var i = 1; i <= 9; i++) {
-                soma += parseInt(strCpf.substring(i - 1, i)) * (11 - i);
-            }
-
-            var resto = soma % 11;
-
-            if (resto === 10 || resto === 11 || resto < 2) {
-                resto = 0;
-            } else {
-                resto = 11 - resto;
-            }
-
-            if (resto !== parseInt(strCpf.substring(9, 10))) {
-                return false;
-            }
-
-            soma = 0;
-
-            for (var i = 1; i <= 10; i++) {
-                soma += parseInt(strCpf.substring(i - 1, i)) * (12 - i);
-            }
-            resto = soma % 11;
-
-            if (resto === 10 || resto === 11 || resto < 2) {
-                resto = 0;
-            } else {
-                resto = 11 - resto;
-            }
-        
-            if (resto !== parseInt(strCpf.substring(10, 11))) {
-                return false;
-            }
-
-            return true;
-        }
-        </script>
-    </div>
+	</div>
 </nav>
