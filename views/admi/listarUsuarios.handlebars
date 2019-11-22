@@ -1,0 +1,19 @@
+{{>_navbar}}
+<div class="mt-5">
+    <h2>
+        <p> Usuários </p>
+    </h2>
+    {{#each listarUsers}}
+    <div class="card mt-2">
+        <div class="card-body">
+            
+            <h6>
+                Nome: {{nome}}<br>
+                CPF: {{cpf}}<br>
+                Email: {{email}}
+            </h6>
+
+        </div>
+    </div>
+    {{/each}}
+</div>
