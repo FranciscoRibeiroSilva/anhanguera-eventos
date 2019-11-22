@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router();
 const CadastroUsers = require('../models/Usuarios')
+const Atividades = require('../models/Atividades')
 
 router.get('/geraCertificado', (req, res)=>{
     CadastroUsers.findAll().then(function(certis){
@@ -10,6 +11,12 @@ router.get('/geraCertificado', (req, res)=>{
 
 router.get('/formPartic', (req, res)=>{
     res.render('user/userForms/FormParticipante')
+})
+
+router.get('/certiAtiv', (req, res)=>{
+    Atividades.findAll().then(function(ativis){
+    res.render('user/CertificadoPorAtividade', {atividades: ativis})
+})
 })
 
 //adiciona usuarios
