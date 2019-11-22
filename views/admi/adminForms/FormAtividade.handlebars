@@ -5,7 +5,7 @@
 <table width="100%">
     <center>
         <div class="form-grup">
-            <form action='/anhangueraeventos/addAtividade', method="POST">
+            <form action='/anhangueraeventos/addAtividade' , method="POST">
                 <tr>
                     <td>
                         <!--ATIVIDADE-->
@@ -99,11 +99,13 @@
                 <table width="100%">
                     <tr>
                         <br>
-                        <h3>DADOS BANCARIOS</h3>
+                        <center>
+                            <h3>DADOS BANCARIOS</h3>
+                        </center>
                         <td>
 
                             <label for="numConta"> Conta: </label>
-                            <input class="form-control" type="text" id="numConta" name="numConta"
+                            <input class="form-control" type="text" id="numConta" name="numConta" maxlength="10"
                                 placeholder="00000000-0" disabled>
 
                             <label for="banco"> Banco: </label>
@@ -114,107 +116,104 @@
                         <td>
                             <label for="agencia"> Agência: </label>
                             <input class="form-control" type="text" id="agencia" name="agencia" placeholder="0000"
-                                disabled>
+                                maxlength="4" disabled>
 
 
                             <label for="cpf"> CPF: </label>
                             <input class="form-control" type="text" id="cpf" name="cpf" placeholder="000.000.000-00"
-                                disabled>
+                                maxlength="14" disabled>
                         </td>
 
-        <center><button class="btn btn-outline-secondary"> Concluir </button></center>
+                        <script>
+                            var select = document.getElementById('inscricao'),
+                                input1 = document.getElementById('valor'),
+                                tipo1;
+                            var select = document.getElementById('inscricao'),
+                                input2 = document.getElementById('numConta'),
+                                tipo2;
+                            var select = document.getElementById('inscricao'),
+                                input3 = document.getElementById('cpf'),
+                                tipo3;
+                            var select = document.getElementById('inscricao'),
+                                input4 = document.getElementById('agencia'),
+                                tipo4;
+                            var select = document.getElementById('inscricao'),
+                                input5 = document.getElementById('banco'),
+                                tipo5;
+                            var select = document.getElementById('inscricao'),
+                                input6 = document.getElementById('prazo'),
+                                tipo6;
+
+                            // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
+                            select.addEventListener('change', function () {
+                                tipo1 = this.value;
+                                if (tipo1 == 'Paga') {
+                                    input1.removeAttribute('disabled', false);
+                                } else {
+                                    input1.setAttribute('disabled', false);
+                                    input1.value = null;
+                                }
+                            });
+                            // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO CONTA 
+                            select.addEventListener('change', function () {
+                                tipo2 = this.value;
+                                if (tipo2 == 'Paga') {
+                                    input2.removeAttribute('disabled', false);
+                                } else {
+                                    input2.setAttribute('disabled', false);
+                                    input2.value = null;
+                                }
+                            });
+                            // CONDIÇÃO PARA DESBLOQUEAR O CAMPO CPF
+                            select.addEventListener('change', function () {
+                                tipo3 = this.value;
+                                if (tipo3 == 'Paga') {
+                                    input3.removeAttribute('disabled', false);
+                                } else {
+                                    input3.setAttribute('disabled', false);
+                                    input3.value = null;
+                                }
+                            });
+                            // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO AGENCIA
+                            select.addEventListener('change', function () {
+                                tipo4 = this.value;
+                                if (tipo4 == 'Paga') {
+                                    input4.removeAttribute('disabled', false);
+                                } else {
+                                    input4.setAttribute('disabled', false);
+                                    input4.value = null;
+                                }
+                            });
+                            // CONDIÇÃO PARA DESBLOQUEAR O CAMPO BANCO 
+                            select.addEventListener('change', function () {
+                                tipo5 = this.value;
+                                if (tipo5 == 'Paga') {
+                                    input5.removeAttribute('disabled', false);
+                                } else {
+                                    input5.setAttribute('disabled', false);
+                                    input5.value = null;
+                                }
+                            });
+                            // CONDIÇÃO PARA DESBLOQUEAR O CAMPO PRAZO PAGAMENTO
+                            select.addEventListener('change', function () {
+                                tipo6 = this.value;
+                                if (tipo6 == 'Paga') {
+                                    input6.removeAttribute('disabled', false);
+                                } else {
+                                    input6.setAttribute('disabled', false);
+                                    input6.value = null;
+                                }
+                            });
+
+                        </script>
+
                     </tr>
                 </table>
             </form>
         </div>
+        <center>
+            <br>
+            <button class="btn btn-outline-secondary"> Concluir </button>
+        </center>
     </center>
-
-
-    <div>
-        <br><br>
-    </div>
-
 </table>
-
-<script>
-    var select = document.getElementById('inscricao'),
-        input1 = document.getElementById('valor'),
-        tipo1;
-    var select = document.getElementById('inscricao'),
-        input2 = document.getElementById('numConta'),
-        tipo2;
-    var select = document.getElementById('inscricao'),
-        input3 = document.getElementById('cpf'),
-        tipo3;
-    var select = document.getElementById('inscricao'),
-        input4 = document.getElementById('agencia'),
-        tipo4;
-    var select = document.getElementById('inscricao'),
-        input5 = document.getElementById('banco'),
-        tipo5;
-    var select = document.getElementById('inscricao'),
-        input6 = document.getElementById('prazo'),
-        tipo6;
-
-    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
-    select.addEventListener('change', function () {
-        tipo1 = this.value;
-        if (tipo1 == 'Paga') {
-            input1.removeAttribute('disabled', false);
-        } else {
-            input1.setAttribute('disabled', false);
-            input1.value = null;
-        }
-    });
-    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO CONTA 
-    select.addEventListener('change', function () {
-        tipo2 = this.value;
-        if (tipo2 == 'Paga') {
-            input2.removeAttribute('disabled', false);
-        } else {
-            input2.setAttribute('disabled', false);
-            input2.value = null;
-        }
-    });
-    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO CPF
-    select.addEventListener('change', function () {
-        tipo3 = this.value;
-        if (tipo3 == 'Paga') {
-            input3.removeAttribute('disabled', false);
-        } else {
-            input3.setAttribute('disabled', false);
-            input3.value = null;
-        }
-    });
-    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO AGENCIA
-    select.addEventListener('change', function () {
-        tipo4 = this.value;
-        if (tipo4 == 'Paga') {
-            input4.removeAttribute('disabled', false);
-        } else {
-            input4.setAttribute('disabled', false);
-            input4.value = null;
-        }
-    });
-    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO BANCO 
-    select.addEventListener('change', function () {
-        tipo5 = this.value;
-        if (tipo5 == 'Paga') {
-            input5.removeAttribute('disabled', false);
-        } else {
-            input5.setAttribute('disabled', false);
-            input5.value = null;
-        }
-    });
-    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO PRAZO PAGAMENTO
-    select.addEventListener('change', function () {
-        tipo6 = this.value;
-        if (tipo6 == 'Paga') {
-            input6.removeAttribute('disabled', false);
-        } else {
-            input6.setAttribute('disabled', false);
-            input6.value = null;
-        }
-    });
-
-</script>

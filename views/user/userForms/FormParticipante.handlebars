@@ -9,10 +9,10 @@
             
             <div>
                 <label for="nome">Nome:</label><br> 
-                <input class="form-control" type="text" id="nome" maxlength="40" placeholder="Informe seu nome" required />
+                <input class="form-control" type="text" id="nome" name="nome" maxlength="40" placeholder="Informe seu nome" required />
             </div>
             
-            <div>
+            <!--<div>
                 <label for="sobrenome">Sobrenome:</label><br> 
                 <input class="form-control" type="text" name="txtsobrenome" maxlength="30" placeholder="Informe seu sobrenome" required />
             </div>
@@ -20,13 +20,13 @@
             <div>
                 <label for="data_nasc">Data de nascimento:</label><br>
                 <input class="form-control" type="date" id="data_nasc" required />
-            </div>
+            </div>-->
             
             <div>
-                <label for="cpf1">CPF:</label><br>  
-                <input class="form-control" type="text" id="cpf1" name="txtCPF" maxlength="11" placeholder="Informe seu CPF" required />
+                <label for="cpf">CPF:</label><br>  
+                <input class="form-control" type="text" id="cpf" name="cpf" maxlength="11" placeholder="Informe seu CPF" required />
             </div><br>
-            <center>
+           <!-- <center>
                 <h3>DADOS PARA CONTATO</h3>
             </center>
             
@@ -44,14 +44,14 @@
             <div>
                 <label for="numero">Nº:</label><br>     
                 <input class="form-control" type="tel" id="numero" maxlength="9" placeholder="Informe o Nº para contato" required  />
-            </div>  
+            </div>-->  
             
             <div>
-                <label for="email1">E-mail:</label>  
-                <input class="form-control"type="email" name="txtEmail1" maxlength="50" id="email1" placeholder="nome@email.com" required />
+                <label for="email">E-mail:</label>  
+                <input class="form-control"type="email" name="email" maxlength="50" id="email1" placeholder="nome@email.com" required />
             </div>
             
-            <div>
+           <!-- <div>
                 <label for="email2">Confirme o seu e-mail:</label><br>
                 <input class="form-control" type="email" name="txtEmail2" maxlength="50" id="email2" placeholder="nome@email.com" required />
             </div><br>
@@ -63,19 +63,19 @@
                 <label for="login">Nome de usuário:</label><br>  
                 <input class="form-control" type="text" id="login" maxlength="20" placeholder="Informe o nome de usuário" required  />
             </div>
-
+-->
             <div>
                 <label for="senha">Senha:</label><br>  
-                <input class="form-control" type="password" name="senha" maxlength="20" placeholder="Informe sua senha"required />
+                <input class="form-control" type="password" maxlength="20" placeholder="Informe sua senha"required />
             </div>
             
             <div>
                 <label for="confirmarSenha">Confirme sua senha:</label><br>  
-                <input class="form-control" type="password" name="txtCsenha" maxlength="20" placeholder="Confirme sua senha" required />
+                <input class="form-control" type="password" name="senha" maxlength="20" placeholder="Confirme sua senha" required />
             </div><br>
             
             <div >
-                <center><button class="btn btn-outline-secondary" type="button" id="btn1" onclick='javascript: validarFormulario()'>Cadastrar</button></center>
+                <center><button class="btn btn-outline-secondary" type="button" id="btn1">Cadastrar</button></center>
             </div>
             
         </form>
