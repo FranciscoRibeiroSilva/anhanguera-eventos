@@ -4,6 +4,9 @@ const Cadastro = require('../models/Cadastro')
 const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
+const bcrypt = require("bcryptjs") 
+const passaport = require("passport")
+
 
 //pagina de cadastro do adm
 router.get('/cadastroAdm', (req, res)=>{
@@ -12,7 +15,7 @@ router.get('/cadastroAdm', (req, res)=>{
 
 //adiciona dados do cadastro adm ao BD
 router.post('/addAdm',(req, res)=>{
-    var erros =[]
+    var erros = []
     if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2){
         erros.push({texto:"Insira um nome válido"})
     }
@@ -22,21 +25,58 @@ router.post('/addAdm',(req, res)=>{
     if (!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null || req.body.senha.length < 6){
         erros.push({texto:"Insira uma senha válida"})
     }
+    if(req.body.senha != req.body.senha2){
+        erros.push({texto:"As senhas informada direferem uma da outra!"})
+    }
     if (erros.length > 0){
         res.render('admi/adminForms/FormAdm', {erros: erros})
     }
-    Cadastro.create({
-        nome: req.body.nome,
-        email: req.body.email,
-        senha: req.body.senha,
-        estado: req.body.estado
-    }).then(function(){
-        req.flash("success_msg", "Administrador registrado")
-        res.redirect('/anhangueraeventos/loginAdm')
-    }).catch(function(erro){
-        req.flash("error_msg", "houve um erro ao cadastrar")
-        res.send("Erro na cria na criação do administrado: "+erro)
-    })
+    else{
+        Cadastro.findOne({where: {email : req.body.email}}).then((adm)=>{
+            if (adm){
+                req.flash("error_msg", "E-mail já resgistrado na plataforma")
+                res.redirect('/anhangueraeventos/cadastroAdm')
+            }else{
+                const temp = ({
+                    senha: req.body.senha
+                })
+
+                bcrypt.genSalt(10, (erro, salt)=>{
+                    bcrypt.hash(temp.senha, salt, (erro, hash) =>{
+                        if(erro){
+                            req.flash("error_msg", "Houve um erro durante o registro")
+                            res.redirect("/")
+                        }
+
+                        Cadastro.create({
+                            nome: req.body.nome,
+                            email: req.body.email,
+                            senha: hash,
+                            //senha: bcrypt.hash(req.body.senha, bcrypt.genSaltSync(10)),
+                            estado: req.body.estado
+                        }).then(function(){
+                            req.flash("success_msg", "Administrador registrado")
+                            res.redirect('/anhangueraeventos/loginAdm')
+                        }).catch(function(erro){
+                            req.flash("error_msg", "houve um erro ao cadastrar")
+                            res.send("Erro na cria na criação do administrado: "+erro)
+                        })
+
+                    })
+                    
+
+                    
+
+                })
+
+                
+            }
+        }).catch((err)=>{
+            req.flash("error_msg", "Erro no sistema!")
+            res.redirect('/')
+        })
+    }
+
 })
 
 //Pagina de login do adm
@@ -44,8 +84,16 @@ router.get('/loginAdm', (req, res)=> {
     res.render('admi/LoginAdm')
 })
 
+router.post('/sss', (req, res, next)=>{
+    /*passaport.authenticate("local", {
+        successRedirect: "/anhangueraeventos/homepage",
+        failureRedirect: "/anhangueraeventos/loginAdm",
+        failureFlash : true
+    })(req, res, next)*/
+    res.render()
+})
 //Verifica dados de login
-router.post('/verificarDados',(req, res)=>{
+router.post('/verificaLogin',(req, res)=>{
     res.redirect('/anhangueraeventos/homepage')
 })
 
