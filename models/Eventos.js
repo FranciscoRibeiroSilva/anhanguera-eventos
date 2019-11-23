@@ -1,5 +1,5 @@
 const db = require ('./db')
-
+/* CRIANDO TABELA Eventos NO BANCO DE DADO*/
 const Eventos = db.sequelize.define('eventos', {
     nome: {
         type: db.Sequelize.STRING

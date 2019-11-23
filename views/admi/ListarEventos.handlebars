@@ -1,13 +1,22 @@
 {{>_navbar}}
-<div><br>
+<div class="mt-5">
+    <h2>
+        <p> Eventos </p>
+    </h2>
+    <!-- LISTANDO OS EVENTOS DO BANCO DE DADOS-->
+    {{#each listEvent}}
+    <div class="card mt-2">
+        <div class="card-body">
+            
+            <h6>
+                Nome: {{nome}}<br>
+                Participantes esperados: {{participanteEs}}<br>
+                Tipo de evento: {{tipoEvento}}<br>
+                Adiministrador: {{nomeAdm}}<br>
+                E-mail do administrado: {{emailAdm}}<br>
+            </h6>
 
-    <div>
-        
-             <a class="link"href=""><button class="btn btn-outline-secondary btn-tamanhoUnico">Adicionar Evento </button></a>
-
+        </div>
     </div>
-
-    <footer>
-    </footer>
-
+    {{/each}}
 </div>

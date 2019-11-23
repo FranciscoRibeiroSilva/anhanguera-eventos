@@ -105,11 +105,11 @@ router.get('/formEvento',(req, res)=>{
 //Adiciona dados do formulario eventos ao DB
 router.post('/addEvento', (req, res)=>{
     Eventos.create({
-        nome: req.body.nomeDoEvento,
-        participanteEs: req.body.participanteEsper,
+        nome: req.body.nome,
+        participanteEs: req.body.participanteEs,
         tipoEvento: req.body.tipoEvento,
-        nomeAdm: req.body.nomeAdministrador,
-        emailAdm: req.body.emailAdministrador
+        nomeAdm: req.body.nomeAdm,
+        emailAdm: req.body.emailAdm
     }).then(function(){
         res.redirect('/homepage')
     }).catch(function(erro){
@@ -117,7 +117,12 @@ router.post('/addEvento', (req, res)=>{
     })
 
 })
-
+// Página de eventos criados
+router.get('/ListarEventos', (req, res)=>{
+    Eventos.findAll().then(function(eventos){
+        res.render('admi/ListarEventos', {listEvent: eventos})
+    })
+})
 //homepage do adm
 router.get('/homepage', (req, res)=> {
     res.render('admi/GerenciaDeEvento')
