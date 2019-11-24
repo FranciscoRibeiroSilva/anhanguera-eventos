@@ -1861,8 +1861,11 @@ pre code {
 .font{
  font-family: 'Alegreya';
 }
-.margem{
-  margin-top: 12%;
+footer{
+ position: absolute;
+ bottom: 0px;
+ width: 100%;
+ text-align: center;
 }
 
 /*/CODIGO ADCIONAL*/
