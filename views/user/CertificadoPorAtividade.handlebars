@@ -6,8 +6,8 @@
     {{#each atividades}}
         <div class="card mt-2">
             <div class="card-body">
-                <h3> Nome da Atividade: {{nome}} </h3><a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary btn-tamanhoUnico">Gerar Certificado</button></a> 
-               <input type="hidden" name="id" value="{{atividades.id}}">
+                <h3> Nome da Atividade: {{nome}} </h3><a href='/users/geraCertificado/'{{id}}><button class="btn btn-outline-secondary btn-tamanhoUnico">Gerar Certificado</button></a> 
+               
 
              </div>
         </div>
