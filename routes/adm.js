@@ -90,7 +90,6 @@ router.post('/sss', (req, res, next)=>{
         failureRedirect: "/anhangueraeventos/loginAdm",
         failureFlash : true
     })(req, res, next)*/
-    res.render()
 })
 //Verifica dados de login
 router.post('/verificaLogin',(req, res)=>{
