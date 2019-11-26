@@ -1867,9 +1867,13 @@ footer{
  width: 100%;
  text-align: center;
 }
-
+/*COR DE FUNDO */
 .fundo {
   background-color: #f8f9fa;
+  margin:15px;
+}
+.espaco{
+  margin-right: 5px;
 }
 
 /*/CODIGO ADCIONAL*/
