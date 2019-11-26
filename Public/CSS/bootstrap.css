@@ -1868,6 +1868,10 @@ footer{
  text-align: center;
 }
 
+.fundo {
+  background-color: #f8f9fa;
+}
+
 /*/CODIGO ADCIONAL*/
 .form-control {
   display: block;
