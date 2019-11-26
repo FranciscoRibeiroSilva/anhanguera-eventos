@@ -1,6 +1,6 @@
 const db = require ('./db')
 
-const Cadastro = db.sequelize.define('administradores', {
+const Administrador = db.sequelize.define('administradores', {
     nome: {
          type: db.Sequelize.STRING
     },
@@ -15,7 +15,6 @@ const Cadastro = db.sequelize.define('administradores', {
     }
 })
 
+//Administrador.sync({force: true})
 
-//Cadastro.sync({force: true})
-
-module.exports = Cadastro
+module.exports = Administrador

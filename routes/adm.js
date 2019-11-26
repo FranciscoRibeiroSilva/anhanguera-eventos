@@ -1,11 +1,11 @@
 const express = require("express")
 const router = express.Router()
-const Cadastro = require('../models/Cadastro')
+const Administrador = require('../models/Administrador')
 const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
 const bcrypt = require("bcryptjs") 
-const passaport = require("passport")
+//const passaport = require("passport")
 
 
 //pagina de cadastro do adm
@@ -32,7 +32,7 @@ router.post('/addAdm',(req, res)=>{
         res.render('admi/adminForms/FormAdm', {erros: erros})
     }
     else{
-        Cadastro.findOne({where: {email : req.body.email}}).then((adm)=>{
+        Administrador.findOne({where: {email : req.body.email}}).then((adm)=>{
             if (adm){
                 req.flash("error_msg", "E-mail já resgistrado na plataforma")
                 res.redirect('/anhangueraeventos/cadastroAdm')
@@ -48,7 +48,7 @@ router.post('/addAdm',(req, res)=>{
                             res.redirect("/")
                         }
 
-                        Cadastro.create({
+                        Administrador.create({
                             nome: req.body.nome,
                             email: req.body.email,
                             senha: hash,
@@ -63,20 +63,13 @@ router.post('/addAdm',(req, res)=>{
                         })
 
                     })
-                    
-
-                    
-
                 })
-
-                
             }
         }).catch((err)=>{
             req.flash("error_msg", "Erro no sistema!")
             res.redirect('/')
         })
     }
-
 })
 
 //Pagina de login do adm
@@ -84,6 +77,8 @@ router.get('/loginAdm', (req, res)=> {
     res.render('admi/LoginAdm')
 })
 
+
+//teste com passport
 router.post('/sss', (req, res, next)=>{
     /*passaport.authenticate("local", {
         successRedirect: "/anhangueraeventos/homepage",
@@ -91,14 +86,27 @@ router.post('/sss', (req, res, next)=>{
         failureFlash : true
     })(req, res, next)*/
 })
+
 //Verifica dados de login
 router.post('/verificaLogin',(req, res)=>{
     res.redirect('/anhangueraeventos/homepage')
 })
 
+//Homepage adm que gerencia eventos
+router.get('/homepage', (req, res)=>{
+    Eventos.findAll().then(function(eventos){
+        res.render('admi/homepage', {listEvent: eventos})
+    })
+})
+
+//gerencia do evento unico
+router.get('/gerenciaDeEvento', (req, res)=> {
+    res.render('admi/gerenciaDeEvento')
+})
+
 //Pagina de formulario de criação de evento
 router.get('/formEvento',(req, res)=>{
-    res.render('admi/adminForm/FormEvento')
+    res.render('admi/adminForms/FormEvento')
 })
 
 //Adiciona dados do formulario eventos ao DB
@@ -110,22 +118,15 @@ router.post('/addEvento', (req, res)=>{
         nomeAdm: req.body.nomeAdm,
         emailAdm: req.body.emailAdm
     }).then(function(){
-        res.redirect('/homepage')
+        res.redirect('/anhangueraeventos/homepage')
     }).catch(function(erro){
         res.send("Erro na criação do evento: "+erro)
     })
 
 })
-// Página de eventos criados
-router.get('/ListarEventos', (req, res)=>{
-    Eventos.findAll().then(function(eventos){
-        res.render('admi/ListarEventos', {listEvent: eventos})
-    })
-})
-//homepage do adm
-router.get('/homepage', (req, res)=> {
-    res.render('admi/GerenciaDeEvento')
-})
+// Página de eventos criados que é a homepage
+
+
 
 //pagina de gerenciamento de atividades
 router.get('/gerenciaDeAtividades', (req, res)=>{

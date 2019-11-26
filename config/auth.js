@@ -1,12 +1,12 @@
 const localStrategy = require("passport-local").Strategy
 const sequelize = require("sequelize")
 const bcrypt = require("bcryptjs")
-const Cadastro = require("../models/Cadastro")
+const Administrador = require("../models/Administrador")
 
 
 module.exports = function(passport){
     passport.use(new localStrategy({usernameFielde : 'email', passwordField: 'senha'}, (email, senha, done)=>{
-        Cadastro.findOne({email : email}).then((adm)=>{
+        Administrador.findOne({email : email}).then((adm)=>{
             if(!adm){
                 return done(null, false, {messenge : "Essa conta não existe"})
             }
@@ -27,7 +27,7 @@ module.exports = function(passport){
     })
 
     passport.deserializeUser((id, done)=>{
-        Cadastro.findById(id, (erro, adm)=>{
+        Administrador.findById(id, (erro, adm)=>{
             done(erro, adm)
         })
     })
