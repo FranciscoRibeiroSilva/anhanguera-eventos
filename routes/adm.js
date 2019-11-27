@@ -89,7 +89,19 @@ router.post('/sss', (req, res, next)=>{
 
 //Verifica dados de login
 router.post('/verificaLogin',(req, res)=>{
-    res.redirect('/anhangueraeventos/homepage')
+    Administrador.findOne({where:{email : req.body.email}}).then((adm)=>{
+        console.log(adm)
+        if(adm.email === req.body.email){
+            res.redirect("/anhangueraeventos/homepage")
+        }
+        else{
+            res.redirect("/")
+        }
+    }).catch((err)=>{
+        console.log("oqueee")
+        res.redirect("/anhangueraeventos/gerenciaDeEvento")
+    })
+    //res.redirect('/anhangueraeventos/homepage')
 })
 
 //Homepage adm que gerencia eventos
@@ -124,9 +136,6 @@ router.post('/addEvento', (req, res)=>{
     })
 
 })
-// Página de eventos criados que é a homepage
-
-
 
 //pagina de gerenciamento de atividades
 router.get('/gerenciaDeAtividades', (req, res)=>{
