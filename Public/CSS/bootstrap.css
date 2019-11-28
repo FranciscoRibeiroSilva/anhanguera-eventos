@@ -1875,28 +1875,6 @@ footer{
 .espaco{
   margin-right: 5px;
 }
-#Form{
-    float:right;
-    margin: 65px -270px;
-    border-width: 20px 20px 20px 20px;
-border-style: solid;
-border-color:rgb(240, 235, 235);
-border-radius:10px;
-background-color:rgb(240, 235, 235);
-}
-#img{
-  float:left;
-  margin: 40px 45px;
-}
-#logos{
-  float:left;
-  margin: 30px 75px;
-}
-#texto{
-  float:left;
-  margin: 5px -5px;
-}
-/*/CODIGO ADCIONAL*/
 
 /*/CODIGO ADCIONAL*/
 .form-control {
