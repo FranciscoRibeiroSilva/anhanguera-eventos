@@ -127,6 +127,7 @@ router.post('/addEvento', (req, res)=>{
         nome: req.body.nome,
         participanteEs: req.body.participanteEs,
         tipoEvento: req.body.tipoEvento,
+        quantSalas: req.body.quantSalas,
         nomeAdm: req.body.nomeAdm,
         emailAdm: req.body.emailAdm
     }).then(function(){
