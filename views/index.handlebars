@@ -1,43 +1,16 @@
-<div class="mt-5">
-    <div class="formatacao">
-        <div id="img">
-            
-            {{>_logo50px}}
-            
-            <div id="texto">
-            Projeto de cosdfghjjhgfdsasdfghASDFGH</br>  
-            sdfghjjhgfdssdfghjjhgfdsasdfgASDFGH</br>  
-            asdfghjjhgfdssdfghjjhgfdssdfghASDFGH
-            </div>
-            </br>    
-            <div id="logos">
-             {{>_logos}}
-             </div>
-        </div> 
-         
+<div>
+        <div class="mt-5">
+                {{>_logo300px}}
+        </div><br>
         
-        <form id="Form" action="/anhangueraeventos/verificaLogin" method="POST" class="form-grup">
+        <nav>
+                
+                <center>
+                        <a class="link"href='/anhangueraeventos/loginAdm'><button class="btn btn-outline-secondary btn-tamanhoUnico"> Login </button></a>
+                        <br>
+                        <br>
+                        <a class="link" href='/anhangueraeventos/cadastroAdm'><button class="btn btn-outline-secondary btn-tamanhoUnico"> Cadastro</button></a>
+                </center>
 
-            <div>
-                <div>
-                    <label for="e-mail">E-mail:</label><br>
-                    <input class="form-control" type="text" name="email" id="e-mail" placeholder="Digite seu e-mail">
-                </div>
-                <div>
-                    <label for="senha">Senha:</label><br>
-                    <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
-                </div>
-            </div>
-
-            <center>
-                <div>
-                    <br>
-                    <button class="btn btn-outline-secondary "> Entrar </button>
-                    <br><br>
-                </div>
-                Não tem uma conta?<a href='/anhangueraeventos/cadastroAdm'> Cadastre-se </a>
-            </center>
-        </form>
-    </div>
-
+        </nav>
 </div>
