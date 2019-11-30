@@ -1,7 +1,17 @@
 {{>_navbar}}
+
 <center class="mt-5">
-    <h1>REGISTRO DE ATIVIDADES</h1><br>
+    <h1>ADICIONAR ATIVIDADES</h1><br>
 </center>
+<!-- ALERTA -->
+{{#each erros}}
+<div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+{{#each err}}
+<div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
 <table width="100%">
     <center>
         <div class="form-grup">
@@ -64,11 +74,11 @@
                         <label for="cargaH">Carga Horário:</label>
                         <select class="form-control" name="cargaHoraria">
                             <option>--Informe a CH--</option>
-                            <option value="10 Horas">10 Horas</option>
-                            <option value="20 Horas">20 horas</option>
-                            <option value="30 Horas">30 horas</option>
-                            <option value="40 Horas">40 horas</option>
-                            <option value="50 Horas">50 horas</option>
+                            <option value="10 Horas Aulas">10 Horas Aulas</option>
+                            <option value="20 Horas Aulas">20 horas Aulas</option>
+                            <option value="30 Horas Aulas">30 horas Aulas</option>
+                            <option value="40 Horas Aulas">40 horas Aulas</option>
+                            <option value="50 Horas Aulas">50 horas Aulas</option>
                         </select>
                     </td>
                 </tr>
@@ -88,37 +98,40 @@
                             max="1000" placeholder="Número">
                     </td>
                     <td>
+                        <!--VALOR DA INSCRIÇÃO-->
                         <label for="valor">R$: </label>
-                        <input class="form-control" type="text" id="valor" id="valor" placeholder="Valor de inscrição"
+                        <input class="form-control" type="text" id="valor" name="valor" placeholder="Valor de inscrição"
                             disabled>
+                        <!--PRAZO PARA SE INSCREVER NO EVENTO-->
+                        <label for="data"> Prazo de Inscrição: </label>
+                        <input class="form-control" type="date" id="prazo" name="prazo" disabled>
 
-                        <label for="prazo"> Prazo: </label>
-                        <input class="form-control" type="datetime-local" id="prazo" name="prazo" disabled>
                     </td>
                 </tr>
                 <table width="100%">
                     <tr>
                         <br>
                         <center>
-                            <h3>DADOS BANCÁRIOS</h3>
+                            <h1>DADOS BANCÁRIOS</h1>
                         </center>
                         <td>
-
+                            <!--NUMERO DA CONTA-->
                             <label for="numConta"> Conta: </label>
                             <input class="form-control" type="text" id="numConta" name="numConta" maxlength="10"
                                 placeholder="00000000-0" disabled>
-
+                            <!--NOME DO BANCO-->
                             <label for="banco"> Banco: </label>
                             <input class="form-control" type="text" id="banco" name="banco" placeholder="Nome do Banco"
                                 disabled>
 
                         </td>
                         <td>
+                            <!--NUMERO DA AGÊNCIA-->
                             <label for="agencia"> Agência: </label>
                             <input class="form-control" type="text" id="agencia" name="agencia" placeholder="0000"
                                 maxlength="4" disabled>
 
-
+                            <!--NUMERO DO CPF-->
                             <label for="cpf"> CPF: </label>
                             <input class="form-control" type="text" id="cpf" name="cpf" placeholder="000.000.000-00"
                                 maxlength="14" disabled>
