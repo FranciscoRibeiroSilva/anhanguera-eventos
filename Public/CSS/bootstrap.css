@@ -1886,16 +1886,7 @@ background-color:rgb(240, 235, 235);
 }
 #img{
   float:left;
-  margin: 40px 25px;
-}
-#logos{
-  float:left;
-  margin: 30px 80px;
-}
-#texto{
-  
-  float:left;
-  margin: 5px -105px;
+  margin: 40px -100px;
 }
 /*/CODIGO ADCIONAL*/
 
