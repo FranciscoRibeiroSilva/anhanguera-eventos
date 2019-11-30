@@ -95,7 +95,7 @@ router.post('/sss', (req, res, next) => {
 router.post('/verificaLogin', (req, res) => {
     Administrador.findOne({where:{email : req.body.email}}).then((adm)=>{
         if(adm.email == req.body.email){
-            res.redirect('/ahangueraeventos/listarEvento')
+            res.redirect('/anhangueraeventos/listarEvento')
         }
         else{
             req.flash("error_msg", "Erro ao logar verifique os seu dados")
