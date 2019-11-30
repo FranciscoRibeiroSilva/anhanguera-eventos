@@ -131,7 +131,7 @@ router.post('/addEvento', (req, res) => {
 // Página de eventos criados
 router.get('/listarEvento', (req, res) => {
     Eventos.findAll().then(function (eventos) {
-        res.render('admi/ListarEventos', { listEvent: eventos })
+        res.render('admi/homepage', { listEvent: eventos })
     })
 })
 //homepage do adm
