@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const Cadastro = require('../models/Cadastro')
+const Administrador = require('../models/Administrador')
 const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
@@ -32,7 +32,7 @@ router.post('/addAdm', (req, res) => {
         res.render('admi/adminForms/FormAdm', { erros: erros })
     }
     else {
-        Cadastro.findOne({ where: { email: req.body.email } }).then((adm) => {
+        Administrador.findOne({ where: { email: req.body.email } }).then((adm) => {
             if (adm) {
                 req.flash("error_msg", "E-mail já resgistrado na plataforma")
                 res.redirect('/anhangueraeventos/cadastroAdm')
@@ -48,7 +48,7 @@ router.post('/addAdm', (req, res) => {
                             res.redirect("/")
                         }
 
-                        Cadastro.create({
+                        Administrador.create({
                             nome: req.body.nome,
                             email: req.body.email,
                             senha: hash,
@@ -193,11 +193,14 @@ router.post('/addAtividade', (req, res) => {
         if (!req.body.cpf || typeof req.body.cpf == undefined || req.body.cpf == null || req.body.cpf.length < 14) {
             erros.push({ texto: "CPF INVALIDO" })
         }
+        if (req.body.prazo > req.body.data) {
+            erros.push({ texto: "PRAZO DE INSCRIÇÃO INVALIDO" })
+        }
     }
     // QUANTIDADE DE ERROS DENTRO DO VETOR
     if (erros.length > 0) {
         // CASO A QUANTIDADES DE CAMPOS FOR MUITO GRANDE A MSG APARECE
-        if (erros.length == 13) {
+        if (erros.length > 12) {
             var err = []
             err.push({ texto: "PREENCHA OS CAMPOS QUE ESTÃO FALTANDO" })
             res.render('admi/adminForms/FormAtividade', { err: err })
