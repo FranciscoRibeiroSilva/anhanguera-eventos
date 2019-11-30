@@ -10,9 +10,6 @@ const Eventos = db.sequelize.define('eventos', {
     tipoEvento: {
         type: db.Sequelize.STRING
     },
-    quantSalas:{
-        type: db.Sequelize.STRING
-    },
     nomeAdm:{
         type: db.Sequelize.STRING
     },
