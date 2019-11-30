@@ -93,7 +93,18 @@ router.post('/sss', (req, res, next) => {
 })
 //Verifica dados de login
 router.post('/verificaLogin', (req, res) => {
-    res.redirect('/anhangueraeventos/homepage')
+    Administrador.findOne({where:{email : req.body.email}}).then((adm)=>{
+        if(adm.email == req.body.email){
+            res.redirect('/ahangueraeventos/listarEvento')
+        }
+        else{
+            req.flash("error_msg", "Erro ao logar verifique os seu dados")
+            res.redirect('/')
+        }
+    }).catch(()=>{
+        req.flash("error_msg", "Erro ao logar verifique os seu dados")
+        res.redirect('/')
+    })
 })
 
 //Pagina de formulario de criação de evento
@@ -118,7 +129,7 @@ router.post('/addEvento', (req, res) => {
 
 })
 // Página de eventos criados
-router.get('/ListarEventos', (req, res) => {
+router.get('/listarEvento', (req, res) => {
     Eventos.findAll().then(function (eventos) {
         res.render('admi/ListarEventos', { listEvent: eventos })
     })
