@@ -114,7 +114,26 @@ router.get('/formEvento', (req, res) => {
 
 //Adiciona dados do formulario eventos ao DB
 router.post('/addEvento', (req, res) => {
-    Eventos.create({
+    var erros = []
+    if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length <2){
+      erros.push({ texto: "NOME DO EVENTO INVALIDO" })  
+    }
+    if(!req.body.quantSalas || typeof req.body.quantSalas == undefined || req.body.quantSalas == null){
+        erros.push({texto:"QUANTIDADE DE SALAS INVALIDO"})
+    }
+    if(!req.body.nomeAdm || typeof req.body.nomeAdm == undefined || req.body.nomeAdm == null || req.body.nomeAdm.length <2){
+        erros.push({ texto: "NOME DE ADMINISTRADOR INVALIDO"})
+    }
+    if(!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length <12){
+        erros.push({ texto: "EMAIL INVALIDO"})
+    }
+    if (req.body.participanteEs == "Escolha uma opção") { erros.push({ texto: "CARGA HORARIO INVALIDO" }) }
+    if (req.body.tipoEvento == "Escolha uma opção") { erros.push({ texto: "SALA INVALIDA" }) }
+    
+    if (erros.length > 0) {
+        res.render('admi/adminForms/FormEvento', { erros: erros })
+    }
+    else{Eventos.create({
         nome: req.body.nome,
         participanteEs: req.body.participanteEs,
         tipoEvento: req.body.tipoEvento,
@@ -126,6 +145,7 @@ router.post('/addEvento', (req, res) => {
     }).catch(function (erro) {
         res.send("Erro na criação do evento: " + erro)
     })
+}
 
 })
 // Página de eventos criados
