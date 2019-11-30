@@ -129,11 +129,14 @@ router.post('/addEvento', (req, res) => {
     if (!req.body.nomeAdm || typeof req.body.nomeAdm == undefined || req.body.nomeAdm == null || req.body.nomeAdm.length < 2) {
         erros.push({ texto: "NOME DE ADMINISTRADOR INVALIDO" })
     }
-    if (!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length < 12) {
+    if (!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length < 12){
         erros.push({ texto: "EMAIL INVALIDO" })
     }
-    if (req.body.participanteEs == "Escolha uma opção") { erros.push({ texto: "CARGA HORARIO INVALIDO" }) }
-    if (req.body.tipoEvento == "Escolha uma opção") { erros.push({ texto: "SALA INVALIDA" }) }
+    if (req.body.participanteEs == "Escolher op") { 
+        erros.push({ texto: "ESCOLHA O NUMERO DE PARTICIPANTES ESPERADOS" }) }
+    
+        if (req.body.tipoEvento == "Escolher op") {
+        erros.push({ texto: "ESCOLHA O TIPO DE EVENTO" }) }
 
     if (erros.length > 0) {
         res.render('admi/adminForms/FormEvento', { erros: erros })
