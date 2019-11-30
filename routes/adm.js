@@ -92,7 +92,7 @@ router.post('/sss', (req, res, next) => {
     })(req, res, next)*/
 })
 //Verifica dados de login
-router.post('/verificaLogin', (req, res) => {
+router.post('/verificaLogin',(req, res) => {
     Administrador.findOne({where:{email : req.body.email}}).then((adm)=>{
         if(adm.email == req.body.email){
             res.redirect('/anhangueraeventos/homepage')
@@ -115,37 +115,38 @@ router.get('/formEvento', (req, res) => {
 //Adiciona dados do formulario eventos ao DB
 router.post('/addEvento', (req, res) => {
     var erros = []
-    if(!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length <2){
-      erros.push({ texto: "NOME DO EVENTO INVALIDO" })  
+    if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2) {
+        erros.push({ texto: "NOME DO EVENTO INVALIDO" })
     }
-    if(!req.body.quantSalas || typeof req.body.quantSalas == undefined || req.body.quantSalas == null){
-        erros.push({texto:"QUANTIDADE DE SALAS INVALIDO"})
+    if (!req.body.quantSalas || typeof req.body.quantSalas == undefined || req.body.quantSalas == null) {
+        erros.push({ texto: "QUANTIDADE DE SALAS INVALIDO" })
     }
-    if(!req.body.nomeAdm || typeof req.body.nomeAdm == undefined || req.body.nomeAdm == null || req.body.nomeAdm.length <2){
-        erros.push({ texto: "NOME DE ADMINISTRADOR INVALIDO"})
+    if (!req.body.nomeAdm || typeof req.body.nomeAdm == undefined || req.body.nomeAdm == null || req.body.nomeAdm.length < 2) {
+        erros.push({ texto: "NOME DE ADMINISTRADOR INVALIDO" })
     }
-    if(!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length <12){
-        erros.push({ texto: "EMAIL INVALIDO"})
+    if (!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length < 12) {
+        erros.push({ texto: "EMAIL INVALIDO" })
     }
     if (req.body.participanteEs == "Escolha uma opção") { erros.push({ texto: "CARGA HORARIO INVALIDO" }) }
     if (req.body.tipoEvento == "Escolha uma opção") { erros.push({ texto: "SALA INVALIDA" }) }
-    
+
     if (erros.length > 0) {
         res.render('admi/adminForms/FormEvento', { erros: erros })
     }
-    else{Eventos.create({
-        nome: req.body.nome,
-        participanteEs: req.body.participanteEs,
-        tipoEvento: req.body.tipoEvento,
-        quantSalas: req.body.quantSalas,
-        nomeAdm: req.body.nomeAdm,
-        emailAdm: req.body.emailAdm
-    }).then(function () {
-        res.redirect('/homepage')
-    }).catch(function (erro) {
-        res.send("Erro na criação do evento: " + erro)
-    })
-}
+    else {
+        Eventos.create({
+            nome: req.body.nome,
+            participanteEs: req.body.participanteEs,
+            tipoEvento: req.body.tipoEvento,
+            quantSalas: req.body.quantSalas,
+            nomeAdm: req.body.nomeAdm,
+            emailAdm: req.body.emailAdm
+        }).then(function () {
+            res.redirect('/homepage')
+        }).catch(function (erro) {
+            res.send("Erro na criação do evento: " + erro)
+        })
+    }
 
 })
 // Página de eventos criados
@@ -226,7 +227,7 @@ router.post('/addAtividade', (req, res) => {
         if (!req.body.cpf || typeof req.body.cpf == undefined || req.body.cpf == null || req.body.cpf.length < 14) {
             erros.push({ texto: "CPF INVALIDO" })
         }
-        
+
     }
     // QUANTIDADE DE ERROS DENTRO DO VETOR
     if (erros.length > 0) {
@@ -242,46 +243,43 @@ router.post('/addAtividade', (req, res) => {
         }
     }
     else {
-        // TENTATIVA DE VERIFICAR OS DADOS QUE JÁ TEM NO BANCO DE DADOS
-        Atividades.findOne({ where: { sala: req.body.sala } }).then((atividade) => {
-            Atividades.findOne({ where: { data: req.body.data } }).then((atividade) => {
-                Atividades.findOne({ where: { horaInicio: req.body.horaInicio } }).then((atividade) => {
-                    if (atividade) {
-                        req.flash("error_msg", "Já existe uma atividade com os mesmos dados na plataforma")
-                        res.redirect('/anhangueraeventos/formAtividades')
-                    } else {
-                        Atividades.create({
-                            nome: req.body.nome,
-                            tipo: req.body.tipo,
-                            data: req.body.data,
-                            ministrante: req.body.ministrante,
-                            horaInicio: req.body.horaInicio,
-                            horaFinal: req.body.horaFinal,
-                            sala: req.body.sala,
-                            cargaHoraria: req.body.cargaHoraria,
-                            numeroDePartic: req.body.numeroDePartic,
-                            inscricaoT: req.body.inscricaoT,
-                            valor: req.body.valor,
-                            prazo: req.body.prazo,
-                            numConta: req.body.numConta,
-                            banco: req.body.banco,
-                            agencia: req.body.agencia,
-                            cpf: req.body.cpf
-                        }).then(function () {
-                            res.redirect('/anhangueraeventos/gerenciaDeAtividades')
-                        }).catch(function (err) {
-                            req.flash("error_msg", "houve um erro ao criar atividade")
-                            res.send("Erro na cria na criação da ativifade: " + err)
-                        })
-                    }
-                }).catch((err) => {
-                    req.flash("error_msg", "Erro no sistema!")
-                    res.redirect('/')
+        // VERIFICAR SE JÁ TEM OS MESMOS DADOS NO BANCO DE DADOS
+        Atividades.findOne({
+            where: {
+                sala: req.body.sala,
+                data: req.body.data,
+                horaInicio: req.body.horaInicio,
+                horaFinal: req.body.horaFinal
+            }
+        }).then((atividade) => {
+            if (atividade) {
+                req.flash("error_msg", "Já existe uma atividade com os mesmos dados na plataforma")
+                res.redirect('/anhangueraeventos/formAtividades')
+            } else {
+                Atividades.create({
+                    nome: req.body.nome,
+                    tipo: req.body.tipo,
+                    data: req.body.data,
+                    ministrante: req.body.ministrante,
+                    horaInicio: req.body.horaInicio,
+                    horaFinal: req.body.horaFinal,
+                    sala: req.body.sala,
+                    cargaHoraria: req.body.cargaHoraria,
+                    numeroDePartic: req.body.numeroDePartic,
+                    inscricaoT: req.body.inscricaoT,
+                    valor: req.body.valor,
+                    prazo: req.body.prazo,
+                    numConta: req.body.numConta,
+                    banco: req.body.banco,
+                    agencia: req.body.agencia,
+                    cpf: req.body.cpf
+                }).then(function () {
+                    res.redirect('/anhangueraeventos/gerenciaDeAtividades')
+                }).catch(function (err) {
+                    req.flash("error_msg", "houve um erro ao criar atividade")
+                    res.send("Erro na cria na criação da ativifade: " + err)
                 })
-            }).catch((err) => {
-                req.flash("error_msg", "Erro no sistema!")
-                res.redirect('/')
-            })
+            }
         }).catch((err) => {
             req.flash("error_msg", "Erro no sistema!")
             res.redirect('/')
