@@ -173,6 +173,9 @@ router.post('/addAtividade', (req, res) => {
     if (!req.body.numeroDePartic || typeof req.body.numeroDePartic == undefined || req.body.numeroDePartic == null) {
         erros.push({ texto: "NÚMERO DE PARTICIPANTES INVALIDO" })
     }
+    if (req.body.prazo > req.body.data) {
+        erros.push({ texto: "PRAZO DE INSCRIÇÃO INVALIDO" })
+    }
     // CASO A INSCRIÇÃO FOR PAGA ELE VALIDA OS CAMPO ABAIXO
     if (req.body.inscricaoT == "Paga") {
         if (!req.body.valor || typeof req.body.valor == undefined || req.body.valor == null) {
@@ -193,9 +196,7 @@ router.post('/addAtividade', (req, res) => {
         if (!req.body.cpf || typeof req.body.cpf == undefined || req.body.cpf == null || req.body.cpf.length < 14) {
             erros.push({ texto: "CPF INVALIDO" })
         }
-        if (req.body.prazo > req.body.data) {
-            erros.push({ texto: "PRAZO DE INSCRIÇÃO INVALIDO" })
-        }
+        
     }
     // QUANTIDADE DE ERROS DENTRO DO VETOR
     if (erros.length > 0) {
