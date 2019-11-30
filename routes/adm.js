@@ -95,14 +95,14 @@ router.post('/sss', (req, res, next) => {
 router.post('/verificaLogin', (req, res) => {
     Administrador.findOne({where:{email : req.body.email}}).then((adm)=>{
         if(adm.email == req.body.email){
-            res.redirect('/anhangueraeventos/listarEvento')
+            res.redirect('/anhangueraeventos/homepage')
         }
         else{
-            req.flash("error_msg", "Erro ao logar verifique os seu dados")
+            req.flash("error_msg", "Erro ao logar verifique os seus dados")
             res.redirect('/')
         }
     }).catch(()=>{
-        req.flash("error_msg", "Erro ao logar verifique os seu dados")
+        req.flash("error_msg", "Erro ao logar verifique os seus dados")
         res.redirect('/')
     })
 })
@@ -129,13 +129,13 @@ router.post('/addEvento', (req, res) => {
 
 })
 // Página de eventos criados
-router.get('/listarEvento', (req, res) => {
+router.get('/homepage', (req, res) => {
     Eventos.findAll().then(function (eventos) {
         res.render('admi/homepage', { listEvent: eventos })
     })
 })
 //homepage do adm
-router.get('/homepage', (req, res) => {
+router.get('/gerenciarEvento', (req, res) => {
     res.render('admi/GerenciaDeEvento')
 })
 
@@ -143,7 +143,6 @@ router.get('/homepage', (req, res) => {
 router.get('/gerenciaDeAtividades', (req, res) => {
 
     Atividades.findAll().then(function (atividades) {
-
         res.render('admi/gerenciaDeAtividades', { regist: atividades })
     })
 })
