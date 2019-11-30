@@ -7,7 +7,7 @@ const Usuarios = require('../models/Usuarios')
 const bcrypt = require("bcryptjs")
 const passaport = require("passport")
 
-
+//skskskskskksk
 //pagina de cadastro do adm
 router.get('/cadastroAdm', (req, res) => {
     res.render('admi/adminForms/FormAdm')
