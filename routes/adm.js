@@ -109,7 +109,7 @@ router.post('/verificaLogin', (req, res) => {
 
 //Pagina de formulario de criação de evento
 router.get('/formEvento', (req, res) => {
-    res.render('admi/adminForm/FormEvento')
+    res.render('admi/adminForms/FormEvento')
 })
 
 //Adiciona dados do formulario eventos ao DB
