@@ -1,42 +1,56 @@
 {{>_navbar}}
-</nav><br>
-    <div class="form-grup formatacao">
-                     <!--<form action = '/anhangueraeventos/addEvento' method = "POST">-->
-        <div>
-            <label for="codigo">Codigo do cupom:</label><br>
-            <input class="form-control" name="codigoCupom" placeholder="Nº do cupom"> 
-        </div>
-                    <!--/form-->
-                    
-                    <!--form-->
-        <div>
-            <label for="desconto">Desconto:</label><br>
-            <select class="form-control" id="desconto">
-                <option value="Escolher op"> Escolha a opção </option>
-                <option value="0.1 "> 10%  </option>
-                <option value="0.2 "> 20%  </option>
-                <option value="0.3 "> 30%  </option>
-                <option value="0.4 "> 40%  </option>
-                <option value="0.5 "> 50%  </option>
-                <option value="0.6 "> 60%  </option>
-                <option value="0.7 "> 70%  </option>
-                <option value="0.8 "> 80%  </option>
-            </select>
-        </div>    
-                        
-                    <!--/form-->
+<br><br>
+<div id="FormulariosAdm">
+    <nav>
+        <div class="form-grup formatacao">
+            <!--<form action = '/anhangueraeventos/addEvento' method = "POST">-->
+            <div>
+                <label for="codigo">Codigo do cupom:</label><br>
+                <input class="form-control" name="codigoCupom" placeholder="Nº do cupom">
+            </div>
+            <!--/form-->
 
-                    <!--form-->
-        <div>
-            <label for="quantDeCupons">Quantidade de Cupons:</label><br>
-            <input class="form-control" type="quantidade">     
-        </div><br>    
-                    <!--/form-->
-                    
-        <div>
-            <button class="btn btn-outline-secondary">Salvar Cupom</button>
+            <!--form-->
+            <div>
+                <label for="desconto">Desconto:</label><br>
+                <select class="form-control" id="desconto">
+                    <option value="Escolher op"> Escolha a opção </option>
+                    <option value="0.1 "> 10% </option>
+                    <option value="0.2 "> 20% </option>
+                    <option value="0.3 "> 30% </option>
+                    <option value="0.4 "> 40% </option>
+                    <option value="0.5 "> 50% </option>
+                    <option value="0.6 "> 60% </option>
+                    <option value="0.7 "> 70% </option>
+                    <option value="0.8 "> 80% </option>
+                </select>
+            </div>
+
+            <!--/form-->
+
+            <!--form-->
+            <div>
+                <label for="quantDeCupons">Quantidade de Cupons:</label><br>
+                <input class="form-control" type="quantidade">
+            </div><br>
+            <!--/form-->
+
+            <div>
+                <button class="btn btn-outline-secondary">Salvar Cupom</button>
+            </div>
+
+
+
         </div>
-            
-                    
-        
+    </nav>
+</div>
+<br><br><br>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+            </div>
+        </div>
     </div>
+</footer>

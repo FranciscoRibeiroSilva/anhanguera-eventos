@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //Rotas
 //Rota principal
 app.get('/', function(req, res) {
-    res.render('admi/adminForms/FormAtividade')
+    res.render('user/loginPar')
 })
 
 //Rotas dos adm's

@@ -16,7 +16,14 @@ footer {
     position: relative;
     bottom: 0px;
     text-align: center;
-    padding: 50px 0px 20px 0px;
+    padding: 128px 0px 0px 0px;
+    margin-block-end: auto;
+}
+
+.footerRela {
+    position: relative;
+    bottom: 0px;
+    text-align: center;
 }
 
 
@@ -38,6 +45,28 @@ footer {
     border-color: rgb(240, 235, 235);
     border-radius: 10px;
     background-color: rgb(240, 235, 235);
+}
+
+#FormulariosAdm {
+    float: center;
+    margin: 2% 20% 0% 20%;
+    border-width: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color: #f8f9fa;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin-top: -10px;
+}
+
+#FormAtividadeAdm {
+    float: center;
+    margin: 2% 5% 0% 5%;
+    border-width: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color: #f8f9fa;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    margin-top: -10px;
 }
 
 #img {
