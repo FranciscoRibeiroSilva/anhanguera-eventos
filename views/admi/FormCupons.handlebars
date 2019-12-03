@@ -1,17 +1,23 @@
 {{>_navbar}}
+
+<br>
 </nav><br>
+{{#each erros}}
+<div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
     <div class="form-grup formatacao">
-                     <!--<form action = '/anhangueraeventos/addEvento' method = "POST">-->
+        <form action = '/anhangueraeventos/addCupom' method = "POST">
         <div>
             <label for="codigo">Codigo do cupom:</label><br>
-            <input class="form-control" name="codigoCupom" placeholder="Nº do cupom"> 
+            <input class="form-control" name="codigo" placeholder="EX: ABC456"> 
         </div>
                     <!--/form-->
                     
                     <!--form-->
         <div>
             <label for="desconto">Desconto:</label><br>
-            <select class="form-control" id="desconto">
+            <select class="form-control" id="desconto" name="desconto">
                 <option value="Escolher op"> Escolha a opção </option>
                 <option value="0.1 "> 10%  </option>
                 <option value="0.2 "> 20%  </option>
@@ -28,15 +34,15 @@
 
                     <!--form-->
         <div>
-            <label for="quantDeCupons">Quantidade de Cupons:</label><br>
-            <input class="form-control" type="quantidade">     
+            <label for="quantidade">Quantidade de Cupons:</label><br>
+            <input class="form-control" type="quantidade" id="quantidade" name="quantidade">     
         </div><br>    
-                    <!--/form-->
                     
         <div>
             <button class="btn btn-outline-secondary">Salvar Cupom</button>
         </div>
             
+         </form>
                     
         
     </div>

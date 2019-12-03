@@ -6,6 +6,7 @@ const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
 const bcrypt = require("bcryptjs")
 const passaport = require("passport")
+const Cupons = require("../models/Cupons")
 
 
 //pagina de cadastro do adm
@@ -106,7 +107,38 @@ router.post('/verificaLogin', (req, res) => {
         res.redirect('/')
     })
 })
-
+//pagina de formulario do cupom
+router.get('/formCupons', (req, res) => {
+    res.render('admi/FormCupons')
+})
+//Adiciona cupom ao DB
+router.post('/addCupom', (req,res)=>{
+    var erros = []
+    if(!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length <5){
+        erros.push({ texto: "O CUPOM DEVE TER NO MINIMO 5 CARACTERES"})
+    }
+    if(!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null){
+        erros.push({ texto: "QUANTIDADE DE CUPONS INVALIDA"})
+    }
+    if (req.body.desconto == "Escolher op") { 
+        erros.push({ texto: "ESCOLHA O DESCONTO PARA O CUPOM" }) }
+    
+        if (erros.length > 0) {
+            res.render('admi/FormCupons', { erros: erros })
+        }
+    
+    else {Cupons.create({
+        codigo: req.body.codigo,
+        desconto: req.body.desconto,
+        quantidade: req.body.quantidade
+    }).then(function(){
+        res.send('cupom adicionado')
+    }).catch(function(err){
+        req.flash("error_msg", "Erro ao adicionar cupom")
+    })
+}
+    
+})
 //Pagina de formulario de criação de evento
 router.get('/formEvento', (req, res) => {
     res.render('admi/adminForms/FormEvento')
