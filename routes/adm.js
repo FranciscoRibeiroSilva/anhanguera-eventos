@@ -5,8 +5,18 @@ const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
 const bcrypt = require("bcryptjs")
-const passaport = require("passport")
+//const jwt = require('jsonwebtoken')
+//const athee = require('../midleware/auth')
+//const passport = require("passport")
 
+//const authConfig = require('../config/auth.json')
+
+//router.use(athee);
+
+//pagina Sobre
+router.get('/sobre',(req, res)=>{
+    res.render('admi/sobre')
+})
 
 //pagina de cadastro do adm
 router.get('/cadastroAdm', (req, res) => {
@@ -81,15 +91,41 @@ router.post('/addAdm', (req, res) => {
 
 //Pagina de login do adm
 router.get('/loginAdm', (req, res) => {
-    res.render('admi/LoginAdm')
+    res.render('index')
 })
 
-router.post('/sss', (req, res, next) => {
-    /*passaport.authenticate("local", {
+/*router.post('/sss', (req, res, next) => {
+    passport.authenticate("local", {
         successRedirect: "/anhangueraeventos/homepage",
-        failureRedirect: "/anhangueraeventos/loginAdm",
+        failureRedirect: "/",
         failureFlash : true
-    })(req, res, next)*/
+    })(req, res, next)
+})*/
+
+/*function geraToken(params = {}){
+    return jwt.sign(params, authConfig.secret, {
+        expiresIn: 86400,
+    })
+}*/
+
+router.post('/validacao', async(req, res)=>{
+    const {email , senha} = req.body;
+
+    const user = await Administrador.findOne({where:{email : req.body.email}})
+
+    if(!user){
+        req.flash("error_msg","E-mail incorreto")
+        res.redirect('/')
+    }
+
+    if(!await bcrypt.compare(senha, user.senha)){
+        req.flash("error_msg","Senha incorreta")
+        res.redirect('/')
+    }
+
+    //res.redirect("/anhangueraeventos/homepage",{token : geraToken({id : user.id})})
+    res.redirect("/anhangueraeventos/homepage")
+
 })
 //Verifica dados de login
 router.post('/verificaLogin', (req, res) => {
@@ -147,7 +183,7 @@ router.post('/addEvento', (req, res) => {
             nomeAdm: req.body.nomeAdm,
             emailAdm: req.body.emailAdm
         }).then(function () {
-            res.redirect('/homepage')
+            res.redirect('/anhangueraeventos/homepage')
         }).catch(function (erro) {
             res.send("Erro na criação do evento: " + erro)
         })
