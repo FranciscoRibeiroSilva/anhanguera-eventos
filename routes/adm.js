@@ -195,9 +195,11 @@ router.post('/addAtividade', (req, res) => {
         erros.push({ texto: "MINISTRANTE INVALIDO" })
     }
     // O HORARIO FINAL NÃO PODE SER MENOR QUE O HORARIO DE INICIO
+    /*
     if (req.body.horaFinal <= req.body.horaInicio) {
         erros.push({ texto: "HORARIO FINAL INVALIDO" })
     }
+    */
     if (req.body.tipo == "--Atividade--") { erros.push({ texto: "TIPO DE ATIVIDADE INVALIDA" }) }
     if (!req.body.data || typeof req.body.data == undefined || req.body.data == null) {
         erros.push({ texto: "DATA INVALIDA" })
