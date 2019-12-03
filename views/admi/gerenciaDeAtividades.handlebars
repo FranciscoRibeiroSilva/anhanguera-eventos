@@ -1,5 +1,8 @@
 {{>_navbar}}
-<br><br>
+<center class="mt-5">
+    <h1>GERENCIAMENTO DE ATIVIDADES</h1><br>
+</center>
+<br>
 <div>
     {{>_msg}}
     <a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary btn-tamanhoUnico">Adicionar
@@ -9,7 +12,7 @@
     <div class="card mt-2 ">
         <div class="card-body fundo">
             <h2>
-                <p> Nome da Atividade: {{nome}} </p>
+                <p>{{nome}} </p>
             </h2>
 
             <h6>
@@ -17,7 +20,7 @@
                 Ministrante: {{ministrante}}<br>
                 Data: {{data}}<br>
                 Hórario inicio: {{horaInicio}}<br>
-                Hórario final: {{horaFinal}}<br>
+                Duração: {{horaFinal}}<br>
                 Sala: {{sala}}<br>
                 Carga horaria: {{cargaHoraria}}<br>
                 Participantes: {{numeroDePartic}}<br>
