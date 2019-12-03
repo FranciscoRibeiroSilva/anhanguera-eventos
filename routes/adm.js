@@ -92,16 +92,16 @@ router.post('/sss', (req, res, next) => {
     })(req, res, next)*/
 })
 //Verifica dados de login
-router.post('/verificaLogin',(req, res) => {
-    Administrador.findOne({where:{email : req.body.email}}).then((adm)=>{
-        if(adm.email == req.body.email){
+router.post('/verificaLogin', (req, res) => {
+    Administrador.findOne({ where: { email: req.body.email } }).then((adm) => {
+        if (adm.email == req.body.email) {
             res.redirect('/anhangueraeventos/homepage')
         }
-        else{
+        else {
             req.flash("error_msg", "Erro ao logar verifique os seus dados")
             res.redirect('/')
         }
-    }).catch(()=>{
+    }).catch(() => {
         req.flash("error_msg", "Erro ao logar verifique os seus dados")
         res.redirect('/')
     })
@@ -124,14 +124,16 @@ router.post('/addEvento', (req, res) => {
     if (!req.body.nomeAdm || typeof req.body.nomeAdm == undefined || req.body.nomeAdm == null || req.body.nomeAdm.length < 2) {
         erros.push({ texto: "NOME DE ADMINISTRADOR INVALIDO" })
     }
-    if (!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length < 12){
+    if (!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length < 12) {
         erros.push({ texto: "EMAIL INVALIDO" })
     }
-    if (req.body.participanteEs == "Escolher op") { 
-        erros.push({ texto: "ESCOLHA O NUMERO DE PARTICIPANTES ESPERADOS" }) }
-    
-        if (req.body.tipoEvento == "Escolher op") {
-        erros.push({ texto: "ESCOLHA O TIPO DE EVENTO" }) }
+    if (req.body.participanteEs == "Escolher op") {
+        erros.push({ texto: "ESCOLHA O NUMERO DE PARTICIPANTES ESPERADOS" })
+    }
+
+    if (req.body.tipoEvento == "Escolher op") {
+        erros.push({ texto: "ESCOLHA O TIPO DE EVENTO" })
+    }
 
     if (erros.length > 0) {
         res.render('admi/adminForms/FormEvento', { erros: erros })
@@ -200,8 +202,13 @@ router.post('/addAtividade', (req, res) => {
     if (!req.body.data || typeof req.body.data == undefined || req.body.data == null) {
         erros.push({ texto: "DATA INVALIDA" })
     }
-    // CASO NÃO ESCOLHA NENHUMA DAS OPIÇÕES DO SELECT
-    if (req.body.sala == "--Informe a sala--") { erros.push({ texto: "SALA INVALIDA" }) }
+    // CASO PASSE DO QUANTIDADE MAXIMO DE SALAS
+    if (req.body.sala > 10 || !req.body.sala || typeof req.body.sala == undefined || req.body.sala == null) {
+        erros.push({
+            texto: "INFORME A QUANTIDADE DE SALAS VALIDAS"
+        })
+    }
+
     if (req.body.cargaHoraria == "--Informe a CH--") { erros.push({ texto: "CARGA HORARIO INVALIDO" }) }
     if (req.body.inscricaoT == "--Tipo--") { erros.push({ texto: "TIPO DE INSCRIÇÃO INVALIDA" }) }
     if (!req.body.numeroDePartic || typeof req.body.numeroDePartic == undefined || req.body.numeroDePartic == null) {
