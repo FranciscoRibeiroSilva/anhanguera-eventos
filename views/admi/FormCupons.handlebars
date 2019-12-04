@@ -1,4 +1,5 @@
 {{>_navbar}}
+<<<<<<< HEAD:views/admi/Cupons.handlebars
 <br><br>
 <div id="FormulariosAdm">
     <nav>
@@ -54,3 +55,52 @@
         </div>
     </div>
 </footer>
+=======
+
+<br>
+</nav><br>
+{{#each erros}}
+<div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+    <div class="form-grup formatacao">
+        <form action = '/anhangueraeventos/addCupom' method = "POST">
+        <div>
+            <label for="codigo">Codigo do cupom:</label><br>
+            <input class="form-control" name="codigo" placeholder="EX: ABC456"> 
+        </div>
+                    <!--/form-->
+                    
+                    <!--form-->
+        <div>
+            <label for="desconto">Desconto:</label><br>
+            <select class="form-control" id="desconto" name="desconto">
+                <option value="Escolher op"> Escolha a opção </option>
+                <option value="0.1 "> 10%  </option>
+                <option value="0.2 "> 20%  </option>
+                <option value="0.3 "> 30%  </option>
+                <option value="0.4 "> 40%  </option>
+                <option value="0.5 "> 50%  </option>
+                <option value="0.6 "> 60%  </option>
+                <option value="0.7 "> 70%  </option>
+                <option value="0.8 "> 80%  </option>
+            </select>
+        </div>    
+                        
+                    <!--/form-->
+
+                    <!--form-->
+        <div>
+            <label for="quantidade">Quantidade de Cupons:</label><br>
+            <input class="form-control" type="quantidade" id="quantidade" name="quantidade">     
+        </div><br>    
+                    
+        <div>
+            <button class="btn btn-outline-secondary">Salvar Cupom</button>
+        </div>
+            
+         </form>
+                    
+        
+    </div>
+>>>>>>> mathw:views/admi/FormCupons.handlebars
