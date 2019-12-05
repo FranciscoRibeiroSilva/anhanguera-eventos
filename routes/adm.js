@@ -5,14 +5,9 @@ const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
 const bcrypt = require("bcryptjs")
-<<<<<<< HEAD
 //const jwt = require('jsonwebtoken')
 //const athee = require('../midleware/auth')
 //const passport = require("passport")
-=======
-const passaport = require("passport")
-const Cupons = require("../models/Cupons")
->>>>>>> mathw
 
 //const authConfig = require('../config/auth.json')
 
@@ -147,38 +142,7 @@ router.post('/verificaLogin', (req, res) => {
         res.redirect('/')
     })
 })
-//pagina de formulario do cupom
-router.get('/formCupons', (req, res) => {
-    res.render('admi/FormCupons')
-})
-//Adiciona cupom ao DB
-router.post('/addCupom', (req,res)=>{
-    var erros = []
-    if(!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length <5){
-        erros.push({ texto: "O CUPOM DEVE TER NO MINIMO 5 CARACTERES"})
-    }
-    if(!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null){
-        erros.push({ texto: "QUANTIDADE DE CUPONS INVALIDA"})
-    }
-    if (req.body.desconto == "Escolher op") { 
-        erros.push({ texto: "ESCOLHA O DESCONTO PARA O CUPOM" }) }
-    
-        if (erros.length > 0) {
-            res.render('admi/FormCupons', { erros: erros })
-        }
-    
-    else {Cupons.create({
-        codigo: req.body.codigo,
-        desconto: req.body.desconto,
-        quantidade: req.body.quantidade
-    }).then(function(){
-        res.send('cupom adicionado')
-    }).catch(function(err){
-        req.flash("error_msg", "Erro ao adicionar cupom")
-    })
-}
-    
-})
+
 //Pagina de formulario de criação de evento
 router.get('/formEvento', (req, res) => {
     res.render('admi/adminForms/FormEvento')
@@ -266,12 +230,7 @@ router.post('/addAtividade', (req, res) => {
     if (!req.body.ministrante || typeof req.body.ministrante == undefined || req.body.ministrante == null || req.body.ministrante.length < 2) {
         erros.push({ texto: "MINISTRANTE INVALIDO" })
     }
-    // O HORARIO FINAL NÃO PODE SER MENOR QUE O HORARIO DE INICIO
-    /*
-    if (req.body.horaFinal <= req.body.horaInicio) {
-        erros.push({ texto: "HORARIO FINAL INVALIDO" })
-    }
-    */
+   
     if (req.body.tipo == "--Atividade--") { erros.push({ texto: "TIPO DE ATIVIDADE INVALIDA" }) }
     if (!req.body.data || typeof req.body.data == undefined || req.body.data == null) {
         erros.push({ texto: "DATA INVALIDA" })
@@ -311,12 +270,11 @@ router.post('/addAtividade', (req, res) => {
         if (!req.body.cpf || typeof req.body.cpf == undefined || req.body.cpf == null || req.body.cpf.length < 14) {
             erros.push({ texto: "CPF INVALIDO" })
         }
-
     }
     // QUANTIDADE DE ERROS DENTRO DO VETOR
     if (erros.length > 0) {
         // CASO A QUANTIDADES DE CAMPOS FOR MUITO GRANDE A MSG APARECE
-        if (erros.length > 12) {
+        if (erros.length > 10) {
             var err = []
             err.push({ texto: "PREENCHA OS CAMPOS QUE ESTÃO FALTANDO" })
             res.render('admi/adminForms/FormAtividade', { err: err })
@@ -333,12 +291,15 @@ router.post('/addAtividade', (req, res) => {
                 sala: req.body.sala,
                 data: req.body.data,
                 horaInicio: req.body.horaInicio,
-                horaFinal: req.body.horaFinal
+                duracao: req.body.duracao
             }
         }).then((atividade) => {
+            var dadosJaExiste = []
             if (atividade) {
                 req.flash("error_msg", "Já existe uma atividade com os mesmos dados na plataforma")
-                res.redirect('/anhangueraeventos/formAtividades')
+                dadosJaExiste.push({texto: "DATA, SALA E HORÁRIO JÁ OCUPADOS"})
+                res.render('admi/adminForms/FormAtividade', { dadosJaExiste: dadosJaExiste })
+                //res.redirect('/anhangueraeventos/formAtividades')
             } else {
                 Atividades.create({
                     nome: req.body.nome,
@@ -346,7 +307,7 @@ router.post('/addAtividade', (req, res) => {
                     data: req.body.data,
                     ministrante: req.body.ministrante,
                     horaInicio: req.body.horaInicio,
-                    horaFinal: req.body.horaFinal,
+                    duracao: req.body.duracao,
                     sala: req.body.sala,
                     cargaHoraria: req.body.cargaHoraria,
                     numeroDePartic: req.body.numeroDePartic,
