@@ -10,30 +10,33 @@
     {{#each regist}}
     <div class="card mt-2 ">
         <div class="card-body fundo">
-            <h2>
-                <p>{{nome}}</p>
-            </h2>
+
             <nav class="navbar fundo justify-content-end">
+                <!-- DEIXANDO O NOME DA ATIVIDADE DO LADO ESQUERDO -->
+                <h2 class="navbar-nav mr-auto">
+                    <p>{{nome}}</p>
+                </h2>
+
                 <button class="btn btn-outline-secondary" type="button" data-toggle="collapse"
                     data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
                     aria-expanded="false" aria-label="Alterna navegação">
-                    <h6>ver mais</h6>
+                    <h6>Ver mais</h6>
                     <!--<span class="navbar-toggler-icon"></span>-->
                 </button>
             </nav>
-            <h5 class="text-black h4"> Tipo de Atividade: {{tipo}}<br></h5>
-            <h5 class="text-black h4">Data: {{data}}<br></h5>
-            <h5 class="text-black h4">Hórario inicio: {{horaInicio}}<br></h5>
-            <h5 class="text-black h4">Sala: {{sala}}<br></h5>
+            <h6 class="text-black h5"> Tipo de Atividade: {{tipo}}<br></h6>
+            <h6 class="text-black h5">Data: {{data}}<br></h6>
+            <h6 class="text-black h5">Hórario inicio: {{horaInicio}}<br></h6>
+            <h6 class="text-black h5">Sala: {{sala}}<br></h6>
             <!-- MOSTRA MAIS INFORMAÇÕES DA ATIVIDADE -->
             <div class="pos-f-t fundo">
                 <div class="collapse " id="navbarToggleExternalContent">
                     <div class="fundo">
-                        <h5 class="text-black h4">Ministrante: {{ministrante}}<br></h5>
-                        <h5 class="text-black h4">Duração: {{duracao}}<br></h5>
-                        <h5 class="text-black h4">Carga horaria: {{cargaHoraria}}<br></h5>
-                        <h5 class="text-black h4">Participantes: {{numeroDePartic}}<br></h5>
-                        <h5 class="text-black h4">Tipo de inscrição: {{inscricaoT}}<br></h5>
+                        <h6 class="text-black h5">Ministrante: {{ministrante}}<br></h6>
+                        <h6 class="text-black h5">Duração: {{duracao}}<br></h6>
+                        <h6 class="text-black h5">Carga horaria: {{cargaHoraria}}<br></h6>
+                        <h6 class="text-black h5">Participantes: {{numeroDePartic}}<br></h6>
+                        <h6 class="text-black h5">Tipo de inscrição: {{inscricaoT}}<br></h6>
                     </div>
                 </div>
             </div>
