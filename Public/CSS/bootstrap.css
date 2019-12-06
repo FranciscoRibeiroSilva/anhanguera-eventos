@@ -26,6 +26,12 @@ footer {
     text-align: center;
 }
 
+.footerAbsu {
+    position: relative;
+    bottom: 0px;
+    padding-top: 625px;
+    text-align: center;
+}
 
 /*COR DE FUNDO */
 

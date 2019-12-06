@@ -16,7 +16,7 @@ const Atividades = db.sequelize.define('atividades', {
     horaInicio: {
         type: db.Sequelize.STRING
     },
-    horaFinal: {
+    duracao: {
         type: db.Sequelize.STRING
     },
     sala: {
@@ -49,8 +49,6 @@ const Atividades = db.sequelize.define('atividades', {
     cpf: {
         type: db.Sequelize.STRING
     }
-
-
 })
 
 //Atividades.sync({force: true})

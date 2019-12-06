@@ -5,36 +5,52 @@
 <br>
 <div>
     {{>_msg}}
-    <a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary btn-tamanhoUnico">Adicionar
+    <a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary">Adicionar
             Atividade</button></a>
-
     {{#each regist}}
     <div class="card mt-2 ">
         <div class="card-body fundo">
-            <h2>
-                <p>{{nome}} </p>
-            </h2>
 
-            <h6>
-                Tipo de Atividade: {{tipo}}<br>
-                Ministrante: {{ministrante}}<br>
-                Data: {{data}}<br>
-                Hórario inicio: {{horaInicio}}<br>
-                Duração: {{horaFinal}}<br>
-                Sala: {{sala}}<br>
-                Carga horaria: {{cargaHoraria}}<br>
-                Participantes: {{numeroDePartic}}<br>
-                Tipo de inscrição: {{inscricaoT}}<br>
-            </h6>
+            <nav class="navbar fundo justify-content-end">
+                <!-- DEIXANDO O NOME DA ATIVIDADE DO LADO ESQUERDO -->
+                <h2 class="navbar-nav mr-auto">
+                    <p>{{nome}}</p>
+                </h2>
 
-            <a href='/anhangueraeventos/removeAtividade/{{id}}'><button
-                    class="btn btn-outline-secondary btn-tamanhoUnico">Remover atividade</button></a>
-            <a href='/anhangueraeventos/formModifica/{{id}}'><button class="btn btn-outline-secondary btn-tamanhoUnico">
-                    Modificar atividade </button></a>
+                <button class="btn btn-outline-secondary" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false" aria-label="Alterna navegação">
+                    <h6>Ver mais</h6>
+                    <!--<span class="navbar-toggler-icon"></span>-->
+                </button>
+            </nav>
+            <h6 class="text-black h5"> Tipo de Atividade: {{tipo}}<br></h6>
+            <h6 class="text-black h5">Data: {{data}}<br></h6>
+            <h6 class="text-black h5">Hórario inicio: {{horaInicio}}<br></h6>
+            <h6 class="text-black h5">Sala: {{sala}}<br></h6>
+            <!-- MOSTRA MAIS INFORMAÇÕES DA ATIVIDADE -->
+            <div class="pos-f-t fundo">
+                <div class="collapse " id="navbarToggleExternalContent">
+                    <div class="fundo">
+                        <h6 class="text-black h5">Ministrante: {{ministrante}}<br></h6>
+                        <h6 class="text-black h5">Duração: {{duracao}}<br></h6>
+                        <h6 class="text-black h5">Carga horaria: {{cargaHoraria}}<br></h6>
+                        <h6 class="text-black h5">Participantes: {{numeroDePartic}}<br></h6>
+                        <h6 class="text-black h5">Tipo de inscrição: {{inscricaoT}}<br></h6>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <a href='/anhangueraeventos/removeAtividade/{{id}}'><button class="btn btn-outline-secondary">Remover
+                    atividade</button></a>
+            <a href='/anhangueraeventos/formModifica/{{id}}'><button class="btn btn-outline-secondary">Modificar
+                    atividade</button></a>
         </div>
     </div>
     {{/each}}
 </div>
+
 <footer class="footerRela">
     <div class="container">
         <div class="row">
