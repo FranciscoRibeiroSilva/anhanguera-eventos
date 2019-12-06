@@ -12,6 +12,9 @@ const CadastroUsers = db.sequelize.define('usuarios', {
     },
     senha:{
         type: db.Sequelize.STRING
+    },
+    categoria:{
+        type: db.Sequelize.STRING
     }
     
 })
