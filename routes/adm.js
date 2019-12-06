@@ -156,6 +156,9 @@ router.post('/addCupom', (req,res)=>{
     if(!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null){
         erros.push({ texto: "QUANTIDADE DE CUPONS INVALIDA"})
     }
+    if(!req.body.validade || typeof req.body.validade == undefined || req.body.validade == null){
+        erros.push({ texto: "DATA DE VALIDADE INVALIDA"})
+    }
     if (req.body.desconto == "Escolher op") { 
         erros.push({ texto: "ESCOLHA O DESCONTO PARA O CUPOM" }) }
 
@@ -166,7 +169,8 @@ router.post('/addCupom', (req,res)=>{
     else {Cupons.create({
         codigo: req.body.codigo,
         desconto: req.body.desconto,
-        quantidade: req.body.quantidade
+        quantidade: req.body.quantidade,
+        validade: req.body.validade
     }).then(function(){
         res.send('cupom adicionado')
     }).catch(function(err){
