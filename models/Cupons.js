@@ -21,6 +21,6 @@ const Cupons = db.sequelize.define('cupom', {
 //    quantidade: "10"
 //})
 
-Cupons.sync({force: true})
+//Cupons.sync({force: true})
 
 module.exports = Cupons
