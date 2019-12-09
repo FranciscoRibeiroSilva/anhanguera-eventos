@@ -15,7 +15,7 @@ const Cupons = require("../models/Cupons")
 //router.use(athee);
 
 //pagina Sobre
-router.get('/sobre',(req, res)=>{
+router.get('/sobre', (req, res) => {
     res.render('admi/sobre')
 })
 
@@ -109,18 +109,18 @@ router.get('/loginAdm', (req, res) => {
     })
 }*/
 
-router.post('/validacao', async(req, res)=>{
-    const {email , senha} = req.body;
+router.post('/validacao', async (req, res) => {
+    const { email, senha } = req.body;
 
-    const user = await Administrador.findOne({where:{email : req.body.email}})
+    const user = await Administrador.findOne({ where: { email: req.body.email } })
 
-    if(!user){
-        req.flash("error_msg","E-mail incorreto")
+    if (!user) {
+        req.flash("error_msg", "E-mail incorreto")
         res.redirect('/')
     }
 
-    if(!await bcrypt.compare(senha, user.senha)){
-        req.flash("error_msg","Senha incorreta")
+    if (!await bcrypt.compare(senha, user.senha)) {
+        req.flash("error_msg", "Senha incorreta")
         res.redirect('/')
     }
 
@@ -148,31 +148,37 @@ router.get('/formCupons', (req, res) => {
     res.render('admi/FormCupons')
 })
 //Adiciona cupom ao DB
-router.post('/addCupom', (req,res)=>{
+router.post('/addCupom', (req, res) => {
     var erros = []
-    if(!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length <5){
-        erros.push({ texto: "O CUPOM DEVE TER NO MINIMO 5 CARACTERES"})
+    if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length < 5) {
+        erros.push({ texto: "O CUPOM DEVE TER NO MINIMO 5 CARACTERES" })
     }
-    if(!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null){
-        erros.push({ texto: "QUANTIDADE DE CUPONS INVALIDA"})
+    if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null) {
+        erros.push({ texto: "QUANTIDADE DE CUPONS INVALIDA" })
     }
-    if (req.body.desconto == "Escolher op") { 
-        erros.push({ texto: "ESCOLHA O DESCONTO PARA O CUPOM" }) }
+    if (!req.body.validade || typeof req.body.validade == undefined || req.body.validade == null) {
+        erros.push({ texto: "DATA DE VALIDADE INVALIDA" })
+    }
+    if (req.body.desconto == "Escolher op") {
+        erros.push({ texto: "ESCOLHA O DESCONTO PARA O CUPOM" })
+    }
 
-        if (erros.length > 0) {
-            res.render('admi/FormCupons', { erros: erros })
-        }
+    if (erros.length > 0) {
+        res.render('admi/FormCupons', { erros: erros })
+    }
 
-    else {Cupons.create({
-        codigo: req.body.codigo,
-        desconto: req.body.desconto,
-        quantidade: req.body.quantidade
-    }).then(function(){
-        res.send('cupom adicionado')
-    }).catch(function(err){
-        req.flash("error_msg", "Erro ao adicionar cupom")
-    })
-}
+    else {
+        Cupons.create({
+            codigo: req.body.codigo,
+            desconto: req.body.desconto,
+            quantidade: req.body.quantidade,
+            validade: req.body.validade
+        }).then(function () {
+            res.send('cupom adicionado')
+        }).catch(function (err) {
+            req.flash("error_msg", "Erro ao adicionar cupom")
+        })
+    }
 
 })
 
@@ -263,7 +269,7 @@ router.post('/addAtividade', (req, res) => {
     if (!req.body.ministrante || typeof req.body.ministrante == undefined || req.body.ministrante == null || req.body.ministrante.length < 2) {
         erros.push({ texto: "MINISTRANTE INVALIDO" })
     }
-   
+
     if (req.body.tipo == "--Atividade--") { erros.push({ texto: "TIPO DE ATIVIDADE INVALIDA" }) }
     if (!req.body.data || typeof req.body.data == undefined || req.body.data == null) {
         erros.push({ texto: "DATA INVALIDA" })
@@ -283,13 +289,13 @@ router.post('/addAtividade', (req, res) => {
     if (req.body.prazo > req.body.data) {
         erros.push({ texto: "PRAZO DE INSCRIÇÃO INVALIDO" })
     }
+    if (!req.body.prazo || typeof req.body.prazo == undefined || req.body.prazo == null) {
+        erros.push({ texto: "PRAZO DE INSCRIÇÃO INVALIDO" })
+    }
     // CASO A INSCRIÇÃO FOR PAGA ELE VALIDA OS CAMPO ABAIXO
     if (req.body.inscricaoT == "Paga") {
         if (!req.body.valor || typeof req.body.valor == undefined || req.body.valor == null) {
             erros.push({ texto: "VALOR INVALIDO INVALIDO" })
-        }
-        if (!req.body.prazo || typeof req.body.prazo == undefined || req.body.prazo == null) {
-            erros.push({ texto: "PRAZO DE INSCRIÇÃO INVALIDO" })
         }
         if (!req.body.numConta || typeof req.body.numConta == undefined || req.body.numConta == null || req.body.numConta.length < 10) {
             erros.push({ texto: "NÚMERO DA CONTA INVALIDO" })
@@ -330,7 +336,7 @@ router.post('/addAtividade', (req, res) => {
             var dadosJaExiste = []
             if (atividade) {
                 req.flash("error_msg", "Já existe uma atividade com os mesmos dados na plataforma")
-                dadosJaExiste.push({texto: "DATA, SALA E HORÁRIO JÁ OCUPADOS"})
+                dadosJaExiste.push({ texto: "DATA, SALA E HORÁRIO JÁ OCUPADOS" })
                 res.render('admi/adminForms/FormAtividade', { dadosJaExiste: dadosJaExiste })
                 //res.redirect('/anhangueraeventos/formAtividades')
             } else {
@@ -371,39 +377,104 @@ router.get('/formModifica/:id', (req, res) => {
         res.render('admi/adminForms/FormModAtividade', { atividades: atividades })
     }).catch((err) => {
         req.flash("error_msg", "Erro ao busca atividade")
-        res.redirect('anhangueraeventos/gerenciaDeAtividades')
+        res.redirect('/anhangueraeventos/gerenciaDeAtividades')
     })
-
 })
 
 //Edita as atividades
 router.post('/modAtividades/', (req, res) => {
-    Atividades.update({
-        nome: req.body.nome,
-        tipo: req.body.tipo,
-        data: req.body.data,
-        ministrante: req.body.ministrante,
-        horaInicio: req.body.horaInicio,
-        horaFinal: req.body.horaFinal,
-        sala: req.body.sala,
-        cargaHoraria: req.body.cargaHoraria,
-        numeroDePartic: req.body.numeroDePartic,
-        inscricaoT: req.body.inscricaoT,
-        valor: req.body.valor,
-        prazo: req.body.prazo,
-        numConta: req.body.numConta,
-        banco: req.body.banco,
-        agencia: req.body.agencia,
-        cpf: req.body.cpf
-    }, { where: { 'id': req.body.id } }).then(() => {
-        req.flash("success_msg", "Edição concluida com exito")
-        res.redirect('/anhangueraeventos/gerenciaDeAtividades')
-    }).catch((err) => {
-        req.flash("error_msg", "Erro ao editar atividade")
-        res.redirect('anhagueraeventos/gerenciaDeAtividades')
-    })
-})
+    var erros = []
+    if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2) {
+        erros.push({ texto: "ATIVIDADE INVALIDA" })
+    }
+    if (!req.body.ministrante || typeof req.body.ministrante == undefined || req.body.ministrante == null || req.body.ministrante.length < 2) {
+        erros.push({ texto: "MINISTRANTE INVALIDO" })
+    }
 
+    if (req.body.tipo == "--Atividade--") { erros.push({ texto: "TIPO DE ATIVIDADE INVALIDA" }) }
+    if (!req.body.data || typeof req.body.data == undefined || req.body.data == null) {
+        erros.push({ texto: "DATA INVALIDA" })
+    }
+    // CASO PASSE DO QUANTIDADE MAXIMO DE SALAS
+    if (req.body.sala > 10 || !req.body.sala || typeof req.body.sala == undefined || req.body.sala == null) {
+        erros.push({
+            texto: "INFORME A QUANTIDADE DE SALAS VALIDAS"
+        })
+    }
+
+    if (req.body.cargaHoraria == "--Informe a CH--") { erros.push({ texto: "CARGA HORARIO INVALIDO" }) }
+    if (req.body.inscricaoT == "--Tipo--") { erros.push({ texto: "TIPO DE INSCRIÇÃO INVALIDA" }) }
+    if (!req.body.numeroDePartic || typeof req.body.numeroDePartic == undefined || req.body.numeroDePartic == null) {
+        erros.push({ texto: "NÚMERO DE PARTICIPANTES INVALIDO" })
+    }
+    if (req.body.prazo > req.body.data) {
+        erros.push({ texto: "PRAZO DE INSCRIÇÃO INVALIDO" })
+    }
+    if (!req.body.prazo || typeof req.body.prazo == undefined || req.body.prazo == null) {
+        erros.push({ texto: "PRAZO DE INSCRIÇÃO INVALIDO" })
+    }
+    // CASO A INSCRIÇÃO FOR PAGA ELE VALIDA OS CAMPO ABAIXO
+    if (req.body.inscricaoT == "Paga") {
+        if (!req.body.valor || typeof req.body.valor == undefined || req.body.valor == null) {
+            erros.push({ texto: "VALOR INVALIDO INVALIDO" })
+        }
+        if (!req.body.numConta || typeof req.body.numConta == undefined || req.body.numConta == null || req.body.numConta.length < 10) {
+            erros.push({ texto: "NÚMERO DA CONTA INVALIDO" })
+        }
+        if (!req.body.agencia || typeof req.body.agencia == undefined || req.body.agencia == null || req.body.agencia.length < 4) {
+            erros.push({ texto: "AGÊNCIA INVALIDA" })
+        }
+        if (!req.body.banco || typeof req.body.banco == undefined || req.body.banco == null || req.body.banco.length < 5) {
+            erros.push({ texto: "NOME BANCO INVALIDO" })
+        }
+        if (!req.body.cpf || typeof req.body.cpf == undefined || req.body.cpf == null || req.body.cpf.length < 14) {
+            erros.push({ texto: "CPF INVALIDO" })
+        }
+    }
+    // QUANTIDADE DE ERROS DENTRO DO VETOR
+    if (erros.length > 0) {
+        // CASO A QUANTIDADES DE CAMPOS FOR MUITO GRANDE A MSG APARECE
+        if (erros.length > 10) {
+            var err = []
+            err.push({ texto: "PREENCHA OS CAMPOS QUE ESTÃO FALTANDO" })
+            res.render('admi/adminForms/FormAtividade', { err: err })
+        }
+        // SE OS CAMPOS QUE ESTÃO FALTANDO NÃO FOREM MUITOS APARECE QUAIS ESTÃO FALTANDO
+        else {
+            res.render('admi/adminForms/FormAtividade', { erros: erros })
+        }
+    }
+    else {
+        Atividades.update({
+            nome: req.body.nome,
+            tipo: req.body.tipo,
+            data: req.body.data,
+            ministrante: req.body.ministrante,
+            horaInicio: req.body.horaInicio,
+            duracao: req.body.duracao,
+            sala: req.body.sala,
+            cargaHoraria: req.body.cargaHoraria,
+            numeroDePartic: req.body.numeroDePartic,
+            inscricaoT: req.body.inscricaoT,
+            valor: req.body.valor,
+            prazo: req.body.prazo,
+            numConta: req.body.numConta,
+            banco: req.body.banco,
+            agencia: req.body.agencia,
+            cpf: req.body.cpf
+
+        },
+        {
+            where: {'id': req.body.id}
+        }).then(() => {
+            req.flash("success_msg", "Edição concluida com exito")
+            res.redirect('/anhangueraeventos/gerenciaDeAtividades')
+        }).catch((err) => {
+            req.flash("error_msg", "Erro ao editar atividade")
+            res.redirect('/anhangueraeventos/gerenciaDeAtividades')
+        })
+    }
+})
 //remove atividades
 router.get('/removeAtividade/:id', function (req, res) {
     Atividades.destroy({ where: { 'id': req.params.id } }).then(function () {

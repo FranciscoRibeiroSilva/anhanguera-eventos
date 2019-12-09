@@ -9,8 +9,10 @@ const Cupons = db.sequelize.define('cupom', {
     },
     quantidade: {
         type: db.Sequelize.STRING
+    },
+    validade: {
+        type: db.Sequelize.STRING
     }
-    
 })
 
 //Cupons.create({
