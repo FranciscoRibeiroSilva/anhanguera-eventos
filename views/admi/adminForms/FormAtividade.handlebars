@@ -3,15 +3,22 @@
 <center class="mt-5">
     <h1>ADICIONAR ATIVIDADES</h1><br>
 </center>
-<!-- ALERTA -->
+<!-- ALERTA CASO OS DADOS ESTEJAM FALTANDO-->
 {{#each erros}}
 <div class="alert alert-danger">{{texto}}</div>
 {{else}}
 {{/each}}
+<!-- ALERTA CASO TENHA MUITOS DADOS FALTANDO-->
 {{#each err}}
 <div class="alert alert-danger">{{texto}}</div>
 {{else}}
 {{/each}}
+<!-- ALERTA CASO A DATA,SALA,HORA JÁ EXISTAM-->
+{{#each dadosJaExiste}}
+<div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
 <table width="100%">
     <center>
         <div class="form-grup">
@@ -49,15 +56,15 @@
                         <input class="form-control" type="time" id="appt" name="horaInicio" min="01:00" max="23:50"
                             required>
                         <!--HORARIO DO TERMINO-->
-                        <label for="appt"> Horário final: </label>
-                        <input class="form-control" type="time" id="appt" name="horaFinal" min="01:00" max="23:50">
+                        <label for="appt"> Duração: </label>
+                        <input class="form-control" type="time" id="appt" name="duracao" min="00:10" max="03:00">
 
                     </td>
 
                     <td>
                         <!--SALA DA ATIVIDADE-->
                         <label for="sala">Sala:</label>
-                        <input class="form-control" type="number" id="sala" name="sala" min="0" max="20" placeholder="Sala">
+                        <input class="form-control" type="number" id="sala" name="sala" placeholder="Sala">
 
                         <!--CARGA HORARIA-->
                         <label for="cargaH">Carga Horário:</label>
@@ -192,7 +199,7 @@
                                     input5.value = null;
                                 }
                             });
-                            
+
 
                         </script>
 
@@ -202,9 +209,21 @@
                 <center>
                     <br>
                     <button class="btn btn-outline-secondary"> Concluir </button>
+
                 </center>
 
             </form>
+
+            <footer class="footerRela">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            
         </div>
     </center>
 </table>

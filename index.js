@@ -35,7 +35,6 @@ const passport = require("passport")
 //require("./config/auth")(passport)
 
 //Configurações
-
     //Sessão
         app.use(session({
             secret: "qualquer",
@@ -68,19 +67,21 @@ const passport = require("passport")
         app.use(express.static(path.join(__dirname, "public")));
 
 //Rotas
-    //Rota principal
-        app.get('/', function(req, res){
-            res.render('index')
-        })
-    
-    //Rotas dos adm's
-        app.use('/anhangueraeventos', adm)
-    
-    //Rotas do usuario
-        app.use('/users', user)
+//Rota principal
+app.get('/', function(req, res) {
+    res.render('index')
+})
+
+//Rotas dos adm's
+app.use('/anhangueraeventos', adm)
+
+//Rotas do usuario
+app.use('/users', user)
 
 //Outros
-const PORT = 8081
-app.listen(PORT, ()=>{
-    console.log("Servidor Rodando na URL http://localhost:8081");
-});
+//const PORT = 8081
+//app.listen(PORT, () => {
+//    console.log("Servidor Rodando na URL http://localhost:8081");
+///});
+
+app.listen(process.env.PORT || 3000)

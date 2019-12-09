@@ -1,68 +1,88 @@
 {{>_navbar}}
 
+<br><br>
+<div id="FormulariosAdm">
 <br>
-{{#each erros}}
-<div class="alert alert-danger">{{texto}}</div>
-{{else}}
-{{/each}}
-<div class="form-grup">
-    <div class="formatacao">
-
-        <form action='/anhangueraeventos/addEvento' method="POST"><br>
-            <!--form-->
-            <div>
-                </label for="nomeEvento"> Nome do evento:</label><br>
-                <input name = "nome" class="form-control" type="text" id="nomeEvento" placeholder="Informe o nome do evento">
-            </div>
-
-            <!--/form-->
-
-            <!--form-->
-            <div>
-                <label for="numeroDeParticipantes">Numero de participantes esperados:</label><br>
-                <select class="form-control" name="participanteEs">
-                    <option value="Escolher op"> Escolha uma opção </option>
-                    <option value="Ate 300 "> Ate 300 participantes </option>
-                    <option value="Entre 300 e 1000 "> Entre 300 e 1000 participantes </option>
-                    <option value="Mais de 1000 "> Mais de 1000 participantes </option>
-                </select>
-            </div>
-            <!--/form-->
-
-            <!--form-->
-            <div>
-                <label for="tipoDeEvento">Tipo de evento:</label><br>
-                <select class="form-control" name="tipoEvento">
-                    <option value="Escolher op"> Escolha uma opção </option>
-                    <option value="Curso">Curso-Workshop/Palestra</option>
-                    <option value="Academico">Academico-Seminario/Jornada</option>
-                    <option value="Cientifico">Cientifico-Congresso/Simposio</option>
-                    <option value="Outro">Outro</option>
-                </select>
-            </div>
-            <!--/form-->
-            <div>
-                <label for="quantSalas">Quantidade de salas disponiveis:</label>
-                        <input class="form-control" type="number" id="quantSalas" name="quantSalas" placeholder="Número de salas">
-            </div>
-            <!--form-->
-            <div>
-                <label for="nomeAdm">Qual o seu nome:</label><br>
-                <input class="form-control" name="nomeAdm" id="nomeAdm" type="nomeAdmistrador" placeholder="Nome de administrador">
-            </div>
-            <!--/form>
-            
-                    <form-->
-            <div>
-                <label for="emailAdm">E-mail do administrado:</label><br>
-                <input class="form-control" type="emailAdmistrador" name="emailAdm" placeholder="Informe o e-mail">
-            </div><br>
-            <!--/form-->
-            <center>
-            <button type="submit" class="btn btn-outline-secondary">Entrar</button>
-            </center>
-        </form>
 
 
+    <center>
+        <h1>CRIAÇÃO DE EVENTO</h1><br>
+    </center>
+    {{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+    {{else}}
+    {{/each}}
+    <div class="form-grup">
+        <div class="formatacao">
+
+            <form action='/anhangueraeventos/addEvento' method="POST"><br>
+                <!--form-->
+                <div>
+                    </label for="nomeEvento"> Nome do evento:</label><br>
+                    <input name="nome" class="form-control" type="text" id="nomeEvento"
+                        placeholder="Informe o nome do evento">
+                </div>
+
+                <!--/form-->
+
+                <!--form-->
+                <div>
+                    <label for="numeroDeParticipantes">Numero de participantes esperados:</label><br>
+                    <select class="form-control" name="participanteEs">
+                        <option value="Escolher op"> Escolha uma opção </option>
+                        <option value="Ate 300 "> Ate 300 participantes </option>
+                        <option value="Entre 300 e 1000 "> Entre 300 e 1000 participantes </option>
+                        <option value="Mais de 1000 "> Mais de 1000 participantes </option>
+                    </select>
+                </div>
+                <!--/form-->
+
+                <!--form-->
+                <div>
+                    <label for="tipoDeEvento">Tipo de evento:</label><br>
+                    <select class="form-control" name="tipoEvento">
+                        <option value="Escolher op"> Escolha uma opção </option>
+                        <option value="Curso">Curso-Workshop/Palestra</option>
+                        <option value="Academico">Academico-Seminario/Jornada</option>
+                        <option value="Cientifico">Cientifico-Congresso/Simposio</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                <!--/form-->
+                <div>
+                    <label for="quantSalas">Quantidade de salas disponiveis:</label>
+                    <input class="form-control" type="number" id="quantSalas" name="quantSalas"
+                        placeholder="Número de salas">
+                </div>
+                <!--form-->
+                <div>
+                    <label for="nomeAdm">Qual o seu nome:</label><br>
+                    <input class="form-control" name="nomeAdm" id="nomeAdm" type="nomeAdmistrador"
+                        placeholder="Nome de administrador">
+                </div>
+                <!--/form>
+                
+                        <form-->
+                <div>
+                    <label for="emailAdm">E-mail do administrado:</label><br>
+                    <input class="form-control" type="emailAdmistrador" name="emailAdm" placeholder="Informe o e-mail">
+                </div><br>
+                <!--/form-->
+                <center>
+                    <button type="submit" class="btn btn-outline-secondary">Entrar</button>
+                </center>
+            </form>
+
+
+        </div>
     </div>
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+            </div>
+        </div>
+    </div>
+</footer>
