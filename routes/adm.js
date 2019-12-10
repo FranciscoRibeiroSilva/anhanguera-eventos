@@ -209,6 +209,14 @@ router.post('/addEvento', (req, res) => {
     if (req.body.tipoEvento == "Escolher op") {
         erros.push({ texto: "ESCOLHA O TIPO DE EVENTO" })
     }
+    if (req.body.eventoTipo == "--Tipo--") {
+        erros.push({ texto: "ESCOLHA Gratuita ou Paga" })
+    }
+    if (req.body.eventoTipo == "Paga") {
+        if (!req.body.valorEvento || typeof req.body.valor == undefined || req.body.valorEvento == null) {
+            erros.push({ texto: "VALOR INVALIDO" })
+        }
+    }
 
     if (erros.length > 0) {
         res.render('admi/adminForms/FormEvento', { erros: erros })
@@ -466,15 +474,15 @@ router.post('/modAtividades/', (req, res) => {
             cpf: req.body.cpf
 
         },
-        {
-            where: {'id': req.body.id}
-        }).then(() => {
-            req.flash("success_msg", "Edição concluida com exito")
-            res.redirect('/anhangueraeventos/gerenciaDeAtividades')
-        }).catch((err) => {
-            req.flash("error_msg", "Erro ao editar atividade")
-            res.redirect('/anhangueraeventos/gerenciaDeAtividades')
-        })
+            {
+                where: { 'id': req.body.id }
+            }).then(() => {
+                req.flash("success_msg", "Edição concluida com exito")
+                res.redirect('/anhangueraeventos/gerenciaDeAtividades')
+            }).catch((err) => {
+                req.flash("error_msg", "Erro ao editar atividade")
+                res.redirect('/anhangueraeventos/gerenciaDeAtividades')
+            })
     }
 })
 //remove atividades
