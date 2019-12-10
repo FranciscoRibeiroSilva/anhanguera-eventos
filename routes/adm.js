@@ -220,7 +220,9 @@ router.post('/addEvento', (req, res) => {
             tipoEvento: req.body.tipoEvento,
             quantSalas: req.body.quantSalas,
             nomeAdm: req.body.nomeAdm,
-            emailAdm: req.body.emailAdm
+            emailAdm: req.body.emailAdm,
+            eventoTipo: req.body.eventoTipo,
+            valorEvento: req.body.valorEvento
         }).then(function () {
             res.redirect('/anhangueraeventos/homepage')
         }).catch(function (erro) {

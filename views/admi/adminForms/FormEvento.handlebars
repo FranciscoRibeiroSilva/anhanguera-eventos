@@ -2,7 +2,7 @@
 
 <br><br>
 <div id="FormulariosAdm">
-<br>
+    <br>
 
 
     <center>
@@ -66,7 +66,39 @@
                 <div>
                     <label for="emailAdm">E-mail do administrado:</label><br>
                     <input class="form-control" type="emailAdmistrador" name="emailAdm" placeholder="Informe o e-mail">
-                </div><br>
+                </div>
+
+                <!--TIPO DO EVENTO-->
+                <div>
+                    <label for="eventoTipo">Evento:</label>
+                    <select class="form-control" name="eventoTipo" id="eventoTipo">
+                        <option>--Tipo--</option>
+                        <option value="Gratuita">Gratuita</option>
+                        <option value="Paga">Paga</option>
+                    </select>
+                </div>
+                <div>
+                    <!--VALOR DA INSCRIÇÃO-->
+                    <label for="valorEvento">R$: </label>
+                    <input class="form-control" type="text" id="valorEvento" name="valorEvento" placeholder="Valor"
+                        disabled>
+                </div>
+
+                <script>
+                    var select = document.getElementById('eventoTipo'),
+                        input = document.getElementById('valorEvento'),
+                        tipo;
+                    // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
+                    select.addEventListener('change', function () {
+                        tipo = this.value;
+                        if (tipo == 'Paga') {
+                            input.removeAttribute('disabled', false);
+                        } else {
+                            input.setAttribute('disabled', false);
+                            input.value = null;
+                        }
+                    });
+                </script>
                 <!--/form-->
                 <center>
                     <button type="submit" class="btn btn-outline-secondary">Entrar</button>
