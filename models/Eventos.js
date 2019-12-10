@@ -1,4 +1,4 @@
-const db = require ('./db')
+const db = require('./db')
 /* CRIANDO TABELA Eventos NO BANCO DE DADO*/
 const Eventos = db.sequelize.define('eventos', {
     nome: {
@@ -10,13 +10,19 @@ const Eventos = db.sequelize.define('eventos', {
     tipoEvento: {
         type: db.Sequelize.STRING
     },
-    quantSalas:{
+    quantSalas: {
         type: db.Sequelize.STRING
     },
-    nomeAdm:{
+    nomeAdm: {
         type: db.Sequelize.STRING
     },
     emailAdm: {
+        type: db.Sequelize.STRING
+    },
+    eventoTipo: {
+        type: db.Sequelize.STRING
+    },
+    valorEvento: {
         type: db.Sequelize.STRING
     }
 })
