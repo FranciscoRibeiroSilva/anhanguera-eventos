@@ -79,9 +79,9 @@ app.use('/anhangueraeventos', adm)
 app.use('/users', user)
 
 //Outros
-//const PORT = 8081
-//app.listen(PORT, () => {
-//    console.log("Servidor Rodando na URL http://localhost:8081");
-///});
+const PORT = process.env.PORT || 8081
+app.listen(PORT, () => {
+    console.log("Servidor Rodando na URL http://localhost:8081");
+});
 
-app.listen(process.env.PORT || 3000)
+//app.listen(process.env.PORT || 3000)
