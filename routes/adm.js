@@ -15,7 +15,7 @@ const Cupons = require("../models/Cupons")
 //router.use(athee);
 
 //pagina Sobre
-router.get('/sobre', (req, res) => {
+router.get('/sobreNos', (req, res) => {
     res.render('admi/sobre')
 })
 
@@ -143,10 +143,20 @@ router.post('/verificaLogin', (req, res) => {
         res.redirect('/')
     })
 })
+router.get('/gerenciaEvento',(req, res)=>{
+    res.render('admi/gerenciaDeEvento')
+})
+
+router.get('/gerenciaCupons', (req, res)=>{
+    Cupons.findAll().then(function (cupons) {
+        res.render('admi/gerenciaCupons', { listaCupons: cupons })
+    })
+})
 //pagina de formulario do cupom
 router.get('/formCupons', (req, res) => {
     res.render('admi/FormCupons')
 })
+
 //Adiciona cupom ao DB
 router.post('/addCupom', (req, res) => {
     var erros = []

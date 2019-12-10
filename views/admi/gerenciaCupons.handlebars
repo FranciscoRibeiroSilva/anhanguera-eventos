@@ -1,0 +1,32 @@
+{{>_navbar}}
+<div class="mt-5">
+    <h2>
+        <p> Eventos </p>
+    </h2>
+    <a href="/anhangueraeventos/formCupons"><button class="btn btn-outline-secondary btn-tamanhoUnico">Criar lote de cupons</button></a>
+    <!-- LISTANDO OS EVENTOS DO BANCO DE DADOS-->
+    {{#each listaCupons}}
+    
+    <div class="card mt-2">
+        <div class="card-body fundo">
+            
+            <h6>
+                <a href="/anhangueraeventos/gerenciaDeEvento" class="btn">{{nome}}</a><br>
+                Lote de cupons: {{codigo}}<br>
+                Valida: {{validade}}<br>
+                Quantidade: {{quantidade}}<br>
+            </h6>
+
+        </div>
+    </div>
+    {{/each}}
+</div>
+<footer class="footerRela">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+            </div>
+        </div>
+    </div>
+</footer>
