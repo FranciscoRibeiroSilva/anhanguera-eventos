@@ -12,6 +12,10 @@
     margin: 2% 25% 0% 25%;
 }
 
+.margemAEsquerda {
+    margin-left: -15px;
+}
+
 .navbar-nav .nav-link {
     color: rgba(165, 48, 56, 0.8);
 }
