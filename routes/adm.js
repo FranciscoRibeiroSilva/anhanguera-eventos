@@ -15,7 +15,7 @@ const Cupons = require("../models/Cupons")
 //router.use(athee);
 
 //pagina Sobre
-router.get('/sobre', (req, res) => {
+router.get('/sobreNos', (req, res) => {
     res.render('admi/sobre')
 })
 
@@ -143,10 +143,20 @@ router.post('/verificaLogin', (req, res) => {
         res.redirect('/')
     })
 })
+router.get('/gerenciaEvento',(req, res)=>{
+    res.render('admi/gerenciaDeEvento')
+})
+
+router.get('/gerenciaCupons', (req, res)=>{
+    Cupons.findAll().then(function (cupons) {
+        res.render('admi/gerenciaCupons', { listaCupons: cupons })
+    })
+})
 //pagina de formulario do cupom
 router.get('/formCupons', (req, res) => {
     res.render('admi/FormCupons')
 })
+
 //Adiciona cupom ao DB
 router.post('/addCupom', (req, res) => {
     var erros = []
@@ -209,6 +219,14 @@ router.post('/addEvento', (req, res) => {
     if (req.body.tipoEvento == "Escolher op") {
         erros.push({ texto: "ESCOLHA O TIPO DE EVENTO" })
     }
+    if (req.body.eventoTipo == "--Tipo--") {
+        erros.push({ texto: "ESCOLHA Gratuita ou Paga" })
+    }
+    if (req.body.eventoTipo == "Paga") {
+        if (!req.body.valorEvento || typeof req.body.valor == undefined || req.body.valorEvento == null) {
+            erros.push({ texto: "VALOR INVALIDO" })
+        }
+    }
 
     if (erros.length > 0) {
         res.render('admi/adminForms/FormEvento', { erros: erros })
@@ -220,7 +238,9 @@ router.post('/addEvento', (req, res) => {
             tipoEvento: req.body.tipoEvento,
             quantSalas: req.body.quantSalas,
             nomeAdm: req.body.nomeAdm,
-            emailAdm: req.body.emailAdm
+            emailAdm: req.body.emailAdm,
+            eventoTipo: req.body.eventoTipo,
+            valorEvento: req.body.valorEvento
         }).then(function () {
             res.redirect('/anhangueraeventos/homepage')
         }).catch(function (erro) {
@@ -464,15 +484,15 @@ router.post('/modAtividades/', (req, res) => {
             cpf: req.body.cpf
 
         },
-        {
-            where: {'id': req.body.id}
-        }).then(() => {
-            req.flash("success_msg", "Edição concluida com exito")
-            res.redirect('/anhangueraeventos/gerenciaDeAtividades')
-        }).catch((err) => {
-            req.flash("error_msg", "Erro ao editar atividade")
-            res.redirect('/anhangueraeventos/gerenciaDeAtividades')
-        })
+            {
+                where: { 'id': req.body.id }
+            }).then(() => {
+                req.flash("success_msg", "Edição concluida com exito")
+                res.redirect('/anhangueraeventos/gerenciaDeAtividades')
+            }).catch((err) => {
+                req.flash("error_msg", "Erro ao editar atividade")
+                res.redirect('/anhangueraeventos/gerenciaDeAtividades')
+            })
     }
 })
 //remove atividades
