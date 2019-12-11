@@ -20,6 +20,11 @@
     color: rgba(165, 48, 56, 0.8);
 }
 
+.btn-outline-secondary {
+    color: #081F3E;
+    border-color: #081F3E;
+}
+
 .txtDaNavBar {
     margin-top: -17px;
     color: rgb(165, 48, 56);
