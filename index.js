@@ -29,7 +29,7 @@ const flash = require("connect-flash")
 const bcrypt = require("bcryptjs")
 
 //Method override
-const methodOverride = require('method-override')
+//const methodOverride = require('method-override')
     //Autenticador de login
 const passport = require("passport")
     //require("./config/auth")(passport)
