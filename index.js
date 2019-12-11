@@ -30,41 +30,41 @@ const bcrypt = require("bcryptjs")
 
 //Method override
 const methodOverride = require('method-override')
-//Autenticador de login
+    //Autenticador de login
 const passport = require("passport")
-//require("./config/auth")(passport)
+    //require("./config/auth")(passport)
 
 //Configurações
-    //Sessão
-        app.use(session({
-            secret: "qualquer",
-            resave: false,
-            saveUninitialized: true
-        }))
-        /*app.use(passport.initialize())
-        app.use(passport.session())*/
-        app.use(flash())
+//Sessão
+app.use(session({
+        secret: "qualquer",
+        resave: false,
+        saveUninitialized: true
+    }))
+    /*app.use(passport.initialize())
+    app.use(passport.session())*/
+app.use(flash())
 
-    //Midleware
-        app.use((req, res, next)=>{
-            res.locals.success_msg = req.flash("success_msg")
-            res.locals.error_msg = req.flash("error_msg")
-            res.locals.error = req.flash("error")
-            next()
-        })
-        
-    //handlebars
-        app.engine('handlebars', handlebars({defaultLayout: 'main'}))
-        app.set('view engine', 'handlebars')
+//Midleware
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash("success_msg")
+    res.locals.error_msg = req.flash("error_msg")
+    res.locals.error = req.flash("error")
+    next()
+})
 
-    //Body Parse
-        //app.use(cookieParser())
-        app.use(bodyParser.urlencoded({extended: false}))
-        app.use(bodyParser.json())
-        
+//handlebars
+app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
 
-    //Css 
-        app.use(express.static(path.join(__dirname, "public")));
+//Body Parse
+//app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+
+//Css 
+app.use(express.static(path.join(__dirname, "public")));
 
 //Rotas
 //Rota principal

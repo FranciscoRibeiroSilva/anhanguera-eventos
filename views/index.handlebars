@@ -1,35 +1,56 @@
-<div class="mt-5">
-    <div class="formatacao">
-        <div id="img">
-            <center>
-                {{>_logo250px}}
-            </center>
-            <br>
-            <center>
-                Trabalho Final de Engenharida de Software e Programação III<br>
-                Alunos: João Vinicius, Matheus Holanda, Bruno Cruz, Claudio Henrique, Francisco Ribeiro<br>
-                Universidade Estadual do Piauí - UESPI
-            </center>
-            <br>
-            <br>
-            <center>
-                {{>_logos}}
-            </center>
-        </div>
-
-        <form id="Form" action="/anhangueraeventos/validacao" method="POST" class="form-grup">
-
-            <div>
-                <div>
-                    <label for="e-mail">E-mail:</label><br>
-                    <input class="form-control" type="text" name="email" id="e-mail" placeholder="Digite seu e-mail">
+<div class="mt-5 formatacao">
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 m-auto">
+                    <div id="img">
+                        <center>
+                            {{>_logo250px}}
+                        </center>
+                        <br>
+                        <center>
+                            Trabalho Final de Engenharida de Software e Programação III<br>
+                            Alunos: João Vinicius, Matheus Holanda, Bruno Cruz, Claudio Henrique, Francisco Ribeiro<br>
+                            Universidade Estadual do Piauí - UESPI
+                        </center>
+                        <br>
+                        <br>
+                        <center>
+                            {{>_logos}}
+                        </center>
+                    </div>
+                    <footer>
+                        <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+                    </footer>
                 </div>
-                <div>
-                    <label for="senha">Senha:</label><br>
-                    <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
-                </div>
-            </div>
+                
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 ml-auto">
+                    <form id="Form" action="/anhangueraeventos/validacao" method="POST" class="form-grup">
 
+                        <div>
+                            <div>
+                                <label for="e-mail">E-mail:</label><br>
+                                <input class="form-control" type="text" name="email" id="e-mail"
+                                    placeholder="Digite seu e-mail">
+                            </div>
+                            <div>
+                                <label for="senha">Senha:</label><br>
+                                <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
+                            </div>
+                        </div>
+
+                        <center>
+                            <div>
+                                <br>
+                                <button class="btn btn-outline-secondary "> Entrar </button>
+                                <br><br>
+                            </div>
+                            Não tem uma conta?<a href='/anhangueraeventos/cadastroAdm'> Cadastre-se </a>
+                        </center>
+                    </form>
+
+<<<<<<< HEAD
+=======
             <center>
                 <div>
                     <br>
@@ -47,9 +68,20 @@
                         {{>_footer1}}
                         <!--a href="" class="btn"><small>©Anhangüera Eventos</small></a-->
                     </div>
+>>>>>>> 05d7d689a3b922c963b74d388846a41257419063
                 </div>
+
             </div>
+<<<<<<< HEAD
+
+        </div>
+
+
+
+
+=======
         <!--/footer-->
+>>>>>>> 05d7d689a3b922c963b74d388846a41257419063
     </div>
 
 </div>
