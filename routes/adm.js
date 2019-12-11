@@ -6,7 +6,7 @@ const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
 const bcrypt = require("bcryptjs")
 const Cupons = require("../models/Cupons")
-//const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 //const athee = require('../midleware/auth')
 //const passport = require("passport")
 
