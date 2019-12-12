@@ -8,6 +8,21 @@
 
 /*CODIGO ADCIONAL*/
 
+
+/*FORMATAÇÃO NO NAVBAR(BARRA DE NAVEGAÇÃO)*/
+
+.navbar-nav .nav-link {
+    color: rgba(165, 48, 56, 0.8);
+}
+
+.txtDaNavBar {
+    margin-top: -17px;
+    color: rgb(165, 48, 56);
+}
+
+
+/*FORMATAÇÃO DO BODY DA PAGINA*/
+
 .formatacao {
     margin: 2% 25% 0% 25%;
 }
@@ -16,43 +31,12 @@
     margin-left: -15px;
 }
 
-.navbar-nav .nav-link {
-    color: rgba(165, 48, 56, 0.8);
-}
-
-.btn-outline-secondary {
-    color: #081F3E;
-    border-color: #081F3E;
-}
-
-.txtDaNavBar {
-    margin-top: -17px;
-    color: rgb(165, 48, 56);
-}
-
-footer {
-    position: relative;
-    bottom: 0px;
-    text-align: center;
-    padding-top: 577px;
-    margin-block-end: auto;
-}
-
-.footerRela {
-    position: relative;
-    bottom: 0px;
-    text-align: center;
-}
-
-.footerAbsu {
-    position: relative;
-    bottom: 0px;
-    padding-top: 625px;
-    text-align: center;
+.espaco {
+    margin-right: 5px;
 }
 
 
-/*COR DE FUNDO */
+/*FORMATAÇÃO DOS FORMULARIOS DAS PAGINAS*/
 
 .fundoFormAtividades {
     background-color: #f8f9fa;
@@ -63,10 +47,6 @@ footer {
 .fundo {
     background-color: #f8f9fa;
     border-radius: 10px;
-}
-
-.espaco {
-    margin-right: 5px;
 }
 
 #Form {
@@ -100,13 +80,48 @@ footer {
     margin-top: -10px;
 }
 
+
+/*FORMATAÇÃO DOS BOTÕES(btn)*/
+
+.btn-outline-secondary {
+    color: #081F3E;
+    border-color: #081F3E;
+}
+
+
+/*FORMATAÇÃO DO FOOTER(RODAPÉ)*/
+
+footer {
+    position: relative;
+    bottom: 0px;
+    text-align: center;
+    padding-top: 577px;
+    margin-block-end: auto;
+}
+
+.footerRela {
+    position: relative;
+    bottom: 0px;
+    text-align: center;
+}
+
+.footerAbsu {
+    position: relative;
+    bottom: 0px;
+    padding-top: 625px;
+    text-align: center;
+}
+
+
+/*CONFIGURAÇÃO DA IMAGEM NO INDEX*/
+
 #img {
     float: left;
     margin: 40px -100px;
 }
 
 
-/*/CODIGO ADCIONAL*/
+/*FIM DO CODIGO ADCIONAL*/
 
  :root {
     --tranpar: #ffffff00;
