@@ -1,223 +1,233 @@
 {{>_navbar}}
-<div>
+<br><br>
+<div id="FormulariosAdm">
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto fundo">
+                    <!-- ALERTA CASO OS DADOS ESTEJAM FALTANDO-->
+                    <br>
+                    {{#each erros}}
+                    <div class="alert alert-danger">{{texto}}</div>
+                    {{else}}
+                    {{/each}}
+                    <!-- ALERTA CASO TENHA MUITOS DADOS FALTANDO-->
+                    {{#each err}}
+                    <div class="alert alert-danger">{{texto}}</div>
+                    {{else}}
+                    {{/each}}
+                    <!-- ALERTA CASO A DATA,SALA,HORA JÁ EXISTAM-->
+                    {{#each dadosJaExiste}}
+                    <div class="alert alert-danger">{{texto}}</div>
+                    {{else}}
+                    {{/each}}
 
-    <center class="mt-5">
-        <h1>ADICIONAR ATIVIDADES</h1><br>
-    </center>
-    <!-- ALERTA CASO OS DADOS ESTEJAM FALTANDO-->
-    {{#each erros}}
-    <div class="alert alert-danger">{{texto}}</div>
-    {{else}}
-    {{/each}}
-    <!-- ALERTA CASO TENHA MUITOS DADOS FALTANDO-->
-    {{#each err}}
-    <div class="alert alert-danger">{{texto}}</div>
-    {{else}}
-    {{/each}}
-    <!-- ALERTA CASO A DATA,SALA,HORA JÁ EXISTAM-->
-    {{#each dadosJaExiste}}
-    <div class="alert alert-danger">{{texto}}</div>
-    {{else}}
-    {{/each}}
-
-    <table width="100%">
-        <center>
-            <div class="form-grup">
-                <form action='/anhangueraeventos/addAtividade' , method="POST">
-                    <tr>
-                        <td>
-                            <!--ATIVIDADE-->
-                            <label for="nome: "> Atividade: </label>
-                            <input class="form-control" type="text" id="nome" name="nome"
-                                placeholder="Nome da atividade">
-                            <!--TIPO DE ATIVIDADE-->
-                            <label for="tipo">Tipo:</label>
-                            <select class="form-control" name="tipo">
-                                <option>--Atividade--</option>
-                                <option value="Palestra"> Palestra </option>
-                                <option value="Curso"> Curso </option>
-                                <option value="Aula"> Aula </option>
-                                <option value="Conferência"> Conferência </option>
-                                <option value="Mesa-Redonda"> Mesa-Redonda </option>
-                            </select>
-                        </td>
-                        <td>
-                            <!--MINISTRANTE-->
-                            <label for="ministrante"> Ministrante: </label>
-                            <input class="form-control" type="text" name="ministrante"
-                                placeholder="Nome do ministrante">
-                            <!--SELECIONAR A DATA-->
-                            <label for="data">Data:</label>
-                            <input class="form-control" id="date" type="date" name="data">
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <!--HORARIO DE INICIO-->
-                            <label for="appt"> Horário inicio: </label>
-                            <input class="form-control" type="time" id="appt" name="horaInicio" min="01:00" max="23:50"
-                                required>
-                            <!--HORARIO DO TERMINO-->
-                            <label for="appt"> Duração: </label>
-                            <input class="form-control" type="time" id="appt" name="duracao" min="00:10" max="03:00">
-
-                        </td>
-
-                        <td>
-                            <!--SALA DA ATIVIDADE-->
-                            <label for="sala">Sala:</label>
-                            <input class="form-control" type="number" id="sala" name="sala" placeholder="Sala">
-
-                            <!--CARGA HORARIA-->
-                            <label for="cargaH">Carga Horário:</label>
-                            <select class="form-control" name="cargaHoraria">
-                                <option>--Informe a CH--</option>
-                                <option value="10 Horas Aulas">10 Horas Aulas</option>
-                                <option value="20 Horas Aulas">20 horas Aulas</option>
-                                <option value="30 Horas Aulas">30 horas Aulas</option>
-                                <option value="40 Horas Aulas">40 horas Aulas</option>
-                                <option value="50 Horas Aulas">50 horas Aulas</option>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <!--TIPO DE INSCRIÇÃO-->
-                            <label for="inscricao">Inscrição:</label>
-                            <select class="form-control" name="inscricaoT" id="inscricao">
-                                <option>--Tipo--</option>
-                                <option value="Gratuita">Gratuita</option>
-                                <option value="Paga">Paga</option>
-                            </select>
-                            <!--NUMERO DE PARTICIPANTES-->
-                            <label for="numeroDePartic">Participantes:</label>
-                            <input class="form-control" type="number" id="numeroDePartic" name="numeroDePartic" min="0"
-                                max="1000" placeholder="Número">
-                        </td>
-                        <td>
-                            <!--VALOR DA INSCRIÇÃO-->
-                            <label for="valor">R$: </label>
-                            <input class="form-control" type="text" id="valor" name="valor"
-                                placeholder="R$ 00,00" disabled>
-                            <!--PRAZO PARA SE INSCREVER NO EVENTO-->
-                            <label for="data"> Prazo de Inscrição: </label>
-                            <input class="form-control" type="date" id="prazo" name="prazo">
-
-                        </td>
-                    </tr>
                     <table width="100%">
-                        <tr>
-                            <br>
-                            <center>
-                                <h1>DADOS BANCÁRIOS</h1>
-                            </center>
-                            <td>
-                                <!--NUMERO DA CONTA-->
-                                <label for="numConta"> Conta: </label>
-                                <input class="form-control" type="text" id="numConta" name="numConta" maxlength="10"
-                                    placeholder="00000000-0" disabled>
-                                <!--NOME DO BANCO-->
-                                <label for="banco"> Banco: </label>
-                                <input class="form-control" type="text" id="banco" name="banco"
-                                    placeholder="Nome do Banco" disabled>
+                        <center>
+                            <div class="form-grup">
+                                <form action='/anhangueraeventos/addAtividade' , method="POST">
+                                    <center class="mt-5">
+                                        <h1>ADICIONAR ATIVIDADES</h1><br>
+                                    </center>
+                                    <tr>
+                                        <td>
+                                            <!--ATIVIDADE-->
+                                            <label for="nome: "> Atividade: </label>
+                                            <input class="form-control" type="text" id="nome" name="nome"
+                                                placeholder="Nome da atividade">
+                                            <!--TIPO DE ATIVIDADE-->
+                                            <label for="tipo">Tipo:</label>
+                                            <select class="form-control" name="tipo">
+                                                <option>--Atividade--</option>
+                                                <option value="Palestra"> Palestra </option>
+                                                <option value="Curso"> Curso </option>
+                                                <option value="Aula"> Aula </option>
+                                                <option value="Conferência"> Conferência </option>
+                                                <option value="Mesa-Redonda"> Mesa-Redonda </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <!--MINISTRANTE-->
+                                            <label for="ministrante"> Ministrante: </label>
+                                            <input class="form-control" type="text" name="ministrante"
+                                                placeholder="Nome do ministrante">
+                                            <!--SELECIONAR A DATA-->
+                                            <label for="data">Data:</label>
+                                            <input class="form-control" id="date" type="date" name="data">
+                                        </td>
 
-                            </td>
-                            <td>
-                                <!--NUMERO DA AGÊNCIA-->
-                                <label for="agencia"> Agência: </label>
-                                <input class="form-control" type="text" id="agencia" name="agencia" placeholder="0000"
-                                    maxlength="4" disabled>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <!--HORARIO DE INICIO-->
+                                            <label for="appt"> Horário inicio: </label>
+                                            <input class="form-control" type="time" id="appt" name="horaInicio"
+                                                min="01:00" max="23:50" required>
+                                            <!--HORARIO DO TERMINO-->
+                                            <label for="appt"> Duração: </label>
+                                            <input class="form-control" type="time" id="appt" name="duracao" min="00:10"
+                                                max="03:00">
 
-                                <!--NUMERO DO CPF-->
-                                <label for="cpf"> CPF: </label>
-                                <input class="form-control" type="text" id="cpf" name="cpf" placeholder="000.000.000-00"
-                                    maxlength="14" disabled>
-                            </td>
+                                        </td>
 
-                            <script>
-                                var select = document.getElementById('inscricao'),
-                                    input1 = document.getElementById('valor'),
-                                    tipo1;
-                                var select = document.getElementById('inscricao'),
-                                    input2 = document.getElementById('numConta'),
-                                    tipo2;
-                                var select = document.getElementById('inscricao'),
-                                    input3 = document.getElementById('cpf'),
-                                    tipo3;
-                                var select = document.getElementById('inscricao'),
-                                    input4 = document.getElementById('agencia'),
-                                    tipo4;
-                                var select = document.getElementById('inscricao'),
-                                    input5 = document.getElementById('banco'),
-                                    tipo5;
-                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
-                                select.addEventListener('change', function () {
-                                    tipo1 = this.value;
-                                    if (tipo1 == 'Paga') {
-                                        input1.removeAttribute('disabled', false);
-                                    } else {
-                                        input1.setAttribute('disabled', false);
-                                        input1.value = null;
-                                    }
-                                });
-                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO CONTA 
-                                select.addEventListener('change', function () {
-                                    tipo2 = this.value;
-                                    if (tipo2 == 'Paga') {
-                                        input2.removeAttribute('disabled', false);
-                                    } else {
-                                        input2.setAttribute('disabled', false);
-                                        input2.value = null;
-                                    }
-                                });
-                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO CPF
-                                select.addEventListener('change', function () {
-                                    tipo3 = this.value;
-                                    if (tipo3 == 'Paga') {
-                                        input3.removeAttribute('disabled', false);
-                                    } else {
-                                        input3.setAttribute('disabled', false);
-                                        input3.value = null;
-                                    }
-                                });
-                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO AGENCIA
-                                select.addEventListener('change', function () {
-                                    tipo4 = this.value;
-                                    if (tipo4 == 'Paga') {
-                                        input4.removeAttribute('disabled', false);
-                                    } else {
-                                        input4.setAttribute('disabled', false);
-                                        input4.value = null;
-                                    }
-                                });
-                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO BANCO 
-                                select.addEventListener('change', function () {
-                                    tipo5 = this.value;
-                                    if (tipo5 == 'Paga') {
-                                        input5.removeAttribute('disabled', false);
-                                    } else {
-                                        input5.setAttribute('disabled', false);
-                                        input5.value = null;
-                                    }
-                                });
+                                        <td>
+                                            <!--SALA DA ATIVIDADE-->
+                                            <label for="sala">Sala:</label>
+                                            <input class="form-control" type="number" id="sala" name="sala"
+                                                placeholder="Sala">
+
+                                            <!--CARGA HORARIA-->
+                                            <label for="cargaH">Carga Horário:</label>
+                                            <select class="form-control" name="cargaHoraria">
+                                                <option>--Informe a CH--</option>
+                                                <option value="10 Horas Aulas">10 Horas Aulas</option>
+                                                <option value="20 Horas Aulas">20 horas Aulas</option>
+                                                <option value="30 Horas Aulas">30 horas Aulas</option>
+                                                <option value="40 Horas Aulas">40 horas Aulas</option>
+                                                <option value="50 Horas Aulas">50 horas Aulas</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <!--TIPO DE INSCRIÇÃO-->
+                                            <label for="inscricao">Inscrição:</label>
+                                            <select class="form-control" name="inscricaoT" id="inscricao">
+                                                <option>--Tipo--</option>
+                                                <option value="Gratuita">Gratuita</option>
+                                                <option value="Paga">Paga</option>
+                                            </select>
+                                            <!--NUMERO DE PARTICIPANTES-->
+                                            <label for="numeroDePartic">Participantes:</label>
+                                            <input class="form-control" type="number" id="numeroDePartic"
+                                                name="numeroDePartic" min="0" max="1000" placeholder="Número">
+                                        </td>
+                                        <td>
+                                            <!--VALOR DA INSCRIÇÃO-->
+                                            <label for="valor">R$: </label>
+                                            <input class="form-control" type="text" id="valor" name="valor"
+                                                placeholder="R$ 00,00" disabled>
+                                            <!--PRAZO PARA SE INSCREVER NO EVENTO-->
+                                            <label for="data"> Prazo de Inscrição: </label>
+                                            <input class="form-control" type="date" id="prazo" name="prazo">
+
+                                        </td>
+                                    </tr>
+                                    
+                                    <table width="100%">
+                                        <tr>
+                                            <br>
+                                            <center>
+                                                <h1>DADOS BANCÁRIOS</h1>
+                                            </center>
+                                            <td>
+                                                <!--NUMERO DA CONTA-->
+                                                <label for="numConta"> Conta: </label>
+                                                <input class="form-control" type="text" id="numConta" name="numConta"
+                                                    maxlength="10" placeholder="00000000-0" disabled>
+                                                <!--NOME DO BANCO-->
+                                                <label for="banco"> Banco: </label>
+                                                <input class="form-control" type="text" id="banco" name="banco"
+                                                    placeholder="Nome do Banco" disabled>
+
+                                            </td>
+                                            <td>
+                                                <!--NUMERO DA AGÊNCIA-->
+                                                <label for="agencia"> Agência: </label>
+                                                <input class="form-control" type="text" id="agencia" name="agencia"
+                                                    placeholder="0000" maxlength="4" disabled>
+
+                                                <!--NUMERO DO CPF-->
+                                                <label for="cpf"> CPF: </label>
+                                                <input class="form-control" type="text" id="cpf" name="cpf"
+                                                    placeholder="000.000.000-00" maxlength="14" disabled>
+                                            </td>
+
+                                            <script>
+                                                var select = document.getElementById('inscricao'),
+                                                    input1 = document.getElementById('valor'),
+                                                    tipo1;
+                                                var select = document.getElementById('inscricao'),
+                                                    input2 = document.getElementById('numConta'),
+                                                    tipo2;
+                                                var select = document.getElementById('inscricao'),
+                                                    input3 = document.getElementById('cpf'),
+                                                    tipo3;
+                                                var select = document.getElementById('inscricao'),
+                                                    input4 = document.getElementById('agencia'),
+                                                    tipo4;
+                                                var select = document.getElementById('inscricao'),
+                                                    input5 = document.getElementById('banco'),
+                                                    tipo5;
+                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
+                                                select.addEventListener('change', function () {
+                                                    tipo1 = this.value;
+                                                    if (tipo1 == 'Paga') {
+                                                        input1.removeAttribute('disabled', false);
+                                                    } else {
+                                                        input1.setAttribute('disabled', false);
+                                                        input1.value = null;
+                                                    }
+                                                });
+                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO CONTA 
+                                                select.addEventListener('change', function () {
+                                                    tipo2 = this.value;
+                                                    if (tipo2 == 'Paga') {
+                                                        input2.removeAttribute('disabled', false);
+                                                    } else {
+                                                        input2.setAttribute('disabled', false);
+                                                        input2.value = null;
+                                                    }
+                                                });
+                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO CPF
+                                                select.addEventListener('change', function () {
+                                                    tipo3 = this.value;
+                                                    if (tipo3 == 'Paga') {
+                                                        input3.removeAttribute('disabled', false);
+                                                    } else {
+                                                        input3.setAttribute('disabled', false);
+                                                        input3.value = null;
+                                                    }
+                                                });
+                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO AGENCIA
+                                                select.addEventListener('change', function () {
+                                                    tipo4 = this.value;
+                                                    if (tipo4 == 'Paga') {
+                                                        input4.removeAttribute('disabled', false);
+                                                    } else {
+                                                        input4.setAttribute('disabled', false);
+                                                        input4.value = null;
+                                                    }
+                                                });
+                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO BANCO 
+                                                select.addEventListener('change', function () {
+                                                    tipo5 = this.value;
+                                                    if (tipo5 == 'Paga') {
+                                                        input5.removeAttribute('disabled', false);
+                                                    } else {
+                                                        input5.setAttribute('disabled', false);
+                                                        input5.value = null;
+                                                    }
+                                                });
 
 
-                            </script>
+                                            </script>
 
-                        </tr>
+                                        </tr>
+                                    </table>
+
+                                    <center>
+                                        <br>
+                                        <button class="btn btn-outline-secondary"> Concluir </button>
+                                    </center>
+
+                                </form>
+                            </div>
+                        </center>
                     </table>
-
-                    <center>
-                        <br>
-                        <button class="btn btn-outline-secondary"> Concluir </button>
-
-                    </center>
-
-                </form>
-
+                </div>
             </div>
-        </center>
-    </table>
+        </div>
+    </div>
 </div>
