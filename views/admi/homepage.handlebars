@@ -1,32 +1,38 @@
 {{>_homeNavbar}}
 <div class="mt-5">
-    <h2>
-        <p> Eventos </p>
-    </h2>
-    <a href="/anhangueraeventos/formEvento"><button class="btn btn-outline-secondary btn-tamanhoUnico">Criar evento</button></a>
+    <center>
+        <h2>
+            <p> SEUS EVENTOS </p>
+        </h2>
+    </center>
+
+    <a href="/anhangueraeventos/formEvento"><button class="btn btn-outline-secondary">Criar
+            evento</button></a>
     <!-- LISTANDO OS EVENTOS DO BANCO DE DADOS-->
     {{#each listEvent}}
-    
+
     <div class="card mt-2">
         <div class="card-body fundo">
 
 
-            <h5><a href="/anhangueraeventos/gerenciaEvento" class="btn">{{nome}}</a><br></h5>
-            <h6>    
+            <h1><a href="/anhangueraeventos/gerenciaEvento" class="btn mr-auto margemAEsquerda">{{nome}}</a><br></h1>
+            <h6>
                 Participantes esperados: {{participanteEs}}<br>
                 Tipo de evento: {{tipoEvento}}<br>
                 Adiministrador: {{nomeAdm}}<br>
                 E-mail do administrado: {{emailAdm}}<br>
             </h6>
-
+            <a href='/anhangueraeventos/gerenciaEvento' {{id}}><button class="btn btn-outline-secondary">Gerencie este
+                    Evento</button></a>
         </div>
+
     </div>
     {{/each}}
 </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                {{>_footer1}}
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {{>_footer1}}
         </div>
     </div>
+</div>
