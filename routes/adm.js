@@ -4,6 +4,7 @@ const Administrador = require('../models/Administrador')
 const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
+const Ministrantes = require('../models/Ministrantes')
 const bcrypt = require("bcryptjs")
 const Cupons = require("../models/Cupons")
 const jwt = require('jsonwebtoken')
@@ -143,11 +144,11 @@ router.post('/verificaLogin', (req, res) => {
         res.redirect('/')
     })
 })
-router.get('/gerenciaEvento',(req, res)=>{
+router.get('/gerenciaEvento', (req, res) => {
     res.render('admi/gerenciaDeEvento')
 })
 
-router.get('/gerenciaCupons', (req, res)=>{
+router.get('/gerenciaCupons', (req, res) => {
     Cupons.findAll().then(function (cupons) {
         res.render('admi/gerenciaCupons', { listaCupons: cupons })
     })
@@ -184,7 +185,7 @@ router.post('/addCupom', (req, res) => {
             quantidade: req.body.quantidade,
             validade: req.body.validade
         }).then(function () {
-            res.send('cupom adicionado')
+            res.redirect('/anhangueraeventos/gerenciaCupons')
         }).catch(function (err) {
             req.flash("error_msg", "Erro ao adicionar cupom")
         })
@@ -279,6 +280,49 @@ router.get('/listarUsuarios', (req, res) => {
 router.get('/formAtividades', (req, res) => {
     res.render('admi/adminForms/FormAtividade')
 })
+
+//pagina de formulario de ministrante
+router.get('/formMinistrantes', (req, res) => {
+    res.render('admi/adminForms/FormMinistrantes')
+})
+//pagina de gerenciamento de ministrantes
+router.get('/gerenciaMinistrantes', (req, res) => {
+
+    Ministrantes.findAll().then(function (ministrantes) {
+        res.render('admi/gerenciaMinistrantes', { listaMinistrantes: ministrantes })
+    })
+})
+//adiciona dados do ministrante adm ao BD
+router.post('/addMinistrantes', (req, res) => {
+    var erros = []
+    if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2) {
+        erros.push({ texto: "Insira um nome válido" })
+    }
+    if (!req.body.email || typeof req.body.email == undefined || req.body.email == null || req.body.email.length < 8) {
+        erros.push({ texto: "Insira um e-mail válido" })
+    }
+    if (!req.body.telefone || typeof req.body.telefone == undefined || req.body.telefone == null || req.body.telefone.length < 8) {
+        erros.push({ texto: "Insira uma telefone válido" })
+    }
+    if (erros.length > 0) {
+        res.render('admi/adminForms/FormMinistrantes', { erros: erros })
+    }
+    else {
+        Ministrantes.create({
+            nome: req.body.nome,
+            email: req.body.email,
+            telefone: req.body.telefone
+        }).then(function () {
+            req.flash("success_msg", "Ministrante adicionado")
+            res.redirect('/anhangueraeventos/gerenciaMinistrantes')
+        }).catch(function (erro) {
+            req.flash("error_msg", "Houve um erro ao adicionar")
+            res.send("Erro na cria em adicionar ministrante: " + erro)
+        })
+    }
+})
+
+
 
 //rota que adiciona os dados de atividades ao DB
 router.post('/addAtividade', (req, res) => {
