@@ -1,0 +1,48 @@
+{{>_navbar}}
+<br>
+<div id="FormulariosAdm">
+    <center>
+        <h2>ADICIONAR MINISTRANTE</h2>
+    </center>
+
+    {{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+    {{else}}
+    {{/each}}
+
+    <form align-left="60px" action="/anhangueraeventos/addMinistrantes" , method="POST">
+        <div class="form-grup">
+            <div class="formatacao">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input class="form-control" type="text" name="nome" placeholder="Informe seu nome">
+                </div>
+
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input class="form-control" type="email" name="email" placeholder="Informe seu e-mail">
+                </div>
+                <div>
+                    <label for="telefone">Telefone:</label>
+                    <input class="form-control" type="text" name="telefone" placeholder="Informe seu telefone">
+                </div>
+                <br>
+
+                <center>
+                    <button type="submit" class="btn btn-outline-secondary ">Adicionar</button>
+                </center>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+            </div>
+        </div>
+    </div>
+</footer>
