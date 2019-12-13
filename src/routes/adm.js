@@ -1,18 +1,21 @@
 const express = require("express")
 const router = express.Router()
-const Administrador = require('./models/Administrador')
+const Administrador = require('../models/Administrador')
 const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
 const bcrypt = require("bcryptjs")
 const Cupons = require("../models/Cupons")
 const jwt = require('jsonwebtoken')
+const AdmControl = require('../controllers/AdmControl')
 //const athee = require('../midleware/auth')
 //const passport = require("passport")
 
 //const authConfig = require('../config/auth.json')
 
 //router.use(athee);
+
+router.post('/addAdm',(req, res), AdmControl.store)
 
 //pagina Sobre
 router.get('/sobreNos', (req, res) => {
@@ -24,8 +27,9 @@ router.get('/cadastroAdm', (req, res) => {
     res.render('admi/adminForms/FormAdm')
 })
 
+/*
 //adiciona dados do cadastro adm ao BD
-router.post('/addAdm', (req, res) => {
+router.post('/adadm', (req, res) => {
     var erros = []
     if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2) {
         erros.push({ texto: "Insira um nome válido" })
@@ -109,6 +113,7 @@ router.get('/loginAdm', (req, res) => {
     })
 }*/
 
+/*
 router.post('/validacao', async (req, res) => {
     const { email, senha } = req.body;
 
@@ -503,5 +508,5 @@ router.get('/removeAtividade/:id', function (req, res) {
         res.send("erro ao remover atividade: " + erro)
     })
 })
-
+*/
 module.exports = router
