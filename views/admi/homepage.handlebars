@@ -14,9 +14,9 @@
     <div class="card mt-2">
         <div class="card-body fundo">
 
-
-            <h1><a href="/anhangueraeventos/gerenciaEvento" class="btn mr-auto margemAEsquerda">{{nome}}</a><br></h1>
+            <h1>{{nome}}</h1>
             <h6>
+                <br>
                 Participantes esperados: {{participanteEs}}<br>
                 Tipo de evento: {{tipoEvento}}<br>
                 Adiministrador: {{nomeAdm}}<br>
@@ -24,6 +24,8 @@
             </h6>
             <a href='/anhangueraeventos/gerenciaEvento' {{id}}><button class="btn btn-outline-secondary">Gerencie este
                     Evento</button></a>
+            <a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary">Adicionar
+                    Atividade</button></a>
         </div>
 
     </div>
