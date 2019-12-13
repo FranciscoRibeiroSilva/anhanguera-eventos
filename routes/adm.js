@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const Administrador = require('./models/Administrador')
+const Administrador = require('../models/Administrador')
 const Eventos = require('../models/Eventos')
 const Atividades = require('../models/Atividades')
 const Usuarios = require('../models/Usuarios')
