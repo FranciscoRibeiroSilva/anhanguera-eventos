@@ -31,7 +31,7 @@ const bcrypt = require("bcryptjs")
 //Method override
 //const methodOverride = require('method-override')
     //Autenticador de login
-const passport = require("passport")
+//const passport = require("passport")
     //require("./config/auth")(passport)
 
 //Configurações
@@ -64,12 +64,12 @@ app.use(bodyParser.json())
 
 
 //css 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "/Public")));
 
 //Rotas
 //Rota principal
 app.get('/', function(req, res) {
-    res.render('admi/FormCupons')
+    res.render('index')
 })
 
 //Rotas dos adm's
