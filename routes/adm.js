@@ -63,7 +63,6 @@ router.post('/addAdm', (req, res) => {
                             nome: req.body.nome,
                             email: req.body.email,
                             senha: hash,
-                            //senha: bcrypt.hash(req.body.senha, bcrypt.genSaltSync(10)),
                             estado: req.body.estado
                         }).then(function () {
                             req.flash("success_msg", "Administrador registrado")
