@@ -113,6 +113,19 @@ nav.navbar-transparente {
     text-align: center;
 }
 
+
+/*CLASSE PARA O FOOTER QUANDO A PAGINA TEM CONTEÚDO COMO UM "FORMULARIO"*/
+
+.footer-pag-com-cont {
+    position: relative;
+    bottom: 0px;
+    padding-top: -10px;
+    text-align: center;
+}
+
+
+/*CLASSE PARA O FOOTER QUANDO A PAGINA NÃO TEM CONTEÚDO COMO UM "FORMULARIO"*/
+
 .footer-pag-sem-cont {
     position: relative;
     bottom: 0px;
