@@ -24,6 +24,11 @@ nav.navbar-transparente {
     background: rgba(8, 31, 62, 0.2)
 }
 
+.margem-txt-navbar {
+    margin-top: -15px;
+    margin-left: 5px;
+}
+
 
 /*FORMATAÇÃO DO BODY DA PAGINA*/
 
@@ -95,14 +100,6 @@ nav.navbar-transparente {
 
 /*FORMATAÇÃO DO FOOTER(RODAPÉ)*/
 
-footer {
-    position: relative;
-    bottom: 0px;
-    text-align: center;
-    padding-top: 577px;
-    margin-block-end: auto;
-}
-
 .footerRela {
     position: relative;
     bottom: 0px;
@@ -113,6 +110,13 @@ footer {
     position: relative;
     bottom: 0px;
     padding-top: 625px;
+    text-align: center;
+}
+
+.footer-pag-sem-cont {
+    position: relative;
+    bottom: 0px;
+    padding-top: 34%;
     text-align: center;
 }
 
@@ -3027,14 +3031,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-secondary {
-    color: #6c757d;
-    border-color: #6c757d;
+    color: #081F3E;
+    border-color: #081F3E;
 }
 
 .btn-outline-secondary:hover {
     color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
+    background-color: #081F3E;
+    border-color: #081F3E;
 }
 
 .btn-outline-secondary:focus,
@@ -3044,7 +3048,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-secondary.disabled,
 .btn-outline-secondary:disabled {
-    color: #6c757d;
+    color: #081F3E;
     background-color: transparent;
 }
 
@@ -3052,8 +3056,8 @@ fieldset:disabled a.btn {
 .btn-outline-secondary:not(:disabled):not(.disabled).active,
 .show>.btn-outline-secondary.dropdown-toggle {
     color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
+    background-color: #081F3E;
+    border-color: #081F3E;
 }
 
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
@@ -4818,11 +4822,11 @@ input[type="button"].btn-block {
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:focus {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgb(8, 31, 62);
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(8, 31, 62, 0.9);
 }
 
 .navbar-light .navbar-nav .show>.nav-link,
@@ -10469,4 +10473,4 @@ a.text-dark:focus {
 }
 
 
-/*# sourceMappingURL=bootstrap.css.map */
+/*# sourceMappingURL=bootstrap.css.map *
