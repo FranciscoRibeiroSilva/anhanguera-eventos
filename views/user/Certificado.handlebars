@@ -1,21 +1,23 @@
-{{#each certise}}
+<center>
+    {{#each certise}}
 
-<div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid rgb(137, 25, 25)">
-    <div class="fundo">
-        <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid  rgb(137, 25, 25)">
-            <span style="font-size:50px; font-weight:bold">Certificado de Conclusão</span>
-            <br><br>
-            <span style="color: rgb(137, 25, 25);">
-                <h1>Aranguera Eventos</h1>
-            </span>
-            <span style="font-size:20px">
-                <b> Certificamos que {{nome}}, pertencente ao CPF {{cpf}} <br>
-                    concluiu o curso ___________________, que possui carga horária de ___ horas. <br>
-                    O curso foi ministrado por ___________________ no dia __/___/___ em Piripiri,
-                    Piaui.</b></span><br /><br />
+    <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid rgb(137, 25, 25)">
+        <div class="fundo">
+            <div
+                style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid  rgb(137, 25, 25)">
+                <span style="font-size:50px; font-weight:bold">Certificado de Conclusão</span>
+                <br><br>
+                <span style="color: rgb(137, 25, 25);">
+                    <h1>Aranguera Eventos</h1>
+                </span>
+                <span style="font-size:20px">
+                    <b> Certificamos que {{nome}}, pertencente ao CPF {{cpf}} <br>
+                        concluiu o curso ___________________, que possui carga horária de ___ horas. <br>
+                        O curso foi ministrado por ___________________ no dia __/___/___ em Piripiri,
+                        Piaui.</b></span><br /><br />
 
 
-            <!-- <span style="font-size:25px"><i>This is to certify that</i></span>
+                <!-- <span style="font-size:25px"><i>This is to certify that</i></span>
            <br><br>
            <span style="font-size:30px"><b>$student.getFullName()</b></span><br/><br/>
            <span style="font-size:25px"><i>has completed the course</i></span> <br/><br/>
@@ -24,7 +26,8 @@
            <span style="font-size:25px"><i>dated</i></span><br>
           #set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))
           <span style="font-size:30px">$dt</span> -->
+            </div>
         </div>
     </div>
-</div>
-{{/each}}
+    {{/each}}
+</center>
