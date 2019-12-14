@@ -2,71 +2,75 @@
 	<center>
 		<h2>CADASTRE-SE</h2>
 	</center>
+	<div class="container">
+		<div class="row">
+			<div class="col-6 col-sm-6 col-md-6 col-lg-6 m-auto">
+				<div class="card mt-2">
+					<div class="card-body fundo">
+						{{#each erros}}
+						<div class="alert alert-danger">{{texto}}</div>
+						{{else}}
+						{{/each}}
+						<form align-left="60px" action="/users/addUsuario" method="POST">
 
-	{{#each erros}}
-	<div class="alert alert-danger">{{texto}}</div>
-	{{else}}
-	{{/each}}
-	<form align-left="60px" action="/users/addUsuario" method="POST">
+							<div>
+								<label for="nome">Nome:</label>
+								<input class="form-control" type="text" name="nome" placeholder="Informe seu nome">
+							</div>
 
-		<div class="formatacao">
-			<div>
-				<label for="nome">Nome:</label>
-				<input class="form-control" type="text" name="nome" placeholder="Informe seu nome">
-			</div>
+							<div>
+								<label for="email">E-mail:</label>
+								<input class="form-control" type="text" name="email" placeholder="Informe seu e-mail">
+							</div>
 
-			<div>
-				<label for="email">E-mail:</label>
-				<input class="form-control" type="text" name="email" placeholder="Informe seu e-mail">
-			</div>
+							<div>
+								<label for="cpf">CPF:</label>
+								<input class="form-control" type="text" name="cpf" placeholder="Informe seu e-mail">
+							</div>
 
-			<div>
-				<label for="cpf">CPF:</label>
-				<input class="form-control" type="text" name="cpf" placeholder="Informe seu e-mail">
-			</div>
+							<div>
+								<label for="senha">Senha:</label>
+								<input class="form-control" type="password" placeholder="Informe sua senha">
+							</div>
 
-			<div>
-				<label for="senha">Senha:</label>
-				<input class="form-control" type="password" placeholder="Informe sua senha">
-			</div>
-
-			<div>
-				<label for="confirmarSenha">Confirme a sua Senha:</label>
-				<input class="form-control" type="password" name="senha" placeholder="Confirme sua senha">
-			</div>
+							<div>
+								<label for="confirmarSenha">Confirme a sua Senha:</label>
+								<input class="form-control" type="password" name="senha"
+									placeholder="Confirme sua senha">
+							</div>
 
 
-			<!-- CAMPO FORMAÇÃO -->
-			<div>
-				<label for="formacao">Formação:</label><br>
-				<select class="form-control" id="categoria" name="categoria">
-					<option value="Escolher op">--Escolha uma opção--</option>
-					<option value="Fundamental">Ensino Fundamental</option>
-					<option value="Ensino Médio">Ensino Médio</option>
-					<option value="Superior">Ensino Superior</option>
-					<option value="Mestrado">Mestrado</option>
-					<option value="Doutorado">Doutorado</option>
-				</select>
-			</div>
-			<br>
+							<!-- CAMPO FORMAÇÃO -->
+							<div>
+								<label for="formacao">Formação:</label><br>
+								<select class="form-control" id="formacao" name="formacao">
+									<option>--Tipo--</option>
+									<option value="Fundamental">Ensino Fundamental</option>
+									<option value="Ensino Médio">Ensino Médio</option>
+									<option value="Superior">Ensino Superior</option>
+									<option value="Mestrado">Mestrado</option>
+									<option value="Doutorado">Doutorado</option>
+								</select>
+							</div><br>
 
-			<center>
-				<a href='/users/listaEventos'>
-					<button class="btn btn-outline-secondary"> Concluir </button>
-				</a>
-			</center>
+							<center>
+								<button class="btn btn-outline-secondary"> Concluir </button>
+							</center>
+						</form>
 
-		</div>
-
-	</form><br><br><br>
-
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</footer>
+	</div>
 </nav>
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+			</div>
+		</div>
+	</div>
+</footer>

@@ -35,7 +35,7 @@ router.post('/addUsuario', (req, res) => {
     if (!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null || req.body.senha.length < 6) {
         erros.push({ texto: "INSIRA UMA SENHA VÁLIDA" })
     }
-    if (req.body.categoria == "Escolher op") {
+    if (req.body.formacao == "--Tipo--") {
         erros.push({ texto: "ESCOLHA SUA FORMAÇÃO" })
     }
     if (erros.length > 0) {
@@ -47,7 +47,7 @@ router.post('/addUsuario', (req, res) => {
             cpf: req.body.cpf,
             email: req.body.email,
             senha: req.body.senha,
-            categoria: req.body.categoria
+            formacao: req.body.formacao
         }).then(function () {
             res.redirect('/users/listaEventos')
         }).catch(function (err) {
@@ -69,5 +69,12 @@ router.get('/listaEventos', (req, res) => {
         res.render('user/listaEventos', { listaEve: eventoParticipa })
     })
 })
-
+// Página para fazer o login
+router.get('/loginUser', (req, res) => {
+    res.render('user/loginUsuario')
+})
+// Página para criar uma conta
+router.get('/formParticipante', (req, res) => {
+    res.render('user/userForms/FormParticipante')
+})
 module.exports = router

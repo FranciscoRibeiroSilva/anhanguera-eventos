@@ -13,12 +13,11 @@ const CadastroUsers = db.sequelize.define('usuarios', {
     senha:{
         type: db.Sequelize.STRING
     },
-    categoria:{
+    formacao:{
         type: db.Sequelize.STRING
     }
     
 })
-
 
 //CadastroUsers.sync({force: true})
 

@@ -1,14 +1,11 @@
-{{>_navbar}}
+{{>_navbarUser}}
+<br>
 <div class="mt-5">
     {{>_msg}}
-    
-    
     {{#each atividades}}
         <div class="card mt-2">
-            <div class="card-body">
+            <div class="card-body fundo">
                 <h3> Nome da Atividade: {{nome}} </h3><a href='/users/geraCertificado/'{{id}}><button class="btn btn-outline-secondary btn-tamanhoUnico">Gerar Certificado</button></a> 
-               
-
              </div>
         </div>
     {{/each}}
