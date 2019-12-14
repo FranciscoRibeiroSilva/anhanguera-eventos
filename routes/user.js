@@ -57,13 +57,13 @@ router.post('/addUsuario', (req, res) => {
     }
 })
 
-// Página de atividades
+// Página para atividades pro participante
 router.get('/listaAtividades', (req, res) => {
     Atividades.findAll().then(function (inscricaoAtividade) {
         res.render('user/listaAtividades', { listaAtivi: inscricaoAtividade })
     })
 })
-// Página de eventos
+// Página para listar eventos disponiveis
 router.get('/listaEventos', (req, res) => {
     Eventos.findAll().then(function (eventoParticipa) {
         res.render('user/listaEventos', { listaEve: eventoParticipa })
