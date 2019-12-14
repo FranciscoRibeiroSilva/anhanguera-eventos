@@ -216,15 +216,15 @@ router.post('/addEvento', (req, res) => {
     if (req.body.participanteEs == "Escolher op") {
         erros.push({ texto: "ESCOLHA O NUMERO DE PARTICIPANTES ESPERADOS" })
     }
-    if (!req.body.local || typeof req.body.local == undefined || req.body.local == null || req.body.local.length < 5) {
-        erros.push({ texto: "NOME DE ADMINISTRADOR INVALIDO" })
+    if (!req.body.local || typeof req.body.local == undefined || req.body.local == null || req.body.local.length < 5 || req.body.local.length >25) {
+        erros.push({ texto: "LOCAL INVALIDO" })
     }
 
     if (req.body.tipoEvento == "Escolher op") {
         erros.push({ texto: "ESCOLHA O TIPO DE EVENTO" })
     }
     if (req.body.eventoTipo == "--Tipo--") {
-        erros.push({ texto: "ESCOLHA Gratuita ou Paga" })
+        erros.push({ texto: "ESCOLHA GRATUITA OU PAGA" })
     }
     if (req.body.eventoTipo == "Paga") {
         if (!req.body.valorEvento || typeof req.body.valor == undefined || req.body.valorEvento == null) {
