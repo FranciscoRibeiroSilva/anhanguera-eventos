@@ -161,10 +161,10 @@ router.get('/formCupons', (req, res) => {
 //Adiciona cupom ao DB
 router.post('/addCupom', (req, res) => {
     var erros = []
-    if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length < 5) {
-        erros.push({ texto: "O CUPOM DEVE TER NO MINIMO 5 CARACTERES" })
+    if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length < 6 || req.body.codigo.length>6) {
+        erros.push({ texto: "O CUPOM DEVE TER 6 CARACTERES" })
     }
-    if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null) {
+    if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null || req.body.quantidade <0) {
         erros.push({ texto: "QUANTIDADE DE CUPONS INVALIDA" })
     }
     if (!req.body.validade || typeof req.body.validade == undefined || req.body.validade == null) {
