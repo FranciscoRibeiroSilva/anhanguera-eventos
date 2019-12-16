@@ -1,9 +1,11 @@
-const Administrador = require('../models/Administrador')
+const Administrador = require('../models/administradores')
 
 module.exports = {
-    async store(req, res){
+    async inserirAdm(req, res){
         const {nome, email, senha, estado} = req.body
 
-        const adm = await Administrador.create({name, email, senha, estado})
+        const adm = await Administrador.create({nome, email, senha, estado})
+
+        res.redirect('/anhangueraeventos/')
     }
 }

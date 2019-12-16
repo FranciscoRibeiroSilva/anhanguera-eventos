@@ -16,4 +16,4 @@ const administradorSchema = new Schema({
     }
 })
 
-mongoose.model("administradores", administradorSchema)
+mongoose.model("administrador", administradorSchema)

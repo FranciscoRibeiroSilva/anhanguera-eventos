@@ -1,31 +1,40 @@
 const express = require("express")
 const router = express.Router()
-const Administrador = require('../models/Administrador')
-const Eventos = require('../models/Eventos')
-const Atividades = require('../models/Atividades')
-const Usuarios = require('../models/Usuarios')
-const bcrypt = require("bcryptjs")
-const Cupons = require("../models/Cupons")
-const jwt = require('jsonwebtoken')
+//const Administrador = require('../models/administradores')
 const AdmControl = require('../controllers/AdmControl')
+const EventoControl = require('../controllers/EventoControl')
+const jwt = require('jsonwebtoken')
+//const Eventos = require('../models/Eventos')
+//const Atividades = require('../models/Atividades')
+//const Usuarios = require('../models/Usuarios')
+//const bcrypt = require("bcryptjs")
+//const Cupons = require("../models/Cupons")
 //const athee = require('../midleware/auth')
 //const passport = require("passport")
 
 //const authConfig = require('../config/auth.json')
 
 //router.use(athee);
-
-router.post('/addAdm',(req, res), AdmControl.store)
-
-//pagina Sobre
-router.get('/sobreNos', (req, res) => {
-    res.render('admi/sobre')
+router.get('/',(req, res)=>{
+    res.render('index')
 })
 
 //pagina de cadastro do adm
 router.get('/cadastroAdm', (req, res) => {
     res.render('admi/adminForms/FormAdm')
 })
+
+//Adiciona um novo administrador ao Banco de dados
+router.post('/addAdm', AdmControl.inserirAdm)
+
+//
+router.post('/addAdm/:administradores_id/addEvento', EventoControl.inserirEvento)
+
+//pagina Sobre
+router.get('/sobreNos', (req, res) => {
+    res.render('admi/sobre')
+})
+
 
 /*
 //adiciona dados do cadastro adm ao BD

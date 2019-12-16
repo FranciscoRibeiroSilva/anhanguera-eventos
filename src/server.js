@@ -20,6 +20,9 @@ const session = require("express-session")
 //Menssagens Flash
 const flash = require("connect-flash")
 
+//Database
+require('./database/index')
+
 //Configurações
 //Sessão
 app.use(session({
@@ -48,9 +51,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //css 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../Public")));
 
-app.use('/', adm)
+app.use('/anhangueraeventos', adm)
 
 const PORT = process.env.PORT || 8081
 app.listen(PORT, () => {

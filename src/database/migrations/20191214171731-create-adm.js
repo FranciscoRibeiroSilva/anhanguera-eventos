@@ -2,14 +2,14 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.createTable('administrador', { 
+      return queryInterface.createTable('administradores', { 
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
-          autoIcrement: true,
+          autoIncrement: true,
           allowNull: false
         },
-        name:{
+        nome:{
           type: Sequelize.STRING,
           allowNull: false
         },
@@ -25,14 +25,14 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false
         },
-        create_at:{
+        created_at:{
           type: Sequelize.STRING,
           allowNull: false
         },
         updated_at:{
           type: Sequelize.DATE,
           allowNull: false
-        }
+        },
       });
   },
 
@@ -46,3 +46,4 @@ module.exports = {
     */
   }
 };
+
