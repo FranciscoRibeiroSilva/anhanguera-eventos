@@ -30,9 +30,9 @@ const bcrypt = require("bcryptjs")
 
 //Method override
 //const methodOverride = require('method-override')
-    //Autenticador de login
+//Autenticador de login
 //const passport = require("passport")
-    //require("./config/auth")(passport)
+//require("./config/auth")(passport)
 
 //Configurações
 //Sessão
@@ -69,7 +69,7 @@ app.use(express.static(path.join(__dirname, "/Public")));
 //Rotas
 //Rota principal
 app.get('/', function(req, res) {
-    res.render('index')
+    res.render('admi/sobre')
 })
 
 //Rotas dos adm's
