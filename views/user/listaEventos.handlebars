@@ -1,0 +1,34 @@
+<div class="mt-5">
+    <center>
+        <h2>
+            <p> EVENTOS DISPONÍVEIS </p>
+        </h2>
+    </center>
+
+    {{#each listaEve}}
+
+    <div class="card mt-2">
+        <div class="card-body fundo">
+            <h1>{{nome}}</h1>
+
+            <h6>
+                Tipo de evento: {{tipoEvento}}<br>
+                Adiministrador: {{nomeAdm}}<br>
+                Local: {{local}}<br>
+                Data: {{data}}<br>
+            </h6>
+
+            <a href='/users/listaAtividades'><button class="btn btn-outline-secondary">Participar</button></a>
+
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {{>_footer1}}
+        </div>
+    </div>
+</div>

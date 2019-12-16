@@ -1,0 +1,82 @@
+{{>_navbarUser}}
+
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto fundo">
+
+            <center class="mt-5">
+                <h1>LISTA DE ATIVIDADES</h1><br>
+            </center><br>
+
+            {{#each listaAtivi}}
+
+            <div class="card mt-2 ">
+                <div class="card-body fundo">
+                    <nav class="navbar fundo justify-content-end">
+                        <h2 class="navbar-nav mr-auto margemAEsquerda">
+                            <p>{{nome}}</p>
+                        </h2>
+
+                        <a class="btn" type="button" data-toggle="collapse"
+                            data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                            aria-expanded="false" aria-label="Alterna navegação">
+                            <h6>&#9660;</h6>
+                        </a>
+                    </nav>
+
+                    <h6 class="text-black h5">Ministrante: {{ministrante}}<br></h6>
+                    <h6 class="text-black h5">Sala: {{sala}}<br></h6>
+
+                    <div class="pos-f-t fundo">
+                        <div class="collapse " id="navbarToggleExternalContent">
+                            <div class="fundo">
+                                <h6 class="text-black h5">Tipo de Atividade: {{tipo}}<br></h6>
+                                <h6 class="text-black h5">Tipo: {{inscricaoT}} {{valor}}<br></h6>
+                                <h6 class="text-black h5">Data: {{data}}<br></h6>
+                                <h6 class="text-black h5">Hórario inicio: {{horaInicio}}<br></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav class="navbar fundo justify-content-end ">
+                        <h6>
+                            <input type="checkbox" name="inscrever" id="inscrever">
+                            <label>Inscrever</label>
+                        </h6>
+                    </nav>
+                </div>
+            </div>
+
+            {{/each}}<br>
+
+            <center>
+                <button class="btn btn-outline-secondary"> Concluir </button>
+            </center>
+
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto">
+
+                <footer class="footerRela">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>

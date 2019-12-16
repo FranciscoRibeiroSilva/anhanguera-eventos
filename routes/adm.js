@@ -161,10 +161,10 @@ router.get('/formCupons', (req, res) => {
 //Adiciona cupom ao DB
 router.post('/addCupom', (req, res) => {
     var erros = []
-    if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length < 5) {
-        erros.push({ texto: "O CUPOM DEVE TER NO MINIMO 5 CARACTERES" })
+    if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length < 6 || req.body.codigo.length>6) {
+        erros.push({ texto: "O CUPOM DEVE TER 6 CARACTERES" })
     }
-    if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null) {
+    if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null || req.body.quantidade <0) {
         erros.push({ texto: "QUANTIDADE DE CUPONS INVALIDA" })
     }
     if (!req.body.validade || typeof req.body.validade == undefined || req.body.validade == null) {
@@ -201,27 +201,30 @@ router.get('/formEvento', (req, res) => {
 //Adiciona dados do formulario eventos ao DB
 router.post('/addEvento', (req, res) => {
     var erros = []
-    if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2) {
+    if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2 || req.body.nome.length>15) {
         erros.push({ texto: "NOME DO EVENTO INVALIDO" })
     }
-    if (!req.body.quantSalas || typeof req.body.quantSalas == undefined || req.body.quantSalas == null) {
+    if (!req.body.quantSalas || typeof req.body.quantSalas == undefined || req.body.quantSalas == null || req.body.quantSalas < 0) {
         erros.push({ texto: "QUANTIDADE DE SALAS INVALIDO" })
     }
-    if (!req.body.nomeAdm || typeof req.body.nomeAdm == undefined || req.body.nomeAdm == null || req.body.nomeAdm.length < 2) {
+    if (!req.body.nomeAdm || typeof req.body.nomeAdm == undefined || req.body.nomeAdm == null || req.body.nomeAdm.length < 2 || req.body.nomeAdm.length>15) {
         erros.push({ texto: "NOME DE ADMINISTRADOR INVALIDO" })
     }
-    if (!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length < 12) {
+    if (!req.body.emailAdm || typeof req.body.emailAdm == undefined || req.body.emailAdm == null || req.body.emailAdm.length < 12 || req.body.emailAdm.length>30) {
         erros.push({ texto: "EMAIL INVALIDO" })
     }
     if (req.body.participanteEs == "Escolher op") {
         erros.push({ texto: "ESCOLHA O NUMERO DE PARTICIPANTES ESPERADOS" })
+    }
+    if (!req.body.local || typeof req.body.local == undefined || req.body.local == null || req.body.local.length < 5 || req.body.local.length >25) {
+        erros.push({ texto: "LOCAL INVALIDO" })
     }
 
     if (req.body.tipoEvento == "Escolher op") {
         erros.push({ texto: "ESCOLHA O TIPO DE EVENTO" })
     }
     if (req.body.eventoTipo == "--Tipo--") {
-        erros.push({ texto: "ESCOLHA Gratuita ou Paga" })
+        erros.push({ texto: "ESCOLHA GRATUITA OU PAGA" })
     }
     if (req.body.eventoTipo == "Paga") {
         if (!req.body.valorEvento || typeof req.body.valor == undefined || req.body.valorEvento == null) {
@@ -240,6 +243,8 @@ router.post('/addEvento', (req, res) => {
             quantSalas: req.body.quantSalas,
             nomeAdm: req.body.nomeAdm,
             emailAdm: req.body.emailAdm,
+            local: req.body.local,
+            data: req.body.data,
             eventoTipo: req.body.eventoTipo,
             valorEvento: req.body.valorEvento
         }).then(function () {

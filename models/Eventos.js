@@ -19,6 +19,12 @@ const Eventos = db.sequelize.define('eventos', {
     emailAdm: {
         type: db.Sequelize.STRING
     },
+    local:{
+        type: db.Sequelize.STRING
+    },
+    data:{
+        type: db.Sequelize.STRING
+    },
     eventoTipo: {
         type: db.Sequelize.STRING
     },

@@ -1,33 +1,54 @@
 {{>_navbar}}
-<div class="mt-5">
-    <center>
-        <h1>
-            <p> MINISTRANTES </p>
-        </h1>
-    </center>
-    <a href="/anhangueraeventos/formMinistrantes"><button class="btn btn-outline-secondary ">Adicionar ministrante</button></a>
-    
-    {{#each listaMinistrantes}}
-
-    <div class="card mt-2">
-        <div class="card-body fundo">
-
-            <h6>
-                Nome: {{nome}}<br>
-                E-mail: {{email}}<br>
-                Telefone: {{telefone}}<br>
-            </h6>
-
-        </div>
-    </div>
-    {{/each}}
-</div>
-<footer class="footerRela">
+<br>
+<div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto fundo">
+
+                <div class="mt-5">
+                    <center>
+                        <h1 class="fundo">
+                            <p> MINISTRANTES </p>
+                        </h1>
+                    </center>
+                    <a href="/anhangueraeventos/formMinistrantes"><button class="btn btn-outline-secondary ">Adicionar
+                            ministrante</button></a>
+
+                    {{#each listaMinistrantes}}
+
+                    <div class="card mt-2">
+                        <div class="card-body fundo">
+
+                            <h6>
+                                Nome: {{nome}}<br>
+                                E-mail: {{email}}<br>
+                                Telefone: {{telefone}}<br>
+                            </h6>
+
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
             </div>
         </div>
     </div>
-</footer>
+</div>
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto">
+
+                <footer class="footerRela">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>

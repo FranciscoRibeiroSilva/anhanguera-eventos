@@ -1,10 +1,16 @@
+{{>_navbarUser}}
+
+<br>
+<br>
+<br>
+
 {{#each certise}}
-<div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #3232CD">
-    <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #3232CD">
-           <span style="font-size:50px; font-weight:bold">Certificado de Conclusão</span>
+<div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #A53038">
+    <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #A53038">
+           <span style="font-size:50px; font-weight:bold">CERTIFICADO DE CONCLUSÃO</span>
            <br><br>
            <span style="color: black;"><h1>Aranguera Eventos</h1></span>
-           <span style="font-size:20px">
+           <span style="color: black; ">
             <b> Certificamos que {{nome}}, pertencente ao CPF {{cpf}} <br>
             concluiu o curso ___________________, que possui carga horária de ___ horas. <br>
             O curso foi ministrado por ___________________ no dia __/___/___ em Piripiri, Piaui.</b></span><br/><br/>
@@ -19,6 +25,8 @@
            <span style="font-size:25px"><i>dated</i></span><br>
           #set ($dt = $DateFormatter.getFormattedDate($grade.getAwardDate(), "MMMM dd, yyyy"))
           <span style="font-size:30px">$dt</span> -->
+            </div>
+        </div>
     </div>
-    </div>
-{{/each}}
+    {{/each}}
+</center>
