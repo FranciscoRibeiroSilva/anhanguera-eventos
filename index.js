@@ -69,7 +69,7 @@ app.use(express.static(path.join(__dirname, "/Public")));
 //Rotas
 //Rota principal
 app.get('/', function(req, res) {
-    res.render('user/loginPar')
+    res.render('admi/sobre')
 })
 
 //Rotas dos adm's
