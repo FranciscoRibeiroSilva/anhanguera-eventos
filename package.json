@@ -25,8 +25,8 @@
     "sequelize-cli": "^5.5.1"
   },
   "scripts": {
-    "dev": "nodemon ./src/server.js",
-    "start": "node index.js",
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
