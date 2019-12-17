@@ -30,10 +30,9 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
-/*app.use(passport.initialize())
-app.use(passport.session())*/
-app.use(flash())
 
+app.use(flash())
+//midlleware mensagens
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash("success_msg")
     res.locals.error_msg = req.flash("error_msg")
@@ -45,13 +44,12 @@ app.use((req, res, next) => {
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
-//Body Parse
-//app.use(cookieParser())
+//Body Parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //css 
-app.use(express.static(path.join(__dirname, "../Public")));
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.use('/anhangueraeventos', adm)
 

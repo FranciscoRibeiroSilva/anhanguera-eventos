@@ -31,12 +31,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FranciscoRibeiroSilva/EventManager.git"
+    "url": "git+https://github.com/FranciscoRibeiroSilva/anhanguera-eventos.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FranciscoRibeiroSilva/EventManager/issues"
+    "url": "https://github.com/FranciscoRibeiroSilva/anhanguera-eventos/issues"
   },
-  "homepage": "https://github.com/FranciscoRibeiroSilva/EventManager#readme"
+  "homepage": "https://github.com/FranciscoRibeiroSilva/anhanguera-eventos#readme"
 }
