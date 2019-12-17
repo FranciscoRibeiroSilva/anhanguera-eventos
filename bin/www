@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../src/app');
-var debug = require('debug')('anhanguera-eventos:server');
+var app = require('../app');
+var debug = require('debug')('anhangueraeventos:server');
 var http = require('http');
 
 /**

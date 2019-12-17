@@ -9,7 +9,7 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 
 //Arquivos de rota
-const adm = require('./routes/adm')
+const adm = require('./src/routes/adm')
 
 //Path
 const path = require("path")
@@ -21,7 +21,7 @@ const session = require("express-session")
 const flash = require("connect-flash")
 
 //Database
-require('./database/index')
+require('./src/database/index')
 
 //Configurações
 //Sessão
@@ -53,7 +53,8 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use('/anhangueraeventos', adm)
 
+/*
 const PORT = process.env.PORT || 8081
 app.listen(PORT, () => {
     console.log("Servidor Rodando na URL http://localhost:8081");
-});
+});*/
