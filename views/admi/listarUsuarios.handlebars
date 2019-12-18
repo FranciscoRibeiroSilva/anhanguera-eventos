@@ -1,30 +1,37 @@
 {{>_navbar}}
-<div class="mt-5">
-    <center>
-        <h1>
-            <p> PARTICIPANTES </p>
-        </h1>
-    </center>
-    {{#each listarUsers}}
-    <div class="card mt-2">
-        <div class="card-body fundo">
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto">
 
-            <h6>
-                Nome: {{nome}}<br>
-                CPF: {{cpf}}<br>
-                Email: {{email}}
-            </h6>
+            <div class="mt-5">
+                <center>
+                    <h1>
+                        <p> PARTICIPANTES </p>
+                    </h1>
+                </center>
+                {{#each listarUsers}}
+                <div class="card mt-2">
+                    <div class="card-body fundo">
 
-        </div>
-    </div>
-    {{/each}}
-</div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+                        <h6>
+                            Nome: {{nome}}<br>
+                            CPF: {{cpf}}<br>
+                            Email: {{email}}
+                        </h6>
+
+                    </div>
+                </div>
+                {{/each}}
             </div>
         </div>
+
     </div>
-</footer>
+
+    <div class="row footer-pag-sem-cont mt-5">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto">
+            <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
+        </div>
+    </div>
+
+
+</div>
