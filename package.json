@@ -1,22 +1,12 @@
 {
-  "name": "anhanguera-eventos",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
-  },
+  "name": "eventmanager",
+  "version": "1.0.0",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
     "jquery": "^3.4.1",
@@ -25,11 +15,19 @@
     "mysql2": "^1.7.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "pg": "^7.14.0",
+    "pg-hstore": "^2.3.3",
     "popper.js": "^1.16.0",
     "sequelize": "^5.21.2"
-  },"devDependencies": {
+  },
+  "devDependencies": {
     "nodemon": "^2.0.2",
     "sequelize-cli": "^5.5.1"
+  },
+  "scripts": {
+    "dev": "nodemon ./src/server.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "app.js",
   "repository": {
