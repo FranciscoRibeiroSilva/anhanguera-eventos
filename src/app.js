@@ -9,8 +9,8 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 
 //Arquivos de rota
-const adm = require('../routes/adm')
-const user = require('../routes/user')
+const adm = require('./routes/adm')
+//const user = require('../routes/user')
 
 //Path
 const path = require("path")
@@ -46,28 +46,21 @@ app.use((req, res, next) => {
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
-//Body Parse
-app.use(bodyParser.urlencoded({ extended: false }))
+//Body Parses
 app.use(bodyParser.json())
 
 
 //css 
-app.use(express.static(path.join(__dirname, "../public")));
-
-//Rotas
-//Rota principal
-app.get('/', function(req, res) {
-    res.render('index')
-})
+app.use(express.static(path.join(__dirname, '../public')));
 
 //Rotas dos adm's
-app.use('/anhangueraeventos', adm)
+app.use('/', adm)
 
 //Rotas do usuario
-app.use('/users', user)
+//app.use('/users', user)
 
 //Outros
 const PORT = process.env.PORT || 8081
 app.listen(PORT, () => {
-    console.log("Servidor Rodando na URL http://localhost:8081");
+    console.log("Servidor Rodando na URL http://localhost:"+PORT);
 });

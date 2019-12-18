@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-//const Administrador = require('../models/administradores')
+const Administrador = require('../models/administradores')
 const AdmControl = require('../controllers/AdmControl')
 const EventoControl = require('../controllers/EventoControl')
 const jwt = require('jsonwebtoken')
@@ -12,9 +12,7 @@ const jwt = require('jsonwebtoken')
 //const athee = require('../midleware/auth')
 //const passport = require("passport")
 
-//const authConfig = require('../config/auth.json')
-
-//router.use(athee);
+//Pagina inicial
 router.get('/',(req, res)=>{
     res.render('index')
 })
