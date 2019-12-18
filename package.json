@@ -33,10 +33,10 @@
     "type": "git",
     "url": "git+https://github.com/FranciscoRibeiroSilva/anhanguera-eventos.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FranciscoRibeiroSilva/anhanguera-eventos/issues"
-  },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/FranciscoRibeiroSilva/anhanguera-eventos/issues"
+    },
   "homepage": "https://github.com/FranciscoRibeiroSilva/anhanguera-eventos#readme"
 }
