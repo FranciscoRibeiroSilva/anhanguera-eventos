@@ -1,8 +1,4 @@
-﻿/*if(process.env.NODE_ENV !== 'production'){
-   app.use(morgan('dev'))
-}*/
-
-//Express
+﻿//Express
 const express = require("express");
 const app = express();
 
