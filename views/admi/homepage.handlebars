@@ -1,48 +1,40 @@
 {{>_homeNavbar}}
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto">
+<div class="mt-5">
+    <center>
+        <h2>
+            <p> SEUS EVENTOS </p>
+        </h2>
+    </center>
 
-            <div class="mt-5">
-                <center>
-                    <h2>
-                        <p> SEUS EVENTOS </p>
-                    </h2>
-                </center>
+    <a href="/anhangueraeventos/formEvento"><button class="btn btn-outline-secondary">Criar
+            evento</button></a>
+    <!-- LISTANDO OS EVENTOS DO BANCO DE DADOS-->
+    {{#each listEvent}}
 
-                <a href="/anhangueraeventos/formEvento"><button class="btn btn-outline-secondary">Criar
-                        Evento</button></a>
-                <!-- LISTANDO OS EVENTOS DO BANCO DE DADOS-->
-                {{#each listEvent}}
+    <div class="card mt-2">
+        <div class="card-body fundo">
 
-                <div class="card mt-2">
-                    <div class="card-body fundo">
-
-                        <h1>{{nome}}</h1>
-                        <h6>
-                            <br>
-                            Participantes esperados: {{participanteEs}}<br>
-                            Tipo de evento: {{tipoEvento}}<br>
-                            Adiministrador: {{nomeAdm}}<br>
-                            E-mail do administrado: {{emailAdm}}<br>
-                        </h6>
-                        <a href='/anhangueraeventos/gerenciaEvento' {{id}}><button
-                                class="btn btn-outline-secondary">Gerencie este
-                                Evento</button></a>
-                        <a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary">Adicionar
-                                Atividade</button></a>
-                    </div>
-
-                </div>
-                {{/each}}
-            </div>
+            <h1>{{nome}}</h1>
+            <h6>
+                <br>
+                Participantes esperados: {{participanteEs}}<br>
+                Tipo de evento: {{tipoEvento}}<br>
+                Adiministrador: {{nomeAdm}}<br>
+                E-mail do administrado: {{emailAdm}}<br>
+            </h6>
+            <a href='/anhangueraeventos/gerenciaEvento' {{id}}><button class="btn btn-outline-secondary">Gerencie este
+                    Evento</button></a>
+            <a href='/anhangueraeventos/formAtividades'><button class="btn btn-outline-secondary">Adicionar
+                    Atividade</button></a>
         </div>
 
     </div>
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
-                {{>_footer1}}
-            </div>
+    {{/each}}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {{>_footer1}}
         </div>
-
+    </div>
 </div>

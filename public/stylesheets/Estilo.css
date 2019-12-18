@@ -1,0 +1,78 @@
+.espac{
+   padding-top: 20px; 
+   margin-top: 20px;
+}
+
+#confIndex{
+    margin: 5% 38% 0% 38%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    border: /*3px outset rgb(191, 199, 211);*/
+    width: 400px;
+    height: 450px;
+    text-align: center;
+    top: 50%;
+}
+#confLogin{
+    margin-left: 35%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    border: /*3px outset rgb(191, 199, 211); */
+    width: 100%;;
+    width: 400px;
+    height: 500px;
+    text-align: center;
+    top: 50%;
+}
+#confCadastro{
+    margin-left: 45%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    /*border: 3px outset #0404B4;*/
+    width: 400px;
+    height: 800px;
+    text-align: justify;
+    top: 50%;
+}
+#confCriarEvent{
+    margin-left: 45%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    /*border: 3px outset #0404B4;*/
+    width: 500px;
+    height: 500px;
+    text-align: justify;
+    top: 50%;
+}
+#confRegAtiv{
+    margin-left: 40%;
+    margin-top: 5%;
+    padding: 0%;
+    display: inline-block;
+    /*border: 3px outset #0404B4;*/
+    width: 400px;
+    height: 700px;
+    text-align: justify;
+    top: 50%;
+}
+.footer{
+    display: inline-block;
+    text-align: center;
+    color: gray;
+    margin-left: 30.5%;
+    padding-top: 2px ;
+}
+
+.link{
+    color:black;
+    text-decoration: none;
+    
+}
+.margem{
+    
+    margin-left: -14%;
+}

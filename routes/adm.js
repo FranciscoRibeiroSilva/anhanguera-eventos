@@ -110,7 +110,7 @@ router.get('/loginAdm', (req, res) => {
     })
 }*/
 
-router.post('/validacao', async (req, res) => {
+router.post('/login', async (req, res) => {
     const { email, senha } = req.body;
 
     const user = await Administrador.findOne({ where: { email: req.body.email } })

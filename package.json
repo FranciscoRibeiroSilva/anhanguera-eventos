@@ -1,6 +1,7 @@
 {
   "name": "eventmanager",
   "version": "1.0.0",
+  "main": "index.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -29,16 +30,15 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FranciscoRibeiroSilva/anhanguera-eventos.git"
+    "url": "git+https://github.com/FranciscoRibeiroSilva/EventManager.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FranciscoRibeiroSilva/anhanguera-eventos/issues"
+    "url": "https://github.com/FranciscoRibeiroSilva/EventManager/issues"
   },
-  "homepage": "https://github.com/FranciscoRibeiroSilva/anhanguera-eventos#readme",
+  "homepage": "https://github.com/FranciscoRibeiroSilva/EventManager#readme",
   "description": ""
 }

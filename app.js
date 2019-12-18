@@ -1,4 +1,8 @@
-﻿//Express
+/*if(process.env.NODE_ENV !== 'production'){
+   app.use(morgan('dev'))
+}*/
+
+//Express
 const express = require("express");
 const app = express();
 
@@ -26,9 +30,9 @@ const bcrypt = require("bcryptjs")
 
 //Method override
 //const methodOverride = require('method-override')
-//Autenticador de login
+    //Autenticador de login
 //const passport = require("passport")
-//require("./config/auth")(passport)
+    //require("./config/auth")(passport)
 
 //Configurações
 //Sessão
@@ -60,7 +64,7 @@ app.use(bodyParser.json())
 
 
 //css 
-app.use(express.static(path.join(__dirname, "/Public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 //Rotas
 //Rota principal
