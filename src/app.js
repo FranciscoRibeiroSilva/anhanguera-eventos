@@ -22,7 +22,10 @@ const session = require("express-session")
 const flash = require("connect-flash")
 
 //Modulo de Hash
-const bcrypt = require("bcryptjs")
+//const bcrypt = require("bcryptjs")
+
+//Database
+require('./database/index')
 
 //Configurações
 //Sessão
@@ -30,7 +33,8 @@ app.use(session({
         secret: "qualquer",
         resave: false,
         saveUninitialized: true
-    }))
+    })
+)
 
 app.use(flash())
 
@@ -60,7 +64,7 @@ app.use('/', adm)
 //app.use('/users', user)
 
 //Outros
-const PORT = process.env.PORT || 8081
+const PORT = process.env.PORT || 8081  
 app.listen(PORT, () => {
-    console.log("Servidor Rodando na URL http://localhost:"+PORT);
+    console.log("Servidor Rodando na URL http://localhost:8081");
 });

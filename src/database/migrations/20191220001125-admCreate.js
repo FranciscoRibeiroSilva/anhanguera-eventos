@@ -9,41 +9,34 @@ module.exports = {
           autoIncrement: true,
           allowNull: false
         },
-        nome:{
+        nome: {
           type: Sequelize.STRING,
           allowNull: false
         },
-        email:{
+        email: {
           type: Sequelize.STRING,
           allowNull: false
         },
-        senha:{
+        senha: {
           type: Sequelize.STRING,
           allowNull: false
         },
-        estado:{
+        estado: {
           type: Sequelize.STRING,
           allowNull: false
         },
-        created_at:{
-          type: Sequelize.STRING,
-          allowNull: false
-        },
-        updated_at:{
+        created_at: {
           type: Sequelize.DATE,
           allowNull: false
         },
+        updated_at: {
+          type: Sequelize.DATE,
+          allowNull: false
+        }
       });
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.dropTable('users');
-    */
+      //return queryInterface.dropTable('administradores');
   }
 };
-
