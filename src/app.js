@@ -51,12 +51,15 @@ app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 //Body Parses
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
 
 //css 
 app.use(express.static(path.join(__dirname, '../public')));
 
+app.get('/', (req, res) => {
+    res.redirect('/login')
+})
 //Rotas dos adm's
 app.use('/', adm)
 
