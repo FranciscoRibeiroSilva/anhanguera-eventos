@@ -8,14 +8,17 @@ const MinistranteController = require('../controllers/MinistranteController')
 const ParticipanteController = require('../controllers/ParticipanteController')
 const AtividadeController = require('../controllers/AtividadeController')
 const PaginasController  = require('../controllers/PaginasController')
+const ValidationController = require('../controllers/ValidationController')
+const {eAdmi} = require('../helpers/eAdmi')
+///const authMiddleware = require('../middleware/auth')
 
 app.use(express.json)
-
+//router.use(authMiddleware)
 
 router.get('/login', PaginasController.login)
 router.get('/cadastroAdm', PaginasController.formAdm)
-router.get('/homepage', PaginasController.homepage)
-router.get('/adicionar/evento',PaginasController.formEvento )
+router.get('/homepage', eAdmi, PaginasController.homepage)
+router.get('/adicionar/evento', eAdmi, PaginasController.formEvento )
 router.get('/adicionar/atividade', PaginasController.formModAtividade)
 router.get('/adicionar/ministrante', PaginasController.formMinistrantes)
 router.get('/adicionar/cupons', PaginasController.formCupon)
@@ -26,6 +29,15 @@ router.get('/gerencia/eventos', PaginasController.gerenciaEventos)
 router.get('/gerencia/ministrantes', PaginasController.gerenciaMinistrante)
 router.get('/listar/usuarios', PaginasController.listaUsuarios)
 router.get('/sobreAnhanguera', PaginasController.sobre)
+router.get('/logout', PaginasController.logoutAdm)
+
+router.post('/authen', ValidationController.validSession)
+
+
+
+
+
+
 
 router.get('/listUser', AdmController.listAdm)
 router.get('/registUser/:administrado_id/listEvent', EventoController.listEvent)

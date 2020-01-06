@@ -20,6 +20,8 @@ const session = require("express-session")
 
 //Menssagens Flash
 const flash = require("connect-flash")
+const passport = require('passport')
+require('./config/authentic')(passport)
 
 //Modulo de Hash
 //const bcrypt = require("bcryptjs")
@@ -30,19 +32,22 @@ require('./database/index')
 //Configurações
 //Sessão
 app.use(session({
-        secret: "qualquer",
+        secret: "qualquersasdaa",
         resave: false,
         saveUninitialized: true
     })
 )
 
-app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
 
+app.use(flash())
 //Midleware
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash("success_msg")
     res.locals.error_msg = req.flash("error_msg")
     res.locals.error = req.flash("error")
+    res.locals.user = req.user || null
     next()
 })
 
@@ -67,7 +72,7 @@ app.use('/', adm)
 //app.use('/users', user)
 
 //Outros
-const PORT = process.env.PORT || 8081  
+const PORT = process.env.PORT || 8081 
 app.listen(PORT, () => {
     console.log("Servidor Rodando na URL http://localhost:8081");
 });

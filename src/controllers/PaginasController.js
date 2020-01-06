@@ -43,6 +43,11 @@ module.exports = {
     listaUsuarios(req, res){
         res.render('admi/listarUsuarios')
     },
+    logoutAdm(req, res){
+        req.logout()
+        req.flash('error_msg', 'deslogado')
+        res.redirect('/login')
+    },
 
     //participantes
     certificado(req, res){

@@ -14,6 +14,11 @@
 
 <body background="/img/tumblr4.jpg">
     <div class="container mt-2">
+        {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+        {{else}}
+
+        {{/if}}
         {{>_msg}}
         {{{body}}}
     </div>
