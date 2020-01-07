@@ -1,7 +1,3 @@
-/*module.exports = {
-    secret : "a5c90bea3006a751f25380313e775822"
-}*/
-
 const localStrategy = require('passport-local')
 const sequelize = require('sequelize')
 const administrador = require('../models/Administradores')
@@ -35,13 +31,5 @@ module.exports  = function(passport){
         }), function(error){
             done(err,null)
         }
-        /*const user = await administrador.findByPk(id)
-        if (!user){
-            done(null, false, {message:'erro session'})
-        }
-        else{
-            done(user)
-        }*/
     })
-
 }
