@@ -1,11 +1,10 @@
-
 {{>_navbar}}
 <br><br>
 <div id="FormulariosAdm">
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto fundo">
+                <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto">
                     <!-- ALERTA CASO OS DADOS ESTEJAM FALTANDO-->
                     <br>
                     {{#each erros}}
@@ -115,52 +114,13 @@
 
                                         </td>
                                     </tr>
-                                    
+
                                     <table width="100%">
                                         <tr>
-                                            <br>
-                                            <center>
-                                                <h1>DADOS BANCÁRIOS</h1>
-                                            </center>
-                                            <td>
-                                                <!--NUMERO DA CONTA-->
-                                                <label for="numConta"> Conta: </label>
-                                                <input class="form-control" type="text" id="numConta" name="numConta"
-                                                    maxlength="10" placeholder="00000000-0" disabled>
-                                                <!--NOME DO BANCO-->
-                                                <label for="banco"> Banco: </label>
-                                                <input class="form-control" type="text" id="banco" name="banco"
-                                                    placeholder="Nome do Banco" disabled>
-
-                                            </td>
-                                            <td>
-                                                <!--NUMERO DA AGÊNCIA-->
-                                                <label for="agencia"> Agência: </label>
-                                                <input class="form-control" type="text" id="agencia" name="agencia"
-                                                    placeholder="0000" maxlength="4" disabled>
-
-                                                <!--NUMERO DO CPF-->
-                                                <label for="cpf"> CPF: </label>
-                                                <input class="form-control" type="text" id="cpf" name="cpf"
-                                                    placeholder="000.000.000-00" maxlength="14" disabled>
-                                            </td>
-
                                             <script>
                                                 var select = document.getElementById('inscricao'),
                                                     input1 = document.getElementById('valor'),
                                                     tipo1;
-                                                var select = document.getElementById('inscricao'),
-                                                    input2 = document.getElementById('numConta'),
-                                                    tipo2;
-                                                var select = document.getElementById('inscricao'),
-                                                    input3 = document.getElementById('cpf'),
-                                                    tipo3;
-                                                var select = document.getElementById('inscricao'),
-                                                    input4 = document.getElementById('agencia'),
-                                                    tipo4;
-                                                var select = document.getElementById('inscricao'),
-                                                    input5 = document.getElementById('banco'),
-                                                    tipo5;
                                                 // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
                                                 select.addEventListener('change', function () {
                                                     tipo1 = this.value;
@@ -171,50 +131,7 @@
                                                         input1.value = null;
                                                     }
                                                 });
-                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO CONTA 
-                                                select.addEventListener('change', function () {
-                                                    tipo2 = this.value;
-                                                    if (tipo2 == 'Paga') {
-                                                        input2.removeAttribute('disabled', false);
-                                                    } else {
-                                                        input2.setAttribute('disabled', false);
-                                                        input2.value = null;
-                                                    }
-                                                });
-                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO CPF
-                                                select.addEventListener('change', function () {
-                                                    tipo3 = this.value;
-                                                    if (tipo3 == 'Paga') {
-                                                        input3.removeAttribute('disabled', false);
-                                                    } else {
-                                                        input3.setAttribute('disabled', false);
-                                                        input3.value = null;
-                                                    }
-                                                });
-                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO NUMERO AGENCIA
-                                                select.addEventListener('change', function () {
-                                                    tipo4 = this.value;
-                                                    if (tipo4 == 'Paga') {
-                                                        input4.removeAttribute('disabled', false);
-                                                    } else {
-                                                        input4.setAttribute('disabled', false);
-                                                        input4.value = null;
-                                                    }
-                                                });
-                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO BANCO 
-                                                select.addEventListener('change', function () {
-                                                    tipo5 = this.value;
-                                                    if (tipo5 == 'Paga') {
-                                                        input5.removeAttribute('disabled', false);
-                                                    } else {
-                                                        input5.setAttribute('disabled', false);
-                                                        input5.value = null;
-                                                    }
-                                                });
-
-
                                             </script>
-
                                         </tr>
                                     </table>
 
@@ -232,3 +149,38 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+ <!--
+<br>
+<center>
+    <h1>DADOS BANCÁRIOS</h1>
+</center>
+<td>
+    <label for="numConta"> Conta: </label>
+    <input class="form-control" type="text" id="numConta" name="numConta"
+        maxlength="10" placeholder="00000000-0" disabled>
+    
+    <label for="banco"> Banco: </label>
+    <input class="form-control" type="text" id="banco" name="banco"
+        placeholder="Nome do Banco" disabled>
+
+</td>
+<td>
+    
+    <label for="agencia"> Agência: </label>
+    <input class="form-control" type="text" id="agencia" name="agencia"
+        placeholder="0000" maxlength="4" disabled>
+
+    
+    <label for="cpf"> CPF: </label>
+    <input class="form-control" type="text" id="cpf" name="cpf"
+        placeholder="000.000.000-00" maxlength="14" disabled>
+</td>
+-->
