@@ -1,8 +1,5 @@
 const Administradores = require('../models/Administradores')
 const bcrypt = require('bcryptjs')
-const ValidationController = require('./ValidationController')
-const paginaController = require('./PaginasController')
-
 module.exports = {
     async createAdm(req, res){
         var {nome, email, senha, estado} = req.body

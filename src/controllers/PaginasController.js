@@ -55,6 +55,7 @@ module.exports = {
         res.redirect('/login')
     },
 
+
     //participantes
     certificado(req, res){
         res.render('user/Certificado')
@@ -76,6 +77,11 @@ module.exports = {
     },
     loginUsuario(req, res){
         res.render('user/loginUsuario')
+    },
+
+    //inicial
+    inicial(req, res){
+        res.render('inicial')
     }
 
 }

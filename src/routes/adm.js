@@ -11,23 +11,13 @@ const PaginasController  = require('../controllers/PaginasController')
 const ValidationController = require('../controllers/ValidationController')
 const {eAdmi} = require('../helpers/eAdmi')
 
-
 app.use(express.json)
 
 router.get('/login', PaginasController.login)
 router.get('/cadastroAdm', PaginasController.formAdm)
 router.get('/homepage', PaginasController.homepage)
 router.get('/lista/adms', PaginasController.listaAdms)
-router.post('/registUser', ValidationController.verificAdm, AdmController.createAdm)
-
-
-
-
-
-
-
-
-
+router.post('/registUser', AdmController.createAdm)
 
 router.post('/authen', ValidationController.validSession)
 
@@ -44,12 +34,7 @@ router.get('/gerenciar/usuarios', PaginasController.listaUsuarios)
 router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
 
-
-
-
-
-
-
+router.post('/authen', ValidationController.validSession)
 
 router.get('/listUser', AdmController.listAdm)
 router.get('/registUser/:administrado_id/listEvent', EventoController.listEvent)
