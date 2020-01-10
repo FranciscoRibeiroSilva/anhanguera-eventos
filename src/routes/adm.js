@@ -34,7 +34,7 @@ router.get('/gerenciar/usuarios', PaginasController.listaUsuarios)
 router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
 
-
+router.get('/loginUser', PaginasController.loginUsuario)
 
 router.post('/authen', ValidationController.validSession)
 
