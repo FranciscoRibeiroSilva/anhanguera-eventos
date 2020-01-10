@@ -1,6 +1,12 @@
+const Administradores = require('../models/Administradores')
+
 module.exports = {
 
     //administradores
+    async listaAdms(req, res){
+        const adms = await Administradores.findAll()
+        res.render('admi/listarAdms',{adms})
+    },
     login(req, res){
         res.render('index')
     },

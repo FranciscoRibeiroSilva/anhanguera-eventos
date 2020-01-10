@@ -16,15 +16,20 @@ app.use(express.json)
 
 router.get('/login', PaginasController.login)
 router.get('/cadastroAdm', PaginasController.formAdm)
-
 router.get('/homepage', PaginasController.homepage)
+router.get('/lista/adms', PaginasController.listaAdms)
+router.post('/registUser', ValidationController.verificAdm, AdmController.createAdm)
+
+
+
+
+
+
 
 
 
 
 router.post('/authen', ValidationController.validSession)
-
-
 
 router.get('/adicionar/evento', PaginasController.formEvento )
 router.get('/adicionar/atividade', PaginasController.formModAtividade)
@@ -49,7 +54,6 @@ router.get('/logout', PaginasController.logoutAdm)
 router.get('/listUser', AdmController.listAdm)
 router.get('/registUser/:administrado_id/listEvent', EventoController.listEvent)
 
-router.post('/registUser', AdmController.createAdm)
 router.post('/logar', AdmController.buscarUser)
 router.post('/registEvento', EventoController.createEvento)
 

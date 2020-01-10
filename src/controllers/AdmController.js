@@ -1,17 +1,19 @@
 const Administradores = require('../models/Administradores')
-const jstoken  = require('jsonwebtoken')
-const authenticConfig = require('../config/authentic')
+const bcrypt = require('bcryptjs')
 const ValidationController = require('./ValidationController')
 
 module.exports = {
     async createAdm(req, res){
-        const {nome, email, senha, estado} = req.body
+        var {nome, email, senha, estado} = req.body
 
-        const adm = await Administradores.create({nome, email, senha, estado});
+        //Gera hash da senha
+        const hash = await bcrypt.hash(senha, 10);
+
+        const adm = await Administradores.create({nome: nome, email: email, senha: hash, estado: estado});
 
         if(!adm){
-            req.flash('error_msg', 'erro ao criar administrador')
-            res.redirect('/cadastroAdm')
+            req.flash('error_msg', 'Erro ao criar administrador')
+            res.render('admi/adminForms/FormAdm')
         }
 
         req.flash('success_msg', 'Cadastro concluído')
