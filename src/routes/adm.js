@@ -16,6 +16,7 @@ app.use(express.json)
 
 router.get('/login', PaginasController.login)
 router.get('/cadastroAdm', PaginasController.formAdm)
+router.get('/inicial', PaginasController.inicial)
 
 router.get('/homepage', PaginasController.homepage)
 
@@ -32,6 +33,8 @@ router.get('/gerencia/ministrantes', PaginasController.gerenciaMinistrante)
 router.get('/gerenciar/usuarios', PaginasController.listaUsuarios)
 router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
+
+
 
 router.post('/authen', ValidationController.validSession)
 
