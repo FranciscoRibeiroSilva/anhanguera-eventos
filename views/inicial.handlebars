@@ -1,37 +1,39 @@
 <div class="mt-5 formatacao">
-    <div>
+    <div class="m-auto">
+        {{>_logo250px}}
+
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-6 m-auto">
-                    <div id="img">
-                        <center>
-                            {{>_logo250px}}
-                        </center>
-                        <br>
-                        <form id="Form" action="/authen" method="POST" class="form-grup">
-                            <center>
+                <div class="col-md-6 m-auto">
+                    <div>
+                        <div>
+                            <div>
+                                <a href='login' class="fundo"><label class="btn btn-outline-secondary "
+                                        for="participante">Adiministrador</label></a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
                                 <div>
-                                    <div>
-                                    <a href='/login'> <label class="btn btn-outline-secondary " for="gerencia">Gerencie seu evento</label></a><br>
-                                    </div>
-
-                                    <div>
-                                        <a href='loginUser'><label class="btn btn-outline-secondary " for="participante">Participante</label></a><br>
-                                    </div>
+                                    <a href='loginUser'><label class="btn btn-outline-secondary "
+                                            for="participante">Participante</label></a>
                                 </div>
-                            </center>
-                        </form>
-                        <center>
-                                {{>_footer1}}
-                            </center>
-                        <br>
-                        <center>
-                            {{>_logos}}
-                        </center>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
+
+
+        <center>
+            {{>_footer1}}
+        </center>
+
+        <center>
+            {{>_logos}}
+        </center>
     </div>
+</div>
 </div>
