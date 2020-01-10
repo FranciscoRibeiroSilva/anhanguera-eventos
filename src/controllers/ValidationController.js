@@ -9,14 +9,13 @@ module.exports = {
             failureFlash: true
         })(req, res, next)
     },
-    verificAdm(req, res, next){
-        const {nome, email, senha, estado} = req.body
+    /*verificAdm(nome, email, senha, estado){
 
-        const adm = Administradores.findOne({where:{email}})
+        const adm = Administradores.findOne({where:{email: emailE}})
 
         if(!adm){
-            return(req, res, next())
+            return next()
         }
-        res.render('admi/adminForms/FormAdm',{nome, email, senha, estado})
-    }
+        res.render
+    }*/
 }

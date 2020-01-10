@@ -14,7 +14,7 @@ module.exports = {
         res.render('admi/sobre')
     },
     formAdm(req, res){
-        res.render('admi/adminForms/FormAdm')
+        res.render('admi/adminForms/FormAdm',)
     },
     homepage(req, res){
         res.render('admi/homepage')
