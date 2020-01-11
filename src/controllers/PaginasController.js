@@ -1,7 +1,12 @@
 const Administradores = require('../models/Administradores')
+const EventoController = require('../controllers/EventoController')
 
 module.exports = {
 
+    testeTetas(req, res){
+        const id = req.user
+        res.send(id)
+    },
     //administradores
     async listaAdms(req, res){
         const adms = await Administradores.findAll()
@@ -16,8 +21,10 @@ module.exports = {
     formAdm(req, res){
         res.render('admi/adminForms/FormAdm',)
     },
-    homepage(req, res){
-        res.render('admi/homepage')
+    async homepage(req, res){
+        const adm = await EventoController.listEvent(req)
+        console.log(adm)
+        res.render('admi/homepage',{adm})
     },
     formEvento(req, res){
         res.render('admi/adminForms/FormEvento')

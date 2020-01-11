@@ -12,7 +12,7 @@ class Administradores extends Model{
         })
     }
     static associate(models){
-        this.hasMany(models.Eventos, {foreignKey: 'administrado_id', as: 'administrador'})
+        this.hasMany(models.Eventos, {foreignKey: 'administrado_id', as: 'seus_eventos'})
     }
 }
 

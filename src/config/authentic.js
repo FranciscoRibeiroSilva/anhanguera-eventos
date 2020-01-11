@@ -1,6 +1,7 @@
 const localStrategy = require('passport-local')
 const sequelize = require('sequelize')
 const administrador = require('../models/Administradores')
+const bcrypt = require('bcryptjs')
 
 module.exports  = function(passport){
     passport.use(new localStrategy({
@@ -10,15 +11,23 @@ module.exports  = function(passport){
 
         const usuario = await administrador.findOne({where:{email}})
         if(!usuario){
-            return done(null, false, {message: 'usuario não encotrador'})
+            return done(null, false, {message: 'Usuario não encotrador'})
         }
 
-        if(senha == usuario.senha){
+        bcrypt.compare(senha, usuario.senha, (erro, batem) => {
+            if(batem){
+                return done(null, usuario)
+            }
+            else{
+                return done(null, false, {message: 'Senhas incorreta'})
+            }
+        })
+        /*if(senha == usuario.senha){
             return done(null, usuario)
         }
         else{
             return done(null, false, {message: 'senhas não batem'})
-        }
+        }*/
     }))
 
     passport.serializeUser((usuario, done)=>{

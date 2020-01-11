@@ -12,16 +12,16 @@
 
                 <a href="/adicionar/evento"><button class="btn btn-outline-secondary">Criar Evento</button></a>
                 <!-- LISTANDO OS EVENTOS DO BANCO DE DADOS-->
-                {{#each listEvent}}
+                {{#each adm}}
 
                 <div class="card mt-2">
                     <div class="card-body fundo">
 
-                        <h1>{{nome}}</h1>
+                        <h3>{{nome}}</h3>
                         <h6>
-                            <br>
-                            Participantes esperados: {{participanteEs}}<br>
-                            Tipo de evento: {{tipoEvento}}<br>
+                            local de realização: {{local_evento}} <br>
+                            data de inicio: {{data_inicio}}<br>
+                            data de termino: {{data_termino}}<br>
                             Adiministrador: {{nomeAdm}}<br>
                             E-mail do administrado: {{emailAdm}}<br>
                         </h6>

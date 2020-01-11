@@ -4,9 +4,11 @@ class Eventos extends Model{
     static init(connection){
         super.init({
             nome: DataTypes.STRING,
-            participantes_esp: DataTypes.INTEGER,
-            tipo_evento: DataTypes.STRING,
-            quant_salas: DataTypes.INTEGER,
+            participantes_esperados: DataTypes.INTEGER,
+            quantidade_salas: DataTypes.INTEGER,
+            local_evento: DataTypes.STRING,
+            data_inicio: DataTypes.DATE,
+            data_termino: DataTypes.DATE,
             pago: DataTypes.BOOLEAN,
             valor_evento: DataTypes.DOUBLE
         },{

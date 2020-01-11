@@ -67,7 +67,7 @@ app.get('/', (req, res) => {
 })
 //Rotas dos adm's
 app.use(adm)
-
+ 
 //Rotas do usuario
 //app.use('/users', user)
 

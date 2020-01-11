@@ -20,16 +20,24 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false
         },
-        participantes_esp: {
+        participantes_esperados: {
           type: Sequelize.INTEGER,
           allowNull: false
         },
-        tipo_evento: {
+        quantidade_salas: {
+          type: Sequelize.INTEGER,
+          allowNull: false
+        },
+        local_evento: {
           type: Sequelize.STRING,
           allowNull: false
         },
-        quant_salas: {
-          type: Sequelize.INTEGER,
+        data_inicio: {
+          type: Sequelize.DATE,
+          allowNull: false
+        },
+        data_termino: {
+          type: Sequelize.DATE,
           allowNull: false
         },
         pago: {
@@ -38,7 +46,7 @@ module.exports = {
         },
         valor_evento:{
           type: Sequelize.DOUBLE,
-          allowNull: false
+          allowNull: true
         },
         created_at: {
           type: Sequelize.DATE,

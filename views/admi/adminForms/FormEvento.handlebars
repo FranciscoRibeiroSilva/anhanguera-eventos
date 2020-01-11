@@ -14,7 +14,7 @@
 
                     <div class="form-grup">
 
-                        <form action='/registEvento' method="POST"><br>
+                        <form action='/adicionar/evento/' method="POST"><br>
                             <center>
                                 <h1>CRIAÇÃO DE EVENTO</h1><br>
                             </center>
@@ -22,51 +22,53 @@
                             <div>
                                 <!--NOME DO EVENTO-->
                                 </label for="nomeEvento"> Nome do evento:</label><br>
-                                <input name="nome" class="form-control" type="text" id="nomeEvento"
+                                <input name="nome" class="form-control" type="text" id="nome"
                                     placeholder="Informe o nome do evento">
                             </div>
 
                             <div>
                                 <!--NÚMERO MÁXIMO DE PARTICIPANTES-->
                                 <label for="numeroDeParticipantes">Numero de participantes esperados:</label><br>
-                                <select class="form-control" name="participanteEs">
-                                    <option value="Escolher op"> Escolha uma opção </option>
-                                    <option value="Ate 300 "> Ate 300 participantes </option>
-                                    <option value="Entre 300 e 1000 "> Entre 300 e 1000 participantes </option>
-                                    <option value="Mais de 1000 "> Mais de 1000 participantes </option>
-                                </select>
+                                <input class="form-control" type = "number" name="participantes_esperados" placeholder="Quantidade de participantes">
                             </div>
 
                             <div>
                                 <!--QUANTIDADE DE SALAS-->
                                 <label for="quantSalas">Quantidade de salas disponiveis:</label>
-                                <input class="form-control" type="number" id="quantSalas" name="quantSalas"
+                                <input class="form-control" type="number" id="quantSalas" name="quantidade_salas"
                                     placeholder="Número de salas">
                             </div>
 
                             <div>
                                 <!--LOCAL DO EVENTO-->
                                 <label for="local">Local do Evento:</label><br>
-                                <input class="form-control" type="local" name="local"
+                                <input class="form-control" type="local" name="local_evento"
                                     placeholder="Informe o local do seu evento">
+                                    
                                     <!--SELECIONAR A DATA-->
                                 <label for="data">Data de inicio:</label>
-                                <input class="form-control" id="date" type="date" name="data">
+                                <input class="form-control" id="date" type="date" name="data_inicio">
+                            </div>
+
+                            <!--DATA DE TERMINO-->
+                            <div>
+                                <label for="data">Data de termino:</label>
+                                <input class="form-control" id="date" type="date" name="data_termino">
                             </div>
 
                             <div>
                                 <!--GRATUITO OU PAGO-->
                                 <label for="eventoTipo">Inscrição:</label>
-                                <select class="form-control" name="eventoTipo" id="eventoTipo">
+                                <select class="form-control" name="pago" id="eventoTipo">
                                     <option>--Tipo--</option>
-                                    <option value="Gratuita">Gratuita</option>
-                                    <option value="Paga">Paga</option>
+                                    <option value="false">Gratuita</option>
+                                    <option value="true">Paga</option>
                                 </select>
                             </div>
                             <div>
                                 <!--VALOR DA INSCRIÇÃO-->
                                 <label for="valorEvento">R$: </label>
-                                <input class="form-control" type="text" id="valorEvento" name="valorEvento"
+                                <input class="form-control" type="text" id="valorEvento" name="valor_evento"
                                     placeholder="Valor" disabled>
                             </div>
 
@@ -77,7 +79,7 @@
                                 // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
                                 select.addEventListener('change', function () {
                                     tipo = this.value;
-                                    if (tipo == 'Paga') {
+                                    if (tipo == 'true') {
                                         input.removeAttribute('disabled', false);
                                     } else {
                                         input.setAttribute('disabled', false);
