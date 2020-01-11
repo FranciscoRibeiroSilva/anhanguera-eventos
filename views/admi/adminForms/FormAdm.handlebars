@@ -1,66 +1,61 @@
 {{>_homeNavbar}}
-<nav class="form-grup"><br>
-	<div id="FormulariosAdm">
-		<div>
-			<div class="container">
-				<div class="row">
-					<div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto fundo">
+<nav class="form-grup"> <br>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-sm-8 col-md-5 col-lg-4 m-auto fundo espaco01">
+				
+				{{#each erros}}
+				<div class="alert alert-danger">{{texto}}</div>
+				{{else}}
+				{{/each}}
 
-						{{#each erros}}
-						<div class="alert alert-danger">{{texto}}</div>
-						{{else}}
-						{{/each}}
-						
-						<form align-left="60px" action="/registUser" method="POST">
-							<center>
-								<h2>CADASTRE-SE</h2>
-								{{nomeE}}
-								{{senhaE}}
-							</center>
-							<!--NOME DO ADM-->
-							<div>
-								<label for="nome">Nome:</label>
-								<input class="form-control" type="text" name="nome" placeholder="Informe seu nome">
-							</div>
-							<!--E-MAIL-->
-							<div>
-								<label for="nome">E-mail:</label>
-								<input class="form-control" type="email" name="email" placeholder="Informe seu e-mail">
-							</div>
-							<!--SENHA-->
-							<div>
-								<label for="senha">Senha:</label>
-								<input class="form-control" type="password" name="senha"
-									placeholder="Informe sua senha">
-							</div>
-							<!--CONFIRMAÇÃO DA SENHA-->
-							<div>
-								<label for="confirmarSenha">Confirme a sua Senha:</label>
-								<input class="form-control" type="password" name="senha2"
-									placeholder="Confirme sua senha">
-							</div>
-							<!--ESTADO-->
-							<div>
-								<label for="estado">Estado</label>
-								<select class="form-control" name="estado">
-									<option value="N">Selecione o estado</option>
-									<option value="RJ">Rio de Janeiro</option>
-									<option value="SP">São Paulo</option>
-									<option value="PI">Piauí</option>
-								</select>
-							</div>
-							<br>
-							<!--BOTÃO CONCLUIR-->
-							<center>
-								<button type="submit" class="btn btn-outline-secondary ">Cadastrar</button>
-							</center>
-
-						</form>
+				<form align-left="60px" action="/registUser" method="POST">
+					<center>
+						<h2>CADASTRE-SE</h2>
+						{{nomeE}}
+						{{senhaE}}
+					</center>
+					<!--NOME DO ADM-->
+					<div>
+						<label for="nome">Nome:</label>
+						<input class="form-control" type="text" name="nome" placeholder="Informe seu nome">
 					</div>
-				</div>
+					<!--E-MAIL-->
+					<div>
+						<label for="nome">E-mail:</label>
+						<input class="form-control" type="email" name="email" placeholder="Informe seu e-mail">
+					</div>
+					<!--SENHA-->
+					<div>
+						<label for="senha">Senha:</label>
+						<input class="form-control" type="password" name="senha" placeholder="Informe sua senha">
+					</div>
+					<!--CONFIRMAÇÃO DA SENHA-->
+					<div>
+						<label for="confirmarSenha">Confirme a sua Senha:</label>
+						<input class="form-control" type="password" name="senha2" placeholder="Confirme sua senha">
+					</div>
+					<!--ESTADO-->
+					<div>
+						<label for="estado">Estado</label>
+						<select class="form-control" name="estado">
+							<option value="N">Selecione o estado</option>
+							<option value="RJ">Rio de Janeiro</option>
+							<option value="SP">São Paulo</option>
+							<option value="PI">Piauí</option>
+						</select>
+					</div>
+					<br>
+					<!--BOTÃO CONCLUIR-->
+					<center>
+						<button type="submit" class="btn btn-outline-secondary ">Cadastrar</button>
+					</center>
+
+				</form>
 			</div>
 		</div>
 	</div>
+
 </nav>
 
 <div class="container">
