@@ -30,6 +30,7 @@ router.get('/lista/adms', PaginasController.listaAdms)
 
 
 router.get('/loginUser', PaginasController.loginUsuario)
+router.get('/formUser', PaginasController.formParticipante)
 router.post('/authen', ValidationController.validSession)
 
 router.get('/adicionar/atividade', PaginasController.formModAtividade)

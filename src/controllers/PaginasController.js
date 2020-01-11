@@ -85,6 +85,9 @@ module.exports = {
     loginUsuario(req, res){
         res.render('user/loginUsuario')
     },
+    formParticipante(req, res){
+        res.render('user/userForms/FormParticipante')
+    },
 
     //inicial
     inicial(req, res){
