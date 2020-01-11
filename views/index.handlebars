@@ -1,57 +1,66 @@
-<div class="mt-5 formatacao">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 m-auto">
-                    <div id="img">
-                        <center>
-                            {{>_logo250px}}
-                        </center>
-                        <br>
-                        <center>
-                            Trabalho Final de Engenharida de Software e Programação III<br>
-                            Alunos: João Vinicius, Matheus Holanda, Bruno Cruz, Claudio Henrique, Francisco Ribeiro<br>
-                            Universidade Estadual do Piauí - UESPI
-                        </center>
-                        <br>
-                        <br>
-                        <center>
+<div class="mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-sm-12 col-md-7 col-lg-8 m-auto">
+                <div>
+                    <center>
+                        {{>_logo250px}}
+                    </center>
+
+                    <center class="espaco01">
+                        Trabalho Final de Engenharida de Software e Programação III<br>
+                        Alunos: João Vinicius, Matheus Holanda, Bruno Cruz, Claudio Henrique, Francisco Ribeiro<br>
+                        Universidade Estadual do Piauí - UESPI
+                    </center>
+                    <br>
+                    <br>
+                    <center>
+                        <div class="espaco01">
                             {{>_logos}}
-                        </center>
-                    </div>
-                    <div>
-                        <center>
-                            {{>_footer1}}
-                        </center>
-                    </div>
+                        </div>
+                    </center>
                 </div>
 
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 ml-auto">
-                    <form id="Form" action="/authen" method="POST" class="form-grup">
+            </div>
 
+            <div class="col-xs-8 col-sm-8 col-md-5 col-lg-4 m-auto fundo espaco01 formAdmLogin" >
+                <form action="/authen" method="POST" class="form-grup">
+
+                    <div>
                         <div>
-                            <div>
-                                <label for="e-mail">E-mail:</label><br>
-                                <input class="form-control" type="text" name="email" id="e-mail"
-                                    placeholder="Digite seu e-mail">
-                            </div>
-                            <div>
-                                <label for="senha">Senha:</label><br>
-                                <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
-                            </div>
+                            <label for="e-mail">E-mail:</label><br>
+                            <input class="form-control" type="text" name="email" id="e-mail"
+                                placeholder="Digite seu e-mail">
                         </div>
+                        <div>
+                            <label for="senha">Senha:</label><br>
+                            <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
+                        </div>
+                    </div>
 
-                        <center>
-                            <div>
-                                <br>
-                                <button class="btn btn-outline-secondary "> Entrar </button>
-                                <br><br>
-                            </div>
-                            Não tem uma conta?<a href='/cadastroAdm'> Cadastre-se </a>
-                        </center>
-                    </form>
+                    <center>
+                        <div>
+                            <br>
+                            <button class="btn btn-outline-secondary "> Entrar </button>
+                            <br><br>
+                        </div>
+                        Não tem uma conta?<a href='/cadastroAdm'> Cadastre-se </a>
+                    </center>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="container footer-pag-com-cont espaco">
+        <div class="row">
+            <div class="col-md-12 m-auto">
+                <div>
+                    <center>
+                        {{>_footer1}}
+                    </center>
                 </div>
             </div>
         </div>
     </div>
+
 </div>

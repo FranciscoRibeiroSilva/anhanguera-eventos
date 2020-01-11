@@ -1,46 +1,42 @@
-<div class="mt-5 formatacao">
-    <div>
-        <div class="container fundo">
-            <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-1 m-auto ">
-                    <div id="img">
-                        <center>
-                            {{>_logo250px}}
-                        </center>
-                    </div>
+<div class="mt-5 espaco">
+    <div class="container fundo">
+        <div class="row">
+            <div class="col-xs-10 col-sm-12 col-md-6 col-lg-4 m-auto espaco01">
+                <div>
+                    <center>
+                        {{>_logo250px}}
+                    </center>
                 </div>
 
-                <div class="col-6 col-sm-6 col-md-6 col-lg-5 ml-auto">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 m-auto espaco01">
+                <center>
+                    <h2>
+                        LOGIN PARTICIPANTE
+                    </h2>
+                </center>
+                <div>
+                    <label for="e-mail">E-mail:</label><br>
+                    <input class="form-control" type="text" name="email" id="e-mail" placeholder="Digite seu e-mail">
+                </div>
+                <div>
+                    <label for="senha">Senha:</label><br>
+                    <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
+                </div>
+                <center>
                     <div>
                         <br>
-                        <center>
-                            <h2>
-                                LOGIN PARTICIPANTE
-                            </h2>
-                        </center>
-                        <div>
-                            <label for="e-mail">E-mail:</label><br>
-                            <input class="form-control" type="text" name="email" id="e-mail"
-                                placeholder="Digite seu e-mail">
-                        </div>
-                        <div>
-                            <label for="senha">Senha:</label><br>
-                            <input class="form-control" type="password" name="senha" placeholder="Digite sua senha">
-                        </div>
+                        <a href='/users/listaEventos'><button class="btn btn-outline-secondary "> Entrar
+                            </button></a>
+                        <br><br>
                     </div>
-
-                    <center>
-                        <div>
-                            <br>
-                            <a href='/users/listaEventos'><button class="btn btn-outline-secondary "> Entrar </button></a>
-                            <br><br>
-                        </div>
-                        Não tem uma conta?<a href='/users/formParticipante'> Criar </a>
-                        <br>
-                    </center>
-
-                </div>
+                    Não tem uma conta?<a href='/users/formParticipante'> Criar </a>
+                  <br>
+                  <br>
+                </center>
             </div>
+
+
         </div>
     </div>
 </div>

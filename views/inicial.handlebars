@@ -1,37 +1,40 @@
-<div class="mt-5 formatacao">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-6 m-auto">
-                    <div id="img">
-                        <center>
-                            {{>_logo250px}}
-                        </center>
+<div class="mt-5 ">
+    <center>
+        <div class="m-auto">
+            {{>_logo250px}}
+<h1>Bem-Vindos</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 m-auto fundo">
                         <br>
-                        <form id="Form" action="/authen" method="POST" class="form-grup">
-                            <center>
-                                <div>
-                                    <div>
-                                    <a href='/login'> <label class="btn btn-outline-secondary " for="gerencia">Gerencie seu evento</label></a><br>
-                                    </div>
-
-                                    <div>
-                                        <a href='loginUser'><label class="btn btn-outline-secondary " for="participante">Participante</label></a><br>
-                                    </div>
-                                </div>
-                            </center>
-                        </form>
-                        <center>
-                                {{>_footer1}}
-                            </center>
+                        <div>
+                            <label for="adm">Administrar um evento criar conta e muito mais</label><br>
+                            <a href='login'><label class="btn btn-outline-secondary "
+                                    for="participante">Adiministrador</label></a>
+                        </div>
                         <br>
-                        <center>
-                            {{>_logos}}
-                        </center>
                     </div>
-
                 </div>
             </div>
+            <br>
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-4 m-auto fundo">
+                        <br>
+                        <div>
+                            <label for="user"> Participantes se inscreva em qualquer evento que quiser </label><br>
+                            <a href='loginUser'><label class="btn btn-outline-secondary "
+                                    for="participante">Participante</label></a>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
+
+        {{>_logos}}
+        {{>_footer1}}
+
+    </center>
 </div>
