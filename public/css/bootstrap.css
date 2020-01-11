@@ -8,6 +8,10 @@
 
 /*CODIGO ADCIONAL*/
 
+.div {
+    border: medium;
+}
+
 
 /*FORMATAÇÃO NO NAVBAR(BARRA DE NAVEGAÇÃO)*/
 
@@ -41,7 +45,16 @@ nav.navbar-transparente {
 }
 
 .espaco {
-    margin-right: 5px;
+    padding: 90px 0 0 0;
+}
+
+.espaco01 {
+    padding: 20px 0;
+}
+
+.formAdmLogin {
+    width: 125px;
+    height: 300px;
 }
 
 
@@ -119,7 +132,6 @@ nav.navbar-transparente {
 .footer-pag-com-cont {
     position: relative;
     bottom: 0px;
-    padding-top: -10px;
     text-align: center;
 }
 
@@ -127,7 +139,7 @@ nav.navbar-transparente {
 /*CLASSE PARA O FOOTER QUANDO A PAGINA NÃO TEM CONTEÚDO COMO UM "FORMULARIO"*/
 
 .footer-pag-sem-cont {
-    position: relative;
+    position: absolute;
     bottom: 0px;
     padding-top: 34%;
     text-align: center;
