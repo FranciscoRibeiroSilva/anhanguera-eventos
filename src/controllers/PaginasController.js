@@ -39,7 +39,7 @@ module.exports = {
 
 
     formAtividade(req, res){
-        res.render('admin/adminForms/FormAtividade')
+        res.render('admi/adminForms/FormAtividade')
     },
     formMinistrantes(req, res){
         res.render('admi/adminForms/FormMinistrantes')
@@ -90,6 +90,9 @@ module.exports = {
     },
     loginUsuario(req, res){
         res.render('user/loginUsuario')
+    },
+    formParticipante(req, res){
+        res.render('user/userForms/FormParticipante')
     },
 
     //inicial
