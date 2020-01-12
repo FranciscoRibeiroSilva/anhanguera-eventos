@@ -2,6 +2,10 @@ const Eventos = require('../models/Eventos')
 const Administradores = require('../models/Administradores')
 
 module.exports = {
+    /*async buscarEvento(id){
+        const evento = await Eventos.findByPk(id)
+        return evento
+    },*/
     async listEvent(req){
         const administrado_id = req.user.id
 

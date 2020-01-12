@@ -3,9 +3,13 @@ const Eventos = require('../models/Eventos')
 
 module.exports = {
 
-    async registAtividade(req, res){
-        
-    },
+    /*async listarAtividades(id){
+        const evento = await Eventos.findByPk(id, {
+            include: {association: 'suas_atividades'}
+        })
+
+        return evento.suas_atividades
+    },*/
 
     async createAtividade(req, res){
         const {evento_id} = req.params

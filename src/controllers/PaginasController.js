@@ -1,5 +1,6 @@
 const Administradores = require('../models/Administradores')
 const EventoController = require('../controllers/EventoController')
+//const AtividadeController = require('../controllers/AtividadeController')
 
 module.exports = {
 
@@ -26,16 +27,16 @@ module.exports = {
     formEvento(req, res){
         res.render('admi/adminForms/FormEvento')
     },
-    gerenciaEvento(req, res){
+    /*async gerenciaEvento(req, res){
         const {id} = req.params
-        res.render('admi/gerenciaDeEvento',{id})
+        //const evento = await EventoController.buscarEvento(id)
+        res.render('admi/gerenciaDeEvento',{evento})
+    },*/
+    async gerenciaAtividades(req, res){
+        //const {id} = req.params
+        //const atividades = await AtividadeController.listarAtividades(id)
+        res.render('admi/gerenciaDeAtividades'/*,{atividades}*/)
     },
-    gerenciaAtividades(req, res){
-        const {id} = req.params
-        console.log(id)
-        res.render('admi/gerenciaDeAtividades')
-    },
-
 
 
     sobre(req, res){
