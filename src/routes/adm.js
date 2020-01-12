@@ -26,21 +26,21 @@ router.get('/homepage', PaginasController.homepage)
 router.get('/adicionar/evento', PaginasController.formEvento)
 router.post('/adicionar/evento/', EventoController.createEvento)
 
+router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
+router.get('/gerencia/atividades/:id', PaginasController.gerenciaAtividades)
+router.get('/gerencia/cupons/:id', PaginasController.gerenciaCupons)
+router.get('/gerencia/ministrantes/:id', PaginasController.gerenciaMinistrante)
+router.get('/gerenciar/usuarios/:id', PaginasController.listaUsuarios)
+
+
 router.get('/lista/adms', PaginasController.listaAdms)
-
-
 router.get('/loginUser', PaginasController.loginUsuario)
 router.post('/authen', ValidationController.validSession)
 
 router.get('/adicionar/atividade', PaginasController.formModAtividade)
+router.get('/editar/atividade', PaginasController.formModAtividade)
 router.get('/adicionar/ministrante', PaginasController.formMinistrantes)
 router.get('/adicionar/cupons', PaginasController.formCupon)
-router.get('/editar/atividade', PaginasController.formModAtividade)
-router.get('/gerencia/cupons', PaginasController.gerenciaCupons)
-router.get('/gerencia/atividades', PaginasController.gerenciaAtividades)
-router.get('/gerencia/eventos', PaginasController.gerenciaEventos)
-router.get('/gerencia/ministrantes', PaginasController.gerenciaMinistrante)
-router.get('/gerenciar/usuarios', PaginasController.listaUsuarios)
 router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
 

@@ -12,23 +12,32 @@ module.exports = {
         const adms = await Administradores.findAll()
         res.render('admi/listarAdms',{adms})
     },
-    login(req, res){
-        res.render('index')
-    },
-    sobre(req, res){
-        res.render('admi/sobre')
-    },
+
     formAdm(req, res){
         res.render('admi/adminForms/FormAdm',)
     },
+    login(req, res){
+        res.render('index')
+    },
     async homepage(req, res){
         const adm = await EventoController.listEvent(req)
-        console.log(adm)
         res.render('admi/homepage',{adm})
     },
     formEvento(req, res){
         res.render('admi/adminForms/FormEvento')
     },
+    gerenciaEvento(req, res){
+        const {id} = req.params
+        res.render('admi/gerenciaDeEvento',{id})
+    },
+
+
+
+    sobre(req, res){
+        res.render('admi/sobre')
+    },
+
+
     formAtividade(req, res){
         res.render('admin/adminForms/FormAtividade')
     },
@@ -46,9 +55,6 @@ module.exports = {
     },
     gerenciaAtividades(req, res){
         res.render('admi/gerenciaDeAtividades')
-    },
-    gerenciaEventos(req, res){
-        res.render('admi/gerenciaDeEvento')
     },
     gerenciaMinistrante(req, res){
         res.render('admi/gerenciaMinistrantes')
