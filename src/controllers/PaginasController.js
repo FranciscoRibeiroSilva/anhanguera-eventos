@@ -30,6 +30,11 @@ module.exports = {
         const {id} = req.params
         res.render('admi/gerenciaDeEvento',{id})
     },
+    gerenciaAtividades(req, res){
+        const {id} = req.params
+        console.log(id)
+        res.render('admi/gerenciaDeAtividades')
+    },
 
 
 
@@ -52,9 +57,6 @@ module.exports = {
     },
     gerenciaCupons(req, res){
         res.render('admi/gerenciaCupons')
-    },
-    gerenciaAtividades(req, res){
-        res.render('admi/gerenciaDeAtividades')
     },
     gerenciaMinistrante(req, res){
         res.render('admi/gerenciaMinistrantes')
