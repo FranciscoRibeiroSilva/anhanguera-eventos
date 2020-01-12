@@ -48,7 +48,7 @@ module.exports = {
         res.render('admi/gerenciaDeAtividades')
     },
     gerenciaEventos(req, res){
-        res.render('admi/gerenciaDeEvento')
+        res.render('admi/GerenciaDeEvento')
     },
     gerenciaMinistrante(req, res){
         res.render('admi/gerenciaMinistrantes')
