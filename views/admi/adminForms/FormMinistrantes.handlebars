@@ -11,7 +11,7 @@
             <div class="alert alert-danger">{{texto}}</div>
             {{else}}
             {{/each}}
-
+            <br>
             <form action='/adicionar/ministrantes/{{evento.id}}/' , method="POST">
                 <div>
                     <label for="nome">Nome:</label>
@@ -47,10 +47,10 @@
 
 
 </div>
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
-                {{>_footer1}}
-            </div>
-        </div>
-
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+        {{>_footer1}}
     </div>
+</div>
+
+</div>

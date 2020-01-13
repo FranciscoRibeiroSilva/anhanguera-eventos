@@ -1,73 +1,72 @@
 {{>_navbar}}
-<br><br>
-<div id="FormulariosAdm">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto">
 
-                    {{#each erros}}
-                    <div class="alert alert-danger">{{texto}}</div>
-                    {{else}}
-                    {{/each}}
+<center class="mt-5">
+    <h1>CRIAÇÃO DO LOTE DE CUPONS</h1><br>
+</center>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-sm-12 col-md-7 col-lg-8 m-auto fundo">
 
-                    <div class="form-grup">
-                        <form action='/adicionar/cupons/{{evento.id}}/' method="POST">
-                            <center class="mt-5">
-                                <h1>CRIAÇÃO DO LOTE DE CUPONS</h1><br>
-                            </center>
+            {{#each erros}}
+            <div class="alert alert-danger">{{texto}}</div>
+            {{else}}
+            {{/each}}
 
-                            <div>
-                                <label for="codigo">Codigo do cupom:</label><br>
-                                <input class="form-control" name="codigo" placeholder="EX: ABC456">
-                            </div>
+            <div class="form-grup">
+                <form action='/adicionar/cupons/{{evento.id}}/' method="POST">
 
-                            <div>
-                                <label for="desconto">Desconto:</label><br>
-                                <select class="form-control" id="desconto" name="desconto">
-                                    <option value="Escolher op"> Escolha a opção </option>
-                                    <option value="0.1"> 10% </option>
-                                    <option value="0.2"> 20% </option>
-                                    <option value="0.3"> 30% </option>
-                                    <option value="0.4"> 40% </option>
-                                    <option value="0.5"> 50% </option>
-                                    <option value="0.6"> 60% </option>
-                                    <option value="0.7"> 70% </option>
-                                    <option value="0.8"> 80% </option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="quantidade">Quantidade de Cupons:</label><br>
-                                <input class="form-control" type="number" id="quantidade" name="quantidade"
-                                    placeholder="Quantidade">
-                            </div>
-
-                            <div>
-                                <label for="data">Validade:</label>
-                                <input class="form-control" id="validade" type="date" name="validade">
-                            </div><br>
-
-                            <center>
-                                <div>
-                                    <button class="btn btn-outline-secondary">Salvar</button>
-                                </div>
-                            </center>
-
-                        </form>
+                    <br>
+                    <div>
+                        <label for="codigo">Codigo do cupom:</label><br>
+                        <input class="form-control" name="codigo" placeholder="EX: ABC456">
                     </div>
-                </div>
+
+                    <div>
+                        <label for="desconto">Desconto:</label><br>
+                        <select class="form-control" id="desconto" name="desconto">
+                            <option value="Escolher op"> Escolha a opção </option>
+                            <option value="0.1"> 10% </option>
+                            <option value="0.2"> 20% </option>
+                            <option value="0.3"> 30% </option>
+                            <option value="0.4"> 40% </option>
+                            <option value="0.5"> 50% </option>
+                            <option value="0.6"> 60% </option>
+                            <option value="0.7"> 70% </option>
+                            <option value="0.8"> 80% </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="quantidade">Quantidade de Cupons:</label><br>
+                        <input class="form-control" type="number" id="quantidade" name="quantidade"
+                            placeholder="Quantidade">
+                    </div>
+
+                    <div>
+                        <label for="data">Validade:</label>
+                        <input class="form-control" id="validade" type="date" name="validade">
+                    </div><br>
+
+                    <center>
+                        <div>
+                            <button class="btn btn-outline-secondary">Salvar</button>
+                        </div>
+                    </center>
+
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+
 <br><br><br>
 
 </div>
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
-                {{>_footer1}}
-            </div>
-        </div>
-
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+        {{>_footer1}}
     </div>
+</div>
+
+</div>
