@@ -1,62 +1,55 @@
 {{>_navbar}}
 <br>
-<div id="FormulariosAdm">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto">
+<center>
+            <h1>ADICIONAR MINISTRANTE</h1><br>
+        </center>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-xs-8 col-sm-12 col-md-7 col-lg-8 m-auto fundo">
 
-                    {{#each erros}}
-                    <div class="alert alert-danger">{{texto}}</div>
-                    {{else}}
-                    {{/each}}
+            {{#each erros}}
+            <div class="alert alert-danger">{{texto}}</div>
+            {{else}}
+            {{/each}}
 
-                    <div class="form-grup">
-                        <form align-left="60px" action="/anhangueraeventos/addMinistrantes" , method="POST">
 
-                            <center>
-                                <h2>ADICIONAR MINISTRANTE</h2>
-                            </center>
-
-                            <div>
-                                <div>
-                                    <!--NOME DO MINISTRANTE-->
-                                    <label for="nome">Nome:</label>
-                                    <input class="form-control" type="text" name="nome" placeholder="Informe seu nome">
-                                </div>
-
-                                <div>
-                                    <!--E-MAIL DO MINISTRANTE-->
-                                    <label for="email">E-mail:</label>
-                                    <input class="form-control" type="email" name="email"
-                                        placeholder="Informe seu e-mail">
-                                </div>
-                                <div>
-                                    <!--TELEFONE DO MINISTRANTE-->
-                                    <label for="telefone">Telefone:</label>
-                                    <input class="form-control" type="text" name="telefone"
-                                        placeholder="Informe seu telefone">
-                                </div>
-                                <br>
-
-                                <center>
-                                    <!--BOTÃO-->
-                                    <button type="submit" class="btn btn-outline-secondary ">Adicionar</button>
-                                </center>
-
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div>
+                <label for="nome">Nome:</label>
+                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite nome do ministrante">
             </div>
+
+            <div>
+                <label for="contato">Contato:</label><br>
+                <input class="form-control" type="text" name="contato" placeholder="000 0000-0000">
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input class="form-control" id="email" type="text" name="email" placeholder="Digite seu email">
+
+            </div>
+
+            <div>
+                <label for="papel">Papel:</label>
+                <input class="form-control" id="text" type="text" name="papel" placeholder="Formação">
+            </div>
+
+            <center>
+                <!--BOTÃO-->
+                <br>
+                <button type="submit" class="btn btn-outline-secondary ">Adicionar</button>
+            </center>
+
         </div>
+        </form>
     </div>
 </div>
+
 
 <div class="container">
     <div class="row">
         <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto">
-            
             <footer>
                 <div class="container">
                     <div class="row">
@@ -66,7 +59,6 @@
                     </div>
                 </div>
             </footer>
-
         </div>
     </div>
 </div>
