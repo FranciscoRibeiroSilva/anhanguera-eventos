@@ -36,10 +36,33 @@ module.exports = {
         const evento = await EventoController.buscarEvento(id)
         res.render('admi/adminForms/FormAtividade',{evento})
     },
+    async gerenciaCupons(req, res){
+        const {evento_id} = req.params
+        const evento = await EventoController.seusCupons(evento_id)
+        res.render('admi/gerenciaCupons',{evento})
+    },
+    async formCupon(req, res){
+        const {evento_id} = req.params
+        const evento = await EventoController.buscarEvento(evento_id)
+        res.render('admi/adminForms/FormCupons',{evento})
+    },
+    
+
     async listaAdms(req, res){
         const adms = await Administradores.findAll()
         res.render('admi/listarAdms',{adms})
     },
+    
+    
+    
+    formMinistrantes(req, res){
+        res.render('admi/adminForms/FormMinistrantes')
+    },
+    /*async gerenciaMinistrante(req, res){
+        const {evento_id} = req.params
+        const evento = await EventoController.seusMinistrantes(evento_id)
+        res.render('admi/gerenciaMinistrantes',{evento})
+    },*/
 
 
 
@@ -48,20 +71,8 @@ module.exports = {
     },
 
 
-    formMinistrantes(req, res){
-        res.render('admi/adminForms/FormMinistrantes')
-    },
     formModAtividade(req, res){
         res.render('admi/adminForms/FormModAtividade')
-    },
-    formCupon(req, res){
-        res.render('admi/adminForms/FormCupons')
-    },
-    gerenciaCupons(req, res){
-        res.render('admi/gerenciaCupons')
-    },
-    gerenciaMinistrante(req, res){
-        res.render('admi/gerenciaMinistrantes')
     },
     listaUsuarios(req, res){
         res.render('admi/listarUsuarios')

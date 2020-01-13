@@ -13,6 +13,18 @@ module.exports = {
         })
         return evento
     },
+    async seusMinistrantes(evento_id){
+        const evento = await Eventos.findByPk(evento_id, {
+            include: {association: 'seus_ministrantes'}
+        })
+        return evento
+    },
+    async seusCupons(evento_id){
+        const evento = await Eventos.findByPk(evento_id, {
+            include: {association: 'seus_cupons'}
+        })
+        return evento
+    },
     async listEvent(req){
         const administrado_id = req.user.id
 

@@ -1,34 +1,27 @@
 {{>_navbar}}
-<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto">
 
-<center>
-    <h1>
-        <p> CUPONS </p>
-    </h1>
-</center>
-
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto fundo">
-                <div class="mt-5">
-
-                    <a href="/adicionar/cupons"><button class="btn btn-outline-secondary ">Criar lote de
-                            cupons</button></a>
+            <div class="mt-3">
+                <center>
+                    <h2>
+                        <p> GERENCIA DE CUPONS </p>
+                    </h2>
+                </center>
+                   <a href="/adicionar/cupons/{{evento.id}}"><button class="btn btn-outline-secondary">Criar Evento</button></a>
                     <!-- LISTANDO OS CUPONS DO BANCO DE DADOS-->
-                    {{#each listaCupons}}
-
+                    {{#each evento.seus_cupons}}
                     <div class="card mt-2">
-                        <div class="card-body fundo">
+                    <div class="card-body fundo">
 
-                            <h6>
-                                <a href="/anhangueraeventos/gerenciaDeEvento" class="btn">{{nome}}</a><br>
-                                Lote de cupons: {{codigo}}<br>
-                                Valida: {{validade}}<br>
-                                Quantidade: {{quantidade}}<br>
-                            </h6>
-
-                        </div>
+                        <h3>{{codigo}}</h3>
+                        <h6>
+                            desconto:{{desconto}} <br>
+                            quantidade: {{quantidade}}<br>
+                            validade: {{validade}}<br>
+                        </h6>
+                        <a href='/apagar/lote/{{id}}'><button class="btn btn-outline-secondary">Apaga lote de cupons</button></a>
                     </div>
                     {{/each}}
 
@@ -38,21 +31,11 @@
     </div>
 </div>
 
-<div>
-    <div class="container">
+    </div>
         <div class="row">
-            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto">
-
-                <footer class="footerRela">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+                {{>_footer1}}
             </div>
         </div>
+
     </div>
-</div>

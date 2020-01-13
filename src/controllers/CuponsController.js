@@ -2,14 +2,14 @@ const Eventos = require('../models/Eventos')
 const Cupons = require('../models/Cupons')
 
 module.exports = {
-    async createCupon(req, res){
+    async createCupons(req, res){
         const {evento_id} = req.params
 
         const {codigo, desconto, quantidade, validade} = req.body
 
         const evento = await Eventos.findByPk(evento_id)
 
-        if(!evento_id){
+        if(!evento){
             return res.send("error")
         }
 

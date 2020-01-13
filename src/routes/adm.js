@@ -28,13 +28,21 @@ router.post('/adicionar/evento/', EventoController.createEvento)
 
 router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
 
+router.get('/gerencia/atividades/:id', PaginasController.gerenciaAtividades)
 router.get('/adicionar/atividade/:id', PaginasController.formAtividade)
 router.post('/adicionar/atividade/:evento_id/', AtividadeController.createAtividade)
 
-router.get('/gerencia/atividades/:id', PaginasController.gerenciaAtividades)
-router.get('/gerencia/cupons/:id', PaginasController.gerenciaCupons)
-router.get('/gerencia/ministrantes/:id', PaginasController.gerenciaMinistrante)
-router.get('/gerenciar/usuarios/:id', PaginasController.listaUsuarios)
+//router.get('/gerencia/ministrantes/:id_evento', PaginasController.gerenciaMinistrante)
+//router.get('/adicionar/ministrante/:id_evento', PaginasController.formMinistrantes)
+//router.post('/adicionar/ministrante/:id_evento/', PaginasController.formMinistrantes)
+
+router.get('/gerencia/cupons/:evento_id', PaginasController.gerenciaCupons)
+router.get('/adicionar/cupons/:evento_id', PaginasController.formCupon)
+router.post('/adicionar/cupons/:evento_id/', CuponsController.createCupons)
+
+
+
+router.get('/gerenciar/usuarios/:evento_id', PaginasController.listaUsuarios)
 
 
 router.get('/lista/adms', PaginasController.listaAdms)
@@ -43,8 +51,6 @@ router.get('/formUser', PaginasController.formParticipante)
 router.post('/authen', ValidationController.validSession)
 
 router.get('/editar/atividade', PaginasController.formModAtividade)
-router.get('/adicionar/ministrante', PaginasController.formMinistrantes)
-router.get('/adicionar/cupons', PaginasController.formCupon)
 router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
 
@@ -55,7 +61,7 @@ router.get('/listUser', AdmController.listAdm)
 router.post('/logar', AdmController.buscarUser)
 router.post('/registEvento', EventoController.createEvento)
 
-router.post('/registUser/:administrado_id/:evento_id/createCupons', CuponsController.createCupon)
+//router.post('/registUser/:administrado_id/:evento_id/createCupons', CuponsController.createCupon)
 router.post('/registUser/:administrado_id/:evento_id/createMinistrante', MinistranteController.createMinistrante)
 router.post('/registUser/:administrado_id/:evento_id/createParticipante', ParticipanteController.registParticipante)
 
