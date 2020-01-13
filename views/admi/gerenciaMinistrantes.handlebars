@@ -1,23 +1,17 @@
 {{>_navbar}}
-<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto">
 
-<center>
-    <h1>
-        <p> MINISTRANTES </p>
-    </h1>
-</center>
+            <div class="mt-3">
+                <center>
+                    <h2>
+                        <p> GERENCIA DE MINISTRATES </p>
+                    </h2>
+                </center>
+                    <a href="/adicionar/ministrantes/{{evento.id}}"><button class="btn btn-outline-secondary ">Adicionar ministrante</button></a>
 
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto fundo">
-
-                <div class="mt-5">
-
-                    <a href="/adicionar/ministrante"><button class="btn btn-outline-secondary ">Adicionar
-                            ministrante</button></a>
-
-                    {{#each listaMinistrantes}}
+                    {{#each evento.seus_ministrantes}}
 
                     <div class="card mt-2">
                         <div class="card-body fundo">
@@ -25,7 +19,8 @@
                             <h6>
                                 Nome: {{nome}}<br>
                                 E-mail: {{email}}<br>
-                                Telefone: {{telefone}}<br>
+                                Telefone: {{contato}}<br>
+                                Papel: {{papel}}<br>
                             </h6>
 
                         </div>
@@ -37,21 +32,8 @@
     </div>
 </div>
 
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto">
-
-                <footer class="footerRela">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+ <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+                {{>_footer1}}
             </div>
         </div>
-    </div>
-</div>

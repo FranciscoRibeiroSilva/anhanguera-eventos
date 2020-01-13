@@ -1,11 +1,10 @@
 {{>_navbar}}
 <br>
 <center>
-            <h1>ADICIONAR MINISTRANTE</h1><br>
-        </center>
+    <h1>ADICIONAR MINISTRANTE</h1><br>
+</center>
 <div class="container">
     <div class="row">
-        
         <div class="col-xs-8 col-sm-12 col-md-7 col-lg-8 m-auto fundo">
 
             {{#each erros}}
@@ -13,52 +12,45 @@
             {{else}}
             {{/each}}
 
-
-            <div>
-                <label for="nome">Nome:</label>
-                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite nome do ministrante">
-            </div>
-
-            <div>
-                <label for="contato">Contato:</label><br>
-                <input class="form-control" type="text" name="contato" placeholder="000 0000-0000">
-            </div>
-
-            <div>
-                <label for="email">Email</label>
-                <input class="form-control" id="email" type="text" name="email" placeholder="Digite seu email">
-
-            </div>
-
-            <div>
-                <label for="papel">Papel:</label>
-                <input class="form-control" id="text" type="text" name="papel" placeholder="Formação">
-            </div>
-
-            <center>
-                <!--BOTÃO-->
-                <br>
-                <button type="submit" class="btn btn-outline-secondary ">Adicionar</button>
-            </center>
-
-        </div>
-        </form>
-    </div>
-</div>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto">
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
-                        </div>
-                    </div>
+            <form action='/adicionar/ministrantes/{{evento.id}}/' , method="POST">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input class="form-control" type="text" id="nome" name="nome"
+                        placeholder="Digite nome do ministrante">
                 </div>
-            </footer>
+
+                <div>
+                    <label for="contato">Contato:</label><br>
+                    <input class="form-control" type="text" name="contato" placeholder="000 0000-0000">
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <input class="form-control" id="email" type="text" name="email" placeholder="Digite seu email">
+
+                </div>
+
+                <div>
+                    <label for="papel">Papel:</label>
+                    <input class="form-control" id="text" type="text" name="papel" placeholder="Formação">
+                </div>
+
+                <center>
+                    <br>
+                    <button type="submit" class="btn btn-outline-secondary ">Adicionar</button>
+                </center>
+
+            </form>
         </div>
     </div>
 </div>
+
+
+</div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+                {{>_footer1}}
+            </div>
+        </div>
+
+    </div>

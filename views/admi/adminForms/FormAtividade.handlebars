@@ -62,7 +62,7 @@
                                         </td>
 
                                         <td>
-                                            <!--CARGA HORARIA-->
+                                            
                                 
                                         </td>
                                     </tr>
@@ -76,6 +76,16 @@
                                                 <option value="false">Gratuita</option>
                                                 <option value="true">Paga</option>
                                             </select>
+
+                                                
+                                            <!--label for="ministrante">Inscrição:</--!label>
+                                            <select class="form-control" name="ministrante" id="ministrante">
+                                                <option>ministrante</option>
+                                                {{# each evento.seus_ministrantes}}
+                                                <option value="{{nome}}">{{nome}}</option>
+                                                {{/each}}
+                                            </select-->
+
                                             <!--NUMERO DE PARTICIPANTES-->
                                             <label for="numeroDePartic">Participantes:</label>
                                             <input class="form-control" type="number" id="vagas"

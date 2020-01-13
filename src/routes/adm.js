@@ -28,21 +28,27 @@ router.post('/adicionar/evento/', EventoController.createEvento)
 
 router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
 
-router.get('/gerencia/atividades/:id', PaginasController.gerenciaAtividades)
-router.get('/adicionar/atividade/:id', PaginasController.formAtividade)
-router.post('/adicionar/atividade/:evento_id/', AtividadeController.createAtividade)
-
-//router.get('/gerencia/ministrantes/:id_evento', PaginasController.gerenciaMinistrante)
-//router.get('/adicionar/ministrante/:id_evento', PaginasController.formMinistrantes)
-//router.post('/adicionar/ministrante/:id_evento/', PaginasController.formMinistrantes)
+router.get('/gerenciar/atividades/:evento_id', PaginasController.gerenciaAtividades)
+router.get('/adicionar/atividades/:evento_id', PaginasController.formAtividade)
+router.post('/adicionar/atividades/:evento_id/', AtividadeController.createAtividade)
 
 router.get('/gerenciar/cupons/:evento_id', PaginasController.gerenciaCupons)
 router.get('/adicionar/cupons/:evento_id', PaginasController.formCupon)
 router.post('/adicionar/cupons/:evento_id/', CuponsController.createCupons)
 
+router.get('/gerenciar/ministrantes/:evento_id', PaginasController.gerenciaMinistrante)
+router.get('/adicionar/ministrantes/:evento_id', PaginasController.formMinistrantes)
+router.post('/adicionar/ministrantes/:evento_id/', MinistranteController.createMinistrante)
+
+
 
 
 router.get('/gerenciar/usuarios/:evento_id', PaginasController.listaUsuarios)
+//router.get('/gerencia/atividades/:id', PaginasController.gerenciaAtividades)
+
+router.get('/gerencia/cupons/:id', PaginasController.gerenciaCupons)
+
+router.get('/gerenciar/usuarios/:id', PaginasController.listaUsuarios)
 
 
 router.get('/lista/adms', PaginasController.listaAdms)
@@ -51,6 +57,7 @@ router.get('/formUser', PaginasController.formParticipante)
 router.post('/authen', ValidationController.validSession)
 
 router.get('/editar/atividade', PaginasController.formModAtividade)
+
 router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
 
