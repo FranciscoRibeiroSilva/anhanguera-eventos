@@ -11,38 +11,49 @@ module.exports = {
     formAdm(req, res) {
         res.render('admi/adminForms/FormAdm')
     },
+
     login(req, res) {
         res.render('index')
     },
+
     async homepage(req, res) {
         const adm = await EventoController.listEvent(req)
         res.render('admi/homepage', { adm })
     },
+
     formEvento(req, res) {
         res.render('admi/adminForms/FormEvento')
     },
+
     async gerenciaEvento(req, res) {
         const { id } = req.params
         const evento = await EventoController.buscarEvento(id)
         res.render('admi/gerenciaDeEvento', { evento })
     },
+
     async gerenciaAtividades(req, res) {
         const { evento_id } = req.params
         evento = await EventoController.suasAtividades(evento_id)
         res.render('admi/gerenciaDeAtividades', { evento })
     },
+
     async formAtividade(req, res) {
         const { evento_id } = req.params
         const evento = await EventoController.seusMinistrantes(evento_id)
-        //const evento = await EventoController.buscarEvento(evento_id)
         res.render('admi/adminForms/FormAtividade', {evento})
     },
+
     async gerenciaCupons(req, res){
         const {evento_id} = req.params
         const evento = await EventoController.seusCupons(evento_id)
         res.render('admi/gerenciaCupons',{evento})
     },
-    async formCupon(req, res){
+    async cuponsGerecia(req, res){
+        const {evento_id} = req.params
+        const evento = await EventoController.seusCupons(evento_id)
+        res.render('admi/gerenciaCupons',{evento})
+    },
+    async form2Cupon(req, res){
         const {evento_id} = req.params
         const evento = await EventoController.buscarEvento(evento_id)
         res.render('admi/adminForms/FormCupons',{evento})

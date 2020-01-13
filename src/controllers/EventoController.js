@@ -25,12 +25,6 @@ module.exports = {
         })
         return evento
     },
-    async seusMinistrantes2(evento_id){
-        const evento = await Eventos.findByPk(evento_id, {
-            include: {association : 'seus_ministrantes'}
-        })
-        return evento.seus_ministrates
-    },
 
 
     async listEvent(req){

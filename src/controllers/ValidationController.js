@@ -11,16 +11,17 @@ module.exports = {
     },
     verificaFormLogin(req, res, next){
         var erros = []
-        if(!req.body.email||typeof req.body.email == undefined || req.body.nome == null || req.body.nome.length < 8){
+        console.log(req.body.email)
+        if(!req.body.email||typeof req.body.email == undefined || req.body.email == null || req.body.email.length < 8){
             erros.push({texto: "Email inválido"})
             req.flash('error_msg', "Email inválido ")
         }
-        if(!req.body.senha|| typeof req.body.senha == undefined || req.body.senha == null || req.body.senha > 7){
+        if(!req.body.senha|| typeof req.body.senha == undefined || req.body.senha == null || req.body.senha.length < 7){
             erros.push({texto: "Senha inválida"})
             req.flash('error_msg', "Senha inválido ")
         }
         if(erros.length <=0){
-            return (req, res, next)
+            return next()
         }
         res.redirect('/login')
     }

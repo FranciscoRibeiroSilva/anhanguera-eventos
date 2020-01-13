@@ -20,7 +20,7 @@ router.get('/cadastroAdm', PaginasController.formAdm)
 router.post('/registUser', AdmController.createAdm)
 
 router.get('/login', PaginasController.login)
-router.post('/authen', ValidationController.validSession)
+router.post('/authen', ValidationController.verificaFormLogin, ValidationController.validSession)
 
 router.get('/homepage', PaginasController.homepage)
 router.get('/adicionar/evento', PaginasController.formEvento)
@@ -32,8 +32,8 @@ router.get('/gerenciar/atividades/:evento_id', PaginasController.gerenciaAtivida
 router.get('/adicionar/atividades/:evento_id', PaginasController.formAtividade)
 router.post('/adicionar/atividades/:evento_id/', AtividadeController.createAtividade)
 
-router.get('/gerenciar/cupons/:evento_id', PaginasController.gerenciaCupons)
-router.get('/adicionar/cupons/:evento_id', PaginasController.formCupon)
+router.get('/gerenciar/cupons/:evento_id', PaginasController.cuponsGerecia)
+router.get('/adicionar/cupons/:evento_id', PaginasController.form2Cupon)
 router.post('/adicionar/cupons/:evento_id/', CuponsController.createCupons)
 
 router.get('/gerenciar/ministrantes/:evento_id', PaginasController.gerenciaMinistrante)
@@ -44,9 +44,6 @@ router.post('/adicionar/ministrantes/:evento_id/', MinistranteController.createM
 
 
 router.get('/gerenciar/usuarios/:evento_id', PaginasController.listaUsuarios)
-//router.get('/gerencia/atividades/:id', PaginasController.gerenciaAtividades)
-
-router.get('/gerencia/cupons/:id', PaginasController.gerenciaCupons)
 
 router.get('/gerenciar/usuarios/:id', PaginasController.listaUsuarios)
 
@@ -63,13 +60,9 @@ router.get('/logout', PaginasController.logoutAdm)
 
 
 router.get('/listUser', AdmController.listAdm)
-//router.get('/registUser/:administrado_id/listEvent', EventoController.listEvent)
 
 router.post('/logar', AdmController.buscarUser)
-router.post('/registEvento', EventoController.createEvento)
 
-//router.post('/registUser/:administrado_id/:evento_id/createCupons', CuponsController.createCupon)
-router.post('/registUser/:administrado_id/:evento_id/createMinistrante', MinistranteController.createMinistrante)
 router.post('/registUser/:administrado_id/:evento_id/createParticipante', ParticipanteController.registParticipante)
 
 module.exports = router
