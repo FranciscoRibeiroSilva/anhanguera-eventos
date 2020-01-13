@@ -8,10 +8,6 @@
 
 /*CODIGO ADCIONAL*/
 
-.div {
-    border: medium;
-}
-
 
 /*FORMATAÇÃO NO NAVBAR(BARRA DE NAVEGAÇÃO)*/
 
@@ -35,6 +31,10 @@ nav.navbar-transparente {
 
 
 /*FORMATAÇÃO DO BODY DA PAGINA*/
+
+.letrasespac {
+    letter-spacing: 0.06em;
+}
 
 .formatacao {
     margin: 2% 25% 0% 25%;
