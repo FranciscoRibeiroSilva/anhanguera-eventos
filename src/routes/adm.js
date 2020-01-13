@@ -32,8 +32,8 @@ router.get('/gerenciar/atividades/:evento_id', PaginasController.gerenciaAtivida
 router.get('/adicionar/atividades/:evento_id', PaginasController.formAtividade)
 router.post('/adicionar/atividades/:evento_id/', AtividadeController.createAtividade)
 
-router.get('/gerenciar/cupons/:evento_id', PaginasController.cuponsGerecia)
-router.get('/adicionar/cupons/:evento_id', PaginasController.form2Cupon)
+router.get('/gerenciar/cupons/:evento_id', PaginasController.gerenciaCupons)
+router.get('/adicionar/cupons/:evento_id', PaginasController.formCupons)
 router.post('/adicionar/cupons/:evento_id/', CuponsController.createCupons)
 
 router.get('/gerenciar/ministrantes/:evento_id', PaginasController.gerenciaMinistrante)
@@ -41,28 +41,11 @@ router.get('/adicionar/ministrantes/:evento_id', PaginasController.formMinistran
 router.post('/adicionar/ministrantes/:evento_id/', MinistranteController.createMinistrante)
 
 
-
-
-router.get('/gerenciar/usuarios/:evento_id', PaginasController.listaUsuarios)
-
-router.get('/gerenciar/usuarios/:id', PaginasController.listaUsuarios)
-
-
-router.get('/lista/adms', PaginasController.listaAdms)
-router.get('/loginUser', PaginasController.loginUsuario)
-router.get('/formUser', PaginasController.formParticipante)
-router.post('/authen', ValidationController.validSession)
-
 router.get('/editar/atividade', PaginasController.formModAtividade)
 
 router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
 
 
-router.get('/listUser', AdmController.listAdm)
-
-router.post('/logar', AdmController.buscarUser)
-
-router.post('/registUser/:administrado_id/:evento_id/createParticipante', ParticipanteController.registParticipante)
 
 module.exports = router

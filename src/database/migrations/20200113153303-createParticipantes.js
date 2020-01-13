@@ -11,7 +11,7 @@ module.exports = {
          },
          evento_id: {
            type: Sequelize.INTEGER,
-           allowNull: false,
+           allowNull: true,
            references: {model: 'eventos', key: 'id'},
            onUpdate: 'CASCADE',
            onDelete: 'CASCADE'

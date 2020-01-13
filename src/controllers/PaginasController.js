@@ -32,6 +32,7 @@ module.exports = {
     },
 
     async gerenciaAtividades(req, res) {
+        
         const { evento_id } = req.params
         evento = await EventoController.suasAtividades(evento_id)
         res.render('admi/gerenciaDeAtividades', { evento })
@@ -48,12 +49,7 @@ module.exports = {
         const evento = await EventoController.seusCupons(evento_id)
         res.render('admi/gerenciaCupons',{evento})
     },
-    async cuponsGerecia(req, res){
-        const {evento_id} = req.params
-        const evento = await EventoController.seusCupons(evento_id)
-        res.render('admi/gerenciaCupons',{evento})
-    },
-    async form2Cupon(req, res){
+    async formCupons(req, res){
         const {evento_id} = req.params
         const evento = await EventoController.buscarEvento(evento_id)
         res.render('admi/adminForms/FormCupons',{evento})
@@ -91,12 +87,6 @@ module.exports = {
     formModAtividade(req, res) {
         res.render('admi/adminForms/FormModAtividade')
     },
-    formCupon(req, res) {
-        res.render('admi/adminForms/FormCupons')
-    },
-    gerenciaCupons(req, res) {
-        res.render('admi/gerenciaCupons')
-    },
     listaUsuarios(req, res) {
         res.render('admi/listarUsuarios')
     },
@@ -108,30 +98,21 @@ module.exports = {
 
 
     //participantes
-    certificado(req, res) {
-        res.render('user/Certificado')
-    },
-    certificadoPorAtividade(req, res) {
-        res.render('user/CertificadoPorAtividade')
-    },
-    loginParticipante(req, res) {
-        res.render('user/indexPar')
-    },
-    listarAtividades(req, res) {
-        res.render('user/listaAtividades')
-    },
-    listaEventos(req, res) {
-        res.render('user/listarEventos')
-    },
-    loginPar(req, res) {
-        res.render('user/loginPar')
-    },
-    loginUsuario(req, res) {
-        res.render('user/loginUsuario')
-    },
-    formParticipante(req, res) {
+    formCadastroPartipante(req, res){
         res.render('user/userForms/FormParticipante')
     },
+    loginParticipante(req, res) {
+        res.render('user/loginUsuario')
+    },
+    participanteHomepage(req, res){
+        res.render('user/indexPar')
+    },
+
+
+
+
+
+
 
     //inicial
     inicial(req, res) {

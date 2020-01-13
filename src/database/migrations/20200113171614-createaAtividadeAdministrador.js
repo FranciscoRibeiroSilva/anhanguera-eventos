@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.createTable('atividades_participantes', { 
+      return queryInterface.createTable('atividades_administradores', { 
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
@@ -16,10 +16,10 @@ module.exports = {
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
         },
-        participante_id: {
+        administrador_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          references: {model: 'participantes', key: 'id'},
+          references: {model: 'administradores', key: 'id'},
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
         },

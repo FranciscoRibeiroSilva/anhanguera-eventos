@@ -5,18 +5,18 @@ module.exports = {
 
     async createAtividade(req, res){
         const {evento_id} = req.params
-
         const {nome, data, hora_inicio, duracao, tipo_atividade, carga_horaria, vagas, paga, valor} = req.body
-        console.log(nome, data, hora_inicio, duracao, tipo_atividade, carga_horaria, vagas, paga, valor)
         const evento = await Eventos.findByPk(evento_id)
-        console.log(evento)
-
         if(!evento){
-            return res.send('error')
+            req.flash('error_msg', 'Evento não encontrado')
         }
 
         const atividade = await Atividades.create({nome, data, tipo_atividade, paga, valor, evento_id})
-        return res.json(atividade)
+        if(!atividade){
+            req.flash('error_msg', 'Erro ao criar atividade')
+        }
+        req.flash('success_msg', 'Atividade adicionada')
+        res.redirect('/gerenciar/atividades/'+evento_id)
     }
 
 }

@@ -9,9 +9,16 @@ module.exports = {
             failureFlash: true
         })(req, res, next)
     },
+    validSessionP(req, res, next){
+        passport.authenticate('local',{
+            successRedirect: 'participante/homepage',
+            failureRedirect: 'participante/login',
+            failureFlash: true
+        })(req, res, next)
+    },
+
     verificaFormLogin(req, res, next){
         var erros = []
-        console.log(req.body.email)
         if(!req.body.email||typeof req.body.email == undefined || req.body.email == null || req.body.email.length < 8){
             erros.push({texto: "Email inválido"})
             req.flash('error_msg', "Email inválido ")

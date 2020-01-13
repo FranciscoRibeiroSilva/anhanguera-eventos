@@ -12,7 +12,7 @@
 						<div class="alert alert-danger">{{texto}}</div>
 						{{else}}
 						{{/each}}
-						<form align-left="60px" action="/users/addUsuario" method="POST">
+						<form align-left="60px" action="/participante/cadastro/" method="POST">
 
 							<div>
 								<label for="nome">Nome:</label>
@@ -39,7 +39,7 @@
 							<!-- CAMPO FORMAÇÃO -->
 							<div>
 								<label for="formacao">Formação:</label><br>
-								<select class="form-control" id="formacao" name="formacao">
+								<select class="form-control" id="formacao" name="papel">
 									<option>--Tipo--</option>
 									<option value="Fundamental">Ensino Fundamental</option>
 									<option value="Ensino Médio">Ensino Médio</option>
@@ -50,7 +50,7 @@
 							</div><br>
 
 							<center>
-								<button class="btn btn-outline-secondary"> Concluir </button>
+								<button type="submit" class="btn btn-outline-secondary"> Concluir </button>
 							</center>
 						</form>
 
