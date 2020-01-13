@@ -1,5 +1,4 @@
 {{>_navbar}}
-<br><br>
 <center class="mt-5">
     <h1>ADICIONAR ATIVIDADES</h1><br>
 </center>
@@ -25,60 +24,45 @@
             {{/each}}
 
             <table width="100%">
-                <center>
-                    <div class="form-grup">
-                        <form action='/adicionar/atividade/{{evento.id}}/' , method="POST">
-                            <tr>
-                                <td>
-                                    <label for="nome: "> Atividade: </label>
-                                    <input class="form-control" type="text" id="nome" name="nome"
-                                        placeholder="Nome da atividade">
+                <div class="form-grup">
+                    <form action='/adicionar/atividade/{{evento.id}}/' , method="POST">
+                        <div>
+                            <label for="nome: "> Atividade: </label>
+                            <input class="form-control" type="text" id="nome" name="nome"
+                                placeholder="Nome da atividade">
+                        </div>
 
-                                    <label for="tipo">Tipo:</label>
-                                    <select class="form-control" name="tipo_atividade">
-                                        <option>--Atividade--</option>
-                                        <option value="Palestra"> Palestra </option>
-                                        <option value="Curso"> Curso </option>
-                                        <option value="Aula"> Aula </option>
-                                        <option value="Conferência"> Conferência </option>
-                                        <option value="Mesa-Redonda"> Mesa-Redonda </option>
-                                    </select>
-                                </td>
+                        <div>
+                            <label for="tipo">Tipo:</label>
+                            <select class="form-control" name="tipo_atividade">
+                                <option>--Atividade--</option>
+                                <option value="Palestra"> Palestra </option>
+                                <option value="Curso"> Curso </option>
+                                <option value="Aula"> Aula </option>
+                                <option value="Conferência"> Conferência </option>
+                                <option value="Mesa-Redonda"> Mesa-Redonda </option>
+                            </select>
+                        </div>
 
-                                <td>
-                                    <label for="data">Data:</label>
-                                    <input class="form-control" id="date" type="date" name="data">
+                        <div>
+                            <label for="data">Data:</label>
+                            <input class="form-control" id="date" type="date" name="data">
+                        </div>
 
-                                    <label for="inscricao">Inscrição:</label>
-                                    <select class="form-control" name="paga" id="paga">
-                                        <option>--Tipo--</option>
-                                        <option value="false">Gratuita</option>
-                                        <option value="true">Paga</option>
-                                    </select>
-                                </td>
+                        <div>
+                            <label for="inscricao">Inscrição:</label>
+                            <select class="form-control" name="paga" id="paga">
+                                <option>--Tipo--</option>
+                                <option value="false">Gratuita</option>
+                                <option value="true">Paga</option>
+                            </select>
+                        </div>
 
-                            </tr>
-                            <tr>
-                                <td>
-                                    <!--HORARIO DE INICIO-->
-
-                                    <!--HORARIO DO TERMINO-->
-
-                                </td>
-
-                                <td>
-
-
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <!--TIPO DE INSCRIÇÃO-->
+                        <!--TIPO DE INSCRIÇÃO-->
 
 
 
-                                    <!--label for="ministrante">Inscrição:</--!label>
+                        <!--label for="ministrante">Inscrição:</--!label>
                                             <select class="form-control" name="ministrante" id="ministrante">
                                                 <option>ministrante</option>
                                                 {{# each evento.seus_ministrantes}}
@@ -86,47 +70,43 @@
                                                 {{/each}}
                                             </select-->
 
-                                    <!--NUMERO DE PARTICIPANTES-->
-                                    <label for="numeroDePartic">Participantes:</label>
-                                    <input class="form-control" type="number" id="vagas" name="vagas" min="0" max="1000"
-                                        placeholder="Número">
-                                </td>
-                                <td>
-                                    <!--VALOR DA INSCRIÇÃO-->
-                                    <label for="valor">R$: </label>
-                                    <input class="form-control" type="text" id="valor" name="valor"
-                                        placeholder="R$ 00,00" disabled>
-                                </td>
-                            </tr>
+                        <!--NUMERO DE PARTICIPANTES-->
+                        <div>
+                            <label for="numeroDePartic">Participantes:</label>
+                            <input class="form-control" type="number" id="vagas" name="vagas" min="0" max="1000"
+                                placeholder="Número">
+                        </div>
 
-                            <table width="100%">
-                                <tr>
-                                    <script>
-                                        var select = document.getElementById('paga'),
-                                            input1 = document.getElementById('valor'),
-                                            tipo1;
-                                        // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
-                                        select.addEventListener('change', function () {
-                                            tipo1 = this.value;
-                                            if (tipo1 == 'true') {
-                                                input1.removeAttribute('disabled', false);
-                                            } else {
-                                                input1.setAttribute('disabled', false);
-                                                input1.value = null;
-                                            }
-                                        });
-                                    </script>
-                                </tr>
-                            </table>
+                        <div>
+                            <!--VALOR DA INSCRIÇÃO-->
+                            <label for="valor">R$: </label>
+                            <input class="form-control" type="text" id="valor" name="valor" placeholder="R$ 00,00"
+                                disabled>
+                        </div>
 
-                            <center>
-                                <br>
-                                <button class="btn btn-outline-secondary"> Concluir </button>
-                            </center>
+                        <script>
+                            var select = document.getElementById('paga'),
+                                input1 = document.getElementById('valor'),
+                                tipo1;
+                            // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
+                            select.addEventListener('change', function () {
+                                tipo1 = this.value;
+                                if (tipo1 == 'true') {
+                                    input1.removeAttribute('disabled', false);
+                                } else {
+                                    input1.setAttribute('disabled', false);
+                                    input1.value = null;
+                                }
+                            });
+                        </script>
 
-                        </form>
-                    </div>
-                </center>
+                        <center>
+                            <br>
+                            <button class="btn btn-outline-secondary"> Concluir </button>
+                        </center>
+
+                    </form>
+                </div>
             </table>
         </div>
     </div>
