@@ -14,7 +14,7 @@ const {eAdmi} = require('../helpers/eAdmi')
 
 app.use(express.json)
 
-//router.get('/testeTetas', PaginasController.testeTetas)
+router.get('/testeTetas', PaginasController.testeTetas)
 
 router.get('/cadastroAdm', PaginasController.formAdm)
 router.post('/registUser', AdmController.createAdm)
@@ -27,6 +27,10 @@ router.get('/adicionar/evento', PaginasController.formEvento)
 router.post('/adicionar/evento/', EventoController.createEvento)
 
 router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
+
+router.get('/adicionar/atividade/:id', PaginasController.formAtividade)
+router.post('/adicionar/atividade/:evento_id/', AtividadeController.createAtividade)
+
 router.get('/gerencia/atividades/:id', PaginasController.gerenciaAtividades)
 router.get('/gerencia/cupons/:id', PaginasController.gerenciaCupons)
 router.get('/gerencia/ministrantes/:id', PaginasController.gerenciaMinistrante)
@@ -38,7 +42,6 @@ router.get('/loginUser', PaginasController.loginUsuario)
 router.get('/formUser', PaginasController.formParticipante)
 router.post('/authen', ValidationController.validSession)
 
-router.get('/adicionar/atividade', PaginasController.formModAtividade)
 router.get('/editar/atividade', PaginasController.formModAtividade)
 router.get('/adicionar/ministrante', PaginasController.formMinistrantes)
 router.get('/adicionar/cupons', PaginasController.formCupon)
@@ -51,11 +54,9 @@ router.get('/listUser', AdmController.listAdm)
 
 router.post('/logar', AdmController.buscarUser)
 router.post('/registEvento', EventoController.createEvento)
-/*
+
 router.post('/registUser/:administrado_id/:evento_id/createCupons', CuponsController.createCupon)
 router.post('/registUser/:administrado_id/:evento_id/createMinistrante', MinistranteController.createMinistrante)
 router.post('/registUser/:administrado_id/:evento_id/createParticipante', ParticipanteController.registParticipante)
-router.post('/registUser/:administrado_id/:evento_id/createAtividade', AtividadeController.createAtividade)
-router.post('/registUser/:administrado_id/:evento_id/registInAtivit', AtividadeController.registAtividade)
-*/
+
 module.exports = router

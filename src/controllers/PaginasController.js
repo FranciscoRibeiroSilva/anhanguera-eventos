@@ -1,6 +1,5 @@
 const Administradores = require('../models/Administradores')
 const EventoController = require('../controllers/EventoController')
-//const AtividadeController = require('../controllers/AtividadeController')
 
 module.exports = {
 
@@ -9,11 +8,6 @@ module.exports = {
         res.send(id)
     },
     //administradores
-    async listaAdms(req, res){
-        const adms = await Administradores.findAll()
-        res.render('admi/listarAdms',{adms})
-    },
-
     formAdm(req, res){
         res.render('admi/adminForms/FormAdm',)
     },
@@ -27,16 +21,26 @@ module.exports = {
     formEvento(req, res){
         res.render('admi/adminForms/FormEvento')
     },
-    /*async gerenciaEvento(req, res){
+    async gerenciaEvento(req, res){
         const {id} = req.params
-        //const evento = await EventoController.buscarEvento(id)
+        const evento = await EventoController.buscarEvento(id)
         res.render('admi/gerenciaDeEvento',{evento})
-    },*/
-    async gerenciaAtividades(req, res){
-        //const {id} = req.params
-        //const atividades = await AtividadeController.listarAtividades(id)
-        res.render('admi/gerenciaDeAtividades'/*,{atividades}*/)
     },
+    async gerenciaAtividades(req, res){
+        const {id} = req.params
+        evento =  await EventoController.suasAtividades(id)
+        res.render('admi/gerenciaDeAtividades',{evento})
+    },
+    async formAtividade(req, res){
+        const {id} = req.params
+        const evento = await EventoController.buscarEvento(id)
+        res.render('admi/adminForms/FormAtividade',{evento})
+    },
+    async listaAdms(req, res){
+        const adms = await Administradores.findAll()
+        res.render('admi/listarAdms',{adms})
+    },
+
 
 
     sobre(req, res){
@@ -44,9 +48,6 @@ module.exports = {
     },
 
 
-    formAtividade(req, res){
-        res.render('admi/adminForms/FormAtividade')
-    },
     formMinistrantes(req, res){
         res.render('admi/adminForms/FormMinistrantes')
     },

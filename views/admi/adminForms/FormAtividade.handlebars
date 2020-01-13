@@ -1,4 +1,4 @@
-{{>_homeNavbar}}
+{{>_navbar}}
 <br><br>
 <div id="FormulariosAdm">
     <div>
@@ -25,7 +25,7 @@
                     <table width="100%">
                         <center>
                             <div class="form-grup">
-                                <form action='/anhangueraeventos/addAtividade' , method="POST">
+                                <form action='/adicionar/atividade/{{evento.id}}/' , method="POST">
                                     <center class="mt-5">
                                         <h1>ADICIONAR ATIVIDADES</h1><br>
                                     </center>
@@ -37,7 +37,7 @@
                                                 placeholder="Nome da atividade">
                                             <!--TIPO DE ATIVIDADE-->
                                             <label for="tipo">Tipo:</label>
-                                            <select class="form-control" name="tipo">
+                                            <select class="form-control" name="tipo_atividade">
                                                 <option>--Atividade--</option>
                                                 <option value="Palestra"> Palestra </option>
                                                 <option value="Curso"> Curso </option>
@@ -47,10 +47,6 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <!--MINISTRANTE-->
-                                            <label for="ministrante"> Ministrante: </label>
-                                            <input class="form-control" type="text" name="ministrante"
-                                                placeholder="Nome do ministrante">
                                             <!--SELECIONAR A DATA-->
                                             <label for="data">Data:</label>
                                             <input class="form-control" id="date" type="date" name="data">
@@ -60,32 +56,14 @@
                                     <tr>
                                         <td>
                                             <!--HORARIO DE INICIO-->
-                                            <label for="appt"> Horário inicio: </label>
-                                            <input class="form-control" type="time" id="appt" name="horaInicio"
-                                                min="01:00" max="23:50" required>
+
                                             <!--HORARIO DO TERMINO-->
-                                            <label for="appt"> Duração: </label>
-                                            <input class="form-control" type="time" id="appt" name="duracao" min="00:10"
-                                                max="03:00">
 
                                         </td>
 
                                         <td>
-                                            <!--SALA DA ATIVIDADE-->
-                                            <label for="sala">Sala:</label>
-                                            <input class="form-control" type="number" id="sala" name="sala"
-                                                placeholder="Sala">
-
                                             <!--CARGA HORARIA-->
-                                            <label for="cargaH">Carga Horário:</label>
-                                            <select class="form-control" name="cargaHoraria">
-                                                <option>--Informe a CH--</option>
-                                                <option value="10 Horas Aulas">10 Horas Aulas</option>
-                                                <option value="20 Horas Aulas">20 horas Aulas</option>
-                                                <option value="30 Horas Aulas">30 horas Aulas</option>
-                                                <option value="40 Horas Aulas">40 horas Aulas</option>
-                                                <option value="50 Horas Aulas">50 horas Aulas</option>
-                                            </select>
+                                
                                         </td>
                                     </tr>
 
@@ -93,15 +71,15 @@
                                         <td>
                                             <!--TIPO DE INSCRIÇÃO-->
                                             <label for="inscricao">Inscrição:</label>
-                                            <select class="form-control" name="inscricaoT" id="inscricao">
+                                            <select class="form-control" name="paga" id="paga">
                                                 <option>--Tipo--</option>
-                                                <option value="Gratuita">Gratuita</option>
-                                                <option value="Paga">Paga</option>
+                                                <option value="false">Gratuita</option>
+                                                <option value="true">Paga</option>
                                             </select>
                                             <!--NUMERO DE PARTICIPANTES-->
                                             <label for="numeroDePartic">Participantes:</label>
-                                            <input class="form-control" type="number" id="numeroDePartic"
-                                                name="numeroDePartic" min="0" max="1000" placeholder="Número">
+                                            <input class="form-control" type="number" id="vagas"
+                                                name="vagas" min="0" max="1000" placeholder="Número">
                                         </td>
                                         <td>
                                             <!--VALOR DA INSCRIÇÃO-->
@@ -114,13 +92,13 @@
                                     <table width="100%">
                                         <tr>
                                             <script>
-                                                var select = document.getElementById('inscricao'),
+                                                var select = document.getElementById('paga'),
                                                     input1 = document.getElementById('valor'),
                                                     tipo1;
                                                 // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
                                                 select.addEventListener('change', function () {
                                                     tipo1 = this.value;
-                                                    if (tipo1 == 'Paga') {
+                                                    if (tipo1 == 'true') {
                                                         input1.removeAttribute('disabled', false);
                                                     } else {
                                                         input1.setAttribute('disabled', false);

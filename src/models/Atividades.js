@@ -4,8 +4,12 @@ class Atividades extends Model{
     static init(connection){
         super.init({
             nome: DataTypes.STRING,
-            tipo_atividade: DataTypes.STRING,
             data: DataTypes.DATE,
+            hora_inicio: DataTypes.DATE,
+            duracao: DataTypes.STRING,
+            tipo_atividade: DataTypes.STRING,
+            carga_horaria: DataTypes.STRING,
+            vagas: DataTypes.INTEGER,
             paga: DataTypes.BOOLEAN,
             valor: DataTypes.DOUBLE,
             ministrante_id: DataTypes.INTEGER

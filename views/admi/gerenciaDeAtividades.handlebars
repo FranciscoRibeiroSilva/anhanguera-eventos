@@ -1,23 +1,39 @@
 {{>_navbar}}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto">
 
-<br>
-<center class="mt-5">
-    <h1>GERENCIAMENTO DE ATIVIDADES</h1><br>
-</center><br>
-
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto fundo">
-
-                <div>
+            <div class="mt-3">
+                <center>
+                    <h2>
+                        <p> SUAS ATIVIDADE </p>
+                    </h2>
+                </center>
                     {{>_msg}}
+                <a href="/adicionar/atividade/{{evento.id}}"><button class="btn btn-outline-secondary">Criar Atividade</button></a>
 
-                    {{#each regist}}
-                    <div class="card mt-2 ">
+                    {{#each evento.suas_atividades}}
+                        <div class="card mt-2">
+                    <div class="card-body fundo">
+
+                        <h3>{{nome}}</h3>
+                        <h6>
+                            data de acontecimento: {{data}}<br>
+                            tipo de evento: {{tipo_atividade}} <br>
+                            {{#if paga}}
+                            valor: {{valor}}<br>
+                            {{else}}
+                            gratuita
+                            {{/if}}
+                        </h6>
+                        <a href='/gerenciar/atividade/{{id}}'><button
+                                class="btn btn-outline-secondary">Gerencie esta atividade</button></a>
+                    </div>
+
+                    </div>
+                    <!--div class="card mt-2 ">
                         <div class="card-body fundo">
                             <nav class="navbar fundo justify-content-end">
-                                <!-- DEIXANDO O NOME DA ATIVIDADE DO LADO ESQUERDO -->
                                 <h2 class="navbar-nav mr-auto margemAEsquerda">
                                     <p>{{nome}}</p>
                                 </h2>
@@ -27,7 +43,7 @@
                                     aria-controls="navbarToggleExternalContent" aria-expanded="false"
                                     aria-label="Alterna navegação">
                                     <h6>Ver mais</h6>
-                                    <!--<span class="navbar-toggler-icon"></span>-->
+                                    <!<span class="navbar-toggler-icon"></span>>
                                 </button>
                             </nav>
 
@@ -36,7 +52,7 @@
                             <h6 class="text-black h5">Hórario inicio: {{horaInicio}}<br></h6>
                             <h6 class="text-black h5">Sala: {{sala}}<br></h6>
 
-                            <!-- MOSTRA MAIS INFORMAÇÕES DA ATIVIDADE -->
+                           
                             <div class="pos-f-t fundo">
                                 <div class="collapse " id="navbarToggleExternalContent">
                                     <div class="fundo">
@@ -62,7 +78,7 @@
                             </a>
 
                         </div>
-                    </div>
+                    </!div-->
                     {{/each}}
                 </div>
             </div>
@@ -70,20 +86,9 @@
     </div>
 </div>
 
-<div>
-    <div class="container">
+</div>
         <div class="row">
-            <div class="col-20 col-sm-20 col-md-20 col-lg-10 m-auto">
-                <footer class="footerRela">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+                {{>_footer1}}
         </div>
-    </div>
 </div>

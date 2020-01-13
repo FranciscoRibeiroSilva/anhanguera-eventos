@@ -3,26 +3,19 @@ const Eventos = require('../models/Eventos')
 
 module.exports = {
 
-    /*async listarAtividades(id){
-        const evento = await Eventos.findByPk(id, {
-            include: {association: 'suas_atividades'}
-        })
-
-        return evento.suas_atividades
-    },*/
-
     async createAtividade(req, res){
         const {evento_id} = req.params
 
-        const {ministrante_id, nome, data, tipo_atividade, paga, valor} = req.body
-
+        const {nome, data, hora_inicio, duracao, tipo_atividade, carga_horaria, vagas, paga, valor} = req.body
+        console.log(nome, data, hora_inicio, duracao, tipo_atividade, carga_horaria, vagas, paga, valor)
         const evento = await Eventos.findByPk(evento_id)
+        console.log(evento)
 
         if(!evento){
             return res.send('error')
         }
 
-        const atividade = await Atividades.create({ministrante_id, nome, data, tipo_atividade, paga, valor, evento_id})
+        const atividade = await Atividades.create({nome, data, tipo_atividade, paga, valor, evento_id})
         return res.json(atividade)
     }
 
