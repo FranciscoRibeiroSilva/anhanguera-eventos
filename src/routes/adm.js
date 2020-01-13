@@ -36,7 +36,7 @@ router.post('/adicionar/atividade/:evento_id/', AtividadeController.createAtivid
 //router.get('/adicionar/ministrante/:id_evento', PaginasController.formMinistrantes)
 //router.post('/adicionar/ministrante/:id_evento/', PaginasController.formMinistrantes)
 
-router.get('/gerencia/cupons/:evento_id', PaginasController.gerenciaCupons)
+router.get('/gerenciar/cupons/:evento_id', PaginasController.gerenciaCupons)
 router.get('/adicionar/cupons/:evento_id', PaginasController.formCupon)
 router.post('/adicionar/cupons/:evento_id/', CuponsController.createCupons)
 
