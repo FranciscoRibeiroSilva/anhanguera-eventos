@@ -14,10 +14,10 @@
 
                 <div class="mt-5">
 
-                    <a href="/adicionar/ministrante"><button class="btn btn-outline-secondary ">Adicionar
+                    <a href="/adicionar/ministrante/{{evento.id}}"><button class="btn btn-outline-secondary ">Adicionar
                             ministrante</button></a>
 
-                    {{#each listaMinistrantes}}
+                    {{#each evento.seus_ministrantes}}
 
                     <div class="card mt-2">
                         <div class="card-body fundo">
@@ -26,6 +26,7 @@
                                 Nome: {{nome}}<br>
                                 E-mail: {{email}}<br>
                                 Telefone: {{telefone}}<br>
+                                Papel: {{papel}}<br>
                             </h6>
 
                         </div>

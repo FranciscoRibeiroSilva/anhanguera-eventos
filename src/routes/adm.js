@@ -30,12 +30,15 @@ router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
 
 router.get('/adicionar/atividade/:id', PaginasController.formAtividade)
 router.post('/adicionar/atividade/:evento_id/', AtividadeController.createAtividade)
-
 router.get('/gerencia/atividades/:id', PaginasController.gerenciaAtividades)
+
 router.get('/gerencia/cupons/:id', PaginasController.gerenciaCupons)
-router.get('/gerencia/ministrantes/:id', PaginasController.gerenciaMinistrante)
+
 router.get('/gerenciar/usuarios/:id', PaginasController.listaUsuarios)
 
+router.get('/adicionar/ministrante/:id', PaginasController.formMinistrantes)
+router.post('/adicionar/ministrante/:evento_id/', MinistranteController.createMinistrante)
+router.get('/gerencia/ministrantes/:id', PaginasController.gerenciaMinistrante)
 
 router.get('/lista/adms', PaginasController.listaAdms)
 router.get('/loginUser', PaginasController.loginUsuario)
@@ -43,7 +46,7 @@ router.get('/formUser', PaginasController.formParticipante)
 router.post('/authen', ValidationController.validSession)
 
 router.get('/editar/atividade', PaginasController.formModAtividade)
-router.get('/adicionar/ministrante', PaginasController.formMinistrantes)
+
 router.get('/adicionar/cupons', PaginasController.formCupon)
 router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
