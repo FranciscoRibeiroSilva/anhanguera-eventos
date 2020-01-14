@@ -2,35 +2,88 @@
 const passport = require('passport')
 const Administradores = require('../models/Administradores')
 module.exports = {
-    validSession(req, res, next){
+    validSession(req, res, next) {
         passport.authenticate('local', {
             successRedirect: '/homepage',
             failureRedirect: '/login',
             failureFlash: true
         })(req, res, next)
     },
-    validSessionP(req, res, next){
-        passport.authenticate('local',{
+    validSessionP(req, res, next) {
+        passport.authenticate('local', {
             successRedirect: 'participante/homepage',
             failureRedirect: 'participante/login',
             failureFlash: true
         })(req, res, next)
     },
 
-    verificaFormLogin(req, res, next){
+    verificaFormLogin(req, res, next) {
         var erros = []
-        if(!req.body.email||typeof req.body.email == undefined || req.body.email == null || req.body.email.length < 8){
-            erros.push({texto: "Email inválido"})
+        if (!req.body.email || typeof req.body.email == undefined || req.body.email == null || req.body.email.length < 8) {
+            erros.push({ texto: "Email inválido" })
             req.flash('error_msg', "Email inválido ")
         }
-        if(!req.body.senha|| typeof req.body.senha == undefined || req.body.senha == null || req.body.senha.length < 7){
-            erros.push({texto: "Senha inválida"})
+        if (!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null || req.body.senha.length < 7) {
+            erros.push({ texto: "Senha inválida" })
             req.flash('error_msg', "Senha inválido ")
         }
-        if(erros.length <=0){
+        if (erros.length <= 0) {
             return next()
         }
         res.redirect('/login')
+    },
+    verificaFormAtividade(req, res, next) {
+        var erros = []
+        if (!req.body.nome ||
+            typeof req.body.nome == undefined ||
+            req.body.nome == null ||
+            req.body.nome.length < 2) {
+            erros.push({ texto: "Nome inválido" })
+            req.flash('error_msg', "Nome inválido ")
+        }
+
+        if (!req.body.data ||
+            typeof req.body.data == undefined ||
+            req.body.data == null) {
+            erros.push({ texto: "Data inválida" })
+            req.flash('error_msg', "Data inválido ")
+        }
+
+        if (!req.body.tipo ||
+            typeof req.body.tipo == undefined ||
+            req.body.tipo == null ||
+            req.body.tipo == "--Atividade--") {
+            erros.push({ texto: "Tipo inválida" })
+            req.flash('error_msg', "Tipo inválido ")
+        }
+
+        if (!req.body.inscricao ||
+            typeof req.body.inscricao == undefined ||
+            req.body.inscricao == null ||
+            req.body.inscricao == "--Tipo--") {
+            erros.push({ texto: "Inscrição inválida" })
+            req.flash('error_msg', "Inscrição inválido ")
+        }
+
+        if(!req.body.vagas ||
+            typeof req.body.vagas == undefined ||
+            req.body.vagas == null||
+            req.body.vagas.length<2){
+                erros.push({texto: "Número de participantes inválido"})
+                req.flash('error_msg', "Número de participantes inválido")
+        }
+        if(!req.body.valor ||
+            typeof req.body.valor == undefined ||
+            req.body.valor == null||
+            req.body.valor.length<2){
+                erros.push({texto: "Valor inválido"})
+                req.flash('error_msg', "Valor inválido")
+            }
+
+        if (erros.length <= 0) {
+            return next()
+        }
+        res.redirect('/adicionar/atividades/'+evento.id)
     }
     /*verificAdm(nome, email, senha, estado){
 

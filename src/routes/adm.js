@@ -30,7 +30,7 @@ router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
 
 router.get('/gerenciar/atividades/:evento_id', PaginasController.gerenciaAtividades)
 router.get('/adicionar/atividades/:evento_id', PaginasController.formAtividade)
-router.post('/adicionar/atividades/:evento_id/', AtividadeController.createAtividade)
+router.post('/adicionar/atividades/:evento_id/', ValidationController.verificaFormAtividade, AtividadeController.createAtividade)
 
 router.get('/gerenciar/cupons/:evento_id', PaginasController.gerenciaCupons)
 router.get('/adicionar/cupons/:evento_id', PaginasController.formCupons)

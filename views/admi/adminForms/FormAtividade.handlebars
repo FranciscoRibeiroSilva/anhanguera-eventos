@@ -1,178 +1,118 @@
 {{>_navbar}}
-<br><br>
-<div id="FormulariosAdm">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto">
-                    <!-- ALERTA CASO OS DADOS ESTEJAM FALTANDO-->
-                    <br>
-                    {{#each erros}}
-                    <div class="alert alert-danger">{{texto}}</div>
-                    {{else}}
-                    {{/each}}
-                    <!-- ALERTA CASO TENHA MUITOS DADOS FALTANDO-->
-                    {{#each err}}
-                    <div class="alert alert-danger">{{texto}}</div>
-                    {{else}}
-                    {{/each}}
-                    <!-- ALERTA CASO A DATA,SALA,HORA JÁ EXISTAM-->
-                    {{#each dadosJaExiste}}
-                    <div class="alert alert-danger">{{texto}}</div>
-                    {{else}}
-                    {{/each}}
 
-                    <table width="100%">
-                        <center>
-                            <div class="form-grup">
-                                <form action='/adicionar/atividades/{{evento.id}}/' , method="POST">
-                                    <center class="mt-5">
-                                        <h1>ADICIONAR ATIVIDADES</h1><br>
-                                    </center>
-                                    <tr>
-                                        <td>
-                                            <!--ATIVIDADE-->
-                                            <label for="nome: "> Atividade: </label>
-                                            <input class="form-control" type="text" id="nome" name="nome"
-                                                placeholder="Nome da atividade">
-                                            <!--TIPO DE ATIVIDADE-->
-                                            <label for="tipo">Tipo:</label>
-                                            <select class="form-control" name="tipo_atividade">
-                                                <option>--Atividade--</option>
-                                                <option value="Palestra"> Palestra </option>
-                                                <option value="Curso"> Curso </option>
-                                                <option value="Aula"> Aula </option>
-                                                <option value="Conferência"> Conferência </option>
-                                                <option value="Mesa-Redonda"> Mesa-Redonda </option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <!--SELECIONAR A DATA-->
-                                            <label for="data">Data:</label>
-                                            <input class="form-control" id="date" type="date" name="data">
-                                        </td>
+<br>
+<center class="mt-5">
+    <h1>ADICIONAR ATIVIDADES</h1>
+</center>
 
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!--HORARIO DE INICIO-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-sm-12 col-md-7 col-lg-8 m-auto fundo espaco01">
+            <!-- ALERTA CASO OS DADOS ESTEJAM FALTANDO-->
+            <!--<br>
+            {{#each erros}}
+            <div class="alert alert-danger">{{texto}}</div>
+            {{else}}
+            {{/each}}
+            <!-- ALERTA CASO TENHA MUITOS DADOS FALTANDO-->
+            <!--{{#each err}}
+            <div class="alert alert-danger">{{texto}}</div>
+            {{else}}
+            {{/each}}
+            <!-- ALERTA CASO A DATA,SALA,HORA JÁ EXISTAM-->
+            <!--{{#each dadosJaExiste}}
+            <div class="alert alert-danger">{{texto}}</div>
+            {{else}}
+            {{/each}}
+            -->
+            <div class="form-grup">
+                <form action='/adicionar/atividades/{{evento.id}}/' , method="POST">
+                    <div>
+                        <!--ATIVIDADE-->
+                        <label for="nome: "> Atividade: </label>
+                        <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome da atividade">
+                    </div>
 
-                                            <!--HORARIO DO TERMINO-->
+                    <div>
+                        <!--TIPO DE ATIVIDADE-->
+                        <label for="tipo">Tipo:</label>
+                        <select class="form-control" name="tipo_atividade">
+                            <option>--Atividade--</option>
+                            <option value="Palestra"> Palestra </option>
+                            <option value="Curso"> Curso </option>
+                            <option value="Aula"> Aula </option>
+                            <option value="Conferência"> Conferência </option>
+                            <option value="Mesa-Redonda"> Mesa-Redonda </option>
+                        </select>
+                    </div>
 
-                                        </td>
+                    <div>
+                        <!--SELECIONAR A DATA-->
+                        <label for="data">Data:</label>
+                        <input class="form-control" id="date" type="date" name="data">
+                    </div>
 
-                                        <td>
-                                            
-                                
-                                        </td>
-                                    </tr>
+                    <div>
+                        <!--TIPO DE INSCRIÇÃO-->
+                        <label for="inscricao">Inscrição:</label>
+                        <select class="form-control" name="paga" id="paga">
+                            <option>--Tipo--</option>
+                            <option value="false">Gratuita</option>
+                            <option value="true">Paga</option>
+                        </select>
+                    </div>
 
-                                    <tr>
-                                        <td>
-                                            <!--TIPO DE INSCRIÇÃO-->
-                                            <label for="inscricao">Inscrição:</label>
-                                            <select class="form-control" name="paga" id="paga">
-                                                <option>--Tipo--</option>
-                                                <option value="false">Gratuita</option>
-                                                <option value="true">Paga</option>
-                                            </select>
+                    <!--
+                    <label for="ministrante">Ministrante:<label>
+                    <select class="form-control" name="ministrante" id="ministrante">
+                        <option>ministrante</option>
+                        {{# each evento.seus_ministrantes}}
+                        <option value="{{nome}}">{{nome}}</option>
+                        {{/each}}
+                    </select>
+                    -->
 
-                                                
-                                            <!--label for="ministrante">Inscrição:</--!label>
-                                            <select class="form-control" name="ministrante" id="ministrante">
-                                                <option>ministrante</option>
-                                                {{# each evento.seus_ministrantes}}
-                                                <option value="{{nome}}">{{nome}}</option>
-                                                {{/each}}
-                                            </select-->
+                    <div>
+                        <!--NUMERO DE PARTICIPANTES-->
+                        <label for="numeroDePartic">Participantes:</label>
+                        <input class="form-control" type="number" id="vagas" name="vagas" min="0" max="1000"
+                            placeholder="Número">
+                    </div>
 
-                                            <!--NUMERO DE PARTICIPANTES-->
-                                            <label for="numeroDePartic">Participantes:</label>
-                                            <input class="form-control" type="number" id="vagas"
-                                                name="vagas" min="0" max="1000" placeholder="Número">
-                                        </td>
-                                        <td>
-                                            <!--VALOR DA INSCRIÇÃO-->
-                                            <label for="valor">R$: </label>
-                                            <input class="form-control" type="text" id="valor" name="valor"
-                                                placeholder="R$ 00,00" disabled>
-                                        </td>
-                                    </tr>
+                    <div>
+                        <!--VALOR DA INSCRIÇÃO-->
+                        <label for="valor">R$: </label>
+                        <input class="form-control" type="text" id="valor" name="valor" placeholder="R$ 00,00" disabled>
+                    </div>
 
-                                    <table width="100%">
-                                        <tr>
-                                            <script>
-                                                var select = document.getElementById('paga'),
-                                                    input1 = document.getElementById('valor'),
-                                                    tipo1;
-                                                // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
-                                                select.addEventListener('change', function () {
-                                                    tipo1 = this.value;
-                                                    if (tipo1 == 'true') {
-                                                        input1.removeAttribute('disabled', false);
-                                                    } else {
-                                                        input1.setAttribute('disabled', false);
-                                                        input1.value = null;
-                                                    }
-                                                });
-                                            </script>
-                                        </tr>
-                                    </table>
 
-                                    <center>
-                                        <br>
-                                        <button class="btn btn-outline-secondary" type="submit"> Concluir </button>
-                                    </center>
+                    <script>
+                        var select = document.getElementById('paga'),
+                            input1 = document.getElementById('valor'),
+                            tipo1;
+                        // CONDIÇÃO PARA DESBLOQUEAR O CAMPO DINHEIRO
+                        select.addEventListener('change', function () {
+                            tipo1 = this.value;
+                            if (tipo1 == 'true') {
+                                input1.removeAttribute('disabled', false);
+                            } else {
+                                input1.setAttribute('disabled', false);
+                                input1.value = null;
+                            }
+                        });
+                    </script>
 
-                                </form>
-                            </div>
-                        </center>
-
-                    </form>
-                </div>
-            </table>
+                    <center>
+                        <br>
+                        <button class="btn btn-outline-secondary" type="submit"> Concluir </button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+            {{>_footer1}}
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-<!--
-<br>
-<center>
-    <h1>DADOS BANCÁRIOS</h1>
-</center>
-<td>
-    <label for="numConta"> Conta: </label>
-    <input class="form-control" type="text" id="numConta" name="numConta"
-        maxlength="10" placeholder="00000000-0" disabled>
-    
-    <label for="banco"> Banco: </label>
-    <input class="form-control" type="text" id="banco" name="banco"
-        placeholder="Nome do Banco" disabled>
-
-</td>
-<td>
-    
-    <label for="agencia"> Agência: </label>
-    <input class="form-control" type="text" id="agencia" name="agencia"
-        placeholder="0000" maxlength="4" disabled>
-
-    
-    <label for="cpf"> CPF: </label>
-    <input class="form-control" type="text" id="cpf" name="cpf"
-        placeholder="000.000.000-00" maxlength="14" disabled>
-</td>
--->
- <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
-                {{>_footer1}}
-            </div>
-        </div>
-
-    </div>
