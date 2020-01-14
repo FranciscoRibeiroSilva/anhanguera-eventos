@@ -38,7 +38,7 @@ router.post('/adicionar/cupons/:evento_id/', ValidationController.verificaFormCu
 
 router.get('/gerenciar/ministrantes/:evento_id', PaginasController.gerenciaMinistrante)
 router.get('/adicionar/ministrantes/:evento_id', PaginasController.formMinistrantes)
-router.post('/adicionar/ministrantes/:evento_id/', MinistranteController.createMinistrante)
+router.post('/adicionar/ministrantes/:evento_id/', ValidationController.verificaFormMinistrante, MinistranteController.createMinistrante)
 
 
 router.get('/editar/atividade', PaginasController.formModAtividade)
