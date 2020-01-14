@@ -24,7 +24,7 @@ router.post('/authen', ValidationController.verificaFormLogin, ValidationControl
 
 router.get('/homepage', PaginasController.homepage)
 router.get('/adicionar/evento', PaginasController.formEvento)
-router.post('/adicionar/evento/', EventoController.createEvento)
+router.post('/adicionar/evento/', ValidationController.verificaFormEvento, EventoController.createEvento)
 
 router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
 
