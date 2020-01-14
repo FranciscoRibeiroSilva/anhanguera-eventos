@@ -32,6 +32,33 @@ module.exports = {
         }
         res.redirect('/login')
     },
+    
+    verificaFormCupom(req, res, next) {
+        var erros = []
+        if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo < 4) {
+            erros.push({ texto: "Codigo inválido" })
+            req.flash('error_msg', "Codigo inválido ")
+        }
+        
+        if (req.body.desconto == "O") {
+            erros.push({ texto: "Desconto inválida" })
+            req.flash('error_msg', "Desconto inválido ")
+        }
+        
+        if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null || req.body.quantidade < 4) {
+            erros.push({ texto: "Quantidade inválido" })
+            req.flash('error_msg', "Quantidade inválido ")
+        }
+        if (!req.body.validade || typeof req.body.validade == undefined || req.body.validade == null) {
+            erros.push({ texto: "Data inválido" })
+            req.flash('error_msg', "Data inválido ")
+        }
+        if (erros.length <= 0) {
+            return next()
+        }
+        res.redirect('/adicionar/cupons/'+evento.id)
+    },
+
     verificaFormAtividade(req, res, next) {
         var erros = []
         if (!req.body.nome ||
@@ -41,30 +68,23 @@ module.exports = {
             erros.push({ texto: "Nome inválido" })
             req.flash('error_msg', "Nome inválido ")
         }
-
         if (!req.body.data ||
             typeof req.body.data == undefined ||
             req.body.data == null) {
             erros.push({ texto: "Data inválida" })
             req.flash('error_msg', "Data inválido ")
         }
-
-        if (!req.body.tipo ||
-            typeof req.body.tipo == undefined ||
-            req.body.tipo == null ||
-            req.body.tipo == "--Atividade--") {
+        
+        if (req.body.tipo == "A") {
             erros.push({ texto: "Tipo inválida" })
             req.flash('error_msg', "Tipo inválido ")
         }
-
-        if (!req.body.inscricao ||
-            typeof req.body.inscricao == undefined ||
-            req.body.inscricao == null ||
-            req.body.inscricao == "--Tipo--") {
+        
+        if (req.body.inscricao == "T") {
             erros.push({ texto: "Inscrição inválida" })
             req.flash('error_msg', "Inscrição inválido ")
         }
-
+        
         if(!req.body.vagas ||
             typeof req.body.vagas == undefined ||
             req.body.vagas == null||
