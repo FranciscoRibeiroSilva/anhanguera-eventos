@@ -8,10 +8,6 @@
 
 /*CODIGO ADCIONAL*/
 
-.div {
-    border: medium;
-}
-
 
 /*FORMATAÇÃO NO NAVBAR(BARRA DE NAVEGAÇÃO)*/
 
@@ -29,12 +25,16 @@ nav.navbar-transparente {
 }
 
 .margem-txt-navbar {
-    margin-top: -15px;
-    margin-left: 5px;
+    margin-left: 10px;
+    padding-left: 10px;
 }
 
 
 /*FORMATAÇÃO DO BODY DA PAGINA*/
+
+.letrasespac {
+    letter-spacing: 0.06em;
+}
 
 .formatacao {
     margin: 2% 25% 0% 25%;
@@ -4833,12 +4833,12 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-brand {
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(165, 48, 56, 0.8);
 }
 
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:focus {
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(165, 48, 56, 0.8);
 }
 
 

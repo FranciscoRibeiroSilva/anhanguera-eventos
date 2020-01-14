@@ -17,7 +17,7 @@ app.use(express.json)
 router.get('/testeTetas', PaginasController.testeTetas)
 
 router.get('/cadastroAdm', PaginasController.formAdm)
-router.post('/registUser', AdmController.createAdm)
+router.post('/registUser',ValidationController.verificaCadastroAdm, AdmController.createAdm)
 
 router.get('/login', PaginasController.login)
 router.post('/authen', ValidationController.verificaFormLogin, ValidationController.validSession)
@@ -27,21 +27,21 @@ router.post('/inscrever/evento/:evento_id', EventoController.inscreverEvento)
 
 router.get('/homepage', PaginasController.homepage)
 router.get('/adicionar/evento', PaginasController.formEvento)
-router.post('/adicionar/evento/', EventoController.createEvento)
+router.post('/adicionar/evento/', ValidationController.verificaFormEvento, EventoController.createEvento)
 
 router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
 
 router.get('/gerenciar/atividades/:evento_id', PaginasController.gerenciaAtividades)
 router.get('/adicionar/atividades/:evento_id', PaginasController.formAtividade)
-router.post('/adicionar/atividades/:evento_id/', AtividadeController.createAtividade)
+router.post('/adicionar/atividades/:evento_id/', ValidationController.verificaFormAtividade, AtividadeController.createAtividade)
 
 router.get('/gerenciar/cupons/:evento_id', PaginasController.gerenciaCupons)
 router.get('/adicionar/cupons/:evento_id', PaginasController.formCupons)
-router.post('/adicionar/cupons/:evento_id/', CuponsController.createCupons)
+router.post('/adicionar/cupons/:evento_id/', ValidationController.verificaFormCupom, CuponsController.createCupons)
 
 router.get('/gerenciar/ministrantes/:evento_id', PaginasController.gerenciaMinistrante)
 router.get('/adicionar/ministrantes/:evento_id', PaginasController.formMinistrantes)
-router.post('/adicionar/ministrantes/:evento_id/', MinistranteController.createMinistrante)
+router.post('/adicionar/ministrantes/:evento_id/', ValidationController.verificaFormMinistrante, MinistranteController.createMinistrante)
 
 
 router.get('/editar/atividade', PaginasController.formModAtividade)
