@@ -18,7 +18,7 @@ class Atividades extends Model{
         })
     }
     static associate(models){
-        this.belongsToMany(models.Participantes, {foreignKey: 'atividade_id', through: 'atividades_participantes', as: 'suas_atividades'})
+        this.belongsToMany(models.Administradores, {foreignKey: 'atividade_id', through: 'atividades_administradores', as: 'seus_participantes'})
         this.belongsTo(models.Eventos, {foreignKey: 'evento_id', as: 'evento'})
     }
 }

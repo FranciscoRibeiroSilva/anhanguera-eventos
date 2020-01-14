@@ -22,6 +22,9 @@ router.post('/registUser', AdmController.createAdm)
 router.get('/login', PaginasController.login)
 router.post('/authen', ValidationController.verificaFormLogin, ValidationController.validSession)
 
+router.get('/participante/eventos', PaginasController.listaEventos)
+router.post('/inscrever/evento/:evento_id', EventoController.inscreverEvento)
+
 router.get('/homepage', PaginasController.homepage)
 router.get('/adicionar/evento', PaginasController.formEvento)
 router.post('/adicionar/evento/', EventoController.createEvento)

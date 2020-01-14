@@ -32,7 +32,7 @@ module.exports = {
     },
 
     async gerenciaAtividades(req, res) {
-        
+
         const { evento_id } = req.params
         evento = await EventoController.suasAtividades(evento_id)
         res.render('admi/gerenciaDeAtividades', { evento })
@@ -66,11 +66,6 @@ module.exports = {
     },
     
     
-    async listaAdms(req, res){
-        const adms = await Administradores.findAll()
-        res.render('admi/listarAdms', { adms })
-    },
-    
     
 
 
@@ -96,23 +91,11 @@ module.exports = {
         res.redirect('/login')
     },
 
-
     //participantes
-    formCadastroPartipante(req, res){
-        res.render('user/userForms/FormParticipante')
+    async listaEventos(req, res){
+        const evento = await EventoController.allEvento()
+        res.render('admi/allEvento',{evento})
     },
-    loginParticipante(req, res) {
-        res.render('user/loginUsuario')
-    },
-    participanteHomepage(req, res){
-        res.render('user/indexPar')
-    },
-
-
-
-
-
-
 
     //inicial
     inicial(req, res) {

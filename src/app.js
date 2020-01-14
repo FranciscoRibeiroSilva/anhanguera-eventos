@@ -10,8 +10,6 @@ const bodyParser = require('body-parser')
 
 //Arquivos de rota
 const adm = require('./routes/adm')
-const user = require('./routes/user')
-//const user = require('../routes/user')
 
 //Path
 const path = require("path")
@@ -69,10 +67,7 @@ app.get('/', (req, res) => {
 })
 //Rotas dos adm's
 app.use(adm)
-app.use(user)
  
-//Rotas do usuario
-
 //Outros
 const PORT = process.env.PORT || 8081 
 app.listen(PORT, () => {
