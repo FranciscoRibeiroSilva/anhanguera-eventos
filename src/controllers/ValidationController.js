@@ -73,7 +73,7 @@ module.exports = {
         }
         if (!req.body.validade || typeof req.body.validade == undefined || req.body.validade == null) {
             erros.push({ texto: "Data inválida" })
-            req.flash('error_msg', "Data inválid")
+            req.flash('error_msg', "Data inválida")
         }
         if (erros.length <= 0) {
             return next()
@@ -114,12 +114,14 @@ module.exports = {
             erros.push({ texto: "Número de participantes inválido" })
             req.flash('error_msg', "Número de participantes inválido")
         }
-        if (!req.body.valor ||
-            typeof req.body.valor == undefined ||
-            req.body.valor == null ||
-            req.body.valor.length < 2) {
-            erros.push({ texto: "Valor inválido" })
-            req.flash('error_msg', "Valor inválido")
+        if (req.body.paga == 'true') {
+            if (!req.body.valor ||
+                typeof req.body.valor == undefined ||
+                req.body.valor == null ||
+                req.body.valor.length < 2) {
+                erros.push({ texto: "Valor inválido" })
+                req.flash('error_msg', "Valor inválido")
+            }
         }
 
         if (erros.length <= 0) {
