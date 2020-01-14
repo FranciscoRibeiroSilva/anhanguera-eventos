@@ -41,17 +41,17 @@ module.exports = {
         }
         
         if (req.body.desconto == "O") {
-            erros.push({ texto: "Desconto inválida" })
+            erros.push({ texto: "Desconto inválido" })
             req.flash('error_msg', "Desconto inválido ")
         }
         
         if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null || req.body.quantidade < 4) {
-            erros.push({ texto: "Quantidade inválido" })
-            req.flash('error_msg', "Quantidade inválido ")
+            erros.push({ texto: "Quantidade de cupons inválido" })
+            req.flash('error_msg', "Quantidade de cupons inválido ")
         }
         if (!req.body.validade || typeof req.body.validade == undefined || req.body.validade == null) {
-            erros.push({ texto: "Data inválido" })
-            req.flash('error_msg', "Data inválido ")
+            erros.push({ texto: "Data inválida" })
+            req.flash('error_msg', "Data inválid")
         }
         if (erros.length <= 0) {
             return next()
@@ -65,8 +65,8 @@ module.exports = {
             typeof req.body.nome == undefined ||
             req.body.nome == null ||
             req.body.nome.length < 2) {
-            erros.push({ texto: "Nome inválido" })
-            req.flash('error_msg', "Nome inválido ")
+            erros.push({ texto: "Nome da atividade inválida" })
+            req.flash('error_msg', "Nome da atividade inválida")
         }
         if (!req.body.data ||
             typeof req.body.data == undefined ||
@@ -75,14 +75,14 @@ module.exports = {
             req.flash('error_msg', "Data inválido ")
         }
         
-        if (req.body.tipo == "A") {
-            erros.push({ texto: "Tipo inválida" })
-            req.flash('error_msg', "Tipo inválido ")
+        if (req.body.tipo_atividade == "A") {
+            erros.push({ texto: "Tipo da atividade inválida" })
+            req.flash('error_msg', "Tipo da atividade inválida ")
         }
         
-        if (req.body.inscricao == "T") {
-            erros.push({ texto: "Inscrição inválida" })
-            req.flash('error_msg', "Inscrição inválido ")
+        if (req.body.paga == "T") {
+            erros.push({ texto: "Tipo de inscrição inválida" })
+            req.flash('error_msg', "Tipo de inscrição inválida ")
         }
         
         if(!req.body.vagas ||
