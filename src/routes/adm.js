@@ -17,7 +17,7 @@ app.use(express.json)
 router.get('/testeTetas', PaginasController.testeTetas)
 
 router.get('/cadastroAdm', PaginasController.formAdm)
-router.post('/registUser', AdmController.createAdm)
+router.post('/registUser',ValidationController.verificaCadastroAdm, AdmController.createAdm)
 
 router.get('/login', PaginasController.login)
 router.post('/authen', ValidationController.verificaFormLogin, ValidationController.validSession)
