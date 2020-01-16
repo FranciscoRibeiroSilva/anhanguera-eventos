@@ -17,6 +17,16 @@ module.exports = {
         }
         req.flash('success_msg', 'Atividade adicionada')
         res.redirect('/gerenciar/atividades/'+evento_id)
-    }
+    },
+    async deleteAtividade(req, res){
+        const {id} = req.params
+        Atividades.destroy({where: {id}}).then(()=>{
+            req.flash('success_msg', 'Atividade removido')
+            res.redirect('/homepage')
+        }).catch((err)=>{
+            req.flash('error_msg', 'Erro ao atividade evento')
+            res.redirect('/homepage')
+        })
+    },
 
 }

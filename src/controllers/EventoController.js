@@ -23,6 +23,17 @@ module.exports = {
         req.flash('success_msg', 'Feito meu consagrado!')
         res.redirect('/homepage')
    },
+   async deleteEvento(req, res){
+       const {id} = req.params
+       Eventos.destroy({where: {id}}).then(()=>{
+           req.flash('success_msg', 'Evento removido')
+           res.redirect('/homepage')
+       }).catch((err)=>{
+           req.flash('error_msg', 'Erro ao remover evento')
+           res.redirect('/homepage')
+       })
+   },
+
     async allEvento(){
         const evento = await Eventos.findAll()
         if(!evento){
@@ -80,7 +91,7 @@ module.exports = {
             res.redirect('/participante/eventos')
         }
 
-        await administrador.addEvento(evento)
+        await administrador.addEventos(evento)
         res.send('ok')
     }
 }

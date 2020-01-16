@@ -28,21 +28,26 @@ router.post('/inscrever/evento/:evento_id', EventoController.inscreverEvento)
 router.get('/homepage', PaginasController.homepage)
 router.get('/adicionar/evento', PaginasController.formEvento)
 router.post('/adicionar/evento/', ValidationController.verificaFormEvento, EventoController.createEvento)
+router.get('/excluir/evento/:id', EventoController.deleteEvento)
 
 router.get('/gerenciar/evento/:id', PaginasController.gerenciaEvento)
 
 router.get('/gerenciar/atividades/:evento_id', PaginasController.gerenciaAtividades)
 router.get('/adicionar/atividades/:evento_id', PaginasController.formAtividade)
 router.post('/adicionar/atividades/:evento_id/', ValidationController.verificaFormAtividade, AtividadeController.createAtividade)
+router.get('/excluir/atividade/:id', AtividadeController.deleteAtividade)
 
 router.get('/gerenciar/cupons/:evento_id', PaginasController.gerenciaCupons)
 router.get('/adicionar/cupons/:evento_id', PaginasController.formCupons)
 router.post('/adicionar/cupons/:evento_id/', ValidationController.verificaFormCupom, CuponsController.createCupons)
 
+
 router.get('/gerenciar/ministrantes/:evento_id', PaginasController.gerenciaMinistrante)
 router.get('/adicionar/ministrantes/:evento_id', PaginasController.formMinistrantes)
 router.post('/adicionar/ministrantes/:evento_id/', ValidationController.verificaFormMinistrante, MinistranteController.createMinistrante)
 
+
+//router.get('/certificado/:atividade_id', PaginasController)
 
 router.get('/editar/atividade', PaginasController.formModAtividade)
 

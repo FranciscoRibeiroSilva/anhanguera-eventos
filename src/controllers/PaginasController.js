@@ -1,4 +1,5 @@
 const Administradores = require('../models/Administradores')
+const Atividades = require('../models/Atividades')
 const EventoController = require('../controllers/EventoController')
 
 module.exports = {
@@ -89,6 +90,16 @@ module.exports = {
         req.logout()
         req.flash('error_msg', 'deslogado')
         res.redirect('/login')
+    },
+    async geraCertificado(req, res){
+        const administrador = req.user.id
+        const {atividade_id} = req.params
+
+        const atividade = await Atividades.findByPk(atividade_id, {
+            include :{ association: 'seus_participantes'}
+        })
+
+        //req.render('ksjsjsjsjs',{atividade})
     },
 
     //participantes
