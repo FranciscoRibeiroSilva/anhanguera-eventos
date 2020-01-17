@@ -42,7 +42,7 @@ module.exports = {
             erros.push({ texto: " Email" })
             req.flash('error_msg', " Email")
         }
-        if (!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null || req.body.senha.length < 7) {
+        if (!req.body.senha || typeof req.body.senha == undefined || req.body.senha == null || req.body.senha.length < 7 || req.body.senha != req.body.senha2) {
             erros.push({ texto: " Senha" })
             req.flash('error_msg', " Senha")
         }
@@ -67,7 +67,7 @@ module.exports = {
             req.flash('error_msg', " Desconto")
         }
 
-        if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null || req.body.quantidade < 1 ||  req.body.quantidade.length < 1) {
+        if (!req.body.quantidade || typeof req.body.quantidade == undefined || req.body.quantidade == null || req.body.quantidade < 1 || req.body.quantidade.length < 1) {
             erros.push({ texto: " Quantidade de Cupons" })
             req.flash('error_msg', " Quantidade de Cupons")
         }
@@ -130,47 +130,47 @@ module.exports = {
         res.redirect('/adicionar/atividades/' + evento.id)
     },
 
-    verificaFormMinistrante(req, res, next){
+    verificaFormMinistrante(req, res, next) {
         var erros = []
-        if(!req.body.nome||typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2){
-            erros.push({texto: " Nome"})
+        if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 2) {
+            erros.push({ texto: " Nome" })
             req.flash('error_msg', " Nome")
         }
-        if(!req.body.contato|| typeof req.body.contato == undefined || req.body.contato == null || req.body.contato.length < 8){
-            erros.push({texto: " Telefone"})
+        if (!req.body.contato || typeof req.body.contato == undefined || req.body.contato == null || req.body.contato.length < 8) {
+            erros.push({ texto: " Telefone" })
             req.flash('error_msg', " Telefone")
         }
-        if(!req.body.email||typeof req.body.email == undefined || req.body.email == null || req.body.email.length < 8){
-            erros.push({texto: " Email"})
+        if (!req.body.email || typeof req.body.email == undefined || req.body.email == null || req.body.email.length < 8) {
+            erros.push({ texto: " Email" })
             req.flash('error_msg', " Email")
         }
-        if(!req.body.papel||typeof req.body.papel == undefined || req.body.papel == null || req.body.papel.length < 2){
-            erros.push({texto: " Formação"})
+        if (!req.body.papel || typeof req.body.papel == undefined || req.body.papel == null || req.body.papel.length < 2) {
+            erros.push({ texto: " Formação" })
             req.flash('error_msg', " Formação")
         }
-        
-        if(erros.length <=0){
+
+        if (erros.length <= 0) {
             return next()
         }
         res.redirect('/adicionar/ministrantes/' + evento.id)
     },
 
-    verificaFormEvento(req, res, next){
+    verificaFormEvento(req, res, next) {
         var erros = []
-        if(!req.body.nome||typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 3){
-            erros.push({texto: " Nome do Evento"})
+        if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null || req.body.nome.length < 3) {
+            erros.push({ texto: " Nome do Evento" })
             req.flash('error_msg', " Nome do Evento")
         }
-        if(!req.body.participantes_esperados|| typeof req.body.participantes_esperados == undefined || req.body.participantes_esperados == null || req.body.participantes_esperados.length < 1 || req.body.participantes_esperados<1){
-            erros.push({texto: " Número de Participantes"})
+        if (!req.body.participantes_esperados || typeof req.body.participantes_esperados == undefined || req.body.participantes_esperados == null || req.body.participantes_esperados.length < 1 || req.body.participantes_esperados < 1) {
+            erros.push({ texto: " Número de Participantes" })
             req.flash('error_msg', " Número de Participantes")
         }
-        if(!req.body.quantidade_salas|| typeof req.body.quantidade_salas == undefined || req.body.quantidade_salas == null || req.body.quantidade_salas.length < 1 || req.body.quantidade_salas<1){
-            erros.push({texto: " Quantidade de Salas"})
+        if (!req.body.quantidade_salas || typeof req.body.quantidade_salas == undefined || req.body.quantidade_salas == null || req.body.quantidade_salas.length < 1 || req.body.quantidade_salas < 1) {
+            erros.push({ texto: " Quantidade de Salas" })
             req.flash('error_msg', " Quantidade de Salas")
         }
-        if(!req.body.local_evento||typeof req.body.local_evento == undefined || req.body.local_evento == null || req.body.local_evento.length < 3){
-            erros.push({texto: " Local do Evento"})
+        if (!req.body.local_evento || typeof req.body.local_evento == undefined || req.body.local_evento == null || req.body.local_evento.length < 3) {
+            erros.push({ texto: " Local do Evento" })
             req.flash('error_msg', " Local do Evento ")
         }
         if (!req.body.data_inicio || typeof req.body.data_inicio == undefined || req.body.data_inicio == null) {
@@ -185,15 +185,20 @@ module.exports = {
             erros.push({ texto: " Selecione Gratuito ou Pago" })
             req.flash('error_msg', " Selecione Gratuito ou Pago")
         }
-        /*if (req.body.pago == "Paga" & req.body.valor_evento <1) {
-            erros.push({ texto: "Informe o valor do evento" })
-            req.flash('error_msg', "Informe o valor do evento")
-        }*/
-        
-        if(erros.length <=0){
+        if (req.body.pago == 'true') {
+            if (!req.body.valorEvento ||
+                typeof req.body.valorEvento == undefined ||
+                req.body.valorEvento == null ||
+                req.body.valorEvento.length < 2) {
+                erros.push({ texto: " Valor" })
+                req.flash('error_msg', " Valor")
+            }
+        }
+
+        if (erros.length <= 0) {
             return next()
         }
-        res.redirect('/adicionar/evento/' + evento.id)
+        res.redirect('/adicionar/evento/')
     }
     /*verificAdm(nome, email, senha, estado){
 

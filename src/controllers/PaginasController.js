@@ -88,7 +88,7 @@ module.exports = {
     },
     logoutAdm(req, res) {
         req.logout()
-        req.flash('error_msg', 'deslogado')
+        req.flash('success_msg', 'Deslogado')
         res.redirect('/login')
     },
     async geraCertificado(req, res){
@@ -111,6 +111,11 @@ module.exports = {
     //inicial
     inicial(req, res) {
         res.render('inicial')
+    },
+
+    //termos
+    termos(req, res){
+        res.render('termosUso')
     }
 
 }

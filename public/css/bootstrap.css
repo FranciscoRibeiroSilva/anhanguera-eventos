@@ -59,12 +59,28 @@ nav.navbar-transparente {
 
 
 /*FORMATAÇÃO DOS FORMULARIOS DAS PAGINAS*/
+/*FORMATAÇÃO DO TERMO DE USO*/
+.alinhartexto{
+    text-align: justify;
+    font-size: 27.5px;
+}
+.fundoTermosDeUso{
+    height: 1150px;
+    background: url(../img/back2.PNG) no-repeat, 
+                url(../img/tumblr4.jpg);
+
+}
+.magens{
+    margin-top: auto;
+}
+/*FIM DA  FORMATAÇÃO DO TERMO DE USO*/
 
 .fundoFormAtividades {
     background-color: rgba(248, 249, 250, 0.5);
     border-radius: 10px;
     margin: -10px;
 }
+
 
 .fundo {
     background-color: rgba(248, 249, 250, 0.5);
