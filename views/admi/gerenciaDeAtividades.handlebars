@@ -9,29 +9,31 @@
                         <p> SUAS ATIVIDADE </p>
                     </h2>
                 </center>
-                    {{>_msg}}
-                <a href="/adicionar/atividades/{{evento.id}}"><button class="btn btn-outline-secondary">Criar Atividade</button></a>
+                <a href="/adicionar/atividades/{{evento.id}}"><button class="btn btn-outline-secondary">Criar
+                        Atividade</button></a>
 
-                    {{#each evento.suas_atividades}}
-                        <div class="card mt-2">
+                {{#each evento.suas_atividades}}
+                <div class="card mt-2">
                     <div class="card-body fundo">
 
                         <h3>{{nome}}</h3>
                         <h6>
-                            data de acontecimento: {{data}}<br>
-                            tipo de evento: {{tipo_atividade}} <br>
+                            Data de acontecimento: {{data}}<br>
+                            Tipo de evento: {{tipo_atividade}} <br>
                             {{#if paga}}
-                            valor: {{valor}}<br>
+                            Valor: {{valor}}<br>
                             {{else}}
-                            atividade gratuita
+                            Atividade gratuita
                             {{/if}}
                         </h6>
-                        <a href='/gerenciar/atividade/{{id}}'><button class="btn btn-outline-secondary">Gerencie esta atividade</button></a>
-                        <a href='/excluir/atividade/{{id}}'><button class="btn btn-outline-secondary">Remover atividade</button></a>
+                        <a href='/gerenciar/atividade/{{id}}'><button class="btn btn-outline-secondary">Gerencie esta
+                                atividade</button></a>
+                        <a href='/excluir/atividade/{{id}}'><button class="btn btn-outline-secondary">Remover
+                                atividade</button></a>
                     </div>
 
-                    </div>
-                    <!--div class="card mt-2 ">
+                </div>
+                <!--div class="card mt-2 ">
                         <div class="card-body fundo">
                             <nav class="navbar fundo justify-content-end">
                                 <h2 class="navbar-nav mr-auto margemAEsquerda">
@@ -79,16 +81,16 @@
 
                         </div>
                     </!div-->
-                    {{/each}}
-                </div>
+                {{/each}}
             </div>
         </div>
     </div>
 </div>
+</div>
 
 </div>
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
-                {{>_footer1}}
-        </div>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+        {{>_footer1}}
+    </div>
 </div>
