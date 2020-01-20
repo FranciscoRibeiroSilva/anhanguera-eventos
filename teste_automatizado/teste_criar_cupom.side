@@ -1,0 +1,461 @@
+{
+  "id": "4a1ae8ae-142b-4772-a8db-051dfac322f2",
+  "version": "2.0",
+  "name": "teste_criar_cupom",
+  "url": "http://localhost:8081/adicionar/cupons/10",
+  "tests": [{
+    "id": "1cb7dece-72fb-458b-a91e-c04854618a4d",
+    "name": "Untitled",
+    "commands": []
+  }, {
+    "id": "55d40400-ab04-4e15-898c-44fe56efd1ff",
+    "name": "teste_campos_vazios",
+    "commands": [{
+      "id": "3ed4875c-a0ca-4b9d-aa26-c6747ff96deb",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8081/adicionar/cupons/10",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "87464594-c829-4493-ab1a-df376f9611b3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1227x784",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aeb1fc82-dbc5-438f-b6af-d04ff959da5b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=//div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5be4ef1-f8e5-43c5-8b7d-baecd6e1447c",
+      "comment": "",
+      "command": "click",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'CRIAÇÃO DO LOTE DE CUPONS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "db6080ce-4484-4c9b-9271-ff9c9b71d2c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1)",
+      "targets": [
+        ["css=.row:nth-child(1)", "css:finder"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3395b2de-ff91-479a-bc4a-ed5f9097a483",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-secondary",
+      "targets": [
+        ["css=.btn-outline-secondary", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5efd5df-4b4d-4ada-a909-06af5c6d044f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbbcd156-cdd9-4cf0-983b-055d923731a2",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": "ERRO!\\nCódigo, Desconto, Quantidade de Cupons, Data"
+    }]
+  }, {
+    "id": "24fecef5-edc8-4a2f-9d9d-51bf3533adcd",
+    "name": "teste_codigo_menor_4",
+    "commands": [{
+      "id": "ff847c52-49a9-4121-aac1-c546d007cc04",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8081/adicionar/cupons/10",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e96043c1-f8bc-4452-8b31-7e7ec12e22e6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1118x776",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2bd78e22-a626-451a-a8b3-36656b9fd414",
+      "comment": "",
+      "command": "click",
+      "target": "name=codigo",
+      "targets": [
+        ["name=codigo", "name"],
+        ["css=div:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='codigo']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d3b71b3-1de1-4bfc-8d40-eb9522f94451",
+      "comment": "",
+      "command": "type",
+      "target": "name=codigo",
+      "targets": [
+        ["name=codigo", "name"],
+        ["css=div:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='codigo']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "A1"
+    }, {
+      "id": "83ab2428-97ee-4a10-8612-bad60f5c4017",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=desconto",
+      "targets": [
+        ["id=desconto", "id"],
+        ["name=desconto", "name"],
+        ["css=#desconto", "css:finder"],
+        ["xpath=//select[@id='desconto']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "-250.1999969482422,-334"
+    }, {
+      "id": "10dcbe35-bb43-4c78-8e9b-62037729f37a",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=desconto",
+      "targets": [
+        ["id=desconto", "id"],
+        ["name=desconto", "name"],
+        ["css=#desconto", "css:finder"],
+        ["xpath=//select[@id='desconto']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "-250.1999969482422,-334"
+    }, {
+      "id": "7f6d3342-56e3-4a1c-bcb4-d2200b8e3d0e",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=desconto",
+      "targets": [
+        ["id=desconto", "id"],
+        ["name=desconto", "name"],
+        ["css=#desconto", "css:finder"],
+        ["xpath=//select[@id='desconto']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "-250.1999969482422,-334"
+    }, {
+      "id": "158abd61-a66e-44d5-b538-50891ee84649",
+      "comment": "",
+      "command": "click",
+      "target": "id=desconto",
+      "targets": [
+        ["id=desconto", "id"],
+        ["name=desconto", "name"],
+        ["css=#desconto", "css:finder"],
+        ["xpath=//select[@id='desconto']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9513981-1e8b-453c-b88f-2d3f98dd2766",
+      "comment": "",
+      "command": "select",
+      "target": "id=desconto",
+      "targets": [],
+      "value": "label=20%"
+    }, {
+      "id": "e66404c7-f3d1-4a0d-afcb-e9f01906480f",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(3)",
+      "targets": [
+        ["css=option:nth-child(3)", "css:finder"],
+        ["xpath=//option[@value='0.2']", "xpath:attributes"],
+        ["xpath=//select[@id='desconto']/option[3]", "xpath:idRelative"],
+        ["xpath=//option[3]", "xpath:position"],
+        ["xpath=//option[contains(.,'20%')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e399de1-8f64-4b1d-b04b-362154fcebb6",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantidade",
+      "targets": [
+        ["id=quantidade", "id"],
+        ["name=quantidade", "name"],
+        ["css=#quantidade", "css:finder"],
+        ["xpath=//input[@id='quantidade']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1aa2d40-5d52-41a4-869f-6ecd5ed72df3",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantidade",
+      "targets": [
+        ["id=quantidade", "id"],
+        ["name=quantidade", "name"],
+        ["css=#quantidade", "css:finder"],
+        ["xpath=//input[@id='quantidade']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "06c9c659-88e5-4f7d-9bbe-e6b81a955686",
+      "comment": "",
+      "command": "click",
+      "target": "id=validade",
+      "targets": [
+        ["id=validade", "id"],
+        ["name=validade", "name"],
+        ["css=#validade", "css:finder"],
+        ["xpath=//input[@id='validade']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1e735db-eceb-4335-a248-eb70ca3df462",
+      "comment": "",
+      "command": "type",
+      "target": "id=validade",
+      "targets": [
+        ["id=validade", "id"],
+        ["name=validade", "name"],
+        ["css=#validade", "css:finder"],
+        ["xpath=//input[@id='validade']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "2020-01-20"
+    }, {
+      "id": "64d17d96-7e08-46e1-9676-84848c0ba3c8",
+      "comment": "",
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css:finder"],
+        ["xpath=//form[@action='/adicionar/cupons/10/']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2554713d-246c-4b8e-9a28-0d12fcbac3c7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-secondary",
+      "targets": [
+        ["css=.btn-outline-secondary", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "83b5608f-d6cd-454d-b27c-2e25019d0fd8",
+    "name": "teste_desconto_nao_selecionado",
+    "commands": [{
+      "id": "d596a290-ec38-4b0b-af4a-6a4d7005b9ab",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8081/adicionar/cupons/10",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "38257931-d32e-422b-ac8c-333645a40dd1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1118x776",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79d69c73-eccc-44ca-8437-178503043df4",
+      "comment": "",
+      "command": "click",
+      "target": "name=codigo",
+      "targets": [
+        ["name=codigo", "name"],
+        ["css=div:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='codigo']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f77fad54-fd84-4d3a-87d9-6e6e1c2abd5c",
+      "comment": "",
+      "command": "click",
+      "target": "name=codigo",
+      "targets": [
+        ["name=codigo", "name"],
+        ["css=div:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='codigo']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "45f52c66-5079-448a-b8ad-7096420fb1a8",
+      "comment": "",
+      "command": "click",
+      "target": "name=codigo",
+      "targets": [
+        ["name=codigo", "name"],
+        ["css=div:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='codigo']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fcfae62a-754b-4d2d-ac89-85f48ceb56f7",
+      "comment": "",
+      "command": "type",
+      "target": "name=codigo",
+      "targets": [
+        ["name=codigo", "name"],
+        ["css=div:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='codigo']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ABC123"
+    }, {
+      "id": "76846aa4-7504-4851-bbc7-dafca2a779f3",
+      "comment": "",
+      "command": "click",
+      "target": "id=desconto",
+      "targets": [
+        ["id=desconto", "id"],
+        ["name=desconto", "name"],
+        ["css=#desconto", "css:finder"],
+        ["xpath=//select[@id='desconto']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00afce17-60fe-4deb-8ad2-41a09524cc65",
+      "comment": "",
+      "command": "click",
+      "target": "id=desconto",
+      "targets": [
+        ["id=desconto", "id"],
+        ["name=desconto", "name"],
+        ["css=#desconto", "css:finder"],
+        ["xpath=//select[@id='desconto']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29f5c94b-7e30-4b5a-b4dd-9f3f7f018cfb",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantidade",
+      "targets": [
+        ["id=quantidade", "id"],
+        ["name=quantidade", "name"],
+        ["css=#quantidade", "css:finder"],
+        ["xpath=//input[@id='quantidade']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afad25b5-14b2-4c85-b69f-583120177f66",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantidade",
+      "targets": [
+        ["id=quantidade", "id"],
+        ["name=quantidade", "name"],
+        ["css=#quantidade", "css:finder"],
+        ["xpath=//input[@id='quantidade']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "bbfbf983-ee5a-4129-8f72-497810937cf9",
+      "comment": "",
+      "command": "click",
+      "target": "id=validade",
+      "targets": [
+        ["id=validade", "id"],
+        ["name=validade", "name"],
+        ["css=#validade", "css:finder"],
+        ["xpath=//input[@id='validade']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b07b7824-f16e-4568-9e88-6fb8702b70c9",
+      "comment": "",
+      "command": "type",
+      "target": "id=validade",
+      "targets": [
+        ["id=validade", "id"],
+        ["name=validade", "name"],
+        ["css=#validade", "css:finder"],
+        ["xpath=//input[@id='validade']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "2020-01-20"
+    }, {
+      "id": "6b9b2e45-07e3-4455-b78a-ed93c0a0d845",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=//div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dee78cbf-470c-4a07-a7f6-ac387dbd6e2c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-secondary",
+      "targets": [
+        ["css=.btn-outline-secondary", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5eb61d8-0178-492d-b743-33f8234546ef",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "b38413e9-92df-468d-ba2d-3f506b512c3c",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1cb7dece-72fb-458b-a91e-c04854618a4d"]
+  }],
+  "urls": ["http://localhost:8081/adicionar/cupons/10"],
+  "plugins": []
+}
