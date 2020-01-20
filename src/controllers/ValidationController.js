@@ -57,7 +57,7 @@ module.exports = {
     },
     verificaFormCupom(req, res, next) {
         var erros = []
-        if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo < 4) {
+        if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length < 4) {
             erros.push({ texto: " Código" })
             req.flash('error_msg', " Código")
         }
@@ -188,8 +188,7 @@ module.exports = {
         if (req.body.pago == 'true') {
             if (!req.body.valorEvento ||
                 typeof req.body.valorEvento == undefined ||
-                req.body.valorEvento == null ||
-                req.body.valorEvento.length < 2) {
+                req.body.valorEvento == null) {
                 erros.push({ texto: " Valor" })
                 req.flash('error_msg', " Valor")
             }
