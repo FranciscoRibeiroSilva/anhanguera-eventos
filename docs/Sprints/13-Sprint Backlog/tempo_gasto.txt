@@ -1,6 +1,0 @@
-Adicionando os termos de uso -> 2 hr demorei 2 hr
-Casos de teste no Selenium -> 5 hr demorei  6 hr
-Mudança da página inicial -> 1 hr demorei 1 hr
-Criação do Wiki no github.
-Mudando algumas saídas esperar.
-A parte do Participante.
