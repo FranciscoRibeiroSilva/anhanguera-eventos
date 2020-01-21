@@ -77,20 +77,19 @@ module.exports = {
     async inscreverEvento(req, res){
         const administrador_id = req.user.id
         const {evento_id} = req.params
-        console.log("o o evento ai gente "+evento_id)
 
         const evento = await Eventos.findByPk(evento_id)
         const administrador = await Administradores.findByPk(administrador_id)
 
         if(!administrador){
-            req.flash('error_msg', 'ID de usuario inválido')
+        req.flash('error_msg', 'ID de usuario inválido')
             res.redirect('/participante/eventos')
         }
         if(!evento){
             req.flash('error_msg', 'Evento não encontrador')
             res.redirect('/participante/eventos')
         }
-
+        //await evento.addAdministradores(administrador)
         await administrador.addEventos(evento)
         res.send('ok')
     }

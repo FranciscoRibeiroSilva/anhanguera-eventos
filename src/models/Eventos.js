@@ -1,7 +1,7 @@
 const {Model, DataTypes} = require('sequelize')
 
 class Eventos extends Model{
-    static init(connection){
+    static init(sequelize){
         super.init({
             nome: DataTypes.STRING,
             participantes_esperados: DataTypes.INTEGER,
@@ -12,13 +12,13 @@ class Eventos extends Model{
             pago: DataTypes.BOOLEAN,
             valor_evento: DataTypes.DOUBLE
         },{
-            sequelize: connection,
+            sequelize
             //tableName: 'eventos'
         })
     }
     static associate(models){
         this.belongsTo(models.Administradores, {foreignKey: 'administrado_id', as: 'seu_administrador'})
-        this.belongsToMany(models.Administradores, {foreignKey: 'evento_id', through: 'atividades_administradores', as: 'seus_inscritos'})
+        this.belongsToMany(models.Administradores, {foreignKey: 'evento_id', through: 'eventos_administradores', as: 'seus_inscritos'})
         this.hasMany(models.Cupons, {foreignKey: 'evento_id', as: 'seus_cupons'})
         this.hasMany(models.Atividades, {foreignKey: 'evento_id', as: 'suas_atividades'})
         this.hasMany(models.Participantes, {foreignKey: 'evento_id', as: 'seus_participantes'})

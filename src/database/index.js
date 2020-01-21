@@ -6,6 +6,7 @@ const Eventos = require('../models/Eventos')
 const Ministrantes = require('../models/Ministrantes')
 const Participantes = require('../models/Participantes')
 const Atividades = require('../models/Atividades')
+const EventosAdministradores = require('../models/EventosAdministradores')
 const connection = new Sequelize(dbConfig)
 
 //iniciando models
@@ -16,7 +17,6 @@ Ministrantes.init(connection)
 Participantes.init(connection)
 Atividades.init(connection)
 
-
 //associação de models
 Eventos.associate(connection.models)
 Administradores.associate(connection.models)
@@ -24,6 +24,7 @@ Cupons.associate(connection.models)
 Ministrantes.associate(connection.models)
 Participantes.associate(connection.models)
 Atividades.associate(connection.models)
+
 
 module.exports = connection
 
