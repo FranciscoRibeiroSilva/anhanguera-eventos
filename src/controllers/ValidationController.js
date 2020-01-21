@@ -57,7 +57,7 @@ module.exports = {
     },
     verificaFormCupom(req, res, next) {
         var erros = []
-        if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length < 4) {
+        if (!req.body.codigo || typeof req.body.codigo == undefined || req.body.codigo == null || req.body.codigo.length < 6) {
             erros.push({ texto: " Código" })
             req.flash('error_msg', " Código")
         }
@@ -152,7 +152,7 @@ module.exports = {
         if (erros.length <= 0) {
             return next()
         }
-        res.redirect('/adicionar/ministrantes/' + evento.id)
+        res.redirect('/adicionar/ministrantes/' +evento.id)
     },
 
     verificaFormEvento(req, res, next) {
