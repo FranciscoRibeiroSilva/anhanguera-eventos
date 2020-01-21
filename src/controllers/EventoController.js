@@ -87,7 +87,7 @@ module.exports = {
         }
         if(!evento){
             req.flash('error_msg', 'Evento não encontrado')
-            res.redirect('/participante/eventos')
+            res.redirect('/gerenciar/ministrantes/'+evento_id)
         }
         //await evento.addAdministradores(administrador)
         await administrador.addEventos(evento)

@@ -15,6 +15,6 @@ module.exports = {
         }
 
         const ministrante = await Ministrantes.create({ nome, contato, email, papel, evento_id })
-        return res.json(ministrante)
+        res.redirect('/gerenciar/ministrantes')
     }
 }
