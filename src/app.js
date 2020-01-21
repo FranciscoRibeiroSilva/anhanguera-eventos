@@ -63,7 +63,7 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
-    res.render('inicial')
+    res.redirect('login')
 })
 //Rotas dos adm's
 app.use(adm)

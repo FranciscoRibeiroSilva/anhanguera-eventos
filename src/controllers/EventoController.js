@@ -82,11 +82,11 @@ module.exports = {
         const administrador = await Administradores.findByPk(administrador_id)
 
         if(!administrador){
-        req.flash('error_msg', 'ID de usuario inválido')
+            req.flash('error_msg', 'ID de usuário inválido')
             res.redirect('/participante/eventos')
         }
         if(!evento){
-            req.flash('error_msg', 'Evento não encontrador')
+            req.flash('error_msg', 'Evento não encontrado')
             res.redirect('/participante/eventos')
         }
         //await evento.addAdministradores(administrador)

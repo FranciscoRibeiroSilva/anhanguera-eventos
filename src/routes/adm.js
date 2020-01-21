@@ -14,6 +14,8 @@ const {eAdmi} = require('../helpers/eAdmi')
 
 app.use(express.json)
 
+router.get('/termos', PaginasController.termos)
+
 router.get('/cadastroAdm', PaginasController.formAdm)
 router.post('/registUser',ValidationController.verificaCadastroAdm, AdmController.createAdm)
 

@@ -11,7 +11,7 @@ module.exports  = function(passport){
 
         const usuario = await administrador.findOne({where:{email}})
         if(!usuario){
-            return done(null, false, {message: 'Usuario não encotrador'})
+            return done(null, false, {message: 'Usuário não encotrado'})
         }
 
         bcrypt.compare(senha, usuario.senha, (erro, batem) => {
@@ -19,7 +19,7 @@ module.exports  = function(passport){
                 return done(null, usuario)
             }
             else{
-                return done(null, false, {message: 'Senhas incorreta'})
+                return done(null, false, {message: 'Senha incorreta'})
             }
         })
         /*if(senha == usuario.senha){
