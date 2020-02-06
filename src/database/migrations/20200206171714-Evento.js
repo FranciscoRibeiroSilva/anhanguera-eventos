@@ -9,10 +9,10 @@ module.exports = {
           autoIncrement: true,
           allowNull: false
         },
-        administrador_id: {
+        usuario_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          references: {model: 'administradores', key: 'id'},
+          references: {model: 'usuarios', key: 'id'},
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
         },

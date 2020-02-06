@@ -1,6 +1,6 @@
 const {Model, DataTypes} = require('sequelize')
 
-class Administradores extends Model{
+class Usuarios extends Model{
     static init(connection){
         super.init({
             nome: DataTypes.STRING,
@@ -9,15 +9,15 @@ class Administradores extends Model{
             estado: DataTypes.STRING
         },{
             sequelize: connection,
-            //tableName: 'administratores'
+            //tableName: 'usuarios'
         })
     }
     static associate(models){
         //this.belongsToMany(models.Atividades, {foreignKey: 'administrador_id', through: 'atividades_administradores', as: 'suas_atividades'})
-        this.belongsToMany(models.Eventos, {foreignKey: 'administrador_id', through: 'eventos_administradores', as: 'inscrito_em'})
+        this.belongsToMany(models.Eventos, {foreignKey: 'usuario_id', through: 'eventos_usuarios', as: 'inscrito_em'})
         //this.hasMany(models.Eventos, {foreignKey: 'administrado_id', as: 'seus_eventos'})
     }
 }
 
 
-module.exports = Administradores
+module.exports = Usuarios

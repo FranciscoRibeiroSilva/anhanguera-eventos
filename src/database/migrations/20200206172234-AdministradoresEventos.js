@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.createTable('eventos_administradores', { 
+      return queryInterface.createTable('eventos_usuarios', { 
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
@@ -19,7 +19,7 @@ module.exports = {
         administrador_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          references: {model: 'administradores', key: 'id'},
+          references: {model: 'usuarios', key: 'id'},
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
         },

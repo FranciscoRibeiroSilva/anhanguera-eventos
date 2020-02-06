@@ -1,6 +1,6 @@
 const localStrategy = require('passport-local')
 const sequelize = require('sequelize')
-const administrador = require('../models/Administradores')
+const administrador = require('../models/Usuarios')
 const bcrypt = require('bcryptjs')
 
 module.exports  = function(passport){

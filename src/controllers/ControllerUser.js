@@ -1,28 +1,16 @@
-const Eventos = require('../models/Eventos')
-const Administradores = require('../models/Administradores')
+const Usuarios = require('../models/Usuarios')
 
 module.exports = {
 
-    async createEvento(req, res){
-        const administrado_id = req.user.id
-        const {nome, participantes_esperados, quantidade_salas, local_evento, data_inicio, data_termino, pago, valor_evento} = req.body
+    async createUsuario(req, res){
 
-        const adm = await Administradores.findByPk(administrado_id)
+        const {nome} = req.body
 
-        if(!adm){
-            req.flash('error_msg','Erro administrador inválido')
-        }
+        const usuario = await Usuarios.create({nome})
 
-        const evento = await Eventos.create({nome, participantes_esperados, quantidade_salas, local_evento, data_inicio, data_termino, pago, valor_evento, administrado_id})
-        
-        if(!evento){
-            req.flash("error_msg","error ao criar evento")
-            res.redirect('/homepage')
-        }
-
-        req.flash('success_msg', 'Feito meu consagrado!')
-        res.redirect('/homepage')
+        return res.json(usuario)
    },
+   /*
    async deleteEvento(req, res){
        const {id} = req.params
        Eventos.destroy({where: {id}}).then(()=>{
@@ -92,5 +80,5 @@ module.exports = {
         //await evento.addAdministradores(administrador)
         await administrador.addEventos(evento)
         res.send('ok')
-    }
+    }*/
 }

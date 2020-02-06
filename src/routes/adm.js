@@ -2,6 +2,11 @@ const express = require("express")
 const router = express.Router()
 const app = express()
 
+const ControllerUser = require('../controllers/ControllerUser')
+
+
+router.post('/adicionar/usuario/', ControllerUser.createUsuario)
+
 /*
 const AdmController = require('../controllers/AdmController')
 const EventoController = require('../controllers/EventoController')
