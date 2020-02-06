@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize')
+/*const Sequelize = require('sequelize')
 const dbConfig = require('../config/database')
 const Administradores = require('../models/Administradores')
 const Cupons = require('../models/Cupons')
@@ -24,7 +24,7 @@ Cupons.associate(connection.models)
 Ministrantes.associate(connection.models)
 Participantes.associate(connection.models)
 Atividades.associate(connection.models)
-
+*/
 
 module.exports = connection
 
