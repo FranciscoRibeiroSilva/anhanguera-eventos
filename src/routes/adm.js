@@ -1,6 +1,8 @@
 const express = require("express")
 const router = express.Router()
 const app = express()
+
+/*
 const AdmController = require('../controllers/AdmController')
 const EventoController = require('../controllers/EventoController')
 const CuponsController = require('../controllers/CuponsController')
@@ -52,7 +54,7 @@ router.post('/adicionar/ministrantes/:evento_id/', eAdmi, ValidationController.v
 
 //router.get('/sobreAnhanguera', PaginasController.sobre)
 router.get('/logout', PaginasController.logoutAdm)
-
+*/
 
 
 module.exports = router
