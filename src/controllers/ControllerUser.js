@@ -4,9 +4,9 @@ module.exports = {
 
     async createUsuario(req, res){
 
-        const {nome} = req.body
+        const {nome, email, senha} = req.body
 
-        const usuario = await Usuarios.create({nome})
+        const usuario = await Usuarios.create({nome, email, senha})
 
         return res.json(usuario)
    },

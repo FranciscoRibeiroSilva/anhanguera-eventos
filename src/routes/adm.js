@@ -3,9 +3,12 @@ const router = express.Router()
 const app = express()
 
 const ControllerUser = require('../controllers/ControllerUser')
+const ControllerEvent = require('../controllers/ControllerEvent')
 
 
 router.post('/adicionar/usuario/', ControllerUser.createUsuario)
+router.post('/adicionar/evento/', ControllerEvent.createEvent)
+router.post('/inscrever/', ControllerEvent.subscrevEvent)
 
 /*
 const AdmController = require('../controllers/AdmController')
