@@ -9,7 +9,7 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 
 //Arquivos de rota
-const adm = require('./routes/adm')
+const UserRouter = require('./routes/UserRouter')
 
 //Path
 const path = require("path")
@@ -65,10 +65,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', (req, res) => {
     res.redirect('login')
 })
-//Rotas dos adm's
-app.use(adm)
+//Rotas dos usuario
+app.use(UserRouter)
  
-//Outros
+//Definção de porta
 const PORT = process.env.PORT || 8081 
 app.listen(PORT, () => {
     console.log("Servidor Rodando na URL http://localhost:8081");

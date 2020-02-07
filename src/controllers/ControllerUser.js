@@ -1,10 +1,12 @@
 const Usuarios = require('../models/Usuarios')
+const bcrypt = require('bcryptjs')
 
 module.exports = {
 
-    async createUsuario(req, res){
+    async createUser(req, res){
+        var {nome, email, senha} = req.body
 
-        const {nome, email, senha} = req.body
+        senha = await bcrypt.hash(senha, 10)
 
         const usuario = await Usuarios.create({nome, email, senha})
 

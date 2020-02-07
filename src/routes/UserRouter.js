@@ -2,13 +2,19 @@ const express = require("express")
 const router = express.Router()
 const app = express()
 
+const ControllerPage = require('../controllers/ControllerPage')
 const ControllerUser = require('../controllers/ControllerUser')
 const ControllerEvent = require('../controllers/ControllerEvent')
 
 
-router.post('/adicionar/usuario/', ControllerUser.createUsuario)
 router.post('/adicionar/evento/', ControllerEvent.createEvent)
 router.post('/inscrever/', ControllerEvent.subscrevEvent)
+
+router.get('/login', ControllerPage.login)
+
+router.get('/adicionar/usuario', ControllerPage.formUser)
+router.post('/adicionar/usuario/', ControllerUser.createUser)
+
 
 /*
 const AdmController = require('../controllers/AdmController')
@@ -26,10 +32,9 @@ app.use(express.json)
 
 router.get('/termos', PaginasController.termos)
 
-router.get('/cadastroAdm', PaginasController.formAdm)
+--router.get('/cadastroAdm', PaginasController.formAdm)
 router.post('/registUser',ValidationController.verificaCadastroAdm, AdmController.createAdm)
 
-router.get('/login', PaginasController.login)
 router.post('/authen', ValidationController.verificaFormLogin, ValidationController.validSession)
 
 router.get('/participante/eventos', eAdmi, PaginasController.listaEventos)

@@ -1,6 +1,6 @@
 <nav class="form-grup"> <br><br>
 	<center>
-		<h2>CADASTRO ADMINISTRADOR</h2>
+		<h2>Cadastro de usuário</h2>
 		{{nomeE}}
 		{{senhaE}}
 	</center>
@@ -36,7 +36,7 @@
 						<input class="form-control" type="password" name="senha2" placeholder="Confirme sua senha">
 					</div>
 					<!--ESTADO-->
-					<div>
+					<!--div>
 						<label for="estado">Estado</label>
 						<select class="form-control" name="estado">
 							<option value="N">Selecione o estado</option>
@@ -44,7 +44,7 @@
 							<option value="SP">São Paulo</option>
 							<option value="PI">Piauí</option>
 						</select>
-					</div><br>
+					</div><br-->
 
 					<!--FUNÇÃO QUE HABILITA O BOTÃO DE CADASTRAR-->
 					<script>
@@ -55,8 +55,8 @@
 
 					<center>
 						<input type="checkbox" id="btn" onchange="muda(this, 'botao');">
-						<label> Aceita os </label>
-						<a href="termos"> termos de uso</a><br>
+						<label> Aceitar os </label>
+						<a href=""> Termos e Condições de Uso</a><br>
 						<button type="text" name="botao" id="botao" disabled="true" class="btn btn-outline-secondary">
 							Cadastrar
 						</button>
@@ -68,18 +68,10 @@
 	</div>
 </nav>
 
-<div class="container">
-	<div class="row">
-		<div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto">
-			<footer>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<a href="" class="btn"><small>©Anhangüera Eventos</small></a>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</div>
-	</div>
+</div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+                {{>_footer1}}
+            </div>
+        </div>
 </div>

@@ -34,19 +34,19 @@ module.exports = {
         },
         data_inicio: {
           type: Sequelize.DATE,
-          allowNull: true
+          allowNull: false
         },
         data_termino: {
           type: Sequelize.DATE,
-          allowNull: true
+          allowNull: false
         },
         pago: {
           type: Sequelize.BOOLEAN,
-          allowNull: true
+          allowNull: false
         },
         valor_evento:{
           type: Sequelize.DOUBLE,
-          allowNull: true
+          allowNull: false
         },
         created_at: {
           type: Sequelize.DATE,
