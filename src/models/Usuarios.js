@@ -14,8 +14,9 @@ class Usuarios extends Model{
     }
     static associate(models){
         //this.belongsToMany(models.Atividades, {foreignKey: 'administrador_id', through: 'atividades_administradores', as: 'suas_atividades'})
-        this.belongsToMany(models.Eventos, {foreignKey: 'usuario_id', through: 'eventos_usuarios', as: 'inscrito_em'})
-        //this.hasMany(models.Eventos, {foreignKey: 'administrado_id', as: 'seus_eventos'})
+        //this.belongsToMany(models.Eventos, {foreignKey: 'usuario_id', through: 'eventos_usuarios', as: 'inscrito_em'})
+        this.hasMany(models.Eventos, {foreignKey: 'usuario_id', as: 'eventos'})
+        this.hasMany(models.EventosUsuarios, {foreignKey: 'usuario_id', as: 'inscritoEm'})
     }
 }
 

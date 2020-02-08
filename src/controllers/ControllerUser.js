@@ -1,4 +1,5 @@
 const Usuarios = require('../models/Usuarios')
+const Eventos = require('../models/Eventos')
 const bcrypt = require('bcryptjs')
 
 module.exports = {
@@ -6,13 +7,52 @@ module.exports = {
     async createUser(req, res){
         var {nome, email, senha} = req.body
 
+        const user = await Usuarios.findOne({where:{email}})
+
+        if(user){
+            req.flash('error_msg', 'E-mail já utilizado')
+            res.redirect('/adicionar/usuario')
+        }
+
         senha = await bcrypt.hash(senha, 10)
 
         const usuario = await Usuarios.create({nome, email, senha})
 
-        return res.json(usuario)
+        if(!usuario){
+            req.flash('error_msg', 'Erro ao registrar usuário')
+            res.redirect('/login')
+        }
+
+        req.flash('success_msg','Novo usuário registrado com sucesso')
+        res.redirect('/login')
    },
+   async listEvents(req){
+       const usuario_id = req.user.id
+
+       const user = await Usuarios.findByPk(usuario_id,{
+           include: {association: 'eventos'}
+       })
+
+       return user.eventos
+       
+   },
+   async registered(req){
+       const usuario_id = req.user.id
+
+       const usuario = await Usuarios.findByPk(usuario_id,{
+           include: {association: 'inscritoEm'}
+       })
+
+       return usuario.inscritoEm
+   }
    /*
+   const administrado_id = req.user.id
+
+        const adm = await Administradores.findByPk(administrado_id, {
+            include: {association: 'seus_eventos'}
+        })
+
+        return adm.seus_eventos
    async deleteEvento(req, res){
        const {id} = req.params
        Eventos.destroy({where: {id}}).then(()=>{

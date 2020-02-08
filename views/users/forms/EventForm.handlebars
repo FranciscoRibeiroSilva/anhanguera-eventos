@@ -5,7 +5,7 @@
 {{else}}
 {{/each}}
 <center>
-    <h1>CRIAÇÃO DE EVENTO</h1>
+    <h1>Criar Evento</h1>
 </center>
 <div class="container">
     <div class="row">
@@ -14,7 +14,7 @@
                 <div class="card-body fundo">
 
 
-                    <div class="form-grup">
+                    <div-- class="form-grup">
 
                         <form action='/adicionar/evento/' method="POST"><br>
 
@@ -22,30 +22,27 @@
                             <div>
                                 <!--NOME DO EVENTO-->
                                 </label for="nomeEvento"> Nome do evento:</label><br>
-                                <input name="nome" class="form-control" type="text" id="nome"
-                                    placeholder="Informe o nome do evento">
+                                <input name="nome" class="form-control" type="text" id="nome" placeholder="Informe o nome do evento">
                             </div>
 
-                            <div>
-                                <!--NÚMERO MÁXIMO DE PARTICIPANTES-->
+                            <!--div>
+                                <NÚMERO MÁXIMO DE PARTICIPANTES>
                                 <label for="numeroDeParticipantes">Numero de participantes esperados:</label><br>
-                                <input class="form-control" type="number" name="participantes_esperados"
-                                    placeholder="Quantidade de participantes">
-                            </div>
+                                <input class="form-control" type="number" name="participantes_esperados" placeholder="Quantidade de participantes">
+                            </div-->
 
-                            <div>
-                                <!--QUANTIDADE DE SALAS-->
+                            <!--div>
+                                
                                 <label for="quantSalas">Quantidade de salas disponiveis:</label>
-                                <input class="form-control" type="number" id="quantSalas" name="quantidade_salas"
-                                    placeholder="Número de salas">
-                            </div>
+                                <input class="form-control" type="number" id="quantSalas" name="quantidade_salas" placeholder="Número de salas">
+                            </div-->
 
-                            <div>
-                                <!--LOCAL DO EVENTO-->
+                                <!--LOCAL DO EVENTO>
                                 <label for="local">Local do Evento:</label><br>
                                 <input class="form-control" type="local" name="local_evento"
-                                    placeholder="Informe o local do seu evento">
+                                    placeholder="Informe o local do seu evento"-->
 
+                            <div>
                                 <!--SELECIONAR A DATA-->
                                 <label for="data">Data de inicio:</label>
                                 <input class="form-control" id="date" type="date" name="data_inicio">
@@ -69,8 +66,7 @@
                             <div>
                                 <!--VALOR DA INSCRIÇÃO-->
                                 <label for="valorEvento">R$: </label>
-                                <input class="form-control" type="text" id="valorEvento" name="valor_evento"
-                                    placeholder="Valor" disabled>
+                                <input class="form-control" type="number" id="valorEvento" name="valor_evento" placeholder="Valor" disabled>
                             </div>
 
                             <script>
@@ -102,18 +98,11 @@
     </div>
 </div>
 
-<div class="container">
+
+</div>
     <div class="row">
-        <div class="col-20 col-sm-20 col-md-20 col-lg-20 m-auto">
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="" class="btn"><small>©Anhangüera Eventos</small></a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+            {{>_footer1}}
         </div>
     </div>
 </div>

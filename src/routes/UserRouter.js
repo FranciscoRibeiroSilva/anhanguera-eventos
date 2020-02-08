@@ -5,16 +5,27 @@ const app = express()
 const ControllerPage = require('../controllers/ControllerPage')
 const ControllerUser = require('../controllers/ControllerUser')
 const ControllerEvent = require('../controllers/ControllerEvent')
+const ControllerValidation = require('../controllers/ControllerValidation')
+const {eAdmi} = require('../helpers/eAdmi')
 
 
-router.post('/adicionar/evento/', ControllerEvent.createEvent)
 router.post('/inscrever/', ControllerEvent.subscrevEvent)
 
 router.get('/login', ControllerPage.login)
+router.post('/authenticate', ControllerValidation.validationSession)
 
 router.get('/adicionar/usuario', ControllerPage.formUser)
 router.post('/adicionar/usuario/', ControllerUser.createUser)
 
+router.get('/homepage', ControllerPage.homepage)
+
+router.get('/adicionar/evento', ControllerPage.formEvent)
+router.post('/adicionar/evento/', ControllerEvent.createEvent)
+
+router.get('/listar/eventos', ControllerPage.listAllEvents)
+router.post('/inscrever/evento/:evento_id', ControllerEvent.subscrevEvent)
+
+router.get('/listar/inscricoes', ControllerPage.subscreber)
 
 /*
 const AdmController = require('../controllers/AdmController')
@@ -24,8 +35,6 @@ const MinistranteController = require('../controllers/MinistranteController')
 const ParticipanteController = require('../controllers/ParticipanteController')
 const AtividadeController = require('../controllers/AtividadeController')
 const PaginasController  = require('../controllers/PaginasController')
-const ValidationController = require('../controllers/ValidationController')
-const {eAdmi} = require('../helpers/eAdmi')
 
 
 app.use(express.json)
@@ -35,7 +44,6 @@ router.get('/termos', PaginasController.termos)
 --router.get('/cadastroAdm', PaginasController.formAdm)
 router.post('/registUser',ValidationController.verificaCadastroAdm, AdmController.createAdm)
 
-router.post('/authen', ValidationController.verificaFormLogin, ValidationController.validSession)
 
 router.get('/participante/eventos', eAdmi, PaginasController.listaEventos)
 router.post('/inscrever/evento/:evento_id', EventoController.inscreverEvento)

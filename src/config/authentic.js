@@ -1,6 +1,6 @@
 const localStrategy = require('passport-local')
 const sequelize = require('sequelize')
-const administrador = require('../models/Usuarios')
+const Usuarios = require('../models/Usuarios')
 const bcrypt = require('bcryptjs')
 
 module.exports  = function(passport){
@@ -9,7 +9,7 @@ module.exports  = function(passport){
         passwordField: 'senha'
     },async(email, senha, done) =>{
 
-        const usuario = await administrador.findOne({where:{email}})
+        const usuario = await Usuarios.findOne({where:{email}})
         if(!usuario){
             return done(null, false, {message: 'Usuário não encotrado'})
         }
@@ -35,7 +35,7 @@ module.exports  = function(passport){
     })
 
     passport.deserializeUser(async(id, done)=>{
-        await administrador.findByPk(id).then((usuario)=>{
+        await Usuarios.findByPk(id).then((usuario)=>{
             done(null,usuario)
         }), function(error){
             done(err,null)
