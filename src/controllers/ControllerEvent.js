@@ -52,5 +52,11 @@ module.exports = {
     async findEvent(id){
         const evento = Eventos.findByPk(id)
         return evento
+    },
+    async findAcolyte(evento_id){
+        const evento = await Eventos.findByPk(evento_id, {
+            include: {association : 'ministrantes'}
+        })
+        return evento
     }
 }

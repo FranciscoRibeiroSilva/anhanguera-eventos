@@ -24,8 +24,26 @@ module.exports = {
         console.log(eventos)
         res.render('users/ListRegistred', {eventos})
     },
+    //pagina de gerencia de evento
     async eventManager(req, res){
-        res.render('users/eventManager')
+        const {id} = req.params
+        const evento = await ControllerEvent.findEvent(id)
+        res.render('users/eventManager', {evento})
+    },
+    //pagina de gerecia de ministrates do evento
+    async acolyteManager(req, res){
+        const {evento_id} = req.params
+
+        const evento = await ControllerEvent.findAcolyte(evento_id)
+
+        res.render('users/AcolyteManager', {evento})
+    },
+    async formAcolyte(req, res){
+        const {evento_id} = req.params
+
+        const evento = await ControllerEvent.findEvent(evento_id)
+
+        res.render('users/forms/AcolyteForm', {evento})
     }
 }
 //res.render('admi/adminForms/FormAdm')

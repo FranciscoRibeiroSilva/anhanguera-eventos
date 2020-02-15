@@ -5,6 +5,7 @@ const app = express()
 const ControllerPage = require('../controllers/ControllerPage')
 const ControllerUser = require('../controllers/ControllerUser')
 const ControllerEvent = require('../controllers/ControllerEvent')
+const ControllerAcolyte = require('../controllers/ControllerAcolyte')
 const ControllerValidation = require('../controllers/ControllerValidation')
 const {eAdmi} = require('../helpers/eAdmi')
 
@@ -24,7 +25,11 @@ router.post('/inscrever/evento/:evento_id', ControllerEvent.subscrevEvent)
 
 router.get('/listar/inscricoes', ControllerPage.subscreber)
 
-router.get('/gerenciar/evento/:id',)
+router.get('/gerenciar/evento/:id', ControllerPage.eventManager)
+
+router.get('/gerenciar/ministrantes/:evento_id', ControllerPage.acolyteManager)
+router.get('/adicionar/ministrantes/:evento_id', ControllerPage.formAcolyte)
+router.post('/adicionar/ministrantes/:evento_id/', ControllerAcolyte.createAcolyte)
 
 
 /*
@@ -64,9 +69,6 @@ router.get('/adicionar/cupons/:evento_id', eAdmi, PaginasController.formCupons)
 router.post('/adicionar/cupons/:evento_id/', eAdmi, ValidationController.verificaFormCupom, CuponsController.createCupons)
 
 
-router.get('/gerenciar/ministrantes/:evento_id', eAdmi, PaginasController.gerenciaMinistrante)
-router.get('/adicionar/ministrantes/:evento_id', eAdmi, PaginasController.formMinistrantes)
-router.post('/adicionar/ministrantes/:evento_id/', eAdmi, ValidationController.verificaFormMinistrante, MinistranteController.createMinistrante)
 
 //router.get('/certificado/:atividade_id', PaginasController)
 

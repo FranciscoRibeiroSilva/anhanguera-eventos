@@ -23,7 +23,7 @@ class Eventos extends Model{
         //this.hasMany(models.Cupons, {foreignKey: 'evento_id', as: 'seus_cupons'})
         //this.hasMany(models.Atividades, {foreignKey: 'evento_id', as: 'suas_atividades'})
         //this.hasMany(models.Participantes, {foreignKey: 'evento_id', as: 'seus_participantes'})
-        //this.hasMany(models.Ministrantes, {foreignKey: 'evento_id', as: 'seus_ministrantes'})
+        this.hasMany(models.Ministrantes, {foreignKey: 'evento_id', as: 'ministrantes'})
     }
 }
 
