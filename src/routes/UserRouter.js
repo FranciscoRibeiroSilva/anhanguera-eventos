@@ -8,9 +8,6 @@ const ControllerEvent = require('../controllers/ControllerEvent')
 const ControllerValidation = require('../controllers/ControllerValidation')
 const {eAdmi} = require('../helpers/eAdmi')
 
-
-router.post('/inscrever/', ControllerEvent.subscrevEvent)
-
 router.get('/login', ControllerPage.login)
 router.post('/authenticate', ControllerValidation.validationSession)
 
@@ -26,6 +23,9 @@ router.get('/listar/eventos', ControllerPage.listAllEvents)
 router.post('/inscrever/evento/:evento_id', ControllerEvent.subscrevEvent)
 
 router.get('/listar/inscricoes', ControllerPage.subscreber)
+
+router.get('/gerenciar/evento/:id',)
+
 
 /*
 const AdmController = require('../controllers/AdmController')
@@ -53,7 +53,6 @@ router.get('/adicionar/evento', eAdmi, PaginasController.formEvento)
 router.post('/adicionar/evento/', eAdmi, ValidationController.verificaFormEvento, EventoController.createEvento)
 router.get('/excluir/evento/:id', eAdmi, EventoController.deleteEvento)
 
-router.get('/gerenciar/evento/:id', eAdmi, PaginasController.gerenciaEvento)
 
 router.get('/gerenciar/atividades/:evento_id', eAdmi, PaginasController.gerenciaAtividades)
 router.get('/adicionar/atividades/:evento_id', eAdmi, PaginasController.formAtividade)

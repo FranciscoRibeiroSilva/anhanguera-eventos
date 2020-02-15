@@ -47,5 +47,10 @@ module.exports = {
         await event.addUsuarios(usuario)
         res.send('sucesso')
         */
+    },
+    //busca um evento pelo id
+    async findEvent(id){
+        const evento = Eventos.findByPk(id)
+        return evento
     }
 }

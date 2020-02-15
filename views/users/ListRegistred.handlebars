@@ -1,0 +1,37 @@
+{{>_homeNavbar}}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto">
+
+            <div class="mt-3">
+                <center>
+                    <h2>
+                        <p> Inscrições </p>
+                    </h2>
+                </center>
+
+{{#each eventos}}
+    <div class="card mt-2">
+        <div class="card-body fundo">
+                        <form action="/inscrever/evento/{{id}}" method="POST">
+                        <h3>{{evento.nome}}</h3>
+                        <h6>
+                            local de realização: {{local_evento}} <br>
+                            data de inicio: {{data_inicio}}<br>
+                            data de termino: {{data_termino}}<br>
+                            <!--input type="hidden" name="id_evento" value="{{id}}"-->
+                        </h6>
+                        <button type="submit" class= "btn btn-outline-secondary">Inscrever-se</button>
+                        </form>
+        </div>          
+
+    </div>
+{{/each}}
+
+    </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 m-auto footer-pag-sem-cont">
+                {{>_footer1}}
+            </div>
+        </div>
+    </div>

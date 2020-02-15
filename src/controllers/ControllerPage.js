@@ -20,7 +20,12 @@ module.exports = {
     },
     async subscreber(req, res){
         const eventos = await ControllerUser.registered(req)
-        return res.json(eventos)
+        //return res.json(eventos)
+        console.log(eventos)
+        res.render('users/ListRegistred', {eventos})
+    },
+    async eventManager(req, res){
+        res.render('users/eventManager')
     }
 }
 //res.render('admi/adminForms/FormAdm')

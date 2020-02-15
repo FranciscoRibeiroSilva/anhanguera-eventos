@@ -1,9 +1,11 @@
 const Usuarios = require('../models/Usuarios')
 const Eventos = require('../models/Eventos')
+const EventosUsuarios = require('../models/EventosUsuarios')
 const bcrypt = require('bcryptjs')
 
 module.exports = {
 
+    //adiciona usuario
     async createUser(req, res){
         var {nome, email, senha} = req.body
 
@@ -26,6 +28,7 @@ module.exports = {
         req.flash('success_msg','Novo usuário registrado com sucesso')
         res.redirect('/login')
    },
+   //lista os eventos adicionados pelo usuario
    async listEvents(req){
        const usuario_id = req.user.id
 
@@ -36,14 +39,17 @@ module.exports = {
        return user.eventos
        
    },
+   //lista os eventos em que o usuario se inscreveu
    async registered(req){
        const usuario_id = req.user.id
 
-       const usuario = await Usuarios.findByPk(usuario_id,{
+       const eventos = await EventosUsuarios.findAll({where:{usuario_id}, include:{association: 'evento'}})
+       return eventos
+       /*const usuario = await Usuarios.findByPk(usuario_id,{
            include: {association: 'inscritoEm'}
        })
 
-       return usuario.inscritoEm
+       return usuario*/
    }
    /*
    const administrado_id = req.user.id
