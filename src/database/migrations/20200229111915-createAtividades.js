@@ -2,17 +2,24 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.createTable('eventos', { 
-        id: {
-          type:  Sequelize.INTEGER,
+      return queryInterface.createTable('atividades', { 
+        id:{
+          type: Sequelize.INTEGER,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
         },
-        usuario_id: {
+        evento_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          references: {model: 'usuarios', key: 'id'},
+          references: {model: 'eventos', key: 'id'},
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE'
+        },
+        ministrante_id: {
+          type: Sequelize.INTEGER,
+          allowNull: true,
+          references: {model: 'ministrantes', key: 'id'},
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
         },
@@ -20,31 +27,19 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false
         },
-        participantes_esperados: {
-          type: Sequelize.INTEGER,
-          allowNull: true
+        data: {
+          type: Sequelize.DATE,
+          allowNull: false
         },
-        quantidade_salas: {
-          type: Sequelize.INTEGER,
-          allowNull: true
-        },
-        local_evento: {
+        tipo_atividade: {
           type: Sequelize.STRING,
-          allowNull: true
-        },
-        data_inicio: {
-          type: Sequelize.DATE,
           allowNull: false
         },
-        data_termino: {
-          type: Sequelize.DATE,
-          allowNull: false
-        },
-        pago: {
+        paga: {
           type: Sequelize.BOOLEAN,
           allowNull: false
         },
-        valor_evento:{
+        valor: {
           type: Sequelize.DOUBLE,
           allowNull: true
         },
@@ -60,6 +55,12 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-      //return queryInterface.dropTable('administradores');
+    /*
+      Add reverting commands here.
+      Return a promise to correctly handle asynchronicity.
+
+      Example:
+      return queryInterface.dropTable('users');
+    */
   }
 };

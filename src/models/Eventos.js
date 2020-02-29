@@ -13,17 +13,16 @@ class Eventos extends Model{
             valor_evento: DataTypes.DOUBLE
         },{
             sequelize
-            //tableName: 'eventos'
         })
     }
     static associate(models){
         this.belongsTo(models.Usuarios, {foreignKey: 'usuario_id', as: 'usuario'})
         this.hasMany(models.EventosUsuarios, {foreignKey: 'evento_id', as: 'inscritos'})
+        this.hasMany(models.Ministrantes, {foreignKey: 'evento_id', as: 'ministrantes'})
+        this.hasMany(models.Atividades, {foreignKey: 'evento_id', as: 'atividades'})
         //this.belongsToMany(models.Usuarios, {foreignKey: 'evento_id', through: 'eventos_usuarios', as: 'seus_inscritos'})
         //this.hasMany(models.Cupons, {foreignKey: 'evento_id', as: 'seus_cupons'})
-        //this.hasMany(models.Atividades, {foreignKey: 'evento_id', as: 'suas_atividades'})
         //this.hasMany(models.Participantes, {foreignKey: 'evento_id', as: 'seus_participantes'})
-        this.hasMany(models.Ministrantes, {foreignKey: 'evento_id', as: 'ministrantes'})
     }
 }
 

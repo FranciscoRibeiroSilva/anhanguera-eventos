@@ -6,6 +6,7 @@ const ControllerPage = require('../controllers/ControllerPage')
 const ControllerUser = require('../controllers/ControllerUser')
 const ControllerEvent = require('../controllers/ControllerEvent')
 const ControllerAcolyte = require('../controllers/ControllerAcolyte')
+const ControllerActivity = require('../controllers/ControllerActivity')
 const ControllerValidation = require('../controllers/ControllerValidation')
 const {eAdmi} = require('../helpers/eAdmi')
 
@@ -31,7 +32,14 @@ router.get('/gerenciar/ministrantes/:evento_id', ControllerPage.acolyteManager)
 router.get('/adicionar/ministrantes/:evento_id', ControllerPage.formAcolyte)
 router.post('/adicionar/ministrantes/:evento_id/', ControllerAcolyte.createAcolyte)
 
+router.get('/gerenciar/atividades/:evento_id', ControllerPage.activityManager)
+router.get('/adicionar/atividades/:evento_id', ControllerPage.formActivity)
+router.post('/adicionar/atividades/:evento_id/', ControllerActivity.createActivity)
 
+
+router.get('/pagina/inscrito/evento/:evento_id', ControllerPage.activitys)
+
+router.get('/find/eventos/atividades/:evento_id', ControllerPage.find)
 /*
 const AdmController = require('../controllers/AdmController')
 const EventoController = require('../controllers/EventoController')
@@ -59,9 +67,6 @@ router.post('/adicionar/evento/', eAdmi, ValidationController.verificaFormEvento
 router.get('/excluir/evento/:id', eAdmi, EventoController.deleteEvento)
 
 
-router.get('/gerenciar/atividades/:evento_id', eAdmi, PaginasController.gerenciaAtividades)
-router.get('/adicionar/atividades/:evento_id', eAdmi, PaginasController.formAtividade)
-router.post('/adicionar/atividades/:evento_id/', eAdmi, ValidationController.verificaFormAtividade, AtividadeController.createAtividade)
 router.get('/excluir/atividade/:id', eAdmi, AtividadeController.deleteAtividade)
 
 router.get('/gerenciar/cupons/:evento_id', eAdmi, PaginasController.gerenciaCupons)

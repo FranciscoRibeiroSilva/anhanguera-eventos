@@ -1,5 +1,6 @@
 const Eventos = require('../models/Eventos')
 const Usuario = require('../models/Usuarios')
+const Atividades = require('../models/Atividades')
 const EventosUsuarios = require('../models/EventosUsuarios')
 
 module.exports = {
@@ -53,9 +54,17 @@ module.exports = {
         const evento = Eventos.findByPk(id)
         return evento
     },
+    //busca um evento e seus ministrantes
     async findAcolyte(evento_id){
         const evento = await Eventos.findByPk(evento_id, {
             include: {association : 'ministrantes'}
+        })
+        return evento
+    },
+    //busca um evento e suas atividades
+    async findActivity(evento_id){
+        const evento = await Eventos.findByPk(evento_id, {
+            include: {association: 'atividades'}
         })
         return evento
     }

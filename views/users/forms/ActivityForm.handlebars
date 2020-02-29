@@ -34,9 +34,10 @@
 
                     <div>
                         <!--TIPO DE ATIVIDADE-->
-                        <label for="tipo_atividade">Tipo:</label>
+                        <label for="tipo_atividade">Tipo de atividade:</label>
                         <select class="form-control" name="tipo_atividade" id="tipo_atividade">
-                            <option value="A">--Atividade--</option>
+                            <option>Escolher tipo</option>
+
                             <option value="Palestra"> Palestra </option>
                             <option value="Curso"> Curso </option>
                             <option value="Aula"> Aula </option>
@@ -53,23 +54,23 @@
 
                     <div>
                         <!--TIPO DE INSCRIÇÃO-->
-                        <label for="inscricao">Inscrição:</label>
+                        <label for="inscricao">Tipo de inscrição:</label>
                         <select class="form-control" name="paga" id="paga">
-                            <option value="T">--Tipo--</option>
+                            <option>--Tipo--</option>
                             <option value="false">Gratuita</option>
                             <option value="true">Paga</option>
                         </select>
                     </div>
 
-                    <!--
+                    <!--div>
                     <label for="ministrante">Ministrante:<label>
-                    <select class="form-control" name="ministrante" id="ministrante">
-                        <option>ministrante</option>
-                        {{# each evento.seus_ministrantes}}
-                        <option value="{{nome}}">{{nome}}</option>
+                    <select class="form-control" name="ministrante_id" id="ministrante">
+                        <option value=NULL>Ministrantes</option>
+                        {{#each evento.ministrantes}}
+                        <option value="{{id}}">{{nome}}</option>
                         {{/each}}
                     </select>
-                    -->
+                    </div-->
 
                     <div>
                         <!--NUMERO DE PARTICIPANTES-->
