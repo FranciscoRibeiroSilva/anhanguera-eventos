@@ -23,6 +23,7 @@ router.post('/adicionar/evento/', ControllerEvent.createEvent)
 
 router.get('/listar/eventos', ControllerPage.listAllEvents)
 router.post('/inscrever/evento/:evento_id', ControllerEvent.subscrevEvent)
+router.post('/inscrever/atividade/:atividade_id', ControllerActivity.subscreberActivity)
 
 router.get('/listar/inscricoes', ControllerPage.subscreber)
 

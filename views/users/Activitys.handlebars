@@ -9,9 +9,9 @@
                         <p> Atividades disponíveis</p>
                     </h2>
                 </center>
-                {{evento}}
 
 {{#each evento.atividades}}
+    <form action="/inscrever/atividade/{{id}}" method="POST">
     <div class="card mt-2">
         <div class="card-body fundo">
                         <h3>{{nome}}</h3>
@@ -21,10 +21,10 @@
                             data de termino: {{data_termino}}<br>
                             <!--input type="hidden" name="id_evento" value="{{id}}"-->
                         </h6>
-                        <a href="/pagina/inscrito/evento/{{id}}"><button class= "btn btn-outline-secondary">Mostrar mais</button></a>
+                        <button type="submit" class= "btn btn-outline-secondary">inscrever-se</button>
         </div>          
-
     </div>
+    </form>
 {{/each}}
 
     </div>

@@ -76,9 +76,8 @@ module.exports = {
         const {evento_id} = req.params
 
         const evento = await ControllerEvent.findActivity(evento_id)
-        return res.json(evento)
 
-        //res.render('users/Activitys', {evento})
+        res.render('users/Activitys', {evento})
     },
     async find (req, res){
         const {evento_id} = req.params
