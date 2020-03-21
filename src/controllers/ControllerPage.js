@@ -2,6 +2,7 @@ const ControllerEvent = require('../controllers/ControllerEvent')
 const ControllerUser = require('../controllers/ControllerUser')
 const ControllerActivity = require('../controllers/ControllerActivity')
 const Eventos = require('../models/Eventos')
+
 module.exports = {
     //pagina de login
     login(req, res) {
@@ -20,7 +21,7 @@ module.exports = {
     formEvent(req,res){
         res.render('users/forms/EventForm')
     },
-    //pagina de com todos os eventos diponivéis
+    //pagina de todos os eventos diponivéis
     async listAllEvents(req, res){
         const eventos = await ControllerEvent.listAllEvents()
         res.render('users/ListAllEvents', {eventos})
@@ -28,7 +29,6 @@ module.exports = {
     //pagina de eventos inscritos
     async subscreber(req, res){
         const eventos = await ControllerUser.registered(req)
-        //return res.json(eventos)
         console.log(eventos)
         res.render('users/ListRegistred', {eventos})
     },
@@ -79,6 +79,24 @@ module.exports = {
 
         res.render('users/Activitys', {evento})
     },
+    //Pagina de gerencia de cupons
+    async couponsManager(req, res){
+        const {evento_id} = req.params
+
+        const evento = await ControllerEvent.findCoupons(evento_id)
+
+        res.render('users/CouponsManager', {evento})
+    },
+    //Pagina de formulario de criação de cupons
+    async formCoupons(req, res){
+        const {evento_id} = req.params
+
+        const evento = await ControllerEvent.findEvent(evento_id)
+
+        res.render('users/forms/CouponsForm', {evento})
+    },
+
+    //Função de teste
     async find (req, res){
         const {evento_id} = req.params
 

@@ -67,5 +67,12 @@ module.exports = {
             include: {association: 'atividades'}
         })
         return evento
-    }
+    },
+    //busca um evento e seus cupons
+    async findCoupons(evento_id){
+        const evento = await Eventos.findByPk(evento_id, {
+            include: {association: 'cupons'}
+        })
+        return evento
+    },
 }

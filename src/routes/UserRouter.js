@@ -7,6 +7,7 @@ const ControllerUser = require('../controllers/ControllerUser')
 const ControllerEvent = require('../controllers/ControllerEvent')
 const ControllerAcolyte = require('../controllers/ControllerAcolyte')
 const ControllerActivity = require('../controllers/ControllerActivity')
+const ControllerCoupons = require('../controllers/ControllerCoupons')
 const ControllerValidation = require('../controllers/ControllerValidation')
 const {eAdmi} = require('../helpers/eAdmi')
 
@@ -36,6 +37,10 @@ router.post('/adicionar/ministrantes/:evento_id/', ControllerAcolyte.createAcoly
 router.get('/gerenciar/atividades/:evento_id', ControllerPage.activityManager)
 router.get('/adicionar/atividades/:evento_id', ControllerPage.formActivity)
 router.post('/adicionar/atividades/:evento_id/', ControllerActivity.createActivity)
+
+router.get('/gerenciar/cupons/:evento_id', ControllerPage.couponsManager)
+router.get('/adicionar/cupons/:evento_id', ControllerPage.formCoupons)
+router.post('/adicionar/cupons/:evento_id/', ControllerCoupons.createCoupons)
 
 
 router.get('/pagina/inscrito/evento/:evento_id', ControllerPage.activitys)
