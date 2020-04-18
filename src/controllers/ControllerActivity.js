@@ -9,7 +9,12 @@ module.exports = {
 
         const atividade = await Atividades.create({nome, data, tipo_atividade, paga, valor, evento_id})
 
-        return res.json(atividade)
+        if(!atividade){
+            req.flash('error_msg', 'Erro ao criar atividade')
+        }
+        req.flash('success_msg', 'Atividade adicionada')
+        
+        res.redirect('/gerenciar/atividades/'+evento_id)
     },
     async subscreberActivity(req, res){
         const {atividade_id} = req.params
