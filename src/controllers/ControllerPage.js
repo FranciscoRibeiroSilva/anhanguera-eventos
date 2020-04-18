@@ -97,7 +97,7 @@ module.exports = {
     },
     //pagina de gestão de participantes
 
-    //Função de teste
+    //Função de testes
     async find (req, res){
         const {evento_id} = req.params
 
