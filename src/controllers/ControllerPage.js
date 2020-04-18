@@ -95,6 +95,7 @@ module.exports = {
 
         res.render('users/forms/CouponsForm', {evento})
     },
+    //pagina de gestão de participantes
 
     //Função de teste
     async find (req, res){

@@ -1,4 +1,4 @@
-
+/*
 module.exports = {
     dialect: 'mysql',
     host: 'localhost',
@@ -10,7 +10,7 @@ module.exports = {
         underscored: true
     }
 }
-/*
+*/
 module.exports = {
     dialect: 'postgres',
     host: 'ec2-107-21-255-181.compute-1.amazonaws.com',
@@ -24,4 +24,4 @@ module.exports = {
     dialectOptions: {
 		ssl: true
 	},
-}*/
+}
