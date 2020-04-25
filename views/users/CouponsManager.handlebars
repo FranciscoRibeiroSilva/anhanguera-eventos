@@ -15,13 +15,13 @@
                     <div class="card mt-2">
                     <div class="card-body fundo">
 
-                        <h3>{{codigo}}</h3>
+                        <h3>{{dataValues.codigo}}</h3>
                         <h6>
-                            desconto: {{desconto}} <br>
-                            quantidade: {{quantidade}}<br>
-                            validade: {{validade}}<br>
+                            desconto: {{dataValues.desconto}} <br>
+                            quantidade: {{dataValues.quantidade}}<br>
+                            validade: {{dataValues.validade}}<br>
                         </h6>
-                        <a href='/apagar/lote/{{id}}'><button class="btn btn-outline-secondary">Apaga lote de cupons</button></a>
+                        <a href='/apagar/lote/{{dataValues.id}}'><button class="btn btn-outline-secondary">Apaga lote de cupons</button></a>
                     </div>
                     {{/each}}
 

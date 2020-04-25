@@ -15,12 +15,12 @@
         <div class="card-body fundo">
                         <h3>{{evento.nome}}</h3>
                         <h6>
-                            local de realização: {{local_evento}} <br>
-                            data de inicio: {{data_inicio}}<br>
-                            data de termino: {{data_termino}}<br>
+                            local de realização: {{dataValues.local_evento}} <br>
+                            data de inicio: {{dataValues.data_inicio}}<br>
+                            data de termino: {{dataValues.data_termino}}<br>
                             <!--input type="hidden" name="id_evento" value="{{id}}"-->
                         </h6>
-                        <a href="/pagina/inscrito/evento/{{id}}"><button class= "btn btn-outline-secondary">Mostrar mais</button></a>
+                        <a href="/pagina/inscrito/evento/{{dataValues.id}}"><button class= "btn btn-outline-secondary">Mostrar mais</button></a>
         </div>          
 
     </div>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-light fixed-top navbar-transparente">
   {{>_logo50px}}</a>&ensp;
-  <a class="navbar-brand margem-txt-navbar" href="/gerenciar/evento/{{evento.id}}"> {{evento.nome}}</a>
+  <a class="navbar-brand margem-txt-navbar" href="/gerenciar/evento/{{evento.dataValues.id}}"> {{evento.dataValues.nome}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,20 +9,20 @@
     <ul class="navbar-nav ml-auto">
 
       <li class="nav-item">
-        <a class="nav-link " href="/gerenciar/atividades/{{evento.id}}">Atividades<span
+        <a class="nav-link " href="/gerenciar/atividades/{{evento.dataValues.id}}">Atividades<span
             class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " href="/gerenciar/ministrantes/{{evento.id}}"> Ministrantes </a>
+        <a class="nav-link " href="/gerenciar/ministrantes/{{evento.dataValues.id}}"> Ministrantes </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " href="/gerenciar/cupons/{{evento.id}}">Cupons</a>
+        <a class="nav-link " href="/gerenciar/cupons/{{evento.dataValues.id}}">Cupons</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " href="/gerenciar/participantes/{{evento.id}}"> Participantes </a>
+        <a class="nav-link " href="/gerenciar/participantes/{{evento.dataValues.id}}"> Participantes </a>
       </li>
 
       <li class="nav-item">

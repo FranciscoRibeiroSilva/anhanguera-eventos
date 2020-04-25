@@ -17,14 +17,14 @@
                 <div class="card mt-2">
                     <div class="card-body fundo">
 
-                        <h3>{{nome}}</h3>
+                        <h3>{{dataValues.nome}}</h3>
                         <h6>
-                            local de realização: {{local_evento}} <br>
-                            data de inicio: {{data_inicio}}<br>
-                            data de termino: {{data_termino}}<br>
+                            local de realização: {{dataValues.local_evento}} <br>
+                            data de inicio: {{dataValues.data_inicio}}<br>
+                            data de termino: {{dataValues.data_termino}}<br>
                         </h6>
-                        <a href='/gerenciar/evento/{{id}}'><button class="btn btn-outline-secondary">Gerencie este Evento</button></a>
-                        <a href='/excluir/evento/{{id}}'><button class="btn btn-outline-secondary">Remover Evento</button></a>
+                        <a href='/gerenciar/evento/{{dataValues.id}}'><button class="btn btn-outline-secondary">Gerencie este Evento</button></a>
+                        <a href='/excluir/evento/{{dataValues.id}}'><button class="btn btn-outline-secondary">Remover Evento</button></a>
                     </div>
 
                 </div>

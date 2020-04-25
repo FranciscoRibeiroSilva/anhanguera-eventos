@@ -11,14 +11,14 @@
                 </center>
 
 {{#each evento.atividades}}
-    <form action="/inscrever/atividade/{{id}}" method="POST">
+    <form action="/inscrever/atividade/{{dataValues.id}}" method="POST">
     <div class="card mt-2">
         <div class="card-body fundo">
-                        <h3>{{nome}}</h3>
+                        <h3>{{dataValues.nome}}</h3>
                         <h6>
-                            local de realização: {{local_evento}} <br>
-                            data de inicio: {{data_inicio}}<br>
-                            data de termino: {{data_termino}}<br>
+                            local de realização: {{dataValues.local_evento}} <br>
+                            data de inicio: {{dataValues.data_inicio}}<br>
+                            data de termino: {{dataValues.data_termino}}<br>
                             <!--input type="hidden" name="id_evento" value="{{id}}"-->
                         </h6>
                         <button type="submit" class= "btn btn-outline-secondary">inscrever-se</button>
